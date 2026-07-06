@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="cgrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#266929"/>
+      <stop offset="1" stop-color="#89d66b"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#cgrad)" rx="24"/>
+  <g transform="translate(60,60)" fill="#fff" opacity="0.98">
+    <rect x="0" y="0" width="220" height="120" rx="12" fill="rgba(255,255,255,0.12)"/>
+    <path d="M8 18h204v2H8z" fill="rgba(255,255,255,0.25)"/>
+    <circle cx="40" cy="60" r="18" fill="#fff" opacity="0.12"/>
+    <g transform="translate(18,46)" fill="#fff" opacity="0.95">
+      <rect x="0" y="0" width="44" height="28" rx="4"/>
+      <path d="M6 8h32v2H6z" fill="rgba(0,0,0,0.08)"/>
+    </g>
+  </g>
+  <g transform="translate(320,80)" fill="#fff" opacity="0.92">
+    <path d="M0 24c0-13.25 10.75-24 24-24h112c13.25 0 24 10.75 24 24v112c0 13.25-10.75 24-24 24H24C10.75 184 0 173.25 0 160V24z" fill="rgba(255,255,255,0.06)"/>
+    <path d="M24 56h112v12H24z" fill="#fff" opacity="0.08"/>
+    <path d="M48 92h64v6H48z" fill="#fff" opacity="0.12"/>
+    <circle cx="72" cy="132" r="18" fill="rgba(255,255,255,0.18)"/>
+  </g>
+</svg>

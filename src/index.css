@@ -1,11 +1,40 @@
+html {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Outfit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
+
+/* ── Dark mode globals ── */
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] body {
+  background-color: #0f1a10;
+  color: #e2f0e2;
+}
+
+/* Scrollbar — light */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #F9F9F9; }
+::-webkit-scrollbar-thumb { background: #266929; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #9ABB3B; }
+
+/* Scrollbar — dark */
+[data-theme="dark"] ::-webkit-scrollbar-track { background: #0f1a10; }
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #266929; }
+
+/* Selection */
+::selection { background: rgba(38, 105, 41, 0.1); color: #266929; }
+[data-theme="dark"] ::selection { background: rgba(38, 105, 41, 0.3); color: #9abb3b; }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

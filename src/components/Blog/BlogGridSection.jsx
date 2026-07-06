@@ -1,0 +1,209 @@
+import {
+  Box,
+  Container,
+  Grid,
+  TextField,
+  Chip,
+  Typography,
+  Pagination,
+  PaginationItem,
+  InputAdornment,
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import { useTheme, alpha } from "@mui/material/styles";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { getBlogs } from "../../api/client";
+import BlogCard from "./BlogCard";
+
+const categories = [
+  "All",
+  "SEO",
+  "AI",
+  "Accounting",
+  "Tax",
+  "Finance",
+  "Digital Marketing",
+];
+
+const BLOGS_PER_PAGE = 6;
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
+});
+
+const BlogGridSection = () => {
+  const theme = useTheme();
+  const primary = theme.palette.primary.main;
+
+  const [blogs, setBlogs] = useState([]);
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("All");
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    const load = async () => {
+      const data = await getBlogs({ order: "created_at", ascending: false });
+      setBlogs(data || []);
+    };
+    load();
+  }, []);
+
+  /* ===== FILTER ===== */
+  const filtered = blogs.filter((b) => {
+    const matchCategory = category === "All" || b.category === category;
+    const matchSearch = b.title.toLowerCase().includes(search.toLowerCase());
+    return matchCategory && matchSearch;
+  });
+
+  /* ===== PAGINATION LOGIC ===== */
+  const totalPages = Math.ceil(filtered.length / BLOGS_PER_PAGE);
+  const paginatedBlogs = filtered.slice(
+    (page - 1) * BLOGS_PER_PAGE,
+    page * BLOGS_PER_PAGE
+  );
+
+  /* Reset page on filter/search change */
+  useEffect(() => {
+    setPage(1);
+  }, [search, category]);
+
+  return (
+    <Box sx={{ bgcolor: "background.default", py: { xs: 8, md: 12 }, overflow: "hidden" }}>
+      <Container maxWidth={false} sx={{ maxWidth: "1300px", mx: "auto", px: { xs: 3, md: 5 } }}>
+        {/* ===== SECTION LABEL ===== */}
+        <motion.div {...fadeUp(0)}>
+          <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1.5, mb: 2 }}>
+            <Box sx={{ width: 28, height: 2.5, borderRadius: 2, bgcolor: primary }} />
+            <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: "0.72rem" }}>
+              LATEST ARTICLES
+            </Typography>
+          </Box>
+        </motion.div>
+
+        <motion.div {...fadeUp(0.08)}>
+          <Typography
+            variant="h2"
+            sx={{ fontSize: { xs: "2rem", sm: "2.5rem", md: "2.9rem" }, fontWeight: 900, letterSpacing: "-0.025em", mb: { xs: 4, md: 5 } }}
+          >
+            From the <Box component="span" sx={{ color: primary }}>Blog</Box>
+          </Typography>
+        </motion.div>
+
+        {/* ===== SEARCH + CATEGORY ===== */}
+        <motion.div {...fadeUp(0.14)}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              alignItems: { xs: "stretch", md: "center" },
+              justifyContent: "space-between",
+              gap: 2,
+              mb: { xs: 4, md: 5 },
+            }}
+          >
+            <TextField
+              placeholder="Search articles…"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon sx={{ color: "text.secondary", fontSize: 20 }} />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{
+                width: { xs: "100%", md: 360 },
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "50px",
+                  bgcolor: "background.paper",
+                },
+              }}
+            />
+
+            <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: { xs: "flex-start", md: "flex-end" }, gap: 1 }}>
+              {categories.map((c) => {
+                const active = category === c;
+                return (
+                  <Chip
+                    key={c}
+                    label={c}
+                    onClick={() => setCategory(c)}
+                    sx={{
+                      fontFamily: '"Plus Jakarta Sans", sans-serif',
+                      fontWeight: 700,
+                      fontSize: "0.78rem",
+                      cursor: "pointer",
+                      color: active ? primary : "text.secondary",
+                      bgcolor: active ? alpha(primary, 0.1) : "background.paper",
+                      border: `1px solid ${active ? alpha(primary, 0.4) : alpha(primary, 0.12)}`,
+                      transition: "all 0.25s ease",
+                      "&:hover": { bgcolor: alpha(primary, 0.08), borderColor: alpha(primary, 0.3) },
+                    }}
+                  />
+                );
+              })}
+            </Box>
+          </Box>
+        </motion.div>
+
+        {/* ===== BLOG GRID ===== */}
+        {paginatedBlogs.length === 0 ? (
+          <Box sx={{ textAlign: "center", py: 8 }}>
+            <Typography sx={{ color: "text.secondary", fontFamily: '"Outfit", sans-serif' }}>
+              No articles found. Try a different search or category.
+            </Typography>
+          </Box>
+        ) : (
+          <Grid container spacing={{ xs: 2.5, md: 3.5 }}>
+            {paginatedBlogs.map((b, i) => (
+              <Grid key={b.id} size={{ xs: 12, sm: 6, lg: 4 }} sx={{ display: "flex" }}>
+                <motion.div {...fadeUp(0.05 * (i % 3))} style={{ width: "100%" }}>
+                  <BlogCard blog={b} />
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        )}
+
+        {/* ===== PAGINATION ===== */}
+        {totalPages > 1 && (
+          <Box sx={{ mt: { xs: 5, md: 7 }, display: "flex", justifyContent: "center" }}>
+            <Pagination
+              count={totalPages}
+              page={page}
+              onChange={(_, value) => setPage(value)}
+              renderItem={(item) => (
+                <PaginationItem
+                  {...item}
+                  sx={{
+                    mx: 0.3,
+                    borderRadius: "12px",
+                    fontWeight: 700,
+                    fontFamily: '"Plus Jakarta Sans", sans-serif',
+                    border: `1px solid ${alpha(primary, 0.18)}`,
+                    color: primary,
+                    "&.Mui-selected": {
+                      background: primary,
+                      color: theme.palette.primary.contrastText,
+                      border: "none",
+                      boxShadow: `0 6px 18px ${alpha(primary, 0.35)}`,
+                      "&:hover": { background: theme.palette.primary.dark },
+                    },
+                    "&:hover": { background: alpha(primary, 0.08) },
+                  }}
+                />
+              )}
+            />
+          </Box>
+        )}
+      </Container>
+    </Box>
+  );
+};
+
+export default BlogGridSection;
