@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import JobFilterBar from "../components/careerComp/JobFilterBar";
 import JobList from "../components/careerComp/JobList";
 import JobDetails from "../components/careerComp/JobDetails";
+import useFullSEO from "../utils/useFullSEO";
 
 // --- Job Data ---
 const jobsData = [
@@ -346,6 +347,22 @@ Mail: "hr@miltafs.com",
   },
 ];
 const CareerPage = () => {
+  useFullSEO({
+    title: 'Open Positions | Careers at Milta Financial Services',
+    description:
+      'Browse current job openings at Milta Financial Services. Find accounting, bookkeeping and finance roles and apply to join our growing team.',
+    keywords:
+      'milta open positions, accounting job openings, bookkeeping vacancies, apply milta financial services, finance careers usa',
+    author: 'Milta Accounting',
+    canonical: 'https://www.miltafs.com/career/open-positions',
+    ogTitle: 'Open Positions | Careers at Milta Financial Services',
+    ogDescription:
+      'Find accounting, bookkeeping and finance roles and apply to join our growing team.',
+    ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
+    ogUrl: 'https://www.miltafs.com/career/open-positions',
+    ogType: 'website',
+  });
+
   const [filteredJobs, setFilteredJobs] = useState(jobsData);
   const [selectedJob, setSelectedJob] = useState(null);
   const isMobile = useMediaQuery("(max-width:900px)");

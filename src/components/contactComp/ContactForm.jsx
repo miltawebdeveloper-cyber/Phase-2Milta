@@ -15,9 +15,26 @@ const SERVICE_OPTIONS = [
   'Other',
 ];
 
+const fieldSx = {
+  '& .MuiOutlinedInput-root': {
+    borderRadius: '16px',
+    backgroundColor: 'rgba(255,255,255,0.55)',
+    transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
+    '& fieldset': { borderColor: 'rgba(38,105,41,0.16)' },
+    '&:hover fieldset': { borderColor: 'rgba(38,105,41,0.38)' },
+    '&:hover': { backgroundColor: 'rgba(255,255,255,0.75)' },
+    '&.Mui-focused fieldset': { borderColor: '#3c8a35', borderWidth: '2px' },
+    '&.Mui-focused': { backgroundColor: '#fff', boxShadow: '0 6px 20px rgba(38,105,41,0.12)' },
+  },
+  '& .MuiInputLabel-root.Mui-focused': { color: '#266929' },
+};
+
 const initialState = {
   firstName: '',
   lastName: '',
+  companyName: '',
+  email: '',
+  website: '',
   contactNumber: '',
   serviceInterest: '',
   requirement: '',
@@ -27,6 +44,9 @@ const validate = (values) => {
   const errors = {};
   if (!values.firstName.trim()) errors.firstName = 'First name is required';
   if (!values.lastName.trim()) errors.lastName = 'Last name is required';
+  if (!values.companyName.trim()) errors.companyName = 'Company name is required';
+  if (!values.email.trim()) errors.email = 'Email is required';
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) errors.email = 'Enter a valid email address';
   if (!values.contactNumber.trim()) errors.contactNumber = 'Contact number is required';
   else if (!/^[+\d][\d\s()-]{6,}$/.test(values.contactNumber.trim())) errors.contactNumber = 'Enter a valid contact number';
   if (!values.serviceInterest) errors.serviceInterest = 'Please select a service';
@@ -56,6 +76,9 @@ const ContactForm = () => {
       const result = await submitContactForm({
         firstName: values.firstName.trim(),
         lastName: values.lastName.trim(),
+        companyName: values.companyName.trim(),
+        email: values.email.trim(),
+        website: values.website.trim(),
         phoneNumber: values.contactNumber.trim(),
         serviceInterest: values.serviceInterest,
         message: values.requirement.trim(),
@@ -85,7 +108,7 @@ const ContactForm = () => {
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%' }}>
       <Stack spacing={2.5}>
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 1.5 }}>
           <TextField
             name="firstName"
             label="First name"
@@ -94,6 +117,7 @@ const ContactForm = () => {
             error={!!errors.firstName}
             helperText={errors.firstName}
             fullWidth
+            sx={fieldSx}
           />
           <TextField
             name="lastName"
@@ -103,10 +127,43 @@ const ContactForm = () => {
             error={!!errors.lastName}
             helperText={errors.lastName}
             fullWidth
+            sx={fieldSx}
           />
         </Box>
 
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 1.5 }}>
+          <TextField
+            name="companyName"
+            label="Company name"
+            value={values.companyName}
+            onChange={handleChange}
+            error={!!errors.companyName}
+            helperText={errors.companyName}
+            fullWidth
+            sx={fieldSx}
+          />
+          <TextField
+            name="email"
+            label="Email address"
+            value={values.email}
+            onChange={handleChange}
+            error={!!errors.email}
+            helperText={errors.email}
+            fullWidth
+            sx={fieldSx}
+          />
+        </Box>
+
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 1.5 }}>
+          <TextField
+            name="website"
+            label="Website"
+            value={values.website}
+            onChange={handleChange}
+            fullWidth
+            placeholder="https://yourcompany.com"
+            sx={fieldSx}
+          />
           <TextField
             name="contactNumber"
             label="Contact number"
@@ -115,24 +172,27 @@ const ContactForm = () => {
             error={!!errors.contactNumber}
             helperText={errors.contactNumber}
             fullWidth
+            sx={fieldSx}
           />
-          <TextField
-            name="serviceInterest"
-            label="Service of interest"
-            value={values.serviceInterest}
-            onChange={handleChange}
-            error={!!errors.serviceInterest}
-            helperText={errors.serviceInterest}
-            select
-            fullWidth
-          >
-            {SERVICE_OPTIONS.map((option) => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
-          </TextField>
         </Box>
+
+        <TextField
+          name="serviceInterest"
+          label="Service of interest"
+          value={values.serviceInterest}
+          onChange={handleChange}
+          error={!!errors.serviceInterest}
+          helperText={errors.serviceInterest}
+          select
+          fullWidth
+          sx={{ ...fieldSx, mb: 1.5 }}
+        >
+          {SERVICE_OPTIONS.map((option) => (
+            <MenuItem key={option} value={option}>
+              {option}
+            </MenuItem>
+          ))}
+        </TextField>
 
         <TextField
           name="requirement"
@@ -142,8 +202,9 @@ const ContactForm = () => {
           error={!!errors.requirement}
           helperText={errors.requirement}
           multiline
-          rows={5}
+          rows={4}
           fullWidth
+          sx={{ ...fieldSx, '& .MuiOutlinedInput-root': { ...fieldSx['& .MuiOutlinedInput-root'], borderRadius: '18px' } }}
         />
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', pt: 1 }}>
@@ -158,8 +219,9 @@ const ContactForm = () => {
               fontWeight: 800,
               fontSize: '0.95rem',
               letterSpacing: 1,
-              boxShadow: '0 8px 24px rgba(38,105,41,0.25)',
-              '&:hover': { boxShadow: '0 12px 32px rgba(38,105,41,0.35)' }
+              background: 'linear-gradient(135deg, #266929 0%, #3c8a35 100%)',
+              boxShadow: '0 10px 28px rgba(38,105,41,0.25)',
+              '&:hover': { boxShadow: '0 14px 36px rgba(38,105,41,0.35)', transform: 'translateY(-2px)' }
             }}
           >
             {submitting ? 'Sending...' : 'Send Message'}

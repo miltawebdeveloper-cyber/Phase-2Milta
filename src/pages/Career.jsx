@@ -4,6 +4,7 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Hero from '../components/careerComp/Hero';
 import ScrollToTop from '../components/ScrollToTop';
+import useFullSEO from '../utils/useFullSEO';
 
 const JoinMilta     = lazy(() => import('../components/careerComp/JoinMilta'));
 const WhyLoveMilta  = lazy(() => import('../components/careerComp/WhyLoveMilta'));
@@ -30,7 +31,24 @@ const ScrollProgressBar = () => {
   );
 };
 
-const Career = () => (
+const Career = () => {
+  useFullSEO({
+    title: 'Careers at Milta Financial Services | Join Our Accounting Team',
+    description:
+      'Build your career with Milta Financial Services. Explore open roles in accounting, bookkeeping and finance, and join a team that values growth and people.',
+    keywords:
+      'milta careers, accounting jobs, bookkeeping careers, finance jobs, work at milta, join milta financial services',
+    author: 'Milta Accounting',
+    canonical: 'https://www.miltafs.com/career',
+    ogTitle: 'Careers at Milta Financial Services | Join Our Accounting Team',
+    ogDescription:
+      'Explore open roles in accounting, bookkeeping and finance, and join a team that values growth and people.',
+    ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
+    ogUrl: 'https://www.miltafs.com/career',
+    ogType: 'website',
+  });
+
+  return (
   <Box sx={{ minHeight: '100vh', bgcolor: 'background.default', position: 'relative' }}>
     <ScrollProgressBar />
     <Navbar />
@@ -45,6 +63,7 @@ const Career = () => (
     </Suspense>
     <ScrollToTop />
   </Box>
-);
+  );
+};
 
 export default Career;

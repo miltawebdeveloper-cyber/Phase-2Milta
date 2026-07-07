@@ -9,6 +9,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const BG = '#0B1A0C';
 const BG_CARD = 'rgba(255,255,255,0.04)';
@@ -33,7 +34,7 @@ const companyLinks = [
   { text: 'Contact Us', path: '/contact' },
   { text: 'Blogs & Resources', path: '/blogs' },
   { text: 'Areas We Serve', path: '/areas-we-serve' },
-  { text: 'FAQ', path: '#' },
+  
 ];
 
 const Footer = () => {
@@ -95,7 +96,7 @@ const Footer = () => {
               {/* Contact chips */}
               <Stack spacing={2}>
                 <Stack direction="row" spacing={1.5} alignItems="flex-start">
-                  <LocationOnIcon sx={{ fontSize: 16, color: ACCENT, mt: '3px', flexShrink: 0 }} />
+                  <LocationOnIcon sx={{ fontSize: 16, color: ACCENT, mt: '0px', flexShrink: 0 }} />
                   <Typography sx={{ fontSize: '0.85rem', lineHeight: 1.7, color: TEXT_BODY }}>
                     Sri Sai Tower, 3rd floor, Peelamedu,<br />Coimbatore, TN 641004, India
                   </Typography>
@@ -211,26 +212,58 @@ const Footer = () => {
             gap: 3,
           }}
         >
-          <Typography sx={{ fontSize: '0.75rem', fontWeight: 600, color: TEXT_MUTED, letterSpacing: 0.5 }}>
+          <Typography sx={{ fontSize: '0.90rem', fontWeight: 600, color: TEXT_MUTED, letterSpacing: 0.5 }}>
             © 2026 Milta Financial Services. All rights reserved.
           </Typography>
 
           <Stack direction="row" spacing={4}>
-            {['TERMS', 'PRIVACY', 'SECURITY'].map((label) => (
+            {[
+              { label: 'Terms of Service', path: '/terms-of-service' },
+              { label: 'Privacy Policy', path: '/privacy-policy' },
+            ].map((item) => (
               <Link
-                key={label}
-                component="button"
-                type="button"
+                key={item.label}
+                component={RouterLink}
+                to={item.path}
                 underline="none"
-                sx={{ fontSize: '0.7rem', fontWeight: 800, letterSpacing: 1.5, color: TEXT_MUTED, background: 'none', border: 'none', cursor: 'pointer', p: 0, font: 'inherit', '&:hover': { color: ACCENT } }}
+                sx={{ fontSize: '0.90rem', fontWeight: 600, letterSpacing: 0.5, color: TEXT_MUTED, background: 'none', border: 'none', cursor: 'pointer', p: 0, font: 'inherit', '&:hover': { color: ACCENT } }}
               >
-                {label}
+                {item.label}
               </Link>
             ))}
           </Stack>
 
           <Stack direction="row" spacing={1.2}>
-            {[LinkedInIcon, TwitterIcon, FacebookIcon, InstagramIcon].map((Icon, i) => (
+            {[
+              {
+                icon: <EmailIcon sx={{ fontSize: { xs: 18, md: 22 }, color: '#D44638' }} />,
+                bg: '#ffffff',
+                hoverBg: '#f5f5f5',
+                link: 'mailto:info@miltafs.com',
+                external: false,
+              },
+              {
+                icon: <CalendarMonthIcon sx={{ fontSize: { xs: 18, md: 22 }, color: '#ff9401' }} />,
+                bg: '#ffffff',
+                hoverBg: '#f5f5f5',
+                link: 'https://calendly.com/frank-miltafs/milta-accounting-service-zoom-meeting',
+                external: false,
+              },
+              {
+                icon: <FacebookIcon sx={{ fontSize: { xs: 18, md: 22 }, color: '#1877F2' }} />,
+                bg: '#ffffff',
+                hoverBg: '#f5f5f5',
+                link: 'https://www.facebook.com/miltaaccountingservices/',
+                external: true,
+              },
+              {
+                icon: <InstagramIcon sx={{ fontSize: { xs: 18, md: 22 }, color: '#E1306C' }} />,
+                bg: '#ffffff',
+                hoverBg: '#f5f5f5',
+                link: 'https://www.instagram.com/milta_accountings/',
+                external: true,
+              },
+            ].map((item, i) => (
               <motion.div
                 key={i}
                 whileHover={{ scale: 1.2, y: -4 }}
@@ -238,23 +271,27 @@ const Footer = () => {
                 transition={{ duration: 0.2 }}
               >
                 <IconButton
+                  component="a"
+                  href={item.link}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noreferrer' : undefined}
                   size="small"
                   sx={{
                     color: TEXT_BODY,
-                    backgroundColor: BG_CARD,
+                    backgroundColor: item.bg,
                     border: '1px solid rgba(255,255,255,0.08)',
                     width: 36,
                     height: 36,
                     transition: 'background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease',
                     '&:hover': {
-                      backgroundColor: ACCENT,
+                      backgroundColor: item.hoverBg,
                       color: '#FFFFFF',
-                      borderColor: ACCENT,
-                      boxShadow: `0 12px 24px ${ACCENT}40`,
+                      borderColor: item.hoverBg,
+                      boxShadow: `0 12px 24px ${item.hoverBg}40`,
                     },
                   }}
                 >
-                  <Icon sx={{ fontSize: 16 }} />
+                  {item.icon}
                 </IconButton>
               </motion.div>
             ))}

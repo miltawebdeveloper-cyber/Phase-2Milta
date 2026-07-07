@@ -3,6 +3,7 @@ import { Box } from '@mui/material';
 import Navbar from '../components/Navbar';
 import Hero from '../components/homeComp/Hero';
 import ScrollToTop from '../components/ScrollToTop';
+import useFullSEO from '../utils/useFullSEO';
 
 const TrustSection        = lazy(() => import('../components/homeComp/TrustSection'));
 const FeaturesSection     = lazy(() => import('../components/homeComp/FeaturesSection'));
@@ -14,7 +15,24 @@ const CertificationsSection = lazy(() => import('../components/homeComp/Certific
 const CTASection          = lazy(() => import('../components/homeComp/CTASection'));
 const Footer              = lazy(() => import('../components/Footer'));
 
-const Home = () => (
+const Home = () => {
+  useFullSEO({
+    title: 'Outsourced Accounting & Bookkeeping Services in the USA | Milta',
+    description:
+      'Milta Financial Services delivers expert bookkeeping, tax, payroll, CPA and virtual assistant support for US businesses — accurate, affordable and scalable.',
+    keywords:
+      'outsourced accounting usa, bookkeeping services, tax planning, payroll management, cpa services, virtual assistant, milta financial services',
+    author: 'Milta Accounting',
+    canonical: 'https://www.miltafs.com/',
+    ogTitle: 'Outsourced Accounting & Bookkeeping Services in the USA | Milta',
+    ogDescription:
+      'Expert bookkeeping, tax, payroll, CPA and virtual assistant support for US businesses — accurate, affordable and scalable.',
+    ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
+    ogUrl: 'https://www.miltafs.com/',
+    ogType: 'website',
+  });
+
+  return (
   <Box sx={{ minHeight: '100vh', bgcolor: 'background.default', position: 'relative' }}>
     <Navbar />
     <Hero />
@@ -30,6 +48,7 @@ const Home = () => (
     </Suspense>
     <ScrollToTop />
   </Box>
-);
+  );
+};
 
 export default Home;
