@@ -20,8 +20,8 @@ const FAQS = [
   { q: 'How do I find the best bookkeeping services for small businesses near me?', a: 'Look for providers with experience, expertise, and a track record of serving small businesses in the USA. Reviews, referrals, and transparency in pricing are key indicators. We pride ourselves on being one of the best bookkeeping services for small businesses in the USA, offering personalized support.' },
   { q: 'Is my business too small to hire a bookkeeping company?', a: "No business is too small for bookkeeping services. Accurate financial management is especially important for small businesses to monitor cash flow, prepare for taxes, and plan for growth. Our services are designed to be affordable and scalable." },
   { q: 'What industries do you work with?', a: 'We work with a variety of industries, including retail, hospitality, professional services, e-commerce, and more. No matter your industry, our team tailors our bookkeeping solutions to fit your business.' },
-  { q: 'How do you ensure data security?', a: 'We employ secure systems and adhere to industry best practices to keep your financial information safe. Your data is handled with maximum confidentiality and care.' },
-  { q: 'How can I get started with your bookkeeping services?', a: 'Contact us today to schedule a consultation. Whether you need help managing payroll or comprehensive financial management, our team is ready to support your small business. Get started with a free consultation today.' },
+  { q: 'How do you ensure data security?', a: 'To keep your financial information safe, we employ secure systems and adhere to industry best practices. Your information is handled with maximum confidentiality and care.' },
+  { q: 'How can I get started with your bookkeeping services in the USA?', a: "Contact us today to schedule a consultation. Whether you're searching for bookkeeping services near me or need help managing your payroll, our team is ready to support your small business." },
 ];
 
 const BKFAQ = () => {

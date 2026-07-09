@@ -11,7 +11,7 @@ const BKSolutions     = lazy(() => import('../components/Services/BookKeepingCom
 const BKAdvantages    = lazy(() => import('../components/Services/BookKeepingComp/BKAdvantages'));
 const BKTrustedPartner = lazy(() => import('../components/Services/BookKeepingComp/BKTrustedPartner'));
 const BKFAQ           = lazy(() => import('../components/Services/BookKeepingComp/BKFAQ'));
-const CTASection           = lazy(() => import('../components/HomeComp/CTASection'));
+const CTASection           = lazy(() => import('../components/homeComp/CTASection'));
 const Footer          = lazy(() => import('../components/Footer'));
 
 const BookKeeping = () => {

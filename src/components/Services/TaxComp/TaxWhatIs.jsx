@@ -70,7 +70,7 @@ Milta provides top-notch tax planning and preparation services for individuals, 
               <Box sx={{ position: 'absolute', inset: 0, background: `linear-gradient(45deg, ${alpha(primary, 0.15)} 0%, transparent 60%)` }} />
               <Box sx={{ position: 'absolute', bottom: 24, left: 24, right: 24, borderRadius: '16px', bgcolor: (t) => t.palette.mode === 'dark' ? 'rgba(25,42,27,0.95)' : 'rgba(255,255,255,0.95)', backdropFilter: 'blur(12px)', p: 2.5, boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
                 <Stack direction="row" spacing={3} justifyContent="space-around">
-                  {[{ num: '100+', label: 'Clients' }, { num: '12+', label: 'States Filed' }, { num: '10y+', label: 'Experience' }].map(({ num, label }) => (
+                  {[{ num: '100+', label: 'Clients' }, { num: '50', label: 'States Filed' }, { num: '10y+', label: 'Experience' }].map(({ num, label }) => (
                     <Box key={label} textAlign="center">
                       <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 900, fontSize: '1.4rem', color: primary, lineHeight: 1 }}>{num}</Typography>
                       <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.7rem', color: 'text.secondary', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', mt: 0.4 }}>{label}</Typography>

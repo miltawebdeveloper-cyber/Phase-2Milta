@@ -11,7 +11,7 @@ const PMSolutions     = lazy(() => import('../components/Services/PayrollManagem
 const PMAdvantages    = lazy(() => import('../components/Services/PayrollManagementComp/PMAdvantages'));
 const PMTrustedPartner = lazy(() => import('../components/Services/PayrollManagementComp/PMTrustedPartner'));
 const PMFAQ           = lazy(() => import('../components/Services/PayrollManagementComp/PMFAQ'));
-const CTASection           = lazy(() => import('../components/HomeComp/CTASection'));
+const CTASection           = lazy(() => import('../components/homeComp/CTASection'));
 const Footer          = lazy(() => import('../components/Footer'));
 
 const PayrollManagement = () => {

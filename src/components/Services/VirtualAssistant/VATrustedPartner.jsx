@@ -26,9 +26,9 @@ const TRUST_POINTS = [
 ];
 
 const STATS = [
-  { num: '15y+',  label: 'Industry Expertise' },
+  { num: '10y+',  label: 'Industry Expertise' },
   { num: '100+',  label: 'Clients Served'      },
-  { num: '12+',   label: 'Countries'           },
+  { num: '50',   label: 'States'           },
   { num: '24/7',  label: 'Support Access'      },
 ];
 

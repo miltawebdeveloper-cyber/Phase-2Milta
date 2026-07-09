@@ -11,7 +11,7 @@ const DMSolutions     = lazy(() => import('../components/Services/DigitalMarketi
 const DMAdvantages    = lazy(() => import('../components/Services/DigitalMarketingComp/DMAdvantages'));
 const DMTrustedPartner = lazy(() => import('../components/Services/DigitalMarketingComp/DMTrustedPartner'));
 const DMFAQ           = lazy(() => import('../components/Services/DigitalMarketingComp/DMFAQ'));
-const CTASection           = lazy(() => import('../components/HomeComp/CTASection'));
+const CTASection           = lazy(() => import('../components/homeComp/CTASection'));
 const Footer          = lazy(() => import('../components/Footer'));
 
 const DigitalMarketing = () => {

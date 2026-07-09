@@ -20,7 +20,7 @@ const fadeRight = (delay = 0) => ({
 
 const STATS = [
   { num: '100+', label: 'Clients'    },
-  { num: '12+',  label: 'Countries'  },
+  { num: '50',  label: 'States'  },
   { num: '10y+', label: 'Experience' },
 ];
 

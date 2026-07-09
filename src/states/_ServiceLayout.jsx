@@ -33,7 +33,7 @@ import Navbar from "../components/Navbar";
 import ScrollToTop from "../components/ScrollToTop";
 
 const Footer = lazy(() => import("../components/Footer"));
-const CTASection = lazy(() => import("../components/HomeComp/CTASection"));
+const CTASection = lazy(() => import("../components/homeComp/CTASection"));
 
 /* ================= MOTION ================= */
 const fadeUp = (delay = 0) => ({

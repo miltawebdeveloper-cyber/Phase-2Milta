@@ -2,11 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, Stack, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import TimerIcon from '@mui/icons-material/Timer';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import SecurityIcon from '@mui/icons-material/Security';
-import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const fadeUp = (delay = 0) => ({
@@ -16,20 +12,25 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const ADVANTAGES = [
-  { icon: TimerIcon,               title: 'Save Time & Reduce Stress',         desc: 'Free yourself from tedious recordkeeping and focus on growing your business.' },
-  { icon: CheckCircleIcon,         title: 'Improve Accuracy & Reduce Errors',   desc: 'Our skilled team ensures your books are accurate, avoiding costly mistakes.' },
-  { icon: TrendingUpIcon,          title: 'Make Informed Business Decisions',   desc: 'Access up-to-date financial statistics and expert guidance for strategic planning.' },
-  { icon: SecurityIcon,            title: 'Ensure Tax Readiness & Compliance',  desc: 'Stay compliant year-round with records always prepared for tax season.' },
-  { icon: CenterFocusStrongIcon,   title: 'Focus on Business Growth',           desc: 'Delegate the bookkeeping — we handle the numbers while you scale.' },
+const BENEFITS = [
+  { 
+    title: 'Track Income & Expenses', 
+    desc: 'Stay organized and informed by keeping accurate records of all your business transactions.' 
+  },
+  { 
+    title: 'Stress-Free Tax Preparation', 
+    desc: 'Ensure timely and smooth tax filing with well-maintained financial records throughout the year.' 
+  },
+  { 
+    title: 'Financial Insights for Planning', 
+    desc: 'Gain valuable insights into your company\'s performance to make data-driven business decisions.' 
+  },
+  { 
+    title: 'Ensure Legal Compliance', 
+    desc: 'Stay compliant with tax and financial laws while maintaining accurate and transparent records.' 
+  },
 ];
 
-const PANEL_STATS = [
-  { num: '5',    label: 'Core Benefits'    },
-  { num: '100%', label: 'Accuracy Rate'    },
-  { num: '24/7', label: 'Support Access'   },
-  { num: '0',    label: 'Compliance Gaps'  },
-];
 
 const BKAdvantages = () => {
   const theme = useTheme();
@@ -98,7 +99,7 @@ const BKAdvantages = () => {
                     color: primary, fontWeight: 800,
                     letterSpacing: '0.16em', fontSize: '0.72rem',
                   }}>
-                    THE ADVANTAGES
+                    WHY BOOKKEEPING
                   </Typography>
                 </Box>
 
@@ -108,9 +109,8 @@ const BKAdvantages = () => {
                   fontWeight: 900, lineHeight: 1.2,
                   letterSpacing: '-0.02em', mb: 2.5,
                 }}>
-                  Why Professional{' '}
-                  <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Bookkeeping</Box>{' '}
-                  Matters
+                  What is a Bookkeeping Service {' '}
+                  <Box component="span" sx={{ color: alpha(primary, 0.9) }}>and Why Does Every Business Need It?</Box>
                 </Typography>
 
                 <Typography sx={{
@@ -118,34 +118,10 @@ const BKAdvantages = () => {
                   fontSize: '0.9rem', lineHeight: 1.8, mb: 4,
                   fontFamily: '"Outfit", sans-serif',
                 }}>
-                  Outsourcing your bookkeeping gives you expert accuracy, tax-readiness, and the freedom to focus entirely on growing your business.
+                  Bookkeeping involves recording, organizing, and managing a company’s financial transactions. It ensures accuracy, supports better decision-making, and helps businesses stay compliant with tax and financial regulations.
                 </Typography>
 
-                {/* Stats grid */}
-                <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1.5, mb: 4 }}>
-                  {PANEL_STATS.map((stat) => (
-                    <Box key={stat.label} sx={{
-                      px: 2, py: 1.5,
-                      borderRadius: '12px',
-                      bgcolor: alpha('#ffffff', 0.07),
-                      border: `1px solid ${alpha('#ffffff', 0.1)}`,
-                    }}>
-                      <Typography sx={{
-                        color: '#fff', fontWeight: 900, fontSize: '1.3rem',
-                        fontFamily: '"Plus Jakarta Sans", sans-serif', lineHeight: 1,
-                      }}>
-                        {stat.num}
-                      </Typography>
-                      <Typography sx={{
-                        color: alpha('#fff', 0.55), fontSize: '0.68rem',
-                        fontWeight: 700, letterSpacing: '0.08em',
-                        textTransform: 'uppercase', mt: 0.5,
-                      }}>
-                        {stat.label}
-                      </Typography>
-                    </Box>
-                  ))}
-                </Box>
+               
               </Box>
 
               {/* CTA */}
@@ -172,12 +148,11 @@ const BKAdvantages = () => {
             </Box>
           </motion.div>
 
-          {/* ── RIGHT: advantage cards ── */}
+          {/* ── RIGHT: benefit cards ── */}
           <Stack sx={{ flex: 1 }} spacing={2.5}>
-            {ADVANTAGES.map((adv, i) => {
-              const Icon = adv.icon;
+            {BENEFITS.map((benefit, i) => {
               return (
-                <motion.div key={adv.title} {...fadeUp(i * 0.09)}>
+                <motion.div key={benefit.title} {...fadeUp(i * 0.09)}>
                   <Box sx={{
                     p: { xs: 3, md: 3.5 },
                     borderRadius: '20px',
@@ -185,7 +160,7 @@ const BKAdvantages = () => {
                     border: '1px solid rgba(0,0,0,0.06)',
                     boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
                     display: 'flex',
-                    alignItems: 'center',
+                    alignItems: 'flex-start',
                     gap: 3,
                     position: 'relative',
                     overflow: 'hidden',
@@ -195,11 +170,8 @@ const BKAdvantages = () => {
                       boxShadow: `0 12px 40px ${alpha(primary, 0.12)}`,
                       border: `1px solid ${alpha(primary, 0.25)}`,
                       '& .adv-accent': { opacity: 1, height: '65%' },
-                      '& .adv-num': { color: alpha(primary, 0.1) },
                     },
                   }}>
-                   
-
                     {/* Left accent bar */}
                     <Box className="adv-accent" sx={{
                       position: 'absolute', left: 0, top: '50%',
@@ -210,15 +182,16 @@ const BKAdvantages = () => {
                       transition: '0.28s ease',
                     }} />
 
-                    {/* Icon */}
+                    {/* Icon - CheckCircle */}
                     <Box sx={{
                       width: 54, height: 54, flexShrink: 0,
                       borderRadius: '16px',
                       bgcolor: alpha(primary, 0.08),
                       border: `1px solid ${alpha(primary, 0.15)}`,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      mt: 0.5
                     }}>
-                      <Icon sx={{ fontSize: 26, color: primary }} />
+                      <CheckCircleIcon sx={{ fontSize: 26, color: primary }} />
                     </Box>
 
                     {/* Content */}
@@ -228,14 +201,14 @@ const BKAdvantages = () => {
                         fontWeight: 800, fontSize: '1.05rem',
                         color: 'text.primary', mb: 0.5, lineHeight: 1.3,
                       }}>
-                        {adv.title}
+                        {benefit.title}
                       </Typography>
                       <Typography sx={{
                         fontFamily: '"Outfit", sans-serif',
                         fontSize: '0.88rem', lineHeight: 1.75,
                         color: 'text.secondary',
                       }}>
-                        {adv.desc}
+                        {benefit.desc}
                       </Typography>
                     </Box>
                   </Box>

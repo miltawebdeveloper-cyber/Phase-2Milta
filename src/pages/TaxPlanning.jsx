@@ -11,7 +11,7 @@ const TaxSolutions     = lazy(() => import('../components/Services/TaxComp/TaxSo
 const TaxAdvantages    = lazy(() => import('../components/Services/TaxComp/TaxAdvantages'));
 const TaxTrustedPartner = lazy(() => import('../components/Services/TaxComp/TaxTrustedPartner'));
 const TaxFAQ           = lazy(() => import('../components/Services/TaxComp/TaxFAQ'));
-const CTASection       = lazy(() => import('../components/HomeComp/CTASection'));
+const CTASection       = lazy(() => import('../components/homeComp/CTASection'));
 const Footer           = lazy(() => import('../components/Footer'));
 
 const TaxPlanning = () => {

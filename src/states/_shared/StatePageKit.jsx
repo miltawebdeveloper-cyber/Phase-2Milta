@@ -31,7 +31,7 @@ import Navbar from "../../components/Navbar";
 import ScrollToTop from "../../components/ScrollToTop";
 
 const Footer = lazy(() => import("../../components/Footer"));
-const CTASection = lazy(() => import("../../components/HomeComp/CTASection"));
+const CTASection = lazy(() => import("../../components/homeComp/CTASection"));
 
 const DARK_GRADIENT =
   "linear-gradient(145deg, #0d1f0e 0%, #163018 50%, #1a3d1c 100%)";
