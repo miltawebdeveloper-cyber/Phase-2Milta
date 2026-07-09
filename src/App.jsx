@@ -11,6 +11,7 @@ import CareerSub from './pages/careersub';
 import BookKeeping from './pages/BookKeeping';
 import TaxPlanning from './pages/TaxPlanning';
 import VirtualAssistance from './pages/VirtualAssistance';
+import Services from './pages/Services';
 import CPAServices from './pages/CPAServices';
 import FinancialControllerServices from './pages/FinancialControllerServices';
 import DataEntryServices from './pages/DataEntryServices';
@@ -75,6 +76,7 @@ function ThemedApp() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/career" element={<Career />} />
           <Route path="/career/open-positions" element={<CareerSub />} />

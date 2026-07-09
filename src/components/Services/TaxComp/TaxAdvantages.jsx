@@ -1,12 +1,13 @@
 import React from 'react';
-import { Box, Container, Typography, Stack, Button } from '@mui/material';
+import { Box, Container, Typography, Stack, Button, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import PersonIcon from '@mui/icons-material/Person';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import FlagIcon from '@mui/icons-material/Flag';
-import SchoolIcon from '@mui/icons-material/School';
-import VerifiedIcon from '@mui/icons-material/Verified';
+import DescriptionIcon from '@mui/icons-material/Description';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import BusinessIcon from '@mui/icons-material/Business';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
+import ApprovalIcon from '@mui/icons-material/Approval';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const fadeUp = (delay = 0) => ({
@@ -16,17 +17,42 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const ADVANTAGES = [
-  { icon: PersonIcon,        title: 'Personalized Attention',          desc: 'Every client receives a dedicated tax professional who understands your unique financial situation and tailors your return accordingly.' },
-  { icon: CalendarTodayIcon, title: 'Year-Round Tax Support',           desc: 'We are available beyond tax season — helping with estimated payments, tax planning, and IRS correspondence throughout the entire year.' },
-  { icon: FlagIcon,          title: 'Customized for U.S. Clients',      desc: 'Our services are specifically built for the U.S. tax system — covering all IRS forms, state agencies, and local jurisdictions relevant to your situation.' },
-  { icon: SchoolIcon,        title: 'Specialized Complex Returns',      desc: 'Whether you have multiple income streams, investment properties, foreign income, or trust obligations — we handle the most complex tax scenarios with precision.' },
-  { icon: VerifiedIcon,      title: 'Proven Track Record',              desc: 'Hundreds of satisfied individuals, businesses, and non-profits trust Milta every tax season — backed by 15+ years of consistent, error-free filings.' },
+const TAX_FORMS = [
+  { 
+    icon: DescriptionIcon, 
+    title: 'Form 1040', 
+    desc: 'Used by individuals to report income and claim deductions/credits.',
+    details: ['Includes detailed sections for wages, investments, and deductions.']
+  },
+  { 
+    icon: AccountBalanceIcon, 
+    title: 'Form 1065', 
+    desc: 'Partnership tax returns, detailing profits, losses, and credits.',
+    details: ['Partners receive a Schedule K-1 for individual filings.']
+  },
+  {
+    icon: BusinessIcon,
+    title: 'Form 1120',
+    desc: 'C Corporation returns, detailing corporate income, expenses, and tax liabilities.',
+    details: ['The corporation is taxed separately from its shareholders.']
+  },
+  {
+    icon: AccountTreeIcon,
+    title: 'Form 1120S',
+    desc: 'For S Corporations, reflecting income passed through to shareholders.',
+    details: ['Shareholders receive a Schedule K-1 for individual filings.']
+  },
+  { 
+    icon: ApprovalIcon, 
+    title: 'Form 990', 
+    desc: 'Non-Profit Organization returns, required to maintain tax-exempt status.',
+    details: ['Transparency in reporting revenue, expenses, and program activities.']
+  },
 ];
 
 const PANEL_STATS = [
   { num: '100%', label: 'Filing Accuracy'  },
-  { num: '15y+', label: 'Tax Expertise'    },
+  { num: '10y+', label: 'Tax Expertise'    },
   { num: '24/7', label: 'Support Access'   },
   { num: '0',    label: 'Missed Deadlines' },
 ];
@@ -66,18 +92,13 @@ const TaxAdvantages = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
                   <Box sx={{ width: 24, height: 3, borderRadius: 2, bgcolor: primary }} />
                   <Typography variant="overline" sx={{ color: primary, fontWeight: 800, letterSpacing: '0.16em', fontSize: '0.72rem' }}>
-                    THE ADVANTAGES
+                    TAX FORMS
                   </Typography>
                 </Box>
 
-                <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '1.75rem', md: '2.1rem' }, fontWeight: 900, lineHeight: 1.2, letterSpacing: '-0.02em', mb: 2.5 }}>
-                  Why Professional{' '}
-                  <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Tax Preparation</Box>{' '}
-                  Matters
-                </Typography>
-
-                <Typography sx={{ color: alpha('#ffffff', 0.68), fontSize: '0.9rem', lineHeight: 1.8, mb: 4, fontFamily: '"Outfit", sans-serif' }}>
-                  Filing your taxes with Milta means expert accuracy, maximum savings, zero missed deadlines, and the peace of mind that every return is done right.
+                <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '1.75rem', md: '2.1rem' }, fontWeight: 900, lineHeight: 1.2, letterSpacing: '-0.02em', mb: 4 }}>
+                  Understanding Key{' '}
+                  <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Federal Tax Forms</Box>
                 </Typography>
 
                 <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1.5, mb: 4 }}>
@@ -113,20 +134,26 @@ const TaxAdvantages = () => {
             </Box>
           </motion.div>
 
-          {/* RIGHT: advantage cards */}
+          {/* RIGHT: tax forms cards - equal height & width */}
           <Stack sx={{ flex: 1 }} spacing={2.5}>
-            {ADVANTAGES.map((adv, i) => {
-              const Icon = adv.icon;
+            {TAX_FORMS.map((form, i) => {
+              const Icon = form.icon;
               return (
-                <motion.div key={adv.title} {...fadeUp(i * 0.09)}>
+                <motion.div key={form.title} {...fadeUp(i * 0.09)} style={{ height: '100%' }}>
                   <Box sx={{
                     p: { xs: 3, md: 3.5 },
                     borderRadius: '20px',
                     bgcolor: 'background.default',
                     border: '1px solid rgba(0,0,0,0.06)',
                     boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
-                    display: 'flex', alignItems: 'center', gap: 3,
-                    position: 'relative', overflow: 'hidden',
+                    display: 'flex', 
+                    alignItems: 'flex-start',
+                    gap: 3,
+                    position: 'relative', 
+                    overflow: 'hidden',
+                    height: '100%',
+                    minHeight: 120,
+                    width: '100%',
                     transition: 'all 0.28s cubic-bezier(0.4,0,0.2,1)',
                     '&:hover': {
                       transform: 'translateX(8px)',
@@ -136,16 +163,44 @@ const TaxAdvantages = () => {
                     },
                   }}>
                     <Box className="adv-accent" sx={{ position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', width: 4, height: '35%', borderRadius: '0 4px 4px 0', bgcolor: primary, opacity: 0, transition: '0.28s ease' }} />
-                    <Box sx={{ width: 54, height: 54, flexShrink: 0, borderRadius: '16px', bgcolor: alpha(primary, 0.08), border: `1px solid ${alpha(primary, 0.15)}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Box sx={{ 
+                      width: 54, 
+                      height: 54, 
+                      flexShrink: 0, 
+                      borderRadius: '16px', 
+                      bgcolor: alpha(primary, 0.08), 
+                      border: `1px solid ${alpha(primary, 0.15)}`, 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center', 
+                      mt: 0.5 
+                    }}>
                       <Icon sx={{ fontSize: 26, color: primary }} />
                     </Box>
                     <Box sx={{ flex: 1, pr: { xs: 4, md: 8 } }}>
                       <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1.05rem', color: 'text.primary', mb: 0.5, lineHeight: 1.3 }}>
-                        {adv.title}
+                        {form.title}
                       </Typography>
-                      <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.88rem', lineHeight: 1.75, color: 'text.secondary' }}>
-                        {adv.desc}
+                      <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.88rem', lineHeight: 1.75, color: 'text.secondary', mb: 1 }}>
+                        {form.desc}
                       </Typography>
+                      <List dense disablePadding>
+                        {form.details.map((detail, idx) => (
+                          <ListItem key={idx} disablePadding alignItems="flex-start" sx={{ mb: 0.5 }}>
+                            <ListItemIcon sx={{ minWidth: 24, mt: 0.4 }}>
+                              <CheckCircleIcon sx={{ fontSize: 16, color: primary }} />
+                            </ListItemIcon>
+                            <ListItemText
+                              disableTypography
+                              primary={
+                                <Typography sx={{ fontFamily: '"Outfit", sans-serif', color: 'text.secondary', fontSize: '0.82rem', lineHeight: 1.6 }}>
+                                  {detail}
+                                </Typography>
+                              }
+                            />
+                          </ListItem>
+                        ))}
+                      </List>
                     </Box>
                   </Box>
                 </motion.div>

@@ -11,12 +11,51 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
+// `groups` is optional: when present it renders as titled bullet lists below `a`.
 const FAQS = [
-  { q: 'Can Milta prepare both personal and company tax returns?',   a: 'Yes. Milta handles tax returns for individuals (Form 1040), sole proprietors, C Corporations (Form 1120), S Corporations (Form 1120S), partnerships (Form 1065), non-profits (Form 990), and estates & trusts (Form 1041) — all under one roof.' },
-  { q: 'Do you assist with IRS audits?',                             a: 'Absolutely. If you receive an IRS or state audit notice, Milta provides full audit defense and representation support. We review your return, gather required documentation, and work directly with tax authorities on your behalf.' },
-  { q: 'What documents are required for tax preparation?',           a: 'For individuals: government-issued ID, Social Security Number, W-2s, 1099s (freelance/contract income), investment statements, mortgage interest statements, charitable donation receipts, prior-year tax return, and any IRS notices. For businesses: EIN, business income and expense records, payroll reports, bank statements, and prior-year business returns.' },
-  { q: 'Can you help with state and city taxes?',                    a: 'Yes. We file at all levels — federal (IRS), all applicable state agencies, and local/city jurisdictions. Our team stays current on state-specific rules and local tax codes to ensure full compliance and optimized filings wherever your obligations apply.' },
-  { q: 'Is Milta\'s tax service affordable?',                        a: 'Yes. Milta offers competitive, transparent pricing with no hidden fees. We tailor our service scope to your needs — whether you are an individual filer or a multi-entity business — ensuring you only pay for the services relevant to your situation.' },
+  {
+    q: 'Can Milta prepare both personal and company tax returns?',
+    a: 'Absolutely. We specialize in individual and business tax returns, including complex filings for partnerships, corporations, and non-profits.',
+  },
+  {
+    q: 'Do you assist with IRS audits?',
+    a: 'Yes, our team is experienced in handling IRS audits and can provide comprehensive support to resolve any issues.',
+  },
+  {
+    q: 'What documents are required for tax preparation?',
+    a: "To ensure accurate and complete tax preparation, you'll need to provide the following documents:",
+    groups: [
+      {
+        title: 'Personal Information',
+        items: [
+          'Social Security numbers and dates of birth for you, your spouse, and dependents',
+          "Copies of last year's tax return (optional but helpful)",
+          'Bank account number and routing number (for direct deposit)',
+        ],
+      },
+      {
+        title: 'Income Information',
+        items: [
+          'W-2 forms for you and your spouse',
+          '1099 forms (C, G, MISC, R, S, INT, DIV, B, or K-1) for various income types',
+          'SSA-1099 for Social Security benefits',
+          'Alimony received',
+          'Business or farming income records (profit/loss statement, capital equipment info)',
+          'Rental property income and expenses (profit/loss statement, suspended loss info)',
+          'Prior year installment sale info (Forms 6252, principal and interest collected)',
+          'Miscellaneous income (jury duty, gambling winnings, scholarships, etc.)',
+        ],
+      },
+    ],
+  },
+  {
+    q: 'Can you help with state and city taxes?',
+    a: 'Yes, we provide complete US expat tax service for federal, state, and city taxes, ensuring compliance at all levels.',
+  },
+  {
+    q: "Are Milta's services affordable?",
+    a: 'Yes, we provide competitive pricing while maintaining high quality. We aim to deliver exceptional value to each client.',
+  },
 ];
 
 const TaxFAQ = () => {
@@ -77,6 +116,36 @@ const TaxFAQ = () => {
                         <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.9rem', lineHeight: 1.8, color: 'text.secondary' }}>
                           {faq.a}
                         </Typography>
+
+                        {faq.groups?.map((group) => (
+                          <Box key={group.title} sx={{ mt: 2 }}>
+                            <Typography sx={{
+                              fontFamily: '"Plus Jakarta Sans", sans-serif',
+                              fontWeight: 800, fontSize: '0.85rem',
+                              color: 'text.primary', mb: 1,
+                            }}>
+                              {group.title}
+                            </Typography>
+                            <Box component="ul" sx={{ listStyle: 'none', m: 0, pl: 0 }}>
+                              {group.items.map((item) => (
+                                <Box
+                                  component="li"
+                                  key={item}
+                                  sx={{
+                                    display: 'flex', alignItems: 'flex-start', gap: 1.25, mb: 0.75,
+                                    fontFamily: '"Outfit", sans-serif',
+                                    fontSize: '0.88rem', lineHeight: 1.7, color: 'text.secondary',
+                                  }}
+                                >
+                                  <Box component="span" sx={{ color: primary, fontSize: '0.75rem', lineHeight: 1.9, flexShrink: 0 }}>
+                                    &#9656;
+                                  </Box>
+                                  {item}
+                                </Box>
+                              ))}
+                            </Box>
+                          </Box>
+                        ))}
                       </AccordionDetails>
                     </Accordion>
                   </motion.div>

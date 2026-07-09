@@ -17,18 +17,14 @@ const fadeUp = (delay = 0) => ({
 });
 
 const TRUST_POINTS = [
-  { icon: FactCheckIcon,     title: 'Accurate Tax Returns',              desc: 'Every return undergoes a meticulous multi-step review — verifying calculations, confirming all deductions, and ensuring IRS-compliant submission with zero errors.' },
-  { icon: GavelIcon,         title: 'IRS & Regulatory Compliance',       desc: 'We stay current with every IRS rule change, state regulation update, and local tax code revision — keeping your filings fully compliant at all government levels.' },
-  { icon: MapIcon,           title: 'Full Jurisdiction Coverage',         desc: 'Federal, state, and city tax filings handled under one roof — eliminating the complexity of managing multiple tax professionals or agencies.' },
-  { icon: ShieldIcon,        title: 'Audit Defense & Support',            desc: 'If the IRS or state agency ever questions your return, we stand by our work and provide full audit support — representing your interests throughout the process.' },
-  { icon: CalendarTodayIcon, title: 'Year-Round Tax Planning',            desc: 'Tax strategy doesn\'t stop at filing season. We provide proactive guidance on estimated payments, deductions, and planning opportunities throughout the year.' },
-  { icon: LockIcon,          title: 'Data Security & Confidentiality',    desc: 'Your sensitive financial documents are protected with encrypted systems, strict access controls, and industry-best confidentiality practices from intake to submission.' },
+  { icon: FactCheckIcon,     title: 'Customized for U.S. Clients',              desc: 'Milta focuses exclusively on providing tax planning and preparation services for U.S.-based individuals and businesses, ensuring compliance with federal, state, and local laws.' },
+  { icon: GavelIcon,         title: 'Specialized Expertise',       desc: 'We handle complex returns, including those for estates, trusts, partnerships, and corporations.' },
+  { icon: LockIcon,          title: 'Proven Results',    desc: 'Our track record speaks for itself, with countless satisfied clients benefiting from reduced liabilities and maximized refunds.' },
 ];
 
 const STATS = [
-  { num: '15y+',  label: 'Tax Expertise'    },
+  { num: '10y+',  label: 'Tax Expertise'    },
   { num: '100+',  label: 'Clients Served'   },
-  { num: '100%',  label: 'Filing Accuracy'  },
   { num: '24/7',  label: 'Support Access'   },
 ];
 
@@ -64,13 +60,7 @@ const TaxTrustedPartner = () => {
             </motion.div>
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2, color: '#ffffff', maxWidth: 720, mx: 'auto', letterSpacing: '-0.02em' }}>
-                Why Milta is Your Trusted Partner for{' '}
-                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Tax Planning & Preparation in the USA</Box>
-              </Typography>
-            </motion.div>
-            <motion.div {...fadeUp(0.18)}>
-              <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '1rem', lineHeight: 1.8, maxWidth: 580, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-                From accurate filings to year-round planning and audit defense — Milta provides the expertise and reliability your taxes demand.
+                How Milta Stands Out{' '}
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.24)}>
