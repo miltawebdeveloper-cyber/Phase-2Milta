@@ -1,11 +1,8 @@
 import React from 'react';
-import { Box, Container, Typography, Stack } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import GavelIcon from '@mui/icons-material/Gavel';
-import CloudIcon from '@mui/icons-material/Cloud';
+import healthcareImage from '../../../assets/industry/Healthcare.jpg';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -14,27 +11,20 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const fadeLeft = (delay = 0) => ({
-  initial: { opacity: 0, x: 32 },
+const fadeRight = (delay = 0) => ({
+  initial: { opacity: 0, x: -32 },
   whileInView: { opacity: 1, x: 0 },
   viewport: { once: true },
   transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const TILES = [
-  { icon: MedicalServicesIcon,  label: 'Specialized Healthcare Expertise', desc: '6+ years serving practices, clinics, and hospitals.' },
-  { icon: HealthAndSafetyIcon,  label: 'US GAAP & HIPAA-Compliant',       desc: 'Secure, encrypted, compliant accounting processes.' },
-  { icon: GavelIcon,            label: 'Medicare & Medicaid Know-How',    desc: 'Reimbursement nuances handled to maximize deductions.' },
-  { icon: CloudIcon,            label: 'EHR & Software Integration',      desc: 'Works with QuickBooks, Xero, and your EHR/billing tools.' },
-];
-
 const STATS = [
-  { num: '6+',   label: 'Years'      },
-  { num: '100+', label: 'Providers'  },
-  { num: '60%',  label: 'Cost Saved' },
+  { num: '100+', label: 'Clients'    },
+  { num: '12+',  label: 'Countries'  },
+  { num: '10y+', label: 'Experience' },
 ];
 
-const HCWhatIs = () => {
+const CCWhatIs = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
 
@@ -44,58 +34,100 @@ const HCWhatIs = () => {
         maxWidth={false}
         sx={{ maxWidth: '1300px', mx: 'auto', px: { xs: 3, md: 5 } }}
       >
+        {/* Headline */}
+        <motion.div {...fadeUp(0.1)}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: '2rem', sm: '2.6rem', md: '3rem' },
+              lineHeight: 1.34,
+              fontWeight: 900,
+              letterSpacing: '-0.025em',
+              mb: 3,
+              textAlign: 'center',
+            }}
+          >
+            Bookkeeping & Accounting Services for{' '}
+            <Box component="span" sx={{ color: primary }}>
+              Small Restaurants
+            </Box>
+          </Typography>
+        </motion.div>
+
         <Box sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: '1fr 1fr', lg: '5fr 4fr' },
           gap: { xs: 6, md: 10 },
-          alignItems: 'center',
+          alignItems: 'stretch',
         }}>
 
           {/* ══ LEFT: Text content ══ */}
           <Box>
-            {/* Overline */}
-            <motion.div {...fadeUp(0)}>
-              <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
-                <Box sx={{ width: 28, height: 2.5, borderRadius: 2, bgcolor: primary }} />
-                <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.72rem' }}>
-                  ACCOUNTING FOR HEALTHCARE
-                </Typography>
-              </Box>
+            {/* Body copy - Paragraph 1 */}
+            <motion.div {...fadeUp(0.18)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                Running a small restaurant is no easy task; you're balancing food quality, customer satisfaction, and daily operations. Disorganized financials can cause stress, lead to mistakes, and prevent your business from seizing new opportunities. At Mila, we provide expert accounting and bookkeeping for small restaurant businesses to help you stay organized, compliant, and profitable.
+              </Typography>
             </motion.div>
 
-            {/* Headline */}
-            <motion.div {...fadeUp(0.1)}>
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: { xs: '2rem', sm: '2.6rem', md: '3rem' },
-                  lineHeight: 1.14,
-                  fontWeight: 900,
-                  letterSpacing: '-0.025em',
-                  mb: 3,
-                }}
-              >
-                Professional Accounting for{' '}
-                <Box component="span" sx={{ color: primary }}>
-                  Healthcare Providers
+            {/* Body copy - Paragraph 2 */}
+            <motion.div {...fadeUp(0.22)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                Whether you're managing a single-location café, a cozy diner, or a family-owned restaurant, our best restaurant bookkeeping services ensure that your books are accurate, your taxes are filed on time, and your business stays financially healthy.
+              </Typography>
+            </motion.div>
+
+            {/* Body copy - Paragraph 3 - Why Bookkeeping Matters */}
+            <motion.div {...fadeUp(0.26)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>
+                  Why Bookkeeping Matters for Small Restaurant Businesses
                 </Box>
               </Typography>
             </motion.div>
 
-            {/* Body copy */}
-            <motion.div {...fadeUp(0.18)}>
+            {/* Body copy - Daily Sales Tracking */}
+            <motion.div {...fadeUp(0.30)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                At Milta, we specialize in reliable, outsourced accounting services for healthcare providers across the United States. With over 6 years of hands-on experience, our team understands the unique financial demands of the healthcare sector.
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>1. Daily Sales Tracking</Box><br />
+                Your daily income is tracked and categorized by Mila according to meal type, time slot, or service channel. Our specialized bookkeeping for restaurant businesses helps you understand peak hours, customer preferences, and profitable menu items.
               </Typography>
             </motion.div>
-            <motion.div {...fadeUp(0.24)}>
+
+            {/* Body copy - Inventory & Cost Control */}
+            <motion.div {...fadeUp(0.34)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>2. Inventory & Cost Control</Box><br />
+                In a small restaurant, every ounce and dollar counts. Inventory tracking and cost-of-goods-sold (COGS) calculations are part of our restaurant bookkeeping solution, which helps you eliminate waste and control food costs.
+              </Typography>
+            </motion.div>
+
+            {/* Body copy - Expense Monitoring */}
+            <motion.div {...fadeUp(0.38)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>3. Expense Monitoring</Box><br />
+                From payroll and food purchases to rent and utility bills, we record and classify every transaction. Our accounting for small restaurant business clients gains full visibility into their spending to improve cash management and budgeting.
+              </Typography>
+            </motion.div>
+
+            {/* Body copy - Cash Flow Management */}
+            <motion.div {...fadeUp(0.42)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>4. Cash Flow Management</Box><br />
+                Cash flow is critical in the restaurant industry. Mila helps small restaurant owners track cash inflows and outflows, ensuring they can cover payroll, vendor payments, and day-to-day costs without falling behind.
+              </Typography>
+            </motion.div>
+
+            {/* Body copy - Tax Compliance */}
+            <motion.div {...fadeUp(0.46)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 4 }}>
-                Whether you're running a private practice, managing an urgent care clinic, or operating a large hospital, Milta is your trusted financial partner — so you can focus on delivering quality patient care.
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>5. Tax Compliance</Box><br />
+                Avoid costly IRS penalties and sales tax complications. Mila handles complete tax return preparation and filing for restaurant businesses—including income tax, sales tax, and payroll tax—ensuring full compliance and peace of mind.
               </Typography>
             </motion.div>
 
             {/* Stats row */}
-            <motion.div {...fadeUp(0.3)}>
+            <motion.div {...fadeUp(0.50)}>
               <Box sx={{
                 display: 'inline-flex',
                 gap: 0,
@@ -127,76 +159,28 @@ const HCWhatIs = () => {
             </motion.div>
           </Box>
 
-          {/* ══ RIGHT: Feature card (light) ══ */}
-          <motion.div {...fadeLeft(0.22)}>
+          {/* ══ RIGHT: Image ══ */}
+          <motion.div {...fadeRight(0.22)} style={{ height: '100%' }}>
             <Box sx={{
               borderRadius: '24px',
+              overflow: 'hidden',
               bgcolor: 'background.paper',
               border: (t) => `1px solid ${t.palette.mode === 'dark' ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)'}`,
-              p: { xs: 3, md: 4 },
               boxShadow: `0 20px 60px ${alpha(primary, 0.08)}`,
+              position: 'relative',
+              height: '100%',
+              minHeight: { xs: '300px', md: '400px' },
             }}>
-              {/* Card header */}
-              <Box sx={{ mb: 3, pb: 2.5, borderBottom: `1px solid ${alpha(primary, 0.12)}` }}>
-                <Typography sx={{
-                  fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 900, fontSize: '1rem',
-                  color: 'text.primary', lineHeight: 1.3,
-                }}>
-                  Why every healthcare provider needs{' '}
-                  <Box component="span" sx={{ color: primary }}>professional accounting</Box>
-                </Typography>
-              </Box>
-
-              {/* Feature tiles */}
-              <Stack spacing={1.5}>
-                {TILES.map((tile, i) => {
-                  const Icon = tile.icon;
-                  return (
-                    <motion.div key={tile.label} {...fadeUp(0.32 + i * 0.09)}>
-                      <Box
-                        sx={{
-                          display: 'flex', alignItems: 'center', gap: 2,
-                          p: 2, borderRadius: '14px',
-                          bgcolor: alpha(primary, 0.04),
-                          border: `1px solid ${alpha(primary, 0.1)}`,
-                          transition: 'all 0.25s ease',
-                          cursor: 'default',
-                          '&:hover': {
-                            bgcolor: alpha(primary, 0.08),
-                            border: `1px solid ${alpha(primary, 0.28)}`,
-                            transform: 'translateX(4px)',
-                            '& .feat-icon': { bgcolor: primary },
-                            '& .feat-icon svg': { color: '#fff' },
-                          },
-                        }}
-                      >
-                        <Box
-                          className="feat-icon"
-                          sx={{
-                            width: 40, height: 40, flexShrink: 0,
-                            borderRadius: '11px',
-                            bgcolor: alpha(primary, 0.1),
-                            border: `1px solid ${alpha(primary, 0.2)}`,
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            transition: 'all 0.25s ease',
-                          }}
-                        >
-                          <Icon sx={{ fontSize: 19, color: primary, transition: 'color 0.25s ease' }} />
-                        </Box>
-                        <Box sx={{ flex: 1, minWidth: 0 }}>
-                          <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: '0.86rem', color: 'text.primary', lineHeight: 1.3, mb: 0.2 }}>
-                            {tile.label}
-                          </Typography>
-                          <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.78rem', color: 'text.secondary', lineHeight: 1.5 }}>
-                            {tile.desc}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </motion.div>
-                  );
-                })}
-              </Stack>
+              <img
+                src={healthcareImage}
+                alt="Bookkeeping & Accounting Services for Small Restaurants"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
             </Box>
           </motion.div>
 
@@ -206,4 +190,4 @@ const HCWhatIs = () => {
   );
 };
 
-export default HCWhatIs;
+export default CCWhatIs;

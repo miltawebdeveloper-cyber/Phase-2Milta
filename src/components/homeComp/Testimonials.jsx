@@ -1,53 +1,37 @@
 import React, { useState } from 'react';
-import { Box, Typography, Avatar, Rating, Card } from '@mui/material';
+import { Box, Typography, Rating, Card } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import StarIcon from '@mui/icons-material/Star';
 
 const CONTENT_WIDTH = 1300;
 
+// Paragraph breaks are preserved via `whiteSpace: 'pre-line'` on the quote below.
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    role: 'CEO, TechFlow',
-    text: '"Milta Accounts has completely transformed how we handle our taxes. Their strategic approach saved us thousands in the first year alone. I highly recommend their services to any growing business."',
+    text: `"I am happy to share my experience working with Milta. As the owner of Strategic Bookkeeping, I have had the privilege of working with the Milta team through some of the most challenging periods of my business journey. Their support, professionalism, and dedication have made a lasting impact on both my business and my clients.
+
+There was a time when I faced significant personal and professional challenges and found myself rebuilding from the ground up. During that period, the Milta team became more than a support team—they became trusted partners. When my capacity was limited, they stepped in, helped keep things moving, and provided the consistency my clients depended on.
+
+Their responsiveness, knowledge, and willingness to help have allowed me to continue serving my clients with confidence, even during difficult seasons. Knowing I have a team I can rely on has been invaluable.
+
+What sets Milta apart is that they genuinely care about the success of the businesses they support. They bring expertise, professionalism, and a level of partnership that is difficult to find. I highly recommend Milta to any bookkeeping professional or business owner looking for a dependable team they can trust."`,
     rating: 5,
-    avatar: 'https://i.pravatar.cc/150?u=sarah',
   },
   {
-    name: 'Michael Chen',
-    role: 'Founder, GreenSlate',
-    text: '"The bookkeeping services are flawless. I can finally focus on growing my business knowing the numbers are in expert hands. Truly a world-class team that delivers consistently."',
+    text: `"I am pleased to recommend Milta for their excellent bookkeeping support. I have worked with the team for almost two years, and they have consistently been responsible, thorough, reliable, and open to feedback. Their work has been impeccable and has played an important role in the growth of my CPA firm.
+
+I also appreciate Milta's professionalism, competitive pricing, and continued support. I highly recommend their bookkeeping services to anyone looking for dependable and high-quality support."`,
     rating: 5,
-    avatar: 'https://i.pravatar.cc/150?u=michael',
   },
   {
-    name: 'Emma Williams',
-    role: 'CFO, Global Logistics',
-    text: '"Professional, responsive, and highly knowledgeable. They are more than just accountants — they are true business partners who care deeply about your success and growth."',
+    text: `"The Milta team has been an integral part of our business for the past two years, and we can't imagine our operations without their support. Their bookkeeping expertise is top-notch, and they consistently demonstrate strong knowledge of QuickBooks, invoicing, reconciliations, and financial organization. They also help keep our day-to-day operations running smoothly and efficiently.
+
+One of the team's greatest strengths is their ability to keep everything organized and accountable. They do an excellent job of following up on tasks, sending reminders, and ensuring deadlines are met. Their attention to detail and proactive approach have been invaluable to our business.
+
+Beyond their technical abilities, the Milta team brings professionalism, positivity, and reliability to every interaction. They are always responsive, friendly, and willing to help wherever needed. Their dedication, professionalism, and commitment to excellence have made a tremendous impact on our business, and we are incredibly grateful for their continued support."`,
     rating: 5,
-    avatar: 'https://i.pravatar.cc/150?u=emma',
-  },
-  {
-    name: 'David Miller',
-    role: 'Director, Apex Corp',
-    text: '"The financial visibility we gained with Milta is unprecedented. Their team is truly top-tier and architectural in their thinking. An outstanding experience from day one."',
-    rating: 5,
-    avatar: 'https://i.pravatar.cc/150?u=david',
-  },
-  {
-    name: 'Rachel Torres',
-    role: 'Owner, Bloom Studio',
-    text: '"Switching to Milta was the best decision I made for my business. Clean books, zero stress, and always available when I need them. Absolutely exceptional service."',
-    rating: 5,
-    avatar: 'https://i.pravatar.cc/150?u=rachel',
-  },
-  {
-    name: 'James Park',
-    role: 'MD, Vertex Capital',
-    text: '"Their controller services gave us the financial clarity we needed to close our Series B. I cannot recommend Milta enough — they are a true strategic asset."',
-    rating: 5,
-    avatar: 'https://i.pravatar.cc/150?u=james',
   },
 ];
 
@@ -129,7 +113,7 @@ const Testimonials = () => {
                     sx={{ mb: 3, '& .MuiRating-iconFilled': { color: '#FFA500' } }}
                   />
 
-                  {/* Quote text */}
+                  {/* Quote text — scrolls when the review is long */}
                   <Typography
                     variant="body1"
                     sx={{
@@ -139,31 +123,28 @@ const Testimonials = () => {
                       fontWeight: 400,
                       flexGrow: 1,
                       mb: 4,
+                      maxHeight: { xs: 220, md: 300 },
+                      overflowY: 'auto',
+                      pr: 1,
+                      whiteSpace: 'pre-line',
+                      // Slim, on-brand scrollbar
+                      '&::-webkit-scrollbar': { width: '6px' },
+                      '&::-webkit-scrollbar-thumb': { backgroundColor: 'rgba(38,105,41,0.35)', borderRadius: '8px' },
+                      '&::-webkit-scrollbar-thumb:hover': { backgroundColor: 'rgba(38,105,41,0.55)' },
                     }}
                   >
                     {t.text}
                   </Typography>
 
-                  {/* Bottom row: avatar + name | company tag */}
+                  {/* Bottom row: rating badge */}
                   <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Avatar
-                        src={t.avatar}
-                        sx={{ width: 52, height: 52, border: '2px solid', borderColor: 'primary.main' }}
-                      />
-                      <Box>
-                        <Typography variant="subtitle1" sx={{ fontWeight: 800, fontSize: '0.97rem', lineHeight: 1.2, color: 'text.primary' }}>
-                          {t.name}
-                        </Typography>
-                        <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', fontSize: '0.68rem' }}>
-                          {t.role}
-                        </Typography>
-                      </Box>
-                    </Box>
 
-                    {/* Company badge */}
+                    {/* Rating badge */}
                     <Box
                       sx={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 0.5,
                         px: 2, py: 0.75,
                         borderRadius: '50px',
                         border: '1.5px solid',
@@ -171,12 +152,13 @@ const Testimonials = () => {
                         color: 'primary.main',
                         fontFamily: '"Plus Jakarta Sans", sans-serif',
                         fontWeight: 700,
-                        fontSize: '0.75rem',
-                        letterSpacing: '0.06em',
+                        fontSize: '0.8rem',
+                        letterSpacing: '0.04em',
                         whiteSpace: 'nowrap',
                       }}
                     >
-                      {t.role.split(', ')[1] ?? t.role}
+                      
+                      {t.rating}/5
                     </Box>
                   </Box>
                 </Card>
@@ -188,7 +170,7 @@ const Testimonials = () => {
           <Box sx={{ flex: '0 0 260px', display: 'flex', flexDirection: 'column', gap: 2, justifyContent: 'center' }}>
             {pills.map((p, i) => (
               <motion.div
-                key={`${p.name}-${i}`}
+                key={`${p.text.slice(0, 24)}-${i}`}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
@@ -210,26 +192,34 @@ const Testimonials = () => {
                     '&:hover': { borderColor: 'primary.main', boxShadow: '0 4px 20px rgba(38,105,41,0.1)' },
                   }}
                 >
-                  <Avatar
-                    src={p.avatar}
-                    sx={{
-                      width: 48, height: 48, flexShrink: 0,
-                      border: '2px solid',
-                      borderColor: p.isActive ? 'primary.main' : 'transparent',
-                    }}
-                  />
                   <Box sx={{ minWidth: 0 }}>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{ fontWeight: 800, fontSize: '0.9rem', lineHeight: 1.2, color: 'text.primary', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                    >
-                      {p.name}
-                    </Typography>
+                    
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mt: 0.5 }}>
+
+                      <Typography
+                        variant="caption"
+                        sx={{ color: 'text.secondary', fontSize: '0.72rem', fontWeight: 700 }}
+                      >
+                        {p.rating}/5
+                      </Typography>
+                    </Box>
+
+                    {/* Review excerpt (1–2 lines) */}
                     <Typography
                       variant="caption"
-                      sx={{ color: 'text.secondary', fontSize: '0.72rem', fontWeight: 500 }}
+                      sx={{
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                        mt: 0.75,
+                        color: 'text.secondary',
+                        fontSize: '0.72rem',
+                        fontWeight: 500,
+                        lineHeight: 1.5,
+                      }}
                     >
-                      {p.role}
+                      {p.text}
                     </Typography>
                   </Box>
                 </Box>

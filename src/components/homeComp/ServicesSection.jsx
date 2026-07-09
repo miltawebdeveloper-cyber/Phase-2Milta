@@ -6,7 +6,7 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import { AccountTree, Receipt, Settings, SupportAgent, Payment, AccountBalance } from '@mui/icons-material';
+import { AccountTree, Receipt, Settings, SupportAgent, Payment, AccountBalance, Campaign, Storage } from '@mui/icons-material';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -15,12 +15,14 @@ const CARD_GAP      = 32;
 const CONTENT_WIDTH = 1300;
 
 const BASE_SERVICES = [
-  { icon: <AccountTree />,    title: 'Tax Planning & Preparation', description: 'Comprehensive tax planning and preparation services for individuals, corporations, and nonprofits.',   link: '/us/services/tax-planning-and-preparation-services-usa/' },
   { icon: <Receipt />,        title: 'Bookkeeping',                description: 'Streamlined bookkeeping services that keep your financial records organized and compliant.',            link: '/us/services/bookkeeping-company-in-the-usa/' },
+  { icon: <Payment />,        title: 'Payroll Management',         description: 'Reliable, automated payroll services ensuring accuracy and peace of mind every payday.',              link: '/us/services/payroll-management-services-in-the-usa/' },
   { icon: <Settings />,       title: 'CPA Service',                description: 'Top-tier CPA services ensuring accurate financial reporting and compliance for your business.',        link: '/us/services/best-cpa-services-for-small-businesses-in-the-usa/' },
-  { icon: <SupportAgent />,   title: 'Virtual Assistant',          description: 'Let us handle your administrative and bookkeeping tasks efficiently with our virtual assistant team.', link: '/us/services/virtual-assistant-service-in-the-usa/' },
-  { icon: <Payment />,        title: 'Payroll Management',         description: 'Reliable, automated payroll services ensuring accuracy and peace of mind every payday.',              link: '/us/services/outsourcing-accounting-data-entry-services-in-the-usa/' },
   { icon: <AccountBalance />, title: 'Controller Services',        description: 'Gain financial clarity and strategic insight through expert outsourced controller services.',         link: '/us/services/financial-controller-services-in-the-usa/' },
+  { icon: <AccountTree />,    title: 'Tax Planning & Preparation', description: 'Comprehensive tax planning and preparation services for individuals, corporations, and nonprofits.',   link: '/us/services/tax-planning-and-preparation-services-usa/' },
+  { icon: <Campaign />,       title: 'Digital Marketing',          description: 'Grow your brand with data-driven digital marketing built for accounting and finance businesses.',      link: '/us/services/best-digital-marketing-agency-in-usa/' },
+  { icon: <SupportAgent />,   title: 'Virtual Assistant',          description: 'Let us handle your administrative and bookkeeping tasks efficiently with our virtual assistant team.', link: '/us/services/virtual-assistant-service-in-the-usa/' },
+  { icon: <Storage />,        title: 'Data Entry',                 description: 'Accurate and reliable accounting data entry services modified specifically for small businesses.',    link: '/us/services/outsourcing-accounting-data-entry-services-in-the-usa/' },
 ];
 
 /*
@@ -65,7 +67,7 @@ const ServicesSection = () => (
         viewport={{ once: true }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         <Typography variant="overline" sx={{ color: 'primary.main', display: 'block', mb: 1 }}>
-          CORE CAPABILITIES
+          What We Provide
         </Typography>
       </motion.div>
       <motion.div
@@ -73,8 +75,7 @@ const ServicesSection = () => (
         viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         <Typography variant="h2" sx={{ color: 'text.primary', fontSize: { xs: '2.2rem', md: '3.5rem' } }}>
-          Trending Solutions <br />
-                      <Box component="span" sx={{ color: 'primary.main' }}>for Modern Growth</Box>
+          Our Services 
         </Typography>
       </motion.div>
     </Box>
@@ -120,6 +121,8 @@ const ServicesSection = () => (
               <SwiperSlide key={index} style={{ width: CARD_WIDTH }}>
                 <Card
                   className="srv-card"
+                  component="a"
+                  href={service.link}
                   sx={{
                     width: CARD_WIDTH,
                     minHeight: 360,
@@ -128,6 +131,8 @@ const ServicesSection = () => (
                     flexDirection: 'column',
                     position: 'relative',
                     overflow: 'hidden',
+                    textDecoration: 'none',
+                    color: 'inherit',
                     backgroundColor: 'background.paper',
                     border: '1.5px solid transparent',
                     transition: 'border-color 0.45s ease, box-shadow 0.45s ease',
@@ -166,28 +171,6 @@ const ServicesSection = () => (
                     {service.description}
                   </Typography>
 
-                  {/* CTA */}
-                  <Box
-                    component="a" href={service.link}
-                    sx={{
-                      mt: 3, alignSelf: 'flex-start',
-                      display: 'inline-flex', alignItems: 'center', gap: 0.75,
-                      textDecoration: 'none', color: 'primary.main',
-                      fontFamily: '"Plus Jakarta Sans", sans-serif',
-                      fontWeight: 700, fontSize: '0.78rem',
-                      letterSpacing: '0.12em', textTransform: 'uppercase',
-                      px: 2.5, py: 1, borderRadius: '50px',
-                      border: '1.5px solid', borderColor: 'primary.main',
-                      transition: 'all 0.25s ease',
-                      '&:hover': {
-                        backgroundColor: 'primary.main',
-                        color: 'primary.contrastText',
-                        boxShadow: '0 8px 20px rgba(38,105,41,0.28)',
-                      },
-                    }}
-                  >
-                    Learn More <ArrowForwardIosIcon sx={{ fontSize: '0.6rem' }} />
-                  </Box>
                 </Card>
               </SwiperSlide>
             ))}

@@ -6,6 +6,7 @@ import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import PeopleIcon from '@mui/icons-material/People';
 import GavelIcon from '@mui/icons-material/Gavel';
 import CloudIcon from '@mui/icons-material/Cloud';
+import contractorsImage from '../../../assets/industry/Contractors.jpg';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -14,24 +15,17 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const fadeLeft = (delay = 0) => ({
-  initial: { opacity: 0, x: 32 },
+const fadeRight = (delay = 0) => ({
+  initial: { opacity: 0, x: -32 },
   whileInView: { opacity: 1, x: 0 },
   viewport: { once: true },
   transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const TILES = [
-  { icon: TrackChangesIcon, label: 'Multi-Project Expense Tracking',     desc: 'Income and costs tracked per project in real time.' },
-  { icon: PeopleIcon,       label: 'Payroll & Subcontractor Management', desc: 'On-time pay runs and compliant 1099 handling.' },
-  { icon: GavelIcon,        label: 'Tax Law Compliance',                 desc: 'Capture deductions and file on time, every time.' },
-  { icon: CloudIcon,        label: 'Cloud-Based Financial Tools',        desc: 'Live insights accessible from the field or office.' },
-];
-
 const STATS = [
   { num: '100+', label: 'Clients'    },
   { num: '12+',  label: 'Countries'  },
-  { num: '15y+', label: 'Experience' },
+  { num: '10y+', label: 'Experience' },
 ];
 
 const CCWhatIs = () => {
@@ -44,58 +38,62 @@ const CCWhatIs = () => {
         maxWidth={false}
         sx={{ maxWidth: '1300px', mx: 'auto', px: { xs: 3, md: 5 } }}
       >
+        {/* Headline */}
+        <motion.div {...fadeUp(0.1)}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: '2rem', sm: '2.6rem', md: '3rem' },
+              lineHeight: 1.14,
+              fontWeight: 900,
+              letterSpacing: '-0.025em',
+              mb: 3,
+              textAlign: 'center',
+            }}
+          >
+            Accounting and Bookkeeping for Contractors
+          </Typography>
+        </motion.div><br></br>
+
         <Box sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: '1fr 1fr', lg: '5fr 4fr' },
           gap: { xs: 6, md: 10 },
-          alignItems: 'center',
+          alignItems: 'stretch',
         }}>
 
           {/* ══ LEFT: Text content ══ */}
           <Box>
-            {/* Overline */}
-            <motion.div {...fadeUp(0)}>
-              <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
-                <Box sx={{ width: 28, height: 2.5, borderRadius: 2, bgcolor: primary }} />
-                <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.72rem' }}>
-                  ACCOUNTING FOR CONTRACTORS
-                </Typography>
-              </Box>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.div {...fadeUp(0.1)}>
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: { xs: '2rem', sm: '2.6rem', md: '3rem' },
-                  lineHeight: 1.14,
-                  fontWeight: 900,
-                  letterSpacing: '-0.025em',
-                  mb: 3,
-                }}
-              >
-                What is Accounting and{' '}
-                <Box component="span" sx={{ color: primary }}>
-                  Bookkeeping for Contractors?
-                </Box>
-              </Typography>
-            </motion.div>
-
-            {/* Body copy */}
+            {/* Body copy - Paragraph 1 */}
             <motion.div {...fadeUp(0.18)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                Contractors are self-employed professionals engaged to complete specific tasks based on contractual agreements — across IT, consulting, and construction — and are responsible for managing their own taxes and benefits.
+                Contractors are self-employed professionals or businesses engaged to complete specific tasks or projects based on a contractual agreement. They may work across various sectors, including IT, consulting, and construction, and are typically responsible for managing their taxes and benefits.
               </Typography>
             </motion.div>
-            <motion.div {...fadeUp(0.24)}>
+
+            {/* Body copy - Paragraph 2 */}
+            <motion.div {...fadeUp(0.22)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                Accounting and bookkeeping for contractors means keeping track of all money-related activities, like recording income and expenses, handling payroll, and preparing for taxes. Accurate records help contractors keep track of project costs, control cash flow, and produce reliable financial reports. Good bookkeeping also makes it easier to stay compliant with laws, match bank records, and send correct invoices to clients.
+              </Typography>
+            </motion.div>
+
+            {/* Body copy - Paragraph 3 */}
+            <motion.div {...fadeUp(0.26)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                Tools like QuickBooks can simplify the process by automating routine tasks like expense tracking, tax calculations, and financial reporting. Many contractors choose to outsource their bookkeeping to save time, reduce administrative stress, and ensure the accuracy of their financial data, so they can focus on delivering projects and growing their business.
+              </Typography>
+            </motion.div>
+
+            {/* Body copy - Paragraph 4 */}
+            <motion.div {...fadeUp(0.30)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 4 }}>
-                Bookkeeping for contractors means recording all income and expenses, handling payroll, and preparing for taxes. Tools like QuickBooks automate expense tracking, tax calculations, and financial reporting — saving time and reducing costly errors.
+                In addition, well-structured accounting helps contractors with budgeting, profit analysis, and managing payments to subcontractors. Keeping financial records organized makes tax season more manageable and minimizes the risk of costly mistakes. With cloud-based accounting solutions, contractors can access real-time financial insights from anywhere, enhancing overall decision-making and operational efficiency.
               </Typography>
             </motion.div>
 
             {/* Stats row */}
-            <motion.div {...fadeUp(0.3)}>
+            <motion.div {...fadeUp(0.34)}>
               <Box sx={{
                 display: 'inline-flex',
                 gap: 0,
@@ -127,76 +125,28 @@ const CCWhatIs = () => {
             </motion.div>
           </Box>
 
-          {/* ══ RIGHT: Feature card (light) ══ */}
-          <motion.div {...fadeLeft(0.22)}>
+          {/* ══ RIGHT: Image ══ */}
+          <motion.div {...fadeRight(0.22)} style={{ height: '100%' }}>
             <Box sx={{
               borderRadius: '24px',
+              overflow: 'hidden',
               bgcolor: 'background.paper',
               border: (t) => `1px solid ${t.palette.mode === 'dark' ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)'}`,
-              p: { xs: 3, md: 4 },
               boxShadow: `0 20px 60px ${alpha(primary, 0.08)}`,
+              position: 'relative',
+              height: '100%',
+              minHeight: { xs: '300px', md: '400px' },
             }}>
-              {/* Card header */}
-              <Box sx={{ mb: 3, pb: 2.5, borderBottom: `1px solid ${alpha(primary, 0.12)}` }}>
-                <Typography sx={{
-                  fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 900, fontSize: '1rem',
-                  color: 'text.primary', lineHeight: 1.3,
-                }}>
-                  Why every contractor needs{' '}
-                  <Box component="span" sx={{ color: primary }}>professional bookkeeping</Box>
-                </Typography>
-              </Box>
-
-              {/* Feature tiles */}
-              <Stack spacing={1.5}>
-                {TILES.map((tile, i) => {
-                  const Icon = tile.icon;
-                  return (
-                    <motion.div key={tile.label} {...fadeUp(0.32 + i * 0.09)}>
-                      <Box
-                        sx={{
-                          display: 'flex', alignItems: 'center', gap: 2,
-                          p: 2, borderRadius: '14px',
-                          bgcolor: alpha(primary, 0.04),
-                          border: `1px solid ${alpha(primary, 0.1)}`,
-                          transition: 'all 0.25s ease',
-                          cursor: 'default',
-                          '&:hover': {
-                            bgcolor: alpha(primary, 0.08),
-                            border: `1px solid ${alpha(primary, 0.28)}`,
-                            transform: 'translateX(4px)',
-                            '& .feat-icon': { bgcolor: primary },
-                            '& .feat-icon svg': { color: '#fff' },
-                          },
-                        }}
-                      >
-                        <Box
-                          className="feat-icon"
-                          sx={{
-                            width: 40, height: 40, flexShrink: 0,
-                            borderRadius: '11px',
-                            bgcolor: alpha(primary, 0.1),
-                            border: `1px solid ${alpha(primary, 0.2)}`,
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            transition: 'all 0.25s ease',
-                          }}
-                        >
-                          <Icon sx={{ fontSize: 19, color: primary, transition: 'color 0.25s ease' }} />
-                        </Box>
-                        <Box sx={{ flex: 1, minWidth: 0 }}>
-                          <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: '0.86rem', color: 'text.primary', lineHeight: 1.3, mb: 0.2 }}>
-                            {tile.label}
-                          </Typography>
-                          <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.78rem', color: 'text.secondary', lineHeight: 1.5 }}>
-                            {tile.desc}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </motion.div>
-                  );
-                })}
-              </Stack>
+              <img
+                src={contractorsImage}
+                alt="Accounting and Bookkeeping for Contractors"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
             </Box>
           </motion.div>
 

@@ -1,11 +1,8 @@
 import React from 'react';
-import { Box, Container, Typography, Stack } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import Inventory2Icon from '@mui/icons-material/Inventory2';
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
-import CloudIcon from '@mui/icons-material/Cloud';
+import manufacturingImage from '../../../assets/industry/Manufacturing.jpg';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -14,27 +11,20 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const fadeLeft = (delay = 0) => ({
-  initial: { opacity: 0, x: 32 },
+const fadeRight = (delay = 0) => ({
+  initial: { opacity: 0, x: -32 },
   whileInView: { opacity: 1, x: 0 },
   viewport: { once: true },
   transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const TILES = [
-  { icon: Inventory2Icon,              label: 'Inventory Valuation',          desc: 'Value raw materials, WIP, and finished goods with standard, weighted-average, or cost-layering methods.' },
-  { icon: ReceiptLongIcon,             label: 'Cost of Goods Sold (COGS)',    desc: 'Align production costs with revenue for precise COGS and reliable margins.' },
-  { icon: PrecisionManufacturingIcon,  label: 'Production Cost Efficiency',   desc: 'Track raw materials, labor, and overhead to control spend and boost profitability.' },
-  { icon: CloudIcon,                   label: 'Cloud-Based Financial Tools',  desc: 'Live insights from QuickBooks, NetSuite, Xero, and Sage.' },
-];
-
 const STATS = [
   { num: '100+', label: 'Clients'    },
   { num: '12+',  label: 'Countries'  },
-  { num: '15y+', label: 'Experience' },
+  { num: '10y+', label: 'Experience' },
 ];
 
-const MCWhatIs = () => {
+const CCWhatIs = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
 
@@ -44,58 +34,79 @@ const MCWhatIs = () => {
         maxWidth={false}
         sx={{ maxWidth: '1300px', mx: 'auto', px: { xs: 3, md: 5 } }}
       >
+        {/* Headline */}
+        <motion.div {...fadeUp(0.1)}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: '2rem', sm: '2.6rem', md: '3rem' },
+              lineHeight: 1.34,
+              fontWeight: 900,
+              letterSpacing: '-0.025em',
+              mb: 3,
+              textAlign: 'center',
+            }}
+          >
+            Accounting and Bookkeeping for{' '}
+            <Box component="span" sx={{ color: primary }}>
+              the Manufacturing Industry
+            </Box>
+          </Typography>
+        </motion.div>
+
         <Box sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: '1fr 1fr', lg: '5fr 4fr' },
           gap: { xs: 6, md: 10 },
-          alignItems: 'center',
+          alignItems: 'stretch',
         }}>
 
           {/* ══ LEFT: Text content ══ */}
           <Box>
-            {/* Overline */}
-            <motion.div {...fadeUp(0)}>
-              <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
-                <Box sx={{ width: 28, height: 2.5, borderRadius: 2, bgcolor: primary }} />
-                <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.72rem' }}>
-                  ACCOUNTING FOR MANUFACTURING
-                </Typography>
-              </Box>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.div {...fadeUp(0.1)}>
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: { xs: '2rem', sm: '2.6rem', md: '3rem' },
-                  lineHeight: 1.14,
-                  fontWeight: 900,
-                  letterSpacing: '-0.025em',
-                  mb: 3,
-                }}
-              >
-                What is Accounting and{' '}
-                <Box component="span" sx={{ color: primary }}>
-                  Bookkeeping for Manufacturing?
-                </Box>
-              </Typography>
-            </motion.div>
-
-            {/* Body copy */}
+            {/* Body copy - Paragraph 1 */}
             <motion.div {...fadeUp(0.18)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                The manufacturing industry is unlike any other — only manufacturing companies create new products from raw materials. That makes accounting especially detailed: manufacturers must account for both raw materials and production costs while calculating the value of their finished goods.
+                The manufacturing industry is unlike any other. While retailers sell products and service providers offer expertise, only manufacturing companies create new products from raw materials. This unique nature makes bookkeeping and accounting for manufacturing companies especially important.
               </Typography>
             </motion.div>
-            <motion.div {...fadeUp(0.24)}>
+
+            {/* Body copy - Paragraph 2 */}
+            <motion.div {...fadeUp(0.22)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                Manufacturing businesses must account for both raw materials and production costs, as well as calculate the value of their finished goods. This complexity makes accounting services for manufacturing significantly more detailed compared to businesses that don't manage inventory.
+              </Typography>
+            </motion.div>
+
+            {/* Body copy - Paragraph 3 */}
+            <motion.div {...fadeUp(0.26)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                Manufacturing accounting focuses on key elements such as inventory valuation, cost of goods sold (COGS), and overall production efficiency. Proper bookkeeping for manufacturing companies ensures accurate financial records, helping to control costs and maximize profitability.
+              </Typography>
+            </motion.div>
+
+            {/* Body copy - Paragraph 4 */}
+            <motion.div {...fadeUp(0.30)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                To manage production patterns and material flow, manufacturers can track on-hand inventory, encourage vendor-managed inventory, use supplier drop shipping, or implement strategies that reduce inventory investment. These techniques play a vital role in both manufacturing tax planning and long-term financial management.
+              </Typography>
+            </motion.div>
+
+            {/* Body copy - Paragraph 5 */}
+            <motion.div {...fadeUp(0.34)}>
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
+                As a manufacturing business owner, keeping your finances in order is critical to long-term success. One of the most effective ways to do this is through structured accounting for manufacturing. However, with several accounting methods to choose from, finding the best fit can be challenging.
+              </Typography>
+            </motion.div>
+
+            {/* Body copy - Paragraph 6 */}
+            <motion.div {...fadeUp(0.38)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 4 }}>
-                Manufacturing accounting focuses on inventory valuation, cost of goods sold (COGS), and production efficiency. Proper bookkeeping ensures accurate records, helps control costs, and maximizes profitability — supporting both manufacturing tax planning and long-term financial management.
+                We'll break down the essential options in accounting for manufacturing businesses—including cost accounting, standard costing, and job-order costing—and help you determine which strategy best meets your company's unique needs. Whether you're preparing accurate tax returns for manufacturing or looking to improve profitability through strategic tax planning for manufacturing, a solid accounting foundation is key.
               </Typography>
             </motion.div>
 
             {/* Stats row */}
-            <motion.div {...fadeUp(0.3)}>
+            <motion.div {...fadeUp(0.42)}>
               <Box sx={{
                 display: 'inline-flex',
                 gap: 0,
@@ -127,76 +138,28 @@ const MCWhatIs = () => {
             </motion.div>
           </Box>
 
-          {/* ══ RIGHT: Feature card (light) ══ */}
-          <motion.div {...fadeLeft(0.22)}>
+          {/* ══ RIGHT: Image ══ */}
+          <motion.div {...fadeRight(0.22)} style={{ height: '100%' }}>
             <Box sx={{
               borderRadius: '24px',
+              overflow: 'hidden',
               bgcolor: 'background.paper',
               border: (t) => `1px solid ${t.palette.mode === 'dark' ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)'}`,
-              p: { xs: 3, md: 4 },
               boxShadow: `0 20px 60px ${alpha(primary, 0.08)}`,
+              position: 'relative',
+              height: '100%',
+              minHeight: { xs: '300px', md: '400px' },
             }}>
-              {/* Card header */}
-              <Box sx={{ mb: 3, pb: 2.5, borderBottom: `1px solid ${alpha(primary, 0.12)}` }}>
-                <Typography sx={{
-                  fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 900, fontSize: '1rem',
-                  color: 'text.primary', lineHeight: 1.3,
-                }}>
-                  Why every manufacturer needs{' '}
-                  <Box component="span" sx={{ color: primary }}>professional bookkeeping</Box>
-                </Typography>
-              </Box>
-
-              {/* Feature tiles */}
-              <Stack spacing={1.5}>
-                {TILES.map((tile, i) => {
-                  const Icon = tile.icon;
-                  return (
-                    <motion.div key={tile.label} {...fadeUp(0.32 + i * 0.09)}>
-                      <Box
-                        sx={{
-                          display: 'flex', alignItems: 'center', gap: 2,
-                          p: 2, borderRadius: '14px',
-                          bgcolor: alpha(primary, 0.04),
-                          border: `1px solid ${alpha(primary, 0.1)}`,
-                          transition: 'all 0.25s ease',
-                          cursor: 'default',
-                          '&:hover': {
-                            bgcolor: alpha(primary, 0.08),
-                            border: `1px solid ${alpha(primary, 0.28)}`,
-                            transform: 'translateX(4px)',
-                            '& .feat-icon': { bgcolor: primary },
-                            '& .feat-icon svg': { color: '#fff' },
-                          },
-                        }}
-                      >
-                        <Box
-                          className="feat-icon"
-                          sx={{
-                            width: 40, height: 40, flexShrink: 0,
-                            borderRadius: '11px',
-                            bgcolor: alpha(primary, 0.1),
-                            border: `1px solid ${alpha(primary, 0.2)}`,
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            transition: 'all 0.25s ease',
-                          }}
-                        >
-                          <Icon sx={{ fontSize: 19, color: primary, transition: 'color 0.25s ease' }} />
-                        </Box>
-                        <Box sx={{ flex: 1, minWidth: 0 }}>
-                          <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: '0.86rem', color: 'text.primary', lineHeight: 1.3, mb: 0.2 }}>
-                            {tile.label}
-                          </Typography>
-                          <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.78rem', color: 'text.secondary', lineHeight: 1.5 }}>
-                            {tile.desc}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </motion.div>
-                  );
-                })}
-              </Stack>
+              <img
+                src={manufacturingImage}
+                alt="Accounting and Bookkeeping for the Manufacturing Industry"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
             </Box>
           </motion.div>
 
@@ -206,4 +169,4 @@ const MCWhatIs = () => {
   );
 };
 
-export default MCWhatIs;
+export default CCWhatIs;

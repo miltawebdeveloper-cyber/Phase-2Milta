@@ -90,7 +90,7 @@ const Footer = () => {
               </Box>
 
               <Typography sx={{ fontSize: '0.95rem', lineHeight: 1.8, color: TEXT_BODY, fontWeight: 400, maxWidth: 280 }}>
-                Trusted outsourced accounting &amp; financial services for businesses across 12 countries since 2009.
+               Milta Accounting Services is a trusted outsourced accounting and financial service for small businesses across 50 states in the USA. 
               </Typography>
 
               {/* Contact chips */}
@@ -125,14 +125,14 @@ const Footer = () => {
             </Typography>
             <Stack spacing={1.8}>
               {[
-                { text: 'Tax Planning & Preparation', path: '/us/services/tax-planning-and-preparation-services-usa/' },
                 { text: 'Bookkeeping Services',       path: '/us/services/bookkeeping-company-in-the-usa/' },
+                { text: 'Payroll Management',         path: '/us/services/payroll-management-services-in-the-usa/' },
                 { text: 'CPA Services',               path: '/us/services/best-cpa-services-for-small-businesses-in-the-usa/' },
+                { text: 'Financial Controller',       path: '/us/services/financial-controller-services-in-the-usa/' },
+                { text: 'Tax Planning & Preparation', path: '/us/services/tax-planning-and-preparation-services-usa/' },
+                { text: 'Digital Marketing',          path: '/us/services/best-digital-marketing-agency-in-usa/' },
                 { text: 'Virtual Assistant',          path: '/us/services/virtual-assistant-service-in-the-usa/' },
                 { text: 'Data Entry',                 path: '/us/services/outsourcing-accounting-data-entry-services-in-the-usa/' },
-                { text: 'Financial Controller',       path: '/us/services/financial-controller-services-in-the-usa/' },
-                { text: 'Digital Marketing',          path: '/us/services/best-digital-marketing-agency-in-usa/' },
-                { text: 'Payroll Management',         path: '/us/services/payroll-management-services-in-the-usa/' },
               ].map(({ text, path }) => (
                 <Link key={text} component={RouterLink} to={path} underline="none" sx={linkSx}>{text}</Link>
               ))}

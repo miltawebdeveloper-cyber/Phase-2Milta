@@ -2,8 +2,12 @@
 
 # dependencies
 /node_modules
+server/node_modules
 /.pnp
 .pnp.js
+
+# full-resolution image backups (compressed copies live in src/assets/)
+/assets-originals
 
 # testing
 /coverage

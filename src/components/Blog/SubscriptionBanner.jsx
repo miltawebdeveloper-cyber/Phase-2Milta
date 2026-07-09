@@ -1,13 +1,50 @@
-import React from "react";
-import { Box, Typography, InputBase, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Typography, InputBase, Button, Snackbar, Alert } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { submitNewsletterForm } from "../../api/client";
 
 const SubscriptionBanner = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
   const darkGreen = "#062214"; // A deep, rich aesthetic green
+
+  const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const [snackbar, setSnackbar] = useState({ open: false, severity: 'error', message: '' });
+
+  const closeSnackbar = () => setSnackbar((s) => ({ ...s, open: false }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const trimmed = email.trim();
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+      setSnackbar({ open: true, severity: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const result = await submitNewsletterForm({ email: trimmed });
+      if (result?.error) throw new Error(result.error);
+
+      setSubscribed(true);
+      setEmail("");
+    } catch (err) {
+      console.error('Newsletter subscribe failed:', err);
+      setSnackbar({
+        open: true,
+        severity: 'error',
+        message: 'Something went wrong. Please try again in a moment.',
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <Box
@@ -87,7 +124,7 @@ const SubscriptionBanner = () => {
               fontSize: { xs: "2.4rem", sm: "3.2rem", md: "3.8rem" },
               lineHeight: 1.15,
               color: "#ffffff",
-              mb: 2.5,
+              mb: 5.5,
               letterSpacing: "-0.02em",
             }}
           >
@@ -95,81 +132,104 @@ const SubscriptionBanner = () => {
           </Typography>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-          <Typography
-            sx={{
-              fontFamily: '"Outfit", sans-serif',
-              fontSize: { xs: "1.05rem", md: "1.2rem" },
-              color: "rgba(255,255,255,0.8)",
-              lineHeight: 1.6,
-              mb: 5.5,
-              maxWidth: "560px",
-              mx: "auto",
-            }}
-          >
-            Get exclusive curated finance, accounting, and growth insights delivered straight to your inbox every week. No spam, just pure value.
-          </Typography>
-        </motion.div>
-
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              bgcolor: "rgba(255,255,255,0.08)",
-              backdropFilter: "blur(16px)",
-              border: "1px solid rgba(255,255,255,0.2)",
-              borderRadius: "50px",
-              p: 0.8,
-              pl: { xs: 2.5, md: 3.5 },
-              mx: "auto",
-              maxWidth: "520px",
-              transition: "all 0.3s ease",
-              "&:focus-within": {
-                bgcolor: "rgba(255,255,255,0.12)",
-                borderColor: "rgba(255,255,255,0.4)",
-                boxShadow: `0 0 0 4px ${alpha("#85f0b4", 0.15)}`,
-              },
-            }}
-          >
-            <InputBase
-              placeholder="Enter your email address"
+          {subscribed ? (
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1.5, minHeight: 72 }}>
+              <CheckCircleIcon sx={{ fontSize: 32, color: "#85f0b4" }} />
+              <Typography
+                sx={{
+                  fontFamily: '"Plus Jakarta Sans", sans-serif',
+                  fontWeight: 800,
+                  fontSize: { xs: "1.05rem", md: "1.2rem" },
+                  color: "#ffffff",
+                }}
+              >
+                You're subscribed. Watch your inbox!
+              </Typography>
+            </Box>
+          ) : (
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
               sx={{
-                flex: 1,
-                color: "#ffffff",
-                fontFamily: '"Outfit", sans-serif',
-                fontSize: "1.05rem",
-                mr: 2,
-                "&::placeholder": { color: "rgba(255,255,255,0.55)", opacity: 1 },
-              }}
-            />
-            <Button
-              variant="contained"
-              endIcon={<SendRoundedIcon sx={{ fontSize: "1.1rem" }} />}
-              sx={{
-                borderRadius: "40px",
-                px: { xs: 2.5, sm: 3.5 },
-                py: { xs: 1.4, md: 1.6 },
-                bgcolor: "#ffffff",
-                color: darkGreen,
-                fontFamily: '"Plus Jakarta Sans", sans-serif',
-                fontWeight: 800,
-                fontSize: "1rem",
-                textTransform: "none",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
-                "&:hover": {
-                  bgcolor: "#f0f0f0",
-                  transform: "translateY(-2px)",
-                  boxShadow: "0 12px 28px rgba(0,0,0,0.25)",
+                display: "flex",
+                alignItems: "center",
+                bgcolor: "rgba(255,255,255,0.08)",
+                backdropFilter: "blur(16px)",
+                border: "1px solid rgba(255,255,255,0.2)",
+                borderRadius: "50px",
+                p: 0.8,
+                pl: { xs: 2.5, md: 3.5 },
+                mx: "auto",
+                maxWidth: "520px",
+                transition: "all 0.3s ease",
+                "&:focus-within": {
+                  bgcolor: "rgba(255,255,255,0.12)",
+                  borderColor: "rgba(255,255,255,0.4)",
+                  boxShadow: `0 0 0 4px ${alpha("#85f0b4", 0.15)}`,
                 },
-                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
             >
-              Subscribe
-            </Button>
-          </Box>
+              <InputBase
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={submitting}
+                placeholder="Enter your email address"
+                inputProps={{ "aria-label": "Email address" }}
+                sx={{
+                  flex: 1,
+                  color: "#ffffff",
+                  fontFamily: '"Outfit", sans-serif',
+                  fontSize: "1.05rem",
+                  mr: 2,
+                  "&::placeholder": { color: "rgba(255,255,255,0.55)", opacity: 1 },
+                }}
+              />
+              <Button
+                type="submit"
+                variant="contained"
+                disabled={submitting}
+                endIcon={<SendRoundedIcon sx={{ fontSize: "1.1rem" }} />}
+                sx={{
+                  borderRadius: "40px",
+                  px: { xs: 2.5, sm: 3.5 },
+                  py: { xs: 1.4, md: 1.6 },
+                  bgcolor: "#ffffff",
+                  color: darkGreen,
+                  fontFamily: '"Plus Jakarta Sans", sans-serif',
+                  fontWeight: 800,
+                  fontSize: "1rem",
+                  textTransform: "none",
+                  whiteSpace: "nowrap",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
+                  "&:hover": {
+                    bgcolor: "#f0f0f0",
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 12px 28px rgba(0,0,0,0.25)",
+                  },
+                  "&.Mui-disabled": { bgcolor: "rgba(255,255,255,0.6)", color: alpha(darkGreen, 0.5) },
+                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                }}
+              >
+                {submitting ? "Sending..." : "Subscribe"}
+              </Button>
+            </Box>
+          )}
         </motion.div>
       </Box>
+
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={5000}
+        onClose={closeSnackbar}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert onClose={closeSnackbar} severity={snackbar.severity} sx={{ width: "100%" }}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

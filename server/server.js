@@ -24,20 +24,16 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+// Both values may hold a comma-separated list, so split either one.
 const parseRecipients = (recipientsValue, fallbackEmail, fallbackName) => {
-  if (recipientsValue) {
-    return recipientsValue
-      .split(",")
-      .map((entry) => entry.trim())
-      .filter(Boolean)
-      .map((entry) => ({ email: entry, name: fallbackName || "Team" }));
-  }
+  const source = recipientsValue || fallbackEmail;
+  if (!source) return [];
 
-  if (fallbackEmail) {
-    return [{ email: fallbackEmail, name: fallbackName || "Team" }];
-  }
-
-  return [];
+  return source
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .map((entry) => ({ email: entry, name: fallbackName || "Team" }));
 };
 
 const sendBrevoTemplateEmail = async ({ templateId, params, recipients, replyTo, senderName }) => {
@@ -216,24 +212,13 @@ app.post("/api/contact", async (req, res) => {
     const {
       firstName,
       lastName,
+      companyName,
       email,
       phoneNumber,
+      howDidYouFind,
       serviceInterest,
       message,
     } = req.body;
-
-    const { data, error } = await supabase.from("contact_messages").insert([
-      {
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
-        phone_number: phoneNumber,
-        service_interest: serviceInterest,
-        message: message || "",
-      },
-    ]);
-
-    if (error) throw error;
 
     let emailNotification;
 
@@ -248,8 +233,10 @@ app.post("/api/contact", async (req, res) => {
           form_type: "contact",
           first_name: firstName || "",
           last_name: lastName || "",
+          company_name: companyName || "",
           email: email || "",
           phone_number: phoneNumber || "",
+          how_did_you_find: howDidYouFind || "",
           service_interest: serviceInterest || "",
           message: message || "",
         },
@@ -258,12 +245,21 @@ app.post("/api/contact", async (req, res) => {
       console.error("Brevo contact email send error:", emailError);
       emailNotification = {
         success: false,
-        message: "Contact saved, but Brevo email notification failed.",
+        message: "Brevo email notification failed.",
         error: emailError.message,
       };
     }
 
-    res.json({ success: true, data, emailNotification });
+    // Email is the only record of this submission, so a failed send must not
+    // report success — the visitor would think we received the enquiry.
+    if (!emailNotification.success) {
+      return res.status(500).json({
+        error: "Could not deliver your message. Please try again.",
+        emailNotification,
+      });
+    }
+
+    res.json({ success: true, emailNotification });
   } catch (error) {
     console.error("POST /api/contact error:", error);
     res.status(500).json({ error: error.message });
@@ -291,9 +287,16 @@ app.post("/api/newsletter", async (req, res) => {
       console.error("Brevo newsletter email send error:", emailError);
       emailNotification = {
         success: false,
-        message: "Newsletter subscription saved, but Brevo email notification failed.",
+        message: "Brevo email notification failed.",
         error: emailError.message,
       };
+    }
+
+    if (!emailNotification.success) {
+      return res.status(500).json({
+        error: "Could not complete your subscription. Please try again.",
+        emailNotification,
+      });
     }
 
     res.json({ success: true, emailNotification });
@@ -340,24 +343,6 @@ app.post("/api/apply", upload.single("resume"), async (req, res) => {
       resumeURL = publicUrlData.publicUrl;
     }
 
-    // Insert application record - Exactly matching provided schema
-    const { data, error } = await supabase.from("applications").insert([
-      {
-        firstName: firstName,
-        phone: phone,
-        jobType: jobType || null,
-        position: position || null,
-        email: email || null,
-        reference: reference || "",
-        resumeURL: resumeURL,
-      },
-    ]);
-
-    if (error) {
-      console.error("Supabase Insert Error:", error);
-      return res.status(500).json({ error: `Database Error: ${error.message}` });
-    }
-
     const brevoParams = {
       form_type: "job application",
       firstName: firstName || "",
@@ -383,12 +368,21 @@ app.post("/api/apply", upload.single("resume"), async (req, res) => {
       console.error("Brevo email send error:", emailError);
       emailNotification = {
         success: false,
-        message: "Application saved, but Brevo email notification failed.",
+        message: "Brevo email notification failed.",
         error: emailError.message,
       };
     }
 
-    res.json({ success: true, data, resumeURL, emailNotification });
+    // The resume survives in storage, but nobody is notified — treat as a failure.
+    if (!emailNotification.success) {
+      return res.status(500).json({
+        error: "Could not submit your application. Please try again.",
+        resumeURL,
+        emailNotification,
+      });
+    }
+
+    res.json({ success: true, resumeURL, emailNotification });
   } catch (error) {
     console.error("POST /api/apply critical error:", error);
     res.status(500).json({ error: error.message || "Internal server error" });

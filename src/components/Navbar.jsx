@@ -14,6 +14,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
 import { useThemeMode } from '../ThemeContext';
+import { useConsultation } from './ConsultationModal';
 
 const navItems = [
   { label: 'Home',     path: '/' },
@@ -21,15 +22,16 @@ const navItems = [
   {
     label: 'Services',
     path: '/services',
+    hasPage: true,
     children: [
       { label: 'Book Keeping',        path: '/us/services/bookkeeping-company-in-the-usa/' },
-      { label: 'Tax Planning',        path: '/us/services/tax-planning-and-preparation-services-usa/' },
-      { label: 'Virtual Assistant',   path: '/us/services/virtual-assistant-service-in-the-usa/' },
-      { label: 'CPA Services',        path: '/us/services/best-cpa-services-for-small-businesses-in-the-usa/' },
-      { label: 'Data Entry',          path: '/us/services/outsourcing-accounting-data-entry-services-in-the-usa/' },
-      { label: 'Financial Controller',path: '/us/services/financial-controller-services-in-the-usa/' },
-      { label: 'Digital Marketing',   path: '/us/services/best-digital-marketing-agency-in-usa/' },
       { label: 'Payroll Management',  path: '/us/services/payroll-management-services-in-the-usa/' },
+      { label: 'CPA Services',        path: '/us/services/best-cpa-services-for-small-businesses-in-the-usa/' },
+      { label: 'Financial Controller',path: '/us/services/financial-controller-services-in-the-usa/' },
+      { label: 'Tax Planning',        path: '/us/services/tax-planning-and-preparation-services-usa/' },
+      { label: 'Digital Marketing',   path: '/us/services/best-digital-marketing-agency-in-usa/' },
+      { label: 'Virtual Assistant',   path: '/us/services/virtual-assistant-service-in-the-usa/' },
+      { label: 'Data Entry',          path: '/us/services/outsourcing-accounting-data-entry-services-in-the-usa/' },
     ],
   },
   { label: 'Industry', path: '/industry',
@@ -50,7 +52,7 @@ const navItems = [
 ];
 
 const DARK_HERO_PATHS = [
-  '/about', '/contact', '/career', '/areas-we-serve',
+  '/about', '/contact', '/career', '/areas-we-serve', '/services',
   '/us/services/bookkeeping-company-in-the-usa/',
   '/us/services/tax-planning-and-preparation-services-usa/',
   '/us/services/virtual-assistant-service-in-the-usa/',
@@ -108,6 +110,7 @@ const Navbar = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
   const { mode, toggleMode } = useThemeMode();
+  const { open: openConsultation } = useConsultation();
   const location = useLocation();
 
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 50 });
@@ -122,7 +125,11 @@ const Navbar = () => {
     return false;
   };
 
-  const isDarkHero = mode === 'light' && DARK_HERO_PATHS.includes(location.pathname);
+  // Every service page (generic USA pages + all state service pages under
+  // /us/services/) renders over a dark hero, so it gets the same transparent,
+  // white-text navbar treatment as the About page.
+  const isServicePage = location.pathname.startsWith('/us/services/');
+  const isDarkHero = mode === 'light' && (isServicePage || DARK_HERO_PATHS.includes(location.pathname));
   const onHero = !trigger && isDarkHero;
 
   const closeTimeout = useRef(null);
@@ -193,10 +200,13 @@ const Navbar = () => {
                     onMouseLeave={closeMenu}
                     sx={{ position: 'relative' }}
                   >
-                    <Typography variant="body2" sx={{
+                    <Typography
+                      variant="body2"
+                      {...(item.hasPage ? { component: RouterLink, to: item.path, onClick: () => setOpenDropdown(null) } : {})}
+                      sx={{
                       px: 2.2, py: 1, borderRadius: '50px',
                       fontWeight: active ? 800 : 600, fontSize: '0.82rem', letterSpacing: 1.2,
-                      cursor: 'pointer',
+                      cursor: 'pointer', textDecoration: 'none',
                       display: 'flex', alignItems: 'center', gap: 0.5,
                       transition: 'all 0.25s ease', userSelect: 'none',
                       color: onHero
@@ -390,8 +400,7 @@ const Navbar = () => {
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
               <Button
                 variant={onHero ? 'outlined' : 'contained'}
-                component={RouterLink}
-                to="/contact"
+                onClick={openConsultation}
                 sx={{
                   px: 3.5, py: 1.2,
                   borderRadius: '50px',
@@ -581,9 +590,7 @@ const Navbar = () => {
             <Button
               variant="contained"
               fullWidth
-              component={RouterLink}
-              to="/contact"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => { setMobileOpen(false); openConsultation(); }}
               sx={{
                 borderRadius: '50px',
                 py: { xs: 1.5, sm: 2 },

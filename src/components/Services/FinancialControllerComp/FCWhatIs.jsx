@@ -2,9 +2,10 @@ import React from 'react';
 import { Box, Container, Typography, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ConsultationButton from '../../ConsultationButton';
 import CheckIcon from '@mui/icons-material/Check';
 import RemoveIcon from '@mui/icons-material/Remove';
+import financeImage from '../../../assets/services/finance.jpg';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -12,13 +13,6 @@ const fadeUp = (delay = 0) => ({
   viewport: { once: true },
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
-
-const POINTS = [
-  'Senior-Level Financial Oversight: a financial controller ensures all accounting processes run smoothly and comply with US accounting standards and regulations.',
-  'Beyond Routine Accounting: FC services cover everything from day-to-day accounting oversight to strategic financial analysis, tailored to your SMB needs.',
-  'The Right Leadership for SMEs: expert financial management without the cost of a full-time CFO — the ideal solution for growing small and medium businesses.',
-  'Compliance & Accuracy: every financial process follows US GAAP and regulatory standards, protecting your business from penalties, audits, and errors.',
-];
 
 const COMPARISON = [
   { cap: 'Accounting Function Oversight',              ctrl: true,  cfo: true  },
@@ -55,31 +49,19 @@ const FCWhatIs = () => {
             </motion.div>
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ fontSize: { xs: '1.9rem', md: '2.8rem' }, lineHeight: 1.2, mb: 2.5 }}>
-                What is a Finance Controller Services and{' '}
-                <Box component="span" sx={{ color: primary }}>How It Empowers Your SME?</Box>
+                Maximize Your Financial Reporting & Analysis{' '}
+                <Box component="span" sx={{ color: primary }}>with an Outsourced Financial Controller</Box>
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.18)}>
               <Box sx={{ width: 48, height: 3, borderRadius: 4, bgcolor: alpha(primary, 0.35), mb: 3 }} />
               <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.85, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                Certified Financial Controller Services for SMEs refer to a set of financial management functions aimed at overseeing and managing a company's financial operations. A financial controller is a senior-level finance professional responsible for ensuring that a business's financial processes run smoothly and remain compliant with accounting standards and regulations.
+                A Certified Financial Controller leads your accounting controller service, ensuring compliance, accurate and timely financial records, detailed reporting and analysis, and efficient processes that support the entire operation.
               </Typography>
-              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.85, fontFamily: '"Outfit", sans-serif', mb: 3, fontWeight: 600 }}>
-                The role is crucial for SMBs — here's how Miltafs Financial Controller Services stand apart:
-              </Typography>
+              <Box sx={{ mt: 1 }}>
+                <ConsultationButton label="Schedule Your Free Consultation" />
+              </Box>
             </motion.div>
-            <Stack spacing={1.5}>
-              {POINTS.map((point, i) => (
-                <motion.div key={i} {...fadeUp(0.22 + i * 0.08)}>
-                  <Stack direction="row" spacing={1.5} alignItems="flex-start">
-                    <CheckCircleIcon sx={{ fontSize: 20, color: primary, mt: 0.2, flexShrink: 0 }} />
-                    <Typography sx={{ color: 'text.secondary', fontSize: '0.95rem', fontFamily: '"Outfit", sans-serif', lineHeight: 1.7 }}>
-                      {point}
-                    </Typography>
-                  </Stack>
-                </motion.div>
-              ))}
-            </Stack>
           </Box>
 
           {/* Image side */}
@@ -93,14 +75,14 @@ const FCWhatIs = () => {
             <Box sx={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', boxShadow: `0 32px 80px ${alpha(primary, 0.12)}` }}>
               <Box
                 component="img"
-                src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
+                src={financeImage}
                 alt="Financial controller services"
                 sx={{ width: '100%', height: 480, objectFit: 'cover', display: 'block', transition: 'transform 0.6s ease', '&:hover': { transform: 'scale(1.04)' } }}
               />
               <Box sx={{ position: 'absolute', inset: 0, background: `linear-gradient(45deg, ${alpha(primary, 0.15)} 0%, transparent 60%)` }} />
               <Box sx={{ position: 'absolute', bottom: 24, left: 24, right: 24, borderRadius: '16px', bgcolor: (t) => t.palette.mode === 'dark' ? 'rgba(25,42,27,0.95)' : 'rgba(255,255,255,0.95)', backdropFilter: 'blur(12px)', p: 2.5, boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
                 <Stack direction="row" spacing={3} justifyContent="space-around">
-                  {[{ num: '100+', label: 'Clients' }, { num: '12+', label: 'Countries' }, { num: '15y+', label: 'Experience' }].map(({ num, label }) => (
+                  {[{ num: '100+', label: 'Clients' }, { num: '50', label: 'States' }, { num: '10y+', label: 'Experience' }].map(({ num, label }) => (
                     <Box key={label} textAlign="center">
                       <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 900, fontSize: '1.4rem', color: primary, lineHeight: 1 }}>{num}</Typography>
                       <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.7rem', color: 'text.secondary', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', mt: 0.4 }}>{label}</Typography>

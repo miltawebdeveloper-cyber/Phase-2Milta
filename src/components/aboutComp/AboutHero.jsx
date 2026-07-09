@@ -14,7 +14,7 @@ const HeroModern = ({ title = "About Us", breadcrumbPage = "About Us" }) => {
     <Box
       sx={{
         position: 'relative',
-        minHeight: { xs: 'auto', md: '60vh' },
+        minHeight: { xs: 'auto', md: '78vh' },
         background: `linear-gradient(145deg, #0d1f0e 0%, #163018 50%, #1a3d1c 100%)`,
         display: 'flex',
         alignItems: 'center',
@@ -93,12 +93,31 @@ const HeroModern = ({ title = "About Us", breadcrumbPage = "About Us" }) => {
               dangerouslySetInnerHTML={{ __html: title }}
               sx={{
                 fontSize: { xs: '2.4rem', sm: '3.5rem', md: '4rem', lg: '4.8rem' },
+                lineHeight: 1.25,
+                textAlign: 'center',
                 color: theme.palette.primary.contrastText,
                 maxWidth: { xs: '100%', md: '820px' },
                 mx: 'auto',
-                mb: 4,
+                mb: 2.5,
               }}
             />
+
+            <Typography
+              sx={{
+                fontSize: { xs: '1rem', md: '1.15rem' },
+                lineHeight: 1.8,
+                textAlign: 'center',
+                color: alpha(theme.palette.primary.contrastText, 0.85),
+                maxWidth: { xs: '100%', md: '720px' },
+                mx: 'auto',
+                mb: 4,
+              }}
+            >
+              <Box component="span" sx={{ display: 'block', fontWeight: 700 }}>
+                Trusted by 100+ Clients Across 50 States.
+              </Box>
+              Proudly serving small businesses, growing enterprises, and Fortune 500 companies.
+            </Typography>
           </motion.div>
 
           {/* Breadcrumbs */}
