@@ -164,7 +164,7 @@ export default function Bookkeeping() {
           "Outsourcing your bookkeeping gives you expert accuracy, tax-readiness, and the freedom to focus entirely on growing your Florida business.",
         panelStats: [
           { num: "100+", label: "Clients" },
-          { num: "15y+", label: "Experience" },
+          { num: "10y+", label: "Experience" },
           { num: "100%", label: "Accuracy" },
           { num: "24/7", label: "Support" },
         ],

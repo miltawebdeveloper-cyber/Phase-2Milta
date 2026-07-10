@@ -50,6 +50,11 @@ const VAWhyChoose = () => {
               <Box component="span" sx={{ color: primary }}>Virtual Assistant Services?</Box>
             </Typography>
           </motion.div>
+          <motion.div {...fadeUp(0.14)}>
+            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, fontFamily: '"Outfit", sans-serif', mt: 2, maxWidth: 680 }}>
+              We stand out as a trusted partner for small businesses looking for efficient, reliable, and scalable virtual assistant solutions.
+            </Typography>
+          </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Box sx={{ width: 48, height: 3, borderRadius: 4, bgcolor: alpha(primary, 0.3), mt: 2 }} />
           </motion.div>

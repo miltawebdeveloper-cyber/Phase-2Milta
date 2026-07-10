@@ -7,26 +7,24 @@ import { motion } from "framer-motion";
 
 const people = [
   {
-    index: "01",
     name: "Mohammed Rizwan",
     role: "Managing Director",
     experience: "10+ Years",
     content:
       "Mohammed Rizwan holds a Bachelor's degree in Commerce and brings over a decade of hands-on experience in the financial services industry. His expertise spans accounting, strategic planning, and client relationship management.",
     img: "/MD2.png",
-    linkedin: "https://www.linkedin.com/in/mohammed-rizwan",
-    email: "rizwan@miltafs.com",
+    linkedin: "https://www.linkedin.com/in/mohammed-rizwan-8b4a221a2/",
+    email: "mohammed@miltafs.com",
   },
   {
-    index: "02",
     name: "Raja Vignesh",
     role: "Managing Director",
     experience: "10+ Years",
     content:
       "Raja Vignesh is a graduate with a Bachelor's degree in Business Administration and has more than 10 years of experience in the financial sector. He specializes in growing the business, improving operations, and leading teams.",
     img: "/MD1.png",
-    linkedin: "https://www.linkedin.com/in/raja-vignesh",
-    email: "vignesh@miltafs.com",
+    linkedin: "https://www.linkedin.com/in/raja-vignesh-5ab3a3375/",
+    email: "conway@miltafs.com",
   },
 ];
 
@@ -118,21 +116,7 @@ const PartnerSection = () => {
             </Typography>
           </motion.div>
 
-          {/* Subtitle */}
-          <motion.div
-            initial="hidden" whileInView="show" viewport={{ once: true }}
-            variants={fadeUp} custom={0.2}
-          >
-            <Typography sx={{
-              fontSize: "1rem",
-              color: "text.secondary",
-              lineHeight: 1.8,
-              maxWidth: 460,
-              mx: "auto",
-            }}>
-              Driven by purpose and shaped by experience — meet the leaders defining Milta's future.
-            </Typography>
-          </motion.div>
+        
 
           {/* Accent bar — scale-in from center */}
           <motion.div
@@ -182,27 +166,7 @@ const PartnerSection = () => {
                 {/* ── Photo with overlay ── */}
                 <Box sx={{ position: "relative", overflow: "hidden" }}>
 
-                  {/* Index badge — pop in */}
-                  <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.2 + 0.5, ease: "backOut" }}
-                    style={{ position: "absolute", top: 18, right: 18, zIndex: 3 }}
-                  >
-                    <Box sx={{
-                      width: 44, height: 44, borderRadius: "50%",
-                      bgcolor: "rgba(255,255,255,0.92)",
-                      backdropFilter: "blur(10px)",
-                      border: `2px solid ${alpha(primary, 0.2)}`,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                    }}>
-                      <Typography sx={{ fontSize: "0.72rem", fontWeight: 800, color: primary, letterSpacing: "0.05em" }}>
-                        {p.index}
-                      </Typography>
-                    </Box>
-                  </motion.div>
+                
 
                   {/* Experience badge — slide in from left */}
                   <motion.div

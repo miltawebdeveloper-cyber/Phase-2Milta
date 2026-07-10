@@ -37,8 +37,9 @@ const CPAServices = () => {
     <BKHero />
     
       <CPAWhatIs />
-      <CPAWhyChoose />
       <CPASolutions />
+      <CPAWhyChoose />
+      
       <CPAAdvantages />
       <CPATrustedPartner />
       <CPAFAQ />

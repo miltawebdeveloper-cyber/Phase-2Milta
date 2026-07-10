@@ -8,9 +8,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import SettingsIcon from '@mui/icons-material/Settings';
 import VerifiedIcon from '@mui/icons-material/Verified';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import PeopleIcon from '@mui/icons-material/People';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -20,14 +18,65 @@ const fadeUp = (delay = 0) => ({
 });
 
 const SERVICES = [
-  { icon: AccountBalanceIcon, title: 'Accounting & Bookkeeping',        desc: 'Financial statement preparation, GL maintenance, AR/AP management, bank reconciliations, and payroll processing.' },
-  { icon: ReceiptLongIcon,    title: 'Tax Planning & Preparation',       desc: 'Corporate returns (1120, 1120S, 1065), individual filings (1040, 1041), sales tax, payroll tax, and IRS representation.' },
-  { icon: BarChartIcon,       title: 'Financial Consulting & Advisory',  desc: 'Budgeting, cash flow management, business valuation, risk management, and mergers & acquisitions advisory.' },
-  { icon: CleaningServicesIcon,title: 'Catch-Up & Clean-Up Services',   desc: 'Review and correction of historical records, reconciliation of discrepancies, and updating outdated accounting systems.' },
-  { icon: SettingsIcon,       title: 'Accounting Software Setup',        desc: 'QuickBooks setup and training, cloud migrations to Xero, seamless desktop-to-online conversions, and ongoing support.' },
-  { icon: VerifiedIcon,       title: 'Audit & Assurance Services',       desc: 'Internal audits, financial statement reviews, compilations, compliance audits, and regulatory reporting.' },
-  { icon: AssignmentIcon,     title: 'Write-Up Services',                desc: 'Monthly, quarterly, and annual write-up including data entry, account reconciliations, and general ledger checks for accuracy.' },
-  { icon: PeopleIcon,         title: 'CPA Firm Back-Office Support',     desc: 'Tax preparation assistance, data entry, reconciliation, and audit documentation support for CPA firms during peak seasons.' },
+  {
+    icon: AccountBalanceIcon,
+    title: 'Accounting & Bookkeeping Services',
+    items: [
+      'Financial statements for the month, quarter, and year.',
+      'Reconciliations and general ledger review.',
+      'Management of accounts payable and receivable.',
+      'Processing and compliance with payroll.',
+      'Reconciliation of credit cards and banks.',
+    ],
+  },
+  {
+    icon: ReceiptLongIcon,
+    title: 'Tax Planning & Preparation',
+    items: [
+      'Tax returns for individuals and corporations (Forms 1040, 1120S, 1065, etc.).',
+      'Sales tax and payroll filings.',
+      'Evaluations and advice on tax compliance.',
+      'IRS participation in audits.',
+    ],
+  },
+  {
+    icon: BarChartIcon,
+    title: 'Financial Consulting & Advisory',
+    items: [
+      'Forecasting and budgeting techniques.',
+      'Optimization of cash flow.',
+      'Financial analysis and business valuation.',
+      'Internal controls and risk management.',
+      'Advice on mergers and acquisitions.',
+    ],
+  },
+  {
+    icon: CleaningServicesIcon,
+    title: 'Catch-Up & Clean-Up Accounting',
+    items: [
+      'Corrections to historical records.',
+      'Identification and reconciliation of discrepancies.',
+      'Upgrades to outdated accounting systems.',
+    ],
+  },
+  {
+    icon: SettingsIcon,
+    title: 'Software Setup & Conversions',
+    items: [
+      'QuickBooks migration and customization.',
+      'Conversion to Xero-like cloud systems.',
+      'Continuous technical assistance and troubleshooting.',
+    ],
+  },
+  {
+    icon: VerifiedIcon,
+    title: 'Audit & Assurance Services',
+    items: [
+      'Risk assessments and internal audits.',
+      'Audits and evaluations of financial statements.',
+      'Regulatory reporting and compliance.',
+    ],
+  },
 ];
 
 const CPASolutions = () => {
@@ -57,17 +106,18 @@ const CPASolutions = () => {
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
               Our Core CPA{' '}
               <Box component="span" sx={{ color: primary }}>Services</Box>
+              {' '}in the USA
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 560, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              From organizing financial records to tax filings, financial consulting, and audit support — we cover every aspect of your business finances.
+              From tax planning to audit and financial advisory, we support your business at every stage of growth.
             </Typography>
           </motion.div>
         </Box>
 
         {/* Service grid */}
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2.5 }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 2.5 }}>
           {SERVICES.map((svc, i) => {
             const Icon = svc.icon;
             return (
@@ -101,7 +151,6 @@ const CPASolutions = () => {
                     '& .icon-svg': { color: '#ffffff' },
                     '& .card-title': { color: primary },
                     '& .card-num': { opacity: 1 },
-                    '& .card-arrow': { opacity: 1, transform: 'translateX(0px)' },
                   },
                 }}
               >
@@ -116,9 +165,9 @@ const CPASolutions = () => {
 
                 {/* Faded watermark number */}
                 <Typography className="card-num" sx={{
-                  position: 'absolute', bottom: 10, right: 14,
+                  position: 'absolute', top: 14, right: 18,
                   fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 900, fontSize: '3.8rem', lineHeight: 1,
+                  fontWeight: 900, fontSize: '3.2rem', lineHeight: 1,
                   color: alpha(primary, 0.07),
                   userSelect: 'none', pointerEvents: 'none',
                   opacity: 0,
@@ -143,37 +192,27 @@ const CPASolutions = () => {
                 {/* Title */}
                 <Typography className="card-title" sx={{
                   fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 800, fontSize: '0.95rem',
-                  color: 'text.primary', mb: 1, lineHeight: 1.35,
+                  fontWeight: 800, fontSize: '1rem',
+                  color: 'text.primary', mb: 2, lineHeight: 1.35,
                   transition: 'color 0.28s ease',
                 }}>
                   {svc.title}
                 </Typography>
 
-                {/* Description */}
-                <Typography sx={{
-                  fontFamily: '"Outfit", sans-serif',
-                  fontSize: '0.84rem', lineHeight: 1.72,
-                  color: 'text.secondary',
-                  pr: 2,
-                }}>
-                  {svc.desc}
-                </Typography>
-
-                {/* Slide-in arrow */}
-                <Box className="card-arrow" sx={{
-                  display: 'inline-flex', alignItems: 'center', gap: 0.5,
-                  mt: 2.5,
-                  color: primary,
-                  fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 700, fontSize: '0.75rem',
-                  letterSpacing: '0.1em', textTransform: 'uppercase',
-                  opacity: 0,
-                  transform: 'translateX(-8px)',
-                  transition: 'opacity 0.3s ease, transform 0.3s ease',
-                }}>
-                  Learn more
-                  <ArrowForwardIcon sx={{ fontSize: '0.8rem' }} />
+                {/* Bulleted items */}
+                <Box component="ul" sx={{ listStyle: 'none', m: 0, p: 0, display: 'flex', flexDirection: 'column', gap: 1.25 }}>
+                  {svc.items.map((item) => (
+                    <Box component="li" key={item} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.25 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary, mt: '2px', flexShrink: 0 }} />
+                      <Typography sx={{
+                        fontFamily: '"Outfit", sans-serif',
+                        fontSize: '0.86rem', lineHeight: 1.55,
+                        color: 'text.secondary',
+                      }}>
+                        {item}
+                      </Typography>
+                    </Box>
+                  ))}
                 </Box>
 
               </Box>

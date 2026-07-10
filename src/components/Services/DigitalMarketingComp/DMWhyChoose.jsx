@@ -17,12 +17,12 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: LayersIcon,       title: 'Comprehensive Services',   desc: 'A full suite of digital marketing services — SEO, PPC, social media, email marketing, and content creation — all under one roof to deliver complete online growth.' },
-  { icon: GroupsIcon,       title: 'Expert Team',               desc: 'Our dedicated professionals bring years of experience and stay updated on the latest trends and tools to ensure every campaign is optimized for success.', featured: true },
-  { icon: TuneIcon,         title: 'Best Strategies',           desc: 'We take a personalized approach, crafting strategies that align with your business goals, industry, and target audience for better engagement and higher ROI.' },
-  { icon: QueryStatsIcon,   title: 'Data-Driven Approach',      desc: 'We utilize data analytics to inform decisions — continually monitoring and refining campaigns to deliver optimal, measurable, and transparent results.' },
-  { icon: VerifiedIcon,     title: 'Proven Track Record',       desc: 'From small businesses to large enterprises, we have helped brands enhance their online presence, attract more customers, and achieve sustainable growth.' },
-  { icon: EmojiEventsIcon,  title: 'Commitment to Results',     desc: 'Your success is our priority. We focus on increasing traffic, generating leads, and driving revenue — with full transparency and accountability throughout.' },
+  { icon: LayersIcon,       title: 'Complete Digital Marketing Solutions',              desc: 'Miltafs provides end-to-end digital marketing services including SEO, PPC ads, Social Media Marketing, Email Marketing, Branding, and Content Marketing—everything your business needs under one roof.' },
+  { icon: GroupsIcon,       title: 'Expert & Certified Digital Marketers',              desc: 'Our experienced team stays updated with the latest marketing trends, tools, and algorithm changes. We execute proven strategies to boost conversions, engagement, and brand visibility.', featured: true },
+  { icon: TuneIcon,         title: 'High-ROI Marketing Strategies',                     desc: 'Every brand is unique. Our data-backed, personalized marketing plans focus on measurable results such as higher lead generation, increased sales, and better campaign performance.' },
+  { icon: QueryStatsIcon,   title: 'Analytics-Driven Marketing & Transparent Reporting', desc: "With real-time analytics, campaign tracking, and monthly reports, we ensure full transparency. You can clearly see what's working and where improvements are made." },
+  { icon: VerifiedIcon,     title: 'Proven Results & Strong Portfolio',                 desc: 'Miltafs has successfully enhanced the digital presence of businesses across multiple industries. Our case studies and client feedback reflect our commitment to performance.' },
+  { icon: EmojiEventsIcon,  title: 'Dedicated Support for Business Growth',             desc: 'We work as your extended marketing team. With continuous support, improvement strategies, and growth-focused insights, we help your business scale faster.' },
 ];
 
 const DMWhyChoose = () => {
@@ -48,8 +48,13 @@ const DMWhyChoose = () => {
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2, maxWidth: 680 }}>
-              Why Choose Miltafs as Your{' '}
-              <Box component="span" sx={{ color: primary }}>Digital Marketing Partner?</Box>
+              Why Choose Miltafs for{' '}
+              <Box component="span" sx={{ color: primary }}>Digital Marketing Services?</Box>
+            </Typography>
+          </motion.div>
+          <motion.div {...fadeUp(0.14)}>
+            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, fontFamily: '"Outfit", sans-serif', mt: 2, maxWidth: 680 }}>
+              Accelerate your brand visibility, attract the right audience, and scale your business with Miltafs — a trusted digital marketing partner committed to delivering measurable and impactful results.
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
@@ -65,11 +70,10 @@ const DMWhyChoose = () => {
                 key={card.title}
                 component={motion.div}
                 {...fadeUp(i * 0.09)}
-                sx={{ ...(card.featured && { gridColumn: { md: '3' }, gridRow: { md: '1 / span 2' } }) }}
               >
                 <Box sx={{
                   height: '100%',
-                  p: { xs: 3, md: card.featured ? 4.5 : 3.5 },
+                  p: { xs: 3, md: 3.5 },
                   borderRadius: '18px',
                   display: 'flex', flexDirection: 'column',
                   transition: 'transform 0.25s ease, box-shadow 0.25s ease',

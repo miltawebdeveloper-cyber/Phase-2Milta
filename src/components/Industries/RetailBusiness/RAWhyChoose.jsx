@@ -2,12 +2,12 @@ import React from 'react';
 import { Box, Container, Typography, Stack, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import GroupsIcon from '@mui/icons-material/Groups';
-import TimerIcon from '@mui/icons-material/Timer';
-import SavingsIcon from '@mui/icons-material/Savings';
-import VerifiedIcon from '@mui/icons-material/Verified';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
+import Inventory2Icon from '@mui/icons-material/Inventory2';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
 import GavelIcon from '@mui/icons-material/Gavel';
-import SecurityIcon from '@mui/icons-material/Security';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import HubIcon from '@mui/icons-material/Hub';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const fadeUp = (delay = 0) => ({
@@ -18,12 +18,36 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: GroupsIcon,   title: 'Industry Expertise', desc: 'Our retail-focused team understands inventory control, real-time sales tracking, and multi-channel operations.' },
-  { icon: TimerIcon,    title: 'Time-Saving',        desc: 'Free up your internal staff to focus on customer service and sales while we handle the accounting backend.' },
-  { icon: SavingsIcon,  title: 'Cost-Effective',     desc: 'Avoid hiring in-house staff or buying software — Milta reduces overhead with all-in-one, affordable accounting for retail.' },
-  { icon: VerifiedIcon, title: 'Accurate & Timely',  desc: 'Highly accurate bookkeeping reduces errors and prevents financial misstatements while supporting tax readiness.' },
-  { icon: GavelIcon,    title: 'Tax Ready',          desc: 'We help you meet all federal and state tax requirements with comprehensive support for retail tax returns.' },
-  { icon: SecurityIcon, title: 'Secure & Compliant', desc: 'Encrypted cloud-based tools and the latest compliance standards keep your financial records protected.' },
+  { 
+    icon: PointOfSaleIcon,   
+    title: 'Sales & Expense Tracking', 
+    desc: 'Real-time recording and categorization of sales and expenditures.' 
+  },
+  { 
+    icon: Inventory2Icon,    
+    title: 'Inventory Management', 
+    desc: 'Integrated inventory tracking across multiple locations and platforms.' 
+  },
+  { 
+    icon: ShowChartIcon,  
+    title: 'Cash Flow Monitoring', 
+    desc: 'Visibility into receivables, payables, and liquidity for better financial control.' 
+  },
+  { 
+    icon: GavelIcon,    
+    title: 'Tax Planning & Preparation', 
+    desc: 'We provide accurate tax return preparation for retail businesses, including comprehensive year-end financial reporting. Our retail tax experts ensure compliance, maximize deductions, and support strategic planning for the next fiscal year.' 
+  },
+  { 
+    icon: BarChartIcon,   
+    title: 'Financial Reporting', 
+    desc: 'Clear, accurate financial statements for internal review, investors, or lenders.' 
+  },
+  { 
+    icon: HubIcon,    
+    title: 'Multi-Channel Integration', 
+    desc: 'Unified reports for businesses operating in-store, online, or both.' 
+  },
 ];
 
 const STATS = [{ num: '100%', label: 'Compliance Focus' }, { num: '24/7', label: 'Cloud Access' }, { num: 'Multi', label: 'Channel Ready' }];
@@ -56,14 +80,14 @@ const RAWhyChoose = () => {
               <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
                 <Box sx={{ width: 20, height: 2, borderRadius: 2, bgcolor: primary }} />
                 <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.72rem' }}>
-                  WHY MILTA
+                  KEY FEATURES
                 </Typography>
               </Box>
             </motion.div>
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 900, lineHeight: 1.18, letterSpacing: '-0.02em', mb: 2.5 }}>
-                Why Outsource Retail{' '}
-                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Bookkeeping to Milta</Box>
+                Key Features of Our Retail{' '}
+                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Accounting & Bookkeeping Services</Box>
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.18)}>

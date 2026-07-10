@@ -37,9 +37,11 @@ const TaxPlanning = () => {
     <TaxHero />
     
       <TaxWhatIs />
+       <TaxAdvantages />
       <TaxWhyChoose />
+      
       <TaxSolutions />
-      <TaxAdvantages />
+     
       <TaxTrustedPartner />
       <TaxFAQ />
       <CTASection />

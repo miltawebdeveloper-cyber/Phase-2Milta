@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import NPHero from '../components/Industries/NonProfit/NPHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import ServicesSection from '../components/homeComp/ServicesSection';
+
 
 const NPWhatIs     = lazy(() => import('../components/Industries/NonProfit/NPWhatIs'));
 const NPSolutions  = lazy(() => import('../components/Industries/NonProfit/NPSolutions'));
@@ -38,9 +40,9 @@ const NonProfit = () => {
     <Suspense fallback={null}>
       <NPWhatIs />
       <NPSolutions />
+      <ServicesSection />
       <NPWhyChoose />
-      <NPAdvantages />
-      <NPChallenges />
+
       <NPFAQ />
       <CTASection />
       <Footer />

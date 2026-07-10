@@ -21,32 +21,31 @@ const TAX_FORMS = [
   { 
     icon: DescriptionIcon, 
     title: 'Form 1040', 
-    desc: 'Used by individuals to report income and claim deductions/credits.',
-    details: ['Includes detailed sections for wages, investments, and deductions.']
+    details: ['Includes detailed sections for wages, investments, and deductions.','Used by individuals to report income and claim deductions/credits.']
   },
   { 
     icon: AccountBalanceIcon, 
     title: 'Form 1065', 
-    desc: 'Partnership tax returns, detailing profits, losses, and credits.',
-    details: ['Partners receive a Schedule K-1 for individual filings.']
+    
+    details: ['Partners receive a Schedule K-1 for individual filings.','Partnership tax returns, detailing profits, losses, and credits.'],
   },
-  {
-    icon: BusinessIcon,
-    title: 'Form 1120',
+  { 
+    icon: BusinessIcon, 
+    title: 'Form 1120', 
     desc: 'C Corporation returns, detailing corporate income, expenses, and tax liabilities.',
-    details: ['The corporation is taxed separately from its shareholders.']
+    details: []
   },
-  {
-    icon: AccountTreeIcon,
-    title: 'Form 1120S',
+  { 
+    icon: AccountTreeIcon, 
+    title: 'Form 1120S', 
     desc: 'For S Corporations, reflecting income passed through to shareholders.',
-    details: ['Shareholders receive a Schedule K-1 for individual filings.']
+    details: []
   },
   { 
     icon: ApprovalIcon, 
     title: 'Form 990', 
-    desc: 'Non-Profit Organization returns, required to maintain tax-exempt status.',
-    details: ['Transparency in reporting revenue, expenses, and program activities.']
+    
+    details: ['Transparency in reporting revenue, expenses, and program activities.', 'Non-Profit Organization returns, required to maintain tax-exempt status.']
   },
 ];
 
@@ -96,9 +95,13 @@ const TaxAdvantages = () => {
                   </Typography>
                 </Box>
 
-                <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '1.75rem', md: '2.1rem' }, fontWeight: 900, lineHeight: 1.2, letterSpacing: '-0.02em', mb: 4 }}>
+                <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '1.75rem', md: '2.1rem' }, fontWeight: 900, lineHeight: 1.2, letterSpacing: '-0.02em', mb: 2.5 }}>
                   Understanding Key{' '}
                   <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Federal Tax Forms</Box>
+                </Typography>
+
+                <Typography sx={{ color: alpha('#ffffff', 0.68), fontSize: '0.9rem', lineHeight: 1.8, mb: 4, fontFamily: '"Outfit", sans-serif' }}>
+                  Navigating federal tax forms can be complex. Milta provides expert guidance to ensure your filings are accurate and compliant.
                 </Typography>
 
                 <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1.5, mb: 4 }}>
@@ -184,23 +187,20 @@ const TaxAdvantages = () => {
                       <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.88rem', lineHeight: 1.75, color: 'text.secondary', mb: 1 }}>
                         {form.desc}
                       </Typography>
-                      <List dense disablePadding>
-                        {form.details.map((detail, idx) => (
-                          <ListItem key={idx} disablePadding alignItems="flex-start" sx={{ mb: 0.5 }}>
-                            <ListItemIcon sx={{ minWidth: 24, mt: 0.4 }}>
-                              <CheckCircleIcon sx={{ fontSize: 16, color: primary }} />
-                            </ListItemIcon>
-                            <ListItemText
-                              disableTypography
-                              primary={
-                                <Typography sx={{ fontFamily: '"Outfit", sans-serif', color: 'text.secondary', fontSize: '0.82rem', lineHeight: 1.6 }}>
-                                  {detail}
-                                </Typography>
-                              }
-                            />
-                          </ListItem>
-                        ))}
-                      </List>
+                      {form.details.length > 0 && (
+                        <List dense disablePadding>
+                          {form.details.map((detail, idx) => (
+                            <ListItem key={idx} disablePadding sx={{ mb: 0.5 }}>
+                              <ListItemIcon sx={{ minWidth: 24 }}>
+                                <CheckCircleIcon sx={{ fontSize: 16, color: primary }} />
+                              </ListItemIcon>
+                              <ListItemText 
+                                primary={<Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '0.82rem', lineHeight: 1.6 }}>{detail}</Typography>} 
+                              />
+                            </ListItem>
+                          ))}
+                        </List>
+                      )}
                     </Box>
                   </Box>
                 </motion.div>

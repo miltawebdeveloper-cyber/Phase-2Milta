@@ -1,8 +1,9 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Hero from '../components/careerComp/Hero';
+import ApplyForm from '../components/ApplyForm';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
 
@@ -10,7 +11,6 @@ const JoinMilta     = lazy(() => import('../components/careerComp/JoinMilta'));
 const WhyLoveMilta  = lazy(() => import('../components/careerComp/WhyLoveMilta'));
 const VoicesFromTeam = lazy(() => import('../components/careerComp/VoicesFromTeam'));
 const CareerCta     = lazy(() => import('../components/homeComp/CTASection'));
-const ApplyForm     = lazy(() => import('../components/careerComp/ApplyForm'));
 const Footer        = lazy(() => import('../components/Footer'));
 
 const ScrollProgressBar = () => {
@@ -32,6 +32,14 @@ const ScrollProgressBar = () => {
 };
 
 const Career = () => {
+  // Auto-open the application popup shortly after the career page loads
+  const [applyOpen, setApplyOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setApplyOpen(true), 600);
+    return () => clearTimeout(timer);
+  }, []);
+
   useFullSEO({
     title: 'Careers at Milta Financial Services | Join Our Accounting Team',
     description:
@@ -58,9 +66,10 @@ const Career = () => {
       <WhyLoveMilta />
       <VoicesFromTeam />
       <CareerCta />
-      <ApplyForm />
+      <ApplyForm variant="inline" />
       <Footer />
     </Suspense>
+    <ApplyForm open={applyOpen} onClose={() => setApplyOpen(false)} />
     <ScrollToTop />
   </Box>
   );

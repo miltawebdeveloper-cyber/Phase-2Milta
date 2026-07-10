@@ -10,7 +10,7 @@ const SKEW    = -10;
 const OVERLAP = '15%';
 const CARD_W  = '62%';
 
-const VISION_POINTS  = ['Global reach across 12+ countries', 'Financial clarity for every business', 'Compliance at every level'];
+const VISION_POINTS  = ['Global reach across 50 states', 'Financial clarity for every business', 'Compliance at every level'];
 const MISSION_POINTS = ['Precision-driven bookkeeping & tax', 'Full regulatory compliance assured', 'Freeing clients to scale faster'];
 
 const Bullet = ({ text, rtl = false }) => (
@@ -338,7 +338,7 @@ const VisionMission = () => (
             fontSize: '0.72rem', fontWeight: 800,
             color: 'primary.main', letterSpacing: '0.15em', textTransform: 'uppercase',
           }}>
-            Milta Accounts
+            Milta Accounting Services
           </Typography>
           <Box sx={{ width: 28, height: 2.5, borderRadius: 2, backgroundColor: 'primary.main' }} />
         </Box>

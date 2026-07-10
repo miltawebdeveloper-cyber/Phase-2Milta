@@ -13,7 +13,7 @@ const CARDS = [
   {
     icon: <LanguageIcon />,
     title: 'Global Reach',
-    text: 'Trusted by 500+ clients across 12 countries with world-class offshore accounting and bookkeeping.',
+    text: 'Trusted by 500+ clients across 50 states with world-class offshore accounting and bookkeeping.',
     bg: '#1e5722',
   },
   {

@@ -2,11 +2,10 @@ import React from 'react';
 import { Box, Container, Typography, Stack, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import GavelIcon from '@mui/icons-material/Gavel';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import CloudDoneIcon from '@mui/icons-material/CloudDone';
+import PeopleIcon from '@mui/icons-material/People';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import DescriptionIcon from '@mui/icons-material/Description';
+import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const fadeUp = (delay = 0) => ({
@@ -17,11 +16,26 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: StorefrontIcon, title: 'Small Business Focus',        desc: 'We specialize in accounting for small restaurant business owners who need personalized support and attention.' },
-  { icon: FactCheckIcon,  title: 'Complete Bookkeeping Solutions', desc: 'From bank reconciliation to payroll tracking, Milta offers end-to-end bookkeeping for restaurant businesses.' },
-  { icon: GavelIcon,      title: 'Expert Tax Filing',          desc: 'Whether it\'s quarterly estimated taxes or annual returns for restaurant owners, we keep you compliant.' },
-  { icon: BarChartIcon,   title: 'Financial Reporting',        desc: 'Get monthly profit and loss statements, balance sheets, and insights that help you grow.' },
-  { icon: CloudDoneIcon,  title: 'Secure & Cloud-Based',       desc: 'Your financial data is safe, encrypted, and available anytime, anywhere.' },
+  { 
+    icon: PeopleIcon, 
+    title: 'High Staff Turnover',        
+    desc: 'We handle wage calculations, tip reporting, and tax withholdings accurately.' 
+  },
+  { 
+    icon: TrendingUpIcon,  
+    title: 'Seasonal Revenue',          
+    desc: 'Milta offers planning tools to help small restaurant businesses stay profitable year-round.' 
+  },
+  { 
+    icon: DescriptionIcon,      
+    title: 'Manual Bookkeeping Headaches',          
+    desc: 'Say goodbye to paper logs and spreadsheets — our digital solutions automate your bookkeeping for a restaurant business.' 
+  },
+  { 
+    icon: SettingsEthernetIcon,   
+    title: 'Multiple Systems',        
+    desc: 'We integrate with your POS, payroll tools, and online ordering systems for seamless financial tracking.' 
+  },
 ];
 
 const STATS = [{ num: '100%', label: 'Compliance Focus' }, { num: '24/7', label: 'Cloud Access' }, { num: 'Small', label: 'Business Focus' }];
@@ -50,18 +64,11 @@ const RIWhyChoose = () => {
 
           {/* ── LEFT: sticky text panel ── */}
           <Box sx={{ flex: '0 0 auto', width: { xs: '100%', lg: 360 }, position: { lg: 'sticky' }, top: { lg: 80 } }}>
-            <motion.div {...fadeUp(0)}>
-              <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
-                <Box sx={{ width: 20, height: 2, borderRadius: 2, bgcolor: primary }} />
-                <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.72rem' }}>
-                  WHY MILTA
-                </Typography>
-              </Box>
-            </motion.div>
+           
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 900, lineHeight: 1.18, letterSpacing: '-0.02em', mb: 2.5 }}>
-                Why Choose Milta's{' '}
-                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Restaurant Bookkeeping</Box>
+                Common Challenges We Solve for{' '}
+                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Small Restaurants</Box>
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.18)}>
@@ -99,11 +106,11 @@ const RIWhyChoose = () => {
             </motion.div>
           </Box>
 
-          {/* ── RIGHT: 2×2 glass card grid + 1 wide card ── */}
+          {/* ── RIGHT: 2×2 glass card grid ── */}
           <Box sx={{ flex: 1 }}>
-            {/* 2×2 grid (cards 1–4) */}
-            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2, mb: 2 }}>
-              {CARDS.slice(0, 4).map((card, i) => {
+            {/* 2×2 grid (4 cards) */}
+            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2 }}>
+              {CARDS.map((card, i) => {
                 const Icon = card.icon;
                 return (
                   <Box
@@ -147,41 +154,6 @@ const RIWhyChoose = () => {
                 );
               })}
             </Box>
-
-            {/* Card 5 — full-width featured bar */}
-            {(() => {
-              const card = CARDS[4];
-              const Icon = card.icon;
-              return (
-                <Box
-                  component={motion.div}
-                  {...fadeUp(0.5)}
-                  sx={{
-                    p: { xs: 3, md: 3.5 },
-                    borderRadius: '20px',
-                    display: 'flex', alignItems: 'center', gap: 3,
-                    background: `linear-gradient(135deg, ${alpha(primary, 0.25)} 0%, ${alpha(primary, 0.1)} 100%)`,
-                    border: `1px solid ${alpha(primary, 0.35)}`,
-                    backdropFilter: 'blur(8px)',
-                    transition: 'all 0.3s ease',
-                    cursor: 'default',
-                    '&:hover': { transform: 'translateY(-4px)', boxShadow: `0 20px 50px ${alpha(primary, 0.25)}` },
-                  }}
-                >
-                  <Box sx={{ width: 52, height: 52, flexShrink: 0, borderRadius: '16px', bgcolor: alpha(primary, 0.3), border: `1px solid ${alpha(primary, 0.45)}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon sx={{ fontSize: 24, color: '#fff' }} />
-                  </Box>
-                  <Box sx={{ flex: 1 }}>
-                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1rem', color: '#ffffff', mb: 0.5, lineHeight: 1.3 }}>
-                      {card.title}
-                    </Typography>
-                    <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.86rem', lineHeight: 1.7, color: alpha('#fff', 0.65) }}>
-                      {card.desc}
-                    </Typography>
-                  </Box>
-                </Box>
-              );
-            })()}
           </Box>
 
         </Stack>

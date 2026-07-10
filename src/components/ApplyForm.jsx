@@ -1,352 +1,438 @@
 // src/components/ApplyForm.jsx
 import React, { useState } from "react";
+import {
+  Dialog,
+  Container,
+  Paper,
+  Box,
+  IconButton,
+  Typography,
+  TextField,
+  MenuItem,
+  Button,
+  Stack,
+  Snackbar,
+  Alert,
+  Link,
+} from "@mui/material";
+import { alpha, useTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
+import CloseIcon from "@mui/icons-material/Close";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { submitApplicationForm } from "../api/client";
 
-const ApplyForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    phone: "",
-    jobType: "",
-    position: "",
-    email: "",
-    reference: "",
-    resume: null,
-  });
+const jobTypes = ["Full Time", "Part Time", "Internship"];
 
+const positions = [
+  "Associate US Accountant",
+  "Junior US Accountant",
+  "Senior US Accountant",
+  "US Accounts Reviewer",
+  "Junior US Tax preparer",
+  "Senior US Tax preparer",
+  "Business Development Associate",
+  "Business Development Executive",
+  "Virtual Assistant",
+];
+
+const initialState = {
+  firstName: "",
+  phone: "",
+  jobType: "",
+  position: "",
+  email: "",
+  reference: "",
+};
+
+/**
+ * Career application form.
+ *   variant="dialog"  → themed popup modal (controlled via `open` / `onClose`)
+ *   variant="inline"  → full-width embedded section on the page
+ * Both share the same fields, validation and real submitApplicationForm API.
+ */
+const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
+  const theme = useTheme();
+  const primary = theme.palette.primary.main;
+
+  const [values, setValues] = useState(initialState);
+  const [resume, setResume] = useState(null);
   const [resumePreview, setResumePreview] = useState(null);
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [statusMessage, setStatusMessage] = useState("");
-  const [statusType, setStatusType] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [snackbar, setSnackbar] = useState({ open: false, severity: "success", message: "" });
 
-  const validate = () => {
-    const newErrors = {};
-
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = "First name is required";
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (!/^[0-9]{10}$/.test(formData.phone)) {
-      newErrors.phone = "Enter a valid 10-digit phone number";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Enter a valid email";
-    }
-
-    if (!formData.jobType) {
-      newErrors.jobType = "Select job type";
-    }
-
-    if (!formData.position) {
-      newErrors.position = "Select position";
-    }
-
-    if (!formData.resume) {
-      newErrors.resume = "Resume is required";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const resetForm = () => {
+    setValues(initialState);
+    setResume(null);
+    setResumePreview(null);
+    setErrors({});
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     if (name === "phone") {
-      const numericValue = value.replace(/\D/g, "");
-      if (numericValue.length <= 10) {
-        setFormData({ ...formData, [name]: numericValue });
-      }
+      const numeric = value.replace(/\D/g, "").slice(0, 10);
+      setValues((v) => ({ ...v, phone: numeric }));
       return;
     }
-
-    setFormData({ ...formData, [name]: value });
+    setValues((v) => ({ ...v, [name]: value }));
   };
 
   const handleFile = (e) => {
-    const file = e.target.files[0];
-    setFormData({ ...formData, resume: file });
+    const file = e.target.files?.[0] || null;
+    setResume(file);
     setResumePreview(file ? URL.createObjectURL(file) : null);
+  };
+
+  const validate = () => {
+    const found = {};
+    if (!values.firstName.trim()) found.firstName = "First name is required";
+
+    if (!values.phone.trim()) found.phone = "Phone number is required";
+    else if (!/^[0-9]{10}$/.test(values.phone)) found.phone = "Enter a valid 10-digit phone number";
+
+    if (!values.email.trim()) found.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) found.email = "Enter a valid email";
+
+    if (!values.jobType) found.jobType = "Select a job type";
+    if (!values.position) found.position = "Select a position";
+    if (!resume) found.resume = "Resume is required";
+
+    setErrors(found);
+    return Object.keys(found).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
-    setLoading(true);
-    setStatusMessage("");
-    setStatusType("");
+    setSubmitting(true);
 
     const payload = new FormData();
-    payload.append("firstName", formData.firstName);
-    payload.append("phone", formData.phone);
-    payload.append("jobType", formData.jobType);
-    payload.append("position", formData.position);
-    payload.append("email", formData.email);
-    payload.append("reference", formData.reference || "");
-    if (formData.resume) {
-      payload.append("resume", formData.resume);
-    }
+    payload.append("firstName", values.firstName);
+    payload.append("phone", values.phone);
+    payload.append("jobType", values.jobType);
+    payload.append("position", values.position);
+    payload.append("email", values.email);
+    payload.append("reference", values.reference || "");
+    payload.append("resume", resume);
 
     const response = await submitApplicationForm(payload);
+    setSubmitting(false);
 
     if (response.error) {
-      console.error("API ERROR:", response.error);
-      alert(`Failed to save the application: ${response.error}`);
-      setLoading(false);
-      setStatusType("error");
-      setStatusMessage("Failed to submit application. Please try again.");
+      console.error("submitApplicationForm error:", response.error);
+      setSnackbar({
+        open: true,
+        severity: "error",
+        message: "Failed to submit application. Please try again.",
+      });
       return;
     }
 
-    setFormData({
-      firstName: "",
-      phone: "",
-      jobType: "",
-      position: "",
-      email: "",
-      reference: "",
-      resume: null,
-    });
-    setResumePreview(null);
-    setLoading(false);
+    resetForm();
 
     if (response.emailNotification && !response.emailNotification.success) {
-      setStatusType("warning");
-      setStatusMessage(
-        "Application submitted successfully, but the email notification was skipped or failed."
-      );
+      setSnackbar({
+        open: true,
+        severity: "warning",
+        message: "Application submitted, but the email notification was skipped or failed.",
+      });
       return;
     }
 
-    setStatusType("success");
-    setStatusMessage("Application submitted successfully. We will contact you soon.");
+    setSnackbar({
+      open: true,
+      severity: "success",
+      message: "Application submitted successfully. We will contact you soon.",
+    });
   };
 
-  return (
-    <div style={styles.page}>
-      <div style={styles.card}>
-        <h2 style={styles.title}>Build Your Career with Confidence</h2>
+  const handleClose = () => {
+    if (submitting) return;
+    onClose?.();
+  };
 
-        <p style={styles.subtitle}>
-          Join a team that works with U.S.-based clients, follows global accounting
-          standards, and values accuracy, growth, and professional development at
-          every stage.
-        </p>
+  /* ── Shared header + form fields, reused by both variants ── */
+  const formContent = (
+    <>
+      {/* Header */}
+      <Box sx={{ textAlign: "center", mb: { xs: 3, md: 4 } }}>
+        <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 1 }}>
+          APPLY NOW
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{ fontSize: { xs: "1.7rem", md: "2.4rem" }, color: "text.primary", mb: 1.5 }}
+        >
+          Build Your Career{" "}
+          <Box component="span" sx={{ color: "primary.main" }}>
+            With Confidence
+          </Box>
+        </Typography>
+        <Typography variant="body2" sx={{ color: "text.secondary", maxWidth: "520px", mx: "auto" }}>
+          Join a team that works with U.S.-based clients, follows global accounting standards, and
+          values accuracy, growth, and professional development at every stage.
+        </Typography>
+      </Box>
 
-        <form onSubmit={handleSubmit} style={styles.form}>
-          <div style={styles.row}>
-            <div style={styles.fieldBox}>
-              <input
-                name="firstName"
-                placeholder="First Name *"
-                value={formData.firstName}
-                onChange={handleChange}
-                style={styles.input}
-              />
-              {errors.firstName && <p style={styles.error}>{errors.firstName}</p>}
-            </div>
+      {/* Form */}
+      <Box component="form" onSubmit={handleSubmit}>
+        <Stack spacing={2.5}>
+          <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 2.5 }}>
+            <TextField
+              name="firstName"
+              label="First Name"
+              value={values.firstName}
+              onChange={handleChange}
+              error={!!errors.firstName}
+              helperText={errors.firstName}
+              fullWidth
+              required
+            />
+            <TextField
+              name="phone"
+              label="Phone Number"
+              value={values.phone}
+              onChange={handleChange}
+              error={!!errors.phone}
+              helperText={errors.phone}
+              fullWidth
+              required
+              inputProps={{ inputMode: "numeric", maxLength: 10 }}
+            />
+          </Box>
 
-            <div style={styles.fieldBox}>
-              <input
-                name="phone"
-                placeholder="Phone Number *"
-                value={formData.phone}
-                onChange={handleChange}
-                style={styles.input}
-              />
-              {errors.phone && <p style={styles.error}>{errors.phone}</p>}
-            </div>
-          </div>
-
-          <div style={styles.row}>
-            <div style={styles.fieldBox}>
-              <select
-                name="jobType"
-                value={formData.jobType}
-                onChange={handleChange}
-                style={styles.input}
-              >
-                <option value="">Select Job Type *</option>
-                <option>Full Time</option>
-                <option>Part Time</option>
-                <option>Internship</option>
-              </select>
-              {errors.jobType && <p style={styles.error}>{errors.jobType}</p>}
-            </div>
-
-            <div style={styles.fieldBox}>
-              <select
-                name="position"
-                value={formData.position}
-                onChange={handleChange}
-                style={styles.input}
-              >
-                <option value="">Select Position *</option>
-                <option>Associate US Accountant</option>
-                <option>Junior US Accountant</option>
-                <option>Senior US Accountant</option>
-                <option>US Accounts Reviewer</option>
-                <option>Junior US Tax preparer</option>
-                <option>Senior US Tax preparer</option>
-                <option>Business Development Associate</option>
-                <option>Business Development Executive</option>
-                <option>Virtual Assistant</option>
-              </select>
-              {errors.position && <p style={styles.error}>{errors.position}</p>}
-            </div>
-          </div>
-
-          <div style={styles.row}>
-            <div style={styles.fieldBox}>
-              <input
-                name="email"
-                placeholder="Email ID *"
-                value={formData.email}
-                onChange={handleChange}
-                style={styles.input}
-              />
-              {errors.email && <p style={styles.error}>{errors.email}</p>}
-            </div>
-
-            <div style={styles.fieldBox}>
-              <input
-                name="reference"
-                placeholder="Reference"
-                value={formData.reference}
-                onChange={handleChange}
-                style={styles.input}
-              />
-            </div>
-          </div>
-
-          <label style={styles.uploadBtn}>
-            Upload Resume
-            <input type="file" onChange={handleFile} style={{ display: "none" }} />
-          </label>
-          {errors.resume && <p style={styles.error}>{errors.resume}</p>}
-
-          {resumePreview && (
-            <a
-              href={resumePreview}
-              target="_blank"
-              rel="noreferrer"
-              style={styles.resumePreview}
+          <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 2.5 }}>
+            <TextField
+              select
+              name="jobType"
+              label="Job Type"
+              value={values.jobType}
+              onChange={handleChange}
+              error={!!errors.jobType}
+              helperText={errors.jobType}
+              fullWidth
+              required
             >
-              View Resume
-            </a>
-          )}
-
-          <button type="submit" style={styles.submitBtn} disabled={loading}>
-            {loading ? "Submitting..." : "SUBMIT YOUR APPLICATION"}
-          </button>
-
-          {statusMessage && (
-            <div
-              style={
-                statusType === "success"
-                  ? {
-                      marginTop: "10px",
-                      padding: "12px 14px",
-                      borderRadius: "12px",
-                      border: "1px solid #ffffff",
-                      backgroundColor: "rgba(16, 185, 129, 0.12)",
-                      color: "#f8fffd",
-                      fontWeight: 700,
-                      textAlign: "center",
-                      fontSize: "0.95rem",
-                    }
-                  : {
-                      marginTop: "10px",
-                      color: "#ffffff",
-                      fontWeight: 700,
-                      textAlign: "center",
-                      fontSize: "0.95rem",
-                    }
-              }
+              {jobTypes.map((t) => (
+                <MenuItem key={t} value={t}>
+                  {t}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              select
+              name="position"
+              label="Position"
+              value={values.position}
+              onChange={handleChange}
+              error={!!errors.position}
+              helperText={errors.position}
+              fullWidth
+              required
             >
-              {statusMessage}
-            </div>
-          )}
-        </form>
-      </div>
-    </div>
+              {positions.map((p) => (
+                <MenuItem key={p} value={p}>
+                  {p}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Box>
+
+          <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 2.5 }}>
+            <TextField
+              name="email"
+              label="Email ID"
+              value={values.email}
+              onChange={handleChange}
+              error={!!errors.email}
+              helperText={errors.email}
+              fullWidth
+              required
+            />
+            <TextField
+              name="reference"
+              label="Reference (optional)"
+              value={values.reference}
+              onChange={handleChange}
+              fullWidth
+            />
+          </Box>
+
+          {/* Resume upload */}
+          <Box>
+            <Button
+              component="label"
+              variant="outlined"
+              startIcon={<UploadFileIcon />}
+              sx={{
+                alignSelf: "flex-start",
+                py: 1.3,
+                px: 3,
+                borderRadius: "50px",
+                border: `2px solid ${alpha(primary, 0.4)}`,
+                color: "primary.main",
+                fontWeight: 700,
+                textTransform: "none",
+                "&:hover": {
+                  border: `2px solid ${primary}`,
+                  backgroundColor: alpha(primary, 0.06),
+                },
+              }}
+            >
+              {resume ? resume.name : "Upload Resume"}
+              <input type="file" hidden accept=".pdf,.doc,.docx" onChange={handleFile} />
+            </Button>
+            {errors.resume && (
+              <Typography variant="caption" sx={{ color: "error.main", display: "block", mt: 0.75, ml: 1 }}>
+                {errors.resume}
+              </Typography>
+            )}
+            {resumePreview && (
+              <Link
+                href={resumePreview}
+                target="_blank"
+                rel="noreferrer"
+                sx={{ display: "block", mt: 0.75, ml: 1, color: "primary.main", fontWeight: 600 }}
+              >
+                View selected resume
+              </Link>
+            )}
+          </Box>
+
+          <Box sx={{ pt: 0.5 }}>
+            <motion.div whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.2 }}>
+              <Button
+                type="submit"
+                variant="contained"
+                fullWidth
+                size="large"
+                endIcon={<ArrowForwardIcon />}
+                disabled={submitting}
+                sx={{
+                  py: 1.8,
+                  borderRadius: "50px",
+                  backgroundColor: "primary.main",
+                  color: "#fff",
+                  fontWeight: 700,
+                  letterSpacing: 1.5,
+                  textTransform: "uppercase",
+                  fontSize: { xs: "0.85rem", md: "0.95rem" },
+                  boxShadow: `0 12px 28px ${alpha(primary, 0.28)}`,
+                  "&:hover": {
+                    backgroundColor: theme.palette.primary.dark || "#1a4d1d",
+                    boxShadow: `0 18px 36px ${alpha(primary, 0.36)}`,
+                  },
+                }}
+              >
+                {submitting ? "Submitting..." : "Submit Your Application"}
+              </Button>
+            </motion.div>
+          </Box>
+        </Stack>
+      </Box>
+    </>
   );
-};
 
-const styles = {
-  page: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "30px 20px",
-    background: "linear-gradient(135deg, #0b1a12, #143425, #0a0a0a)",
-    width: "100%",
-  },
-  card: {
-    background: "#fafafa07",
-    padding: "40px 30px",
-    maxWidth: "650px",
-    width: "100%",
-    borderRadius: "15px",
-    boxShadow: "0 8px 30px rgba(0,0,0,0.3)",
-    color: "white",
-  },
-  title: {
-    textAlign: "center",
-    fontSize: "28px",
-    marginBottom: "10px",
-  },
-  subtitle: {
-    textAlign: "center",
-    fontSize: "14px",
-    color: "#cfcfcf",
-    marginBottom: "30px",
-    lineHeight: "1.6",
-  },
-  row: { display: "flex", gap: "15px", flexWrap: "wrap" },
-  fieldBox: {
-    flex: 1,
-    minWidth: "250px",
-    display: "flex",
-    flexDirection: "column",
-  },
-  form: { display: "flex", flexDirection: "column", gap: "20px" },
-  input: {
-    padding: "10px 0",
-    border: "none",
-    borderBottom: "1px solid #bbb",
-    background: "transparent",
-    color: "#c0b2b2ff",
-    fontSize: "15px",
-    outline: "none",
-  },
-  uploadBtn: {
-    background: "#f69600",
-    padding: "14px",
-    color: "#fff",
-    fontWeight: "bold",
-    borderRadius: "6px",
-    cursor: "pointer",
-    width: "fit-content",
-  },
-  submitBtn: {
-    background: "#ff9800",
-    padding: "14px",
-    color: "white",
-    fontWeight: "bold",
-    borderRadius: "6px",
-    border: "none",
-    cursor: "pointer",
-    marginTop: "10px",
-  },
-  error: { color: "#ff6b6b", fontSize: "13px" },
-  resumePreview: { color: "#fff", fontWeight: "bold" },
+  const snackbarEl = (
+    <Snackbar
+      open={snackbar.open}
+      autoHideDuration={5000}
+      onClose={() => setSnackbar((s) => ({ ...s, open: false }))}
+      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+    >
+      <Alert
+        onClose={() => setSnackbar((s) => ({ ...s, open: false }))}
+        severity={snackbar.severity}
+        variant="filled"
+        sx={{ width: "100%" }}
+      >
+        {snackbar.message}
+      </Alert>
+    </Snackbar>
+  );
+
+  /* ── Inline section variant ── */
+  if (variant === "inline") {
+    return (
+      <Box id={id} sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.paper" }}>
+        <Container maxWidth={false} sx={{ maxWidth: "1000px", mx: "auto", px: { xs: 3, md: 4 } }}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Paper
+              elevation={0}
+              sx={{
+                p: { xs: 3.5, sm: 5, md: 7 },
+                borderRadius: "32px",
+                bgcolor: "background.default",
+                border: `1px solid ${alpha(primary, 0.12)}`,
+              }}
+            >
+              {formContent}
+            </Paper>
+          </motion.div>
+        </Container>
+        {snackbarEl}
+      </Box>
+    );
+  }
+
+  /* ── Dialog popup variant ── */
+  return (
+    <>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        fullWidth
+        maxWidth="sm"
+        scroll="body"
+        PaperProps={{
+          sx: {
+            borderRadius: { xs: "20px", sm: "28px" },
+            bgcolor: "background.paper",
+            backgroundImage: "none",
+            border: `1px solid ${alpha(primary, 0.15)}`,
+            overflow: "hidden",
+          },
+        }}
+      >
+        {/* Close button */}
+        <IconButton
+          onClick={handleClose}
+          aria-label="Close application form"
+          sx={{
+            position: "absolute",
+            top: 12,
+            right: 12,
+            zIndex: 2,
+            color: "text.secondary",
+            bgcolor: alpha(primary, 0.06),
+            "&:hover": { bgcolor: alpha(primary, 0.14) },
+          }}
+        >
+          <CloseIcon fontSize="small" />
+        </IconButton>
+
+        <Box
+          component={motion.div}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          sx={{ p: { xs: 3, sm: 5 } }}
+        >
+          {formContent}
+        </Box>
+      </Dialog>
+
+      {snackbarEl}
+    </>
+  );
 };
 
 export default ApplyForm;

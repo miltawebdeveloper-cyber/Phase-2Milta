@@ -17,7 +17,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 const TRUST_POINTS = [
-  { icon: VerifiedIcon,     title: 'Proven Industry Experience',  desc: 'Over 15 years serving businesses across all sectors — not confined to specific industries, our expertise spans startups to multi-location enterprises.' },
+  { icon: VerifiedIcon,     title: 'Proven Industry Experience',  desc: 'Over 10 years serving businesses across all sectors — not confined to specific industries, our expertise spans startups to multi-location enterprises.' },
   { icon: GroupsIcon,       title: 'Dedicated Expert Team',        desc: 'A team of certified digital marketing professionals committed to staying ahead of algorithm changes, platform updates, and emerging strategies.' },
   { icon: WebIcon,          title: 'Custom Website Development',   desc: 'Mobile-ready, SEO-optimized websites built around your brand — designed to convert visitors into customers from the very first click.' },
   { icon: LayersIcon,       title: 'Multi-Channel Strategy',       desc: 'SEO, PPC, social media, content, and email marketing working together in a unified strategy to maximize your online reach and ROI.' },
@@ -27,7 +27,7 @@ const TRUST_POINTS = [
 
 const STATS = [
   { num: '500+',  label: 'Clients Served'    },
-  { num: '15y+',  label: 'Industry Expertise'},
+  { num: '10y+',  label: 'Industry Expertise'},
   { num: '100%',  label: 'Transparent Reports'},
   { num: '24/7',  label: 'Support Access'    },
 ];

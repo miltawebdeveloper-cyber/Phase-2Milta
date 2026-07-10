@@ -20,7 +20,6 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTheme, alpha } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
 import {
   NavigateNext as NavigateNextIcon,
   Home as HomeIcon,
@@ -31,6 +30,8 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import useFullSEO from "../utils/useFullSEO";
 import Navbar from "../components/Navbar";
 import ScrollToTop from "../components/ScrollToTop";
+import ConsultationButton from "../components/ConsultationButton";
+import { useConsultation } from "../components/ConsultationModal";
 
 const Footer = lazy(() => import("../components/Footer"));
 const CTASection = lazy(() => import("../components/homeComp/CTASection"));
@@ -108,6 +109,10 @@ const Hero = ({ hero }) => {
               </Typography>
             </Breadcrumbs>
           </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
+            <ConsultationButton />
+          </motion.div>
         </Box>
       </Container>
     </Box>
@@ -118,11 +123,11 @@ const Hero = ({ hero }) => {
 const Intro = ({ intro }) => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
-  const navigate = useNavigate();
+  const { open } = useConsultation();
   const stats = intro.stats || [
     { num: "100+", label: "Clients" },
-    { num: "12+", label: "Countries" },
-    { num: "15y+", label: "Experience" },
+    { num: "50", label: "States" },
+    { num: "10y+", label: "Experience" },
   ];
 
   return (
@@ -153,7 +158,7 @@ const Intro = ({ intro }) => {
               <Button
                 variant="contained"
                 endIcon={<ArrowForwardIcon />}
-                onClick={() => navigate("/contact")}
+                onClick={open}
                 sx={{ bgcolor: primary, color: "#fff", px: 4, py: 1.4, fontWeight: 700, "&:hover": { bgcolor: "#1a4d1d" } }}
               >
                 {intro.ctaLabel || "Schedule Your Free Consultation"}
@@ -346,7 +351,7 @@ const Solutions = ({ data }) => {
 const Advantages = ({ data }) => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
-  const navigate = useNavigate();
+  const { open } = useConsultation();
 
   return (
     <Box sx={{ py: { xs: 8, md: 14 }, bgcolor: "background.paper", overflow: "hidden", position: "relative" }}>
@@ -391,7 +396,7 @@ const Advantages = ({ data }) => {
               <Box sx={{ position: "relative", zIndex: 1 }}>
                 <Button
                   variant="contained"
-                  onClick={() => navigate("/contact")}
+                  onClick={open}
                   endIcon={<ArrowForwardIcon sx={{ fontSize: "1rem !important" }} />}
                   sx={{ px: 3.5, py: 1.4, borderRadius: "50px", bgcolor: primary, color: "#fff", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.06em", boxShadow: `0 10px 28px ${alpha(primary, 0.4)}`, "&:hover": { bgcolor: "#1a4d1d", boxShadow: `0 16px 38px ${alpha(primary, 0.5)}` } }}
                 >

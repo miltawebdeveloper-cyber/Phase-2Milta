@@ -24,7 +24,7 @@ const ADVANTAGES = [
 
 const PANEL_STATS = [
   { num: '100%', label: 'Payroll Accuracy'   },
-  { num: '15y+', label: 'Payroll Expertise'  },
+  { num: '10y+', label: 'Payroll Expertise'  },
   { num: '24/7', label: 'Support Access'     },
   { num: '0',    label: 'Compliance Gaps'    },
 ];

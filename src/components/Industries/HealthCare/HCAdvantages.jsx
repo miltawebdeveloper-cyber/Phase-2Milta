@@ -2,10 +2,9 @@ import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
+import SavingsIcon from '@mui/icons-material/Savings';
+import InsightsIcon from '@mui/icons-material/Insights';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
-import LocalPharmacyIcon from '@mui/icons-material/LocalPharmacy';
-import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
-import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -15,10 +14,21 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ADVANTAGES = [
-  { icon: MedicalServicesIcon,     title: 'Dentists',                       desc: 'Specialized accounting for dental professionals — accurate billing, compliance, and smooth financial operations.' },
-  { icon: LocalPharmacyIcon,       title: 'Pharmacies',                     desc: 'Custom accounting solutions that navigate complex processes while boosting profitability and regulatory compliance.' },
-  { icon: LocalHospitalIcon,       title: 'Hospitals & Healthcare Facilities', desc: 'Full-scale financial services — reporting, payroll, insurance claim processing, and vendor payments.' },
-  { icon: MedicalInformationIcon,  title: 'Medical Practices',              desc: 'From small clinics to multi-specialty practices, our accountants handle all bookkeeping and financial reporting.' },
+  { 
+    icon: SavingsIcon,     
+    title: 'Time and Cost Savings',                       
+    desc: 'Outsourcing your accounting for healthcare professionals allows you to focus on what truly matters—providing exceptional patient care. Our accounting solutions save valuable time and reduce operational costs by eliminating the need for in-house staff, extensive training, and expensive accounting software.' 
+  },
+  { 
+    icon: InsightsIcon,       
+    title: 'Informed Decision-Making',                     
+    desc: 'With detailed financial reports, KPIs, and cost analyses tailored to the healthcare sector, you gain actionable insights that support smart business decisions. Our reports empower you to identify profitable services, control expenses, allocate budgets effectively, and plan future growth with confidence.' 
+  },
+  { 
+    icon: MedicalServicesIcon,  
+    title: 'Access to Specialized Expertise and Technology',              
+    desc: 'Unlike general accountants, healthcare accounting firms understand the complexities of medical finance. Our team combines specialized knowledge with advanced technology—such as cloud-based systems and automated bookkeeping—to deliver accuracy, efficiency, and scalability without significant upfront investment.' 
+  },
 ];
 
 const HCAdvantages = () => {
@@ -65,7 +75,7 @@ const HCAdvantages = () => {
             <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
               <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                WHO WE SERVE
+                BENEFITS OF ACCOUNTING SERVICES FOR HEALTHCARE PROFESSIONALS
               </Typography>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
             </Box>
@@ -76,8 +86,8 @@ const HCAdvantages = () => {
               lineHeight: 1.2, letterSpacing: '-0.025em',
               color: '#ffffff', fontWeight: 900,
             }}>
-              Healthcare Providers{' '}
-              <Box component="span" sx={{ color: primary }}>We Serve</Box>
+              Benefits of Accounting Services for{' '}
+              <Box component="span" sx={{ color: primary }}>Healthcare Professionals</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.14)}>
@@ -86,12 +96,12 @@ const HCAdvantages = () => {
               lineHeight: 1.75, fontFamily: '"Outfit", sans-serif',
               maxWidth: 480, mx: 'auto', mt: 1.5,
             }}>
-              Milta, one of the leading healthcare accounting companies, works with providers of every size — from independent practitioners to large healthcare groups.
+              From time savings to specialized expertise—discover how our accounting services empower healthcare providers.
             </Typography>
           </motion.div>
         </Box>
 
-        {/* Bento grid: row1 [0](2col)+[1], row2 [2][3][4], row3 [5]+[6](2col) */}
+        {/* 3-column grid for 3 items */}
         <Box sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
@@ -99,14 +109,12 @@ const HCAdvantages = () => {
         }}>
           {ADVANTAGES.map((adv, i) => {
             const Icon = adv.icon;
-            const isWide = i === 0 || i === 6;
             return (
               <Box
                 key={adv.title}
                 component={motion.div}
                 {...fadeUp(0.05 * i)}
                 sx={{
-                  gridColumn: isWide ? { md: 'span 2' } : {},
                   position: 'relative',
                   overflow: 'hidden',
                   borderRadius: '16px',
@@ -117,7 +125,7 @@ const HCAdvantages = () => {
                   border: '1px solid rgba(255,255,255,0.08)',
                   cursor: 'default',
                   display: 'flex',
-                  flexDirection: isWide ? { xs: 'column', sm: 'row' } : 'row',
+                  flexDirection: 'column',
                   alignItems: 'flex-start',
                   gap: 2,
                   transition: 'all 0.25s cubic-bezier(0.4,0,0.2,1)',
@@ -160,7 +168,7 @@ const HCAdvantages = () => {
                     sx={{
                       fontFamily: '"Plus Jakarta Sans", sans-serif',
                       fontWeight: 700,
-                      fontSize: isWide ? { xs: '0.95rem', md: '1.05rem' } : '0.88rem',
+                      fontSize: '0.88rem',
                       color: '#ffffff', mb: 0.75,
                       lineHeight: 1.3,
                       transition: 'color 0.25s ease',

@@ -23,17 +23,17 @@ const fadeUp = (delay = 0) => ({
 });
 
 const SERVICES = [
-  { icon: BarChartIcon,      title: 'Reporting from Management',                desc: 'Accurate, timely financial reporting that gives key stakeholders the insights needed for informed decision-making.' },
-  { icon: TrackChangesIcon,  title: 'Oversight of Transaction Processing',       desc: 'Close monitoring of transaction processes to ensure accuracy and efficiency across all financial operations.' },
-  { icon: SecurityIcon,      title: 'Assessment of Internal Controls',           desc: 'Identify gaps in your current internal control mechanisms and provide recommendations to safeguard financial integrity.' },
-  { icon: GavelIcon,         title: 'Procedures & Policy Conformity',            desc: 'Ensure your business adheres to established procedures and policies, maintaining consistency and regulatory compliance.' },
-  { icon: PaymentIcon,       title: 'Timely Payment Management',                 desc: 'Oversee the timely payment of all liabilities, ensuring your business meets deadlines and avoids costly penalties.' },
-  { icon: AssignmentIcon,    title: 'Reports on Request',                        desc: 'On-demand financial reports addressing specific business needs, delivered quickly and accurately.' },
-  { icon: EventNoteIcon,     title: 'Monthly Review & Reporting',                desc: 'Regular reviews and detailed monthly financial reports to ensure your business stays on track with its goals.' },
-  { icon: AccountBalanceIcon,title: 'Federal & State Compliance',                desc: 'Ensure your business complies with both federal and state financial regulations, mitigating the risk of non-compliance penalties.' },
-  { icon: PeopleAltIcon,     title: 'Fractional Controller Services',            desc: "Access top-tier financial expertise on a part-time basis — ideal for businesses that don't require a full-time controller." },
-  { icon: HandshakeIcon,     title: 'Vendor & Employee Communication',           desc: 'Facilitate clear, effective communication between vendors, employees, and stakeholders for smooth financial operations.' },
-  { icon: FactCheckIcon,     title: 'Audit Assistance',                          desc: 'Support during audits — from preparing documents and reviewing financials to ensuring full compliance with auditing standards.' },
+  { icon: BarChartIcon,      title: 'Reporting from Management',                        desc: 'We provide accurate, timely financial reporting, ensuring that key stakeholders have the insights they need to make informed decisions.' },
+  { icon: TrackChangesIcon,  title: 'Oversight and Evaluation of Transaction Processing', desc: 'Our team closely monitors transaction processes, ensuring accuracy and efficiency in your financial operations.' },
+  { icon: SecurityIcon,      title: 'Assessment of Internal Control Mechanisms',        desc: 'We assess your current internal control mechanisms, identifying gaps and providing recommendations for improvements to safeguard your financial integrity.' },
+  { icon: GavelIcon,         title: 'Procedures and Policy Direction and Conformity',   desc: 'We ensure that your business adheres to established procedures and policies, maintaining consistency and regulatory compliance.' },
+  { icon: PaymentIcon,       title: 'Timely Payment Management',                        desc: 'We oversee the timely payment of all liabilities, ensuring that your business meets deadlines and avoids penalties.' },
+  { icon: AssignmentIcon,    title: 'Reports that Are Requested',                       desc: 'Our team prepares reports on demand, addressing specific business needs and delivering financial data quickly and efficiently.' },
+  { icon: EventNoteIcon,     title: 'Monthly Review and Reporting',                     desc: 'We conduct regular reviews and provide detailed monthly financial reports to ensure that your business stays on track with its goals.' },
+  { icon: AccountBalanceIcon,title: 'Adherence to Federal and State Regulations',       desc: 'We ensure your business complies with both federal and state financial regulations, mitigating the risk of non-compliance penalties.' },
+  { icon: PeopleAltIcon,     title: 'Fractional Controller Services',                   desc: "For businesses that don't require a full-time controller, we offer fractional controller services, giving you access to top-tier financial expertise without the full-time commitment." },
+  { icon: HandshakeIcon,     title: 'Vendor and Employee Communication Assistance',     desc: 'Our team facilitates clear and effective communication between vendors, employees, and other stakeholders, ensuring smooth operations and financial transparency.' },
+  { icon: FactCheckIcon,     title: 'Audit Assistance',                                 desc: 'We provide support during audits, helping you prepare documents, review financials, and ensure full compliance with auditing standards.' },
 ];
 
 const FCSolutions = () => {
@@ -59,12 +59,12 @@ const FCSolutions = () => {
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 560, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              From management reporting to fractional controller engagements — every service is designed to provide expert financial oversight and strategic leadership for your SMB.
+              From reporting and compliance to transaction oversight and audit support, Milta's Financial Controller Services ensure your financial operations remain accurate, compliant, and efficient.
             </Typography>
           </motion.div>
         </Box>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)', lg: 'repeat(4, 1fr)' }, gap: 2.5 }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 2.5 }}>
           {SERVICES.map((svc, i) => {
             const Icon = svc.icon;
             return (
@@ -106,9 +106,7 @@ const FCSolutions = () => {
                 <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.84rem', lineHeight: 1.72, color: 'text.secondary', pr: 2 }}>
                   {svc.desc}
                 </Typography>
-                <Box className="card-arrow" sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, mt: 2.5, color: primary, fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0, transform: 'translateX(-8px)', transition: 'opacity 0.3s ease, transform 0.3s ease' }}>
-                  Learn more <ArrowForwardIcon sx={{ fontSize: '0.8rem' }} />
-                </Box>
+                
               </Box>
             );
           })}

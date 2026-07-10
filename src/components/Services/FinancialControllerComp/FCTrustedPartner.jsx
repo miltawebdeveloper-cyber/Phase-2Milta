@@ -26,7 +26,7 @@ const TRUST_POINTS = [
 ];
 
 const STATS = [
-  { num: '15y+',  label: 'Years Experience'   },
+  { num: '10y+',  label: 'Years Experience'   },
   { num: '500+',  label: 'Businesses Served'  },
   { num: '100%',  label: 'GAAP Compliant'     },
   { num: '24/7',  label: 'Expert Support'     },
@@ -70,7 +70,7 @@ const FCTrustedPartner = () => {
             </motion.div>
             <motion.div {...fadeUp(0.18)}>
               <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '1rem', lineHeight: 1.8, maxWidth: 580, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-                Over 15 years of trusted expertise, a certified team, and customized solutions — all working together to optimize your financial operations and ensure compliance.
+                Over 10 years of trusted expertise, a certified team, and customized solutions — all working together to optimize your financial operations and ensure compliance.
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.24)}>

@@ -2,11 +2,12 @@ import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import TimerIcon from '@mui/icons-material/Timer';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import GavelIcon from '@mui/icons-material/Gavel';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import SecurityIcon from '@mui/icons-material/Security';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -16,11 +17,12 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: TimerIcon,       title: 'More Time for Growth',       desc: 'Free your leadership and internal teams from manual payroll work and redirect efforts toward business expansion and core operations.' },
-  { icon: GavelIcon,       title: 'Regulatory Confidence',      desc: 'Our payroll specialists stay current with federal, state, and local payroll regulations — so your business is always compliant, never exposed.', featured: true },
-  { icon: VerifiedIcon,    title: 'Higher Accuracy',            desc: 'Professionally managed payroll reduces errors, adjustments, and employee disputes — backed by multi-step verification at every pay cycle.' },
-  { icon: SecurityIcon,    title: 'Enhanced Data Protection',   desc: 'Secure payroll platforms with role-based access, encrypted data handling, and continuous monitoring to safeguard sensitive employee information.' },
-  { icon: TrendingUpIcon,  title: 'Scalable Payroll Support',   desc: 'As your workforce and locations grow, our payroll system scales with you — handling complexity without adding overhead to your operations.' },
+  { icon: TrendingUpIcon,  title: 'More Time for Business Growth',           desc: 'Outsourcing payroll management services frees your leadership and internal teams from time-consuming payroll tasks, allowing you to focus on strategic planning, operations, and business expansion.' },
+  { icon: GavelIcon,       title: 'Regulatory Confidence & Compliance',      desc: 'Payroll specialists stay updated with constantly changing federal, state, and local payroll regulations in the USA, ensuring full compliance and reducing legal or financial risks.', featured: true },
+  { icon: VerifiedIcon,    title: 'Higher Payroll Accuracy',                 desc: 'Professionally managed payroll minimizes calculation errors, late filings, adjustments, and employee disputes—ensuring employees are paid accurately and on time.' },
+  { icon: SecurityIcon,    title: 'Enhanced Data Security',                  desc: 'Secure payroll platforms and encrypted systems protect sensitive employee data such as salaries, tax details, and personal information from breaches or misuse.' },
+  { icon: AddCircleIcon,   title: 'Reduced Administrative Burden',           desc: 'Managing payroll internally can quickly become complex and resource-heavy. Outsourcing eliminates operational strain and streamlines payroll from start to finish.' },
+  { icon: AccessTimeIcon,  title: 'Reliable & Stress-Free Payroll Operations', desc: 'Outsourced payroll delivers consistency, precision, and peace of mind—ensuring smooth payroll processing month after month without internal disruption.' },
 ];
 
 const PMWhyChoose = () => {
@@ -50,6 +52,11 @@ const PMWhyChoose = () => {
               <Box component="span" sx={{ color: primary }}>Payroll Management Services?</Box>
             </Typography>
           </motion.div>
+          <motion.div {...fadeUp(0.14)}>
+            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, fontFamily: '"Outfit", sans-serif', mt: 2, maxWidth: 720 }}>
+              As organizations scale, payroll operations become increasingly complex and regulation-heavy—especially in the United States. Outsourcing payroll management services helps businesses reduce compliance exposure, eliminate operational strain, and ensure payroll is handled accurately and securely.
+            </Typography>
+          </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Box sx={{ width: 48, height: 3, borderRadius: 4, bgcolor: alpha(primary, 0.3), mt: 2 }} />
           </motion.div>
@@ -63,11 +70,10 @@ const PMWhyChoose = () => {
                 key={card.title}
                 component={motion.div}
                 {...fadeUp(i * 0.09)}
-                sx={{ ...(card.featured && { gridColumn: { md: '3' }, gridRow: { md: '1 / span 2' } }) }}
               >
                 <Box sx={{
                   height: '100%',
-                  p: { xs: 3, md: card.featured ? 4.5 : 3.5 },
+                  p: { xs: 3, md: 3.5 },
                   borderRadius: '18px',
                   display: 'flex', flexDirection: 'column',
                   transition: 'transform 0.25s ease, box-shadow 0.25s ease',

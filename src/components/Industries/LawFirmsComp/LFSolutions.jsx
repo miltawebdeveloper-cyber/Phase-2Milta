@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
@@ -10,8 +10,8 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import GavelIcon from '@mui/icons-material/Gavel';
 import InsightsIcon from '@mui/icons-material/Insights';
 import GroupsIcon from '@mui/icons-material/Groups';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import CloudIcon from '@mui/icons-material/Cloud';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -21,16 +21,56 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ELEMENTS = [
-  { icon: AccountBalanceIcon,  title: 'Trust Accounting',           desc: 'Ensuring client funds are separated, properly recorded, and fully compliant with bar association legal standards.' },
-  { icon: ReceiptLongIcon,     title: 'Expense Tracking',           desc: 'Monitoring rent, salaries, overheads, and case-related costs to keep your firm operating within budget.' },
-  { icon: AccessTimeIcon,      title: 'Timekeeping & Billing',      desc: 'Ensuring accurate tracking of billable hours for each attorney and converting time into prompt, accurate invoices.' },
-  { icon: TrendingUpIcon,      title: 'Income Tracking',            desc: 'Recording all revenue from client fees, settlements, retainers, and awards for a complete financial picture.' },
-  { icon: BarChartIcon,        title: 'Financial Reporting',        desc: 'Preparing detailed balance sheets, income statements, and cash flow reports tailored to legal practice needs.' },
-  { icon: GavelIcon,           title: 'Tax Planning & Preparation', desc: 'Comprehensive year-end reporting, accurate tax returns, maximum deductions, and strategic planning for the next fiscal year.' },
-  { icon: InsightsIcon,        title: 'Budgeting & Forecasting',    desc: 'Providing data-driven insights for growth initiatives, staffing decisions, and long-term financial planning.' },
-  { icon: GroupsIcon,          title: 'Partner Profit Sharing',     desc: 'Managing partner compensation and distributions based on custom formulas, ensuring accuracy and transparency.' },
-  { icon: AccountTreeIcon,     title: 'Branch Accounting',          desc: 'Maintaining separate, accurate records for every office location your firm operates across.' },
-  { icon: ManageAccountsIcon,  title: 'Payroll Management',         desc: 'Handling staff salaries, attorney benefits, and tax withholdings with full compliance and on-time processing.' },
+  { 
+    icon: AccountTreeIcon,  
+    title: 'Project-Based Accounting',           
+    desc: 'In the construction industry, every job is different. That\'s why bookkeeping for construction companies revolves around project-based accounting—tracking income, expenses, and profitability for each project. This method ensures better cost control and more accurate estimates for future jobs.' 
+  },
+  { 
+    icon: ReceiptLongIcon,     
+    title: 'Expense Management',           
+    desc: 'Managing day-to-day expenses—like materials, labor, and overhead—is crucial in bookkeeping for small construction businesses. Categorizing and approving each cost helps maintain budgets and avoid overspending.' 
+  },
+  { 
+    icon: AccessTimeIcon,      
+    title: 'Payroll Processing',      
+    desc: 'Construction businesses often juggle both full-time employees and subcontractors. Automated payroll solutions ensure timely payments, accurate tax deductions, and compliance with labor regulations.' 
+  },
+  { 
+    icon: TrendingUpIcon,        
+    title: 'Invoicing & Payment Tracking',        
+    desc: 'Bookkeeping for contractors includes setting up invoice templates, tracking outstanding balances, and integrating payment platforms for better cash flow and transparency.' 
+  },
+  { 
+    icon: GavelIcon,           
+    title: 'Tax Compliance & Planning', 
+    desc: 'Organized bookkeeping ensures deductible expenses are captured and tax filings are on time. Proper tax planning helps contractors minimize liabilities and stay audit-ready.' 
+  },
+  { 
+    icon: InsightsIcon,        
+    title: 'Equipment & Asset Tracking',    
+    desc: 'Contractors rely heavily on machinery. Good bookkeeping tracks asset purchases, depreciation, and maintenance schedules for accurate reporting.' 
+  },
+  { 
+    icon: AccountBalanceIcon,  
+    title: 'Bank Reconciliation',         
+    desc: 'Regular bank reconciliations catch errors early, prevent fraud, and ensure financial reports remain accurate.' 
+  },
+  { 
+    icon: BarChartIcon,        
+    title: 'Financial Reporting',         
+    desc: 'Cash flow reports, balance sheets, and profit/loss statements help guide project bids, budgeting, and overall business strategy.' 
+  },
+  { 
+    icon: GroupsIcon,          
+    title: 'Subcontractor Payments & Compliance', 
+    desc: 'Managing subcontractors requires accurate tracking of contracts, payments, and 1099s to maintain legal compliance and transparency.' 
+  },
+  { 
+    icon: CloudIcon,           
+    title: 'Cloud-Based Bookkeeping Tools', 
+    desc: 'Modern bookkeeping solutions allow real-time data sharing, automate reporting, and provide 24/7 access for contractors in the field.' 
+  },
 ];
 
 const LFSolutions = () => {
@@ -55,18 +95,18 @@ const LFSolutions = () => {
         <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: 'center' }}>
           <motion.div {...fadeUp(0)}>
             <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.75rem', mb: 2, display: 'block' }}>
-              OUR SERVICES
+              KEY ELEMENTS
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
-              Our Law Firm{' '}
-              <Box component="span" sx={{ color: primary }}>Bookkeeping Services</Box>
+              Key Elements of Bookkeeping for{' '}
+              <Box component="span" sx={{ color: primary }}>Contractor Businesses</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 580, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              10 comprehensive bookkeeping and accounting services customized for law firms and legal professionals.
+              10 essential bookkeeping elements tailored specifically for contractors and construction businesses.
             </Typography>
           </motion.div>
         </Box>

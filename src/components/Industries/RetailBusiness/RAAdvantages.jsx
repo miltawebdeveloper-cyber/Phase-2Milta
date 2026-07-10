@@ -2,11 +2,13 @@ import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import GavelIcon from '@mui/icons-material/Gavel';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import PeopleIcon from '@mui/icons-material/People';
+import TimerIcon from '@mui/icons-material/Timer';
+import SecurityIcon from '@mui/icons-material/Security';
+import BuildIcon from '@mui/icons-material/Build';
+import VerifiedIcon from '@mui/icons-material/Verified';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -16,11 +18,41 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ADVANTAGES = [
-  { icon: StorefrontIcon,  title: 'Built for Every Retailer',  desc: 'From boutiques to huge chains, our bookkeeping scales to retail businesses of all kinds.' },
-  { icon: FactCheckIcon,   title: 'Stay Organized',            desc: 'Customized retail accounting keeps your finances organized as the industry grows more complex.' },
-  { icon: GavelIcon,       title: 'Tax-Compliant Year-Round',  desc: 'Stay compliant and handle tax returns for retail without the year-end scramble.' },
-  { icon: TrendingUpIcon,  title: 'More Profitable',           desc: 'Clearer financials help you control costs and run a more profitable store.' },
-  { icon: VisibilityIcon,  title: 'Full Financial Visibility', desc: 'Get better visibility into your business\'s financial health so you can plan with confidence.' },
+  { 
+    icon: PrecisionManufacturingIcon, 
+    title: 'Accurate Job Costing',               
+    desc: 'Professional bookkeeping for contractors allows precise tracking of labor costs, overheads, and material expenses, ensuring accurate job costing. Whether you operate a large crew or run a small construction business, this level of detail helps you avoid overspending, properly estimate budgets, and maintain profitability even during fluctuating market conditions.' 
+  },
+  { 
+    icon: ReceiptLongIcon,            
+    title: 'Timely Invoicing & Payments',        
+    desc: 'With specialized bookkeeping for construction companies, invoices can be generated and sent out quickly, reducing delays and improving cash flow. Accurate billing not only strengthens client relationships but also minimizes payment disputes, ensuring a consistent revenue stream and timely client settlements.' 
+  },
+  { 
+    icon: PeopleIcon,                 
+    title: 'Efficient Payroll Management',       
+    desc: 'Contractors often work with multiple employees and subcontractors, making payroll management a critical task. Expert accounting for construction companies ensures timely wage payments, tax withholdings, and benefits calculations, keeping your workforce satisfied while avoiding costly compliance issues and penalties.' 
+  },
+  { 
+    icon: TimerIcon,                  
+    title: 'Reduced Administrative Burden',      
+    desc: 'By automating tasks such as bank reconciliation, expense tracking, and payroll processing, bookkeeping for small construction business owners becomes less stressful. This reduction in manual paperwork allows contractors to focus more on winning new projects and managing ongoing work efficiently.' 
+  },
+  { 
+    icon: SecurityIcon,               
+    title: 'Fraud Prevention & Error Reduction', 
+    desc: 'Routine reconciliations and accurate construction accounting practices help detect errors, unauthorized transactions, and inconsistencies in real time. With solid internal controls, you can prevent fraud, enhance transparency, and maintain complete trust in your financial records.' 
+  },
+  { 
+    icon: BuildIcon,                  
+    title: 'Asset & Equipment Management',       
+    desc: 'Accounting Services for contractors include keeping track of equipment use, depreciation, and maintenance costs. Managing assets properly helps plan replacements, reduce downtime, and get the most value from tools and machines that are vital for completing projects.' 
+  },
+  { 
+    icon: VerifiedIcon,               
+    title: 'Regulatory Compliance',              
+    desc: 'Contractors must follow strict tax and labor regulations. With expert construction tax planning and support from professionals who understand tax planning for contractors, your financials will be kept audit-ready. Staying compliant not only protects your business but also helps you qualify for licenses, certifications, and future project bids.' 
+  },
 ];
 
 const RAAdvantages = () => {
@@ -67,7 +99,7 @@ const RAAdvantages = () => {
             <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
               <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                THE BENEFITS
+                BENEFITS OF ACCOUNTING AND BOOKKEEPING FOR CONTRACTORS
               </Typography>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
             </Box>
@@ -78,8 +110,8 @@ const RAAdvantages = () => {
               lineHeight: 1.2, letterSpacing: '-0.025em',
               color: '#ffffff', fontWeight: 900,
             }}>
-              Grow Your Retail Business{' '}
-              <Box component="span" sx={{ color: primary }}>with Confidence</Box>
+              Benefits of Contractor{' '}
+              <Box component="span" sx={{ color: primary }}>Bookkeeping</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.14)}>
@@ -88,7 +120,7 @@ const RAAdvantages = () => {
               lineHeight: 1.75, fontFamily: '"Outfit", sans-serif',
               maxWidth: 480, mx: 'auto', mt: 1.5,
             }}>
-              As the retail industry grows more complex, our customized accounting services keep businesses of all sizes organized, tax-compliant, and profitable.
+              Professional bookkeeping gives contractors the financial clarity to stay compliant and make confident decisions.
             </Typography>
           </motion.div>
         </Box>

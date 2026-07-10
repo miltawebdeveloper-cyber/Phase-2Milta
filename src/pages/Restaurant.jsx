@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import RIHero from '../components/Industries/Restaurant/RIHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import ServicesSection from '../components/homeComp/ServicesSection';
 
 const RIWhatIs     = lazy(() => import('../components/Industries/Restaurant/RIWhatIs'));
 const RISolutions  = lazy(() => import('../components/Industries/Restaurant/RISolutions'));
@@ -38,9 +39,10 @@ const Restaurant = () => {
     <Suspense fallback={null}>
       <RIWhatIs />
       <RISolutions />
+      <ServicesSection />
       <RIWhyChoose />
       <RIAdvantages />
-      <RIChallenges />
+      
       <RIFAQ />
       <CTASection />
       <Footer />

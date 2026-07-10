@@ -17,7 +17,7 @@ const slides = [
     subtitle: 'We simplify the complex. High-precision accounting strategies for the modern visionary.',
     image: '/hero_organic.png',
     accent: 'ESTABLISHED 2009',
-    insight: '15+ Years Legacy'
+    insight: '10+ Years Legacy'
   },
   {
     title: 'Architecting Future Assets.',

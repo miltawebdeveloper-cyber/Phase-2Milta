@@ -1,350 +1,81 @@
 import React from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useNavigate } from "react-router-dom";
-import WaveDivider from "../../components/homeComp/WaveDivider";
-import useFullSEO from "../../utils/useFullSEO";
+import ServiceLayout from "../_ServiceLayout";
 
-/* ================= COLORS ================= */
-const primaryGreen = "#0b3d2e";
-const hoverOrange = "#ff9800";
-const softOrange = "#fff3e0";
-const white = "#fff";
-const sectionBg = "#f6f8f3";
+const faqs = [
+  { q: "What is accounting data entry?", a: "Accounting data entry involves recording financial transactions into organized systems for accurate reporting and analysis." },
+  { q: "Why should I outsource accounting data entry?", a: "Outsourcing saves time, reduces costs, and ensures accuracy by leveraging professional expertise." },
+  { q: "Are your services customized for small businesses?", a: "Yes, our services are designed specifically for small and medium-scale businesses in the USA." },
+  { q: "How do you ensure data security?", a: "We use secure data transfer, encryption, and confidentiality agreements to protect your sensitive information." },
+  { q: "Can you handle customized data entry requests?", a: "Absolutely! We offer customized solutions tailored to your requirements." },
+  { q: "What software do you use?", a: "We work with QuickBooks, Xero, and other accounting platforms based on client preferences." },
+  { q: "How quickly can you process my data?", a: "Turnaround time depends on volume, but we pride ourselves on timely and efficient service." },
+  { q: "Is your team familiar with US accounting standards?", a: "Yes, our team is well-versed in US accounting rules and GAAP principles." },
+];
 
-/* ================= BANNER ================= */
-const BannerSection = () => {
-  const navigate = useNavigate();
-
+export default function DataEntryTexas() {
   return (
-    <Box
-      sx={{
-        background: "radial-gradient(circle at top, #0f3f2f 0%, #071f18 70%)",
-        color: white,
-        py: { xs: 7, sm: 9, md: 11 },
-        textAlign: "center",
+    <ServiceLayout
+      seo={{
+        title: "Professional Data Management & Entry Services in Texas",
+        description:
+          "Our Texas data entry specialists deliver accurate accounting data management services that improve efficiency and reduce errors.",
+        keywords:
+          "data entry companies, accounting data entry, data entry services, data management services",
+        canonical: "https://miltafs.com/us/services/outsourcing-accounting-data-entry-texas/",
+        author: "Milta Accounting",
       }}
-    >
-      <Container maxWidth="md">
-        <Typography
-          variant="h4"
-          fontWeight={800}
-          mb={2}
-          fontSize={{ xs: "1.7rem", sm: "2.1rem", md: "2.6rem" }}
-        >
-          Precision-Driven Data Management Services in{" "}
-          <Box component="span" sx={{ color: hoverOrange }}>
-            Texas, USA
-          </Box>
-        </Typography>
-
-        <Typography
-          fontSize={{ xs: "1rem", sm: "1.15rem", md: "1.25rem" }}
-          mb={4}
-          opacity={0.95} color="#ffffff"
-        >
-          Trust Texas’s trusted data entry companies for streamlined financial
-          operations and scalable solutions.
-        </Typography>
-
-        <Button
-          sx={{
-            px: 5,
-            py: 1.4,
-            bgcolor: hoverOrange,
-            color: "#000",
-            fontWeight: 700,
-            borderRadius: 30,
-            fontSize: "1rem",
-            boxShadow: "0 10px 25px rgba(255,152,0,0.35)",
-            "&:hover": {
-              bgcolor: "#ffa726",
-              transform: "translateY(-2px)",
-            },
-          }}
-          onClick={() => navigate("/contact")}
-        >
-          Book a Free 30-Minute Zoom Consultation
-        </Button>
-      </Container>
-    </Box>
-  );
-};
-
-/* ================= SECTION ================= */
-const Section = ({ title, children, bg }) => (
-  <Box sx={{ py: { xs: 6, md: 9 }, bgcolor: bg || "transparent" }}>
-    <Container maxWidth="lg" sx={{ textAlign: "center" }}>
-      <Typography
-        variant="h4"
-        fontWeight={800}
-        mb={4}
-        color={primaryGreen}
-        fontSize={{ xs: "1.5rem", md: "2.1rem" }}
-      >
-        {title}
-      </Typography>
-
-      <Box maxWidth={950} mx="auto">
-        {children}
-      </Box>
-    </Container>
-  </Box>
-);
-
-/* ================= HIGHLIGHT BOXES ================= */
-const HighlightBoxes = ({ boxes }) => (
-  <Box
-    sx={{
-      display: "grid",
-      gridTemplateColumns: { xs: "1fr", md: "repeat(4, 1fr)" },
-      gap: 3,
-      mt: 2,
-    }}
-  >
-    {boxes.map((text, i) => (
-      <Box
-        key={i}
-        sx={{
-          p: 3.5,
-          bgcolor: softOrange,
-          borderRadius: 3,
-          border: `1px solid ${hoverOrange}`,
-          boxShadow: "0 8px 22px rgba(0,0,0,0.08)",
-        }}
-      >
-        <Typography fontWeight={700} color={primaryGreen}>
-          {text}
-        </Typography>
-      </Box>
-    ))}
-  </Box>
-);
-
-/* ================= SERVICES ================= */
-const DataEntryServices = () => {
-  const services = [
-    {
-      title: "General Ledger Entry",
-      desc: "We maintain an accurate and thorough general ledger by methodically documenting all of your financial activities.",
-    },
-    {
-      title: "Accounts Payable & Receivable Data Entry",
-      desc: "We manage your billing and payments accurately, streamlining cash flow and improving vendor relationships.",
-    },
-    {
-      title: "Invoice Data Entry",
-      desc: "Efficient processing of invoices for timely payments and organized record-keeping.",
-    },
-    {
-      title: "Bank Reconciliation",
-      desc: "We reconcile bank statements with your accounting records to eliminate discrepancies and ensure consistency.",
-    },
-    {
-      title: "Payroll Data Entry",
-      desc: "From salaries to deductions, we ensure your payroll records are precise and compliant.",
-    },
-    {
-      title: "Expense Report Data Management",
-      desc: "For efficient planning and payment, we arrange and evaluate business spending.",
-    },
-    {
-      title: "Financial Statement Preparation",
-      desc: "Prepare accurate balance sheets and profit & loss statements for better decision-making.",
-    },
-    {
-      title: "Custom Data Entry Services",
-      desc: "Flexible, personalized data management solutions designed around your unique business requirements.",
-    },
-    {
-      title: "QuickBooks Data Entry",
-      desc: "We manage QuickBooks invoice entry, reconciliation, and reporting. A construction company saved 20 hours per month by outsourcing data entry to us.",
-    },
-  ];
-
-  return (
-    <Box
-      sx={{
-        background: "linear-gradient(135deg, #09271b 0%, #063d1e 100%)",
-        py: { xs: 7, md: 11 },
+      hero={{
+        titleLead: "Precision-Driven Data Management Services in",
+        highlight: "Texas, USA",
+        subtitle:
+          "Trust Texas's trusted data entry companies for streamlined financial operations and scalable solutions.",
+        breadcrumb: "Data Entry & Management Services in Texas",
       }}
-    >
-      <Container maxWidth="lg">
-        <Typography
-          variant="h4"
-          fontWeight={800}
-          mb={6}
-          textAlign="center"
-          color={hoverOrange}
-        >
-          Our Data Entry Services in the USA
-        </Typography>
-
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "1fr",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-            },
-            gap: 4,
-          }}
-        >
-          {services.map((item, i) => (
-            <Box
-              key={i}
-              sx={{
-                bgcolor: white,
-                p: 4,
-                borderRadius: 4,
-                borderTop: `5px solid ${hoverOrange}`,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                textAlign: "center",
-              }}
-            >
-              <Typography fontWeight={700} mb={2} color={primaryGreen}>
-                {item.title}
-              </Typography>
-              <Typography fontSize="0.95rem">{item.desc}</Typography>
-            </Box>
-          ))}
-        </Box>
-      </Container>
-    </Box>
-  );
-};
-
-/* ================= FAQ ================= */
-const FAQSection = () => {
-  const faqData = [
-    {
-      q: "What is accounting data entry?",
-      a: "Accounting data entry involves recording financial transactions into organized systems for accurate reporting and analysis.",
-    },
-    {
-      q: "Why should I outsource accounting data entry?",
-      a: "Outsourcing saves time, reduces costs, and ensures accuracy by leveraging professional expertise.",
-    },
-    {
-      q: "Are your services customized for small businesses?",
-      a: "Yes, our services are designed specifically for small and medium-scale businesses in the USA.",
-    },
-    {
-      q: "How do you ensure data security?",
-      a: "We use secure data transfer, encryption, and confidentiality agreements to protect your sensitive information.",
-    },
-    {
-      q: "Can you handle customized data entry requests?",
-      a: "Absolutely! We offer customized solutions tailored to your requirements.",
-    },
-    {
-      q: "What software do you use?",
-      a: "We work with QuickBooks, Xero, and other accounting platforms based on client preferences.",
-    },
-    {
-      q: "How quickly can you process my data?",
-      a: "Turnaround time depends on volume, but we pride ourselves on timely and efficient service.",
-    },
-    {
-      q: "Is your team familiar with US accounting standards?",
-      a: "Yes, our team is well-versed in US accounting rules and GAAP principles.",
-    },
-  ];
-
-  return (
-    <Box sx={{ py: 9, bgcolor: sectionBg }}>
-      <Container maxWidth="md">
-        <Typography
-          variant="h4"
-          fontWeight={800}
-          mb={5}
-          textAlign="center"
-          color={primaryGreen}
-        >
-          Frequently Asked Questions (FAQs)
-        </Typography>
-
-        {faqData.map((item, i) => (
-          <Accordion
-            key={i}
-            sx={{ mb: 2, borderRadius: 2, "&:before": { display: "none" } }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{ color: hoverOrange }} />}
-            >
-              <Typography fontWeight={700}>{item.q}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{item.a}</Typography>
-            </AccordionDetails>
-          </Accordion>
-        ))}
-      </Container>
-    </Box>
-  );
-};
-
-/* ================= PAGE ================= */
-export default function AccountingDataEntryTexas() {
-  useFullSEO({
-    title: "Professional Data Management & Entry Services in Texas",
-    description:
-      "Our Texas data entry specialists deliver accurate accounting data management services that improve efficiency and reduce errors.",
-    keywords:
-      "data entry companies, accounting data entry, data entry services, data management services",
-    canonical:
-      "https://miltafs.com/us/services/outsourcing-accounting-data-entry-texas/",
-    author: "Milta Accounting",
-  });
-
-  const highlights = [
-    "Data Collection & Security",
-    "Verification & Accuracy Checks",
-    "GAAP Double-Entry Audits",
-    "Insight-Driven Reporting",
-  ];
-
-  return (
-    <>
-      <BannerSection />
-
-      <Section title="Who We Are & What We Do">
-        <Typography mb={3}>
-          As a premier data entry company in Texas, Milta delivers high-performance,
-          error-free accounting data entry solutions designed for SMEs nationwide.
-          Our mission is to empower businesses with cost-effective services that
-          reduce administrative burdens and unlock growth-focused priorities.
-        </Typography>
-        <Typography>
-          Our meticulous team transforms financial records into audit-ready,
-          real-time assets—enabling strategic, data-backed decisions that drive
-          profitability and long-term resilience.
-        </Typography>
-      </Section>
-
-      <WaveDivider />
-
-      <Section title="Our Precision-Driven Accounting Data Entry Workflow">
-        <HighlightBoxes boxes={highlights} />
-        <Typography mt={4}>
-          From secure data collection and verification to reconciliation and
-          real-time reporting, our structured workflow ensures accuracy,
-          compliance, and financial clarity at every stage.
-        </Typography>
-      </Section>
-
-      <DataEntryServices />
-
-      <FAQSection />
-    </>
+      intro={{
+        overline: "DATA ENTRY & MANAGEMENT",
+        titleLead: "Who We Are &",
+        highlight: "What We Do",
+        paragraphs: [
+          "As a premier data entry company in Texas, Milta delivers high-performance, error-free accounting data entry solutions designed for SMEs nationwide. Our mission is to empower businesses with cost-effective services that reduce administrative burdens and unlock growth-focused priorities.",
+          "Our meticulous team transforms financial records into audit-ready, real-time assets—enabling strategic, data-backed decisions that drive profitability and long-term resilience.",
+        ],
+        ctaLabel: "Book a Free 30-Minute Zoom Consultation",
+        imageAlt: "Accounting data entry services in Texas",
+      }}
+      whyEssential={{
+        overline: "OUR WORKFLOW",
+        titleLead: "Our Precision-Driven Accounting",
+        highlight: "Data Entry Workflow",
+        subtitle:
+          "From secure data collection and verification to reconciliation and real-time reporting, our structured workflow ensures accuracy, compliance, and financial clarity at every stage.",
+        items: [
+          "Data Collection & Security",
+          "Verification & Accuracy Checks",
+          "GAAP Double-Entry Audits",
+          "Insight-Driven Reporting",
+        ],
+      }}
+      cardGroups={[
+        {
+          overline: "OUR SERVICES",
+          titleLead: "Our Data Entry Services in",
+          highlight: "the USA",
+          bg: "paper",
+          columns: 3,
+          items: [
+            { title: "General Ledger Entry", desc: "We maintain an accurate and thorough general ledger by methodically documenting all of your financial activities." },
+            { title: "Accounts Payable & Receivable Data Entry", desc: "We manage your billing and payments accurately, streamlining cash flow and improving vendor relationships." },
+            { title: "Invoice Data Entry", desc: "Efficient processing of invoices for timely payments and organized record-keeping." },
+            { title: "Bank Reconciliation", desc: "We reconcile bank statements with your accounting records to eliminate discrepancies and ensure consistency." },
+            { title: "Payroll Data Entry", desc: "From salaries to deductions, we ensure your payroll records are precise and compliant." },
+            { title: "Expense Report Data Management", desc: "For efficient planning and payment, we arrange and evaluate business spending." },
+            { title: "Financial Statement Preparation", desc: "Prepare accurate balance sheets and profit & loss statements for better decision-making." },
+            { title: "Custom Data Entry Services", desc: "Flexible, personalized data management solutions designed around your unique business requirements." },
+            { title: "QuickBooks Data Entry", desc: "We manage QuickBooks invoice entry, reconciliation, and reporting. A construction company saved 20 hours per month by outsourcing data entry to us." },
+          ],
+        },
+      ]}
+      faqs={faqs}
+    />
   );
 }

@@ -24,7 +24,6 @@ const ELEMENTS = [
   { icon: GavelIcon,          title: 'Tax Planning & Preparation', desc: 'Tax returns for healthcare — 1040s, 1120s, 1065s, 1099s, and W-2s — US GAAP-compliant, with Medicare/Medicaid know-how to maximize deductions.' },
   { icon: QueryStatsIcon,     title: 'Budgeting & Forecasting', desc: 'Accurate forecasts and budgets built on past data and industry trends, aligned with your strategic healthcare goals.' },
   { icon: ShowChartIcon,      title: 'Cash Flow Management',    desc: 'We monitor and optimize income and expenses to ensure operational continuity and timely payments.' },
-  { icon: PaymentsIcon,       title: 'Payroll Solutions',       desc: 'Healthcare payroll that pays your team correctly and on time while staying compliant with all federal and state laws.' },
 ];
 
 const HCSolutions = () => {

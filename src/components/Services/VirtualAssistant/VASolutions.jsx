@@ -24,18 +24,18 @@ const fadeUp = (delay = 0) => ({
 });
 
 const SERVICES = [
-  { icon: HomeWorkIcon,       title: 'Real Estate Virtual Assistant',          desc: 'Property listings, client databases, showing coordination, virtual tours, and market research reports to keep you competitive.' },
-  { icon: StorageIcon,        title: 'Data Entry',                             desc: 'Meticulous input of large data volumes into spreadsheets or business software — maintaining accuracy and consistency across all datasets.' },
-  { icon: EventIcon,          title: 'Event Planning',                         desc: 'RSVPs, vendor management, scheduling, and logistics coordination for virtual meetings, in-person events, and conferences.' },
-  { icon: TravelExploreIcon,  title: 'Internet Research',                      desc: 'Market trends, competitor analysis, and customer behavior data — delivering actionable insights to support informed business decisions.' },
-  { icon: ContactPageIcon,    title: 'Business Card Scanning',                 desc: 'Scan, upload, and organize business cards into contact management systems so your database stays updated and easily searchable.' },
-  { icon: CalendarMonthIcon,  title: 'Appointment Scheduling',                 desc: 'Calendar management, meeting scheduling, automated reminders, rescheduling, and time-zone adjustments — seamlessly handled.' },
-  { icon: AccountBalanceIcon, title: 'Accounting & Bookkeeping',               desc: 'Accurate financial records, transaction recording, account reconciliation, and financial statement generation — organized and error-free.' },
-  { icon: PhoneInTalkIcon,    title: 'Call Answering',                         desc: 'Professional inbound call handling — client inquiries, service information, and appointment booking so you never miss an important call.' },
-  { icon: MarkEmailReadIcon,  title: 'Correspondence Management',              desc: 'Email handling, professional message drafting, inbox organization, and timely responses — all aligned with your communication preferences.' },
-  { icon: DesignServicesIcon, title: 'Desktop Publishing Services',            desc: 'Brochures, flyers, newsletters, reports, and presentations created with industry-standard tools — polished, on-brand, and professional.' },
-  { icon: SlideshowIcon,      title: 'Presentations & Spreadsheets',           desc: 'Visually compelling PowerPoint presentations and detailed, easy-to-understand spreadsheets that make complex information clear.' },
-  { icon: FlightIcon,         title: 'Travel & Hotel Reservations',            desc: 'Flight and hotel booking, transportation arrangements, and itinerary creation — ensuring seamless, cost-effective business trips.' },
+  { icon: HomeWorkIcon,       title: 'Real Estate Virtual Assistant',          desc: 'Our Real Estate VAs manage property listings, update client databases, coordinate showings, and perform market research—helping you focus on client relationships and closing deals.' },
+  { icon: StorageIcon,        title: 'Data Entry',                             desc: 'We ensure data accuracy and consistency across all business platforms. From spreadsheets to CRMs, our virtual assistants efficiently manage large datasets for smooth workflow.' },
+  { icon: EventIcon,          title: 'Event Planning',                         desc: 'From virtual meetings to large-scale conferences, our VAs coordinate RSVPs, vendors, schedules, and logistics to guarantee smooth and stress-free event management.' },
+  { icon: TravelExploreIcon,  title: 'Internet Research',                      desc: 'Our VAs conduct thorough market, competitor, and customer research to deliver actionable insights that support data-driven business decisions.' },
+  { icon: ContactPageIcon,    title: 'Business Card Scanning',                 desc: 'We digitize and organize business cards, ensuring your contact database remains updated and easy to access within your preferred CRM or contact management system.' },
+  { icon: CalendarMonthIcon,  title: 'Appointment Scheduling',                 desc: 'Stay organized with our scheduling support — we manage your calendar, meetings, and reminders to keep your business running efficiently.' },
+  { icon: AccountBalanceIcon, title: 'Accounting & Bookkeeping',               desc: 'We maintain financial records, reconcile accounts, and generate reports, ensuring your business stays compliant and financially organized.' },
+  { icon: PhoneInTalkIcon,    title: 'Call Answering',                         desc: 'Our professional VAs handle your inbound calls promptly and courteously, improving client satisfaction and ensuring you never miss a lead.' },
+  { icon: MarkEmailReadIcon,  title: 'Correspondence Management',              desc: 'We manage your emails and business communication — drafting, responding, and organizing messages to help you stay focused and professional.' },
+  { icon: DesignServicesIcon, title: 'Desktop Publishing Services',            desc: 'Our VAs design and prepare marketing materials like brochures, flyers, and presentations that align with your brand and enhance communication.' },
+  { icon: SlideshowIcon,      title: 'Presentations & Spreadsheets Creation',  desc: 'We create engaging, data-driven presentations and spreadsheets that help you communicate complex information clearly and professionally.' },
+  { icon: FlightIcon,         title: 'Travel, Airline & Hotel Reservations',   desc: 'We manage complete travel planning — from booking flights to preparing detailed itineraries — for seamless and cost-effective business travel.' },
 ];
 
 const VASolutions = () => {
@@ -61,12 +61,12 @@ const VASolutions = () => {
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 560, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              From real estate support and data entry to bookkeeping and travel reservations — every service designed to reduce your workload and grow your business.
+              Professional, Scalable, and Reliable Support for Your Business Growth
             </Typography>
           </motion.div>
         </Box>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2.5 }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 2.5 }}>
           {SERVICES.map((svc, i) => {
             const Icon = svc.icon;
             return (
@@ -108,9 +108,7 @@ const VASolutions = () => {
                 <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.84rem', lineHeight: 1.72, color: 'text.secondary', pr: 2 }}>
                   {svc.desc}
                 </Typography>
-                <Box className="card-arrow" sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, mt: 2.5, color: primary, fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0, transform: 'translateX(-8px)', transition: 'opacity 0.3s ease, transform 0.3s ease' }}>
-                  Learn more <ArrowForwardIcon sx={{ fontSize: '0.8rem' }} />
-                </Box>
+                
               </Box>
             );
           })}

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Box, Container, Typography, Stack } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ApartmentIcon from '@mui/icons-material/Apartment';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import GavelIcon from '@mui/icons-material/Gavel';
-import ShowChartIcon from '@mui/icons-material/ShowChart';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import SecurityIcon from '@mui/icons-material/Security';
+import CloudIcon from '@mui/icons-material/Cloud';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -18,13 +18,37 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ELEMENTS = [
-  { icon: AttachMoneyIcon,    title: 'Income & Commission Tracking',          desc: 'Accurately record and categorize property sales, rental income, gross commissions, referral fees, and splits for a clear snapshot of earnings.' },
-  { icon: ReceiptLongIcon,    title: 'Business Expenses Logging',             desc: 'Real-time tracking of marketing, licensing, insurance, office supplies, and client entertainment to reduce tax liability and boost profitability.' },
-  { icon: DirectionsCarIcon,  title: 'Mileage & Travel Tracking',            desc: 'Document showings, client meetings, and inspections so travel logs stay compliant and ready for year-end tax deductions.' },
-  { icon: ApartmentIcon,      title: 'Property & Client Portfolio Management', desc: 'Monitor revenue, costs, lease details, and tenant transactions property-by-property — whether you manage two units or two hundred.' },
-  { icon: AccountBalanceIcon, title: 'Bank Reconciliations',                 desc: 'Monthly reconciliations match every booked transaction to your bank statements, catching discrepancies and preventing errors.' },
-  { icon: GavelIcon,          title: 'Year-End Tax Preparation',             desc: 'Tax-ready financials with categorized deductions and accurate income reports, coordinated with your CPA for smooth, on-time filings.' },
-  { icon: ShowChartIcon,      title: 'Real-Time Cash Flow Monitoring',       desc: 'Track fund movement across all properties and accounts to spot shortages or surpluses and support strategic growth decisions.' },
+  { 
+    icon: TrendingUpIcon,    
+    title: 'Market Fluctuations and Financial Stability',          
+    desc: 'The real estate market shifts with local and national economic conditions, but the need for property and development remains constant. Consistent, accurate bookkeeping helps you manage revenue streams during both growth and downturn periods.' 
+  },
+  { 
+    icon: ApartmentIcon,    
+    title: 'Property Management Efficiency',             
+    desc: 'Property management bookkeeping ensures that every rent payment, maintenance expense, and vendor invoice is recorded properly. It provides a clear financial snapshot of each property, helping you stay audit-ready and organized.' 
+  },
+  { 
+    icon: GavelIcon,  
+    title: 'Tax Compliance and Planning',           
+    desc: 'Bookkeeping for real estate investors and agents helps capture all deductible expenses and ensures timely filing. Strategic tax planning for real estate developers can significantly reduce liabilities and enhance profitability.' 
+  },
+  { 
+    icon: AssessmentIcon,      
+    title: 'Transparent Financial Reporting',           
+    desc: 'Monthly or quarterly reports give you a clear picture of property performance and profitability. These reports are vital for forecasting and making smart investment decisions.' 
+  },
+  { 
+    icon: AccountBalanceIcon, 
+    title: 'Cash Flow and Profitability Tracking',        
+    desc: 'Accurate financial tracking ensures better cash flow management, so you can meet your obligations, plan future investments, and avoid financial surprises.' 
+  },
+  { 
+    icon: SecurityIcon,         
+    title: 'Regulatory Compliance and Risk Management',  
+    desc: 'With detailed bookkeeping and documentation, your business remains compliant with tax laws, licensing regulations, and audit requirements, minimizing risks and penalties.' 
+  },
+  
 ];
 
 const RESolutions = () => {
@@ -49,18 +73,18 @@ const RESolutions = () => {
         <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: 'center' }}>
           <motion.div {...fadeUp(0)}>
             <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.75rem', mb: 2, display: 'block' }}>
-              KEY ELEMENTS
+              WHY REAL ESTATE BUSINESSES NEED SPECIALIZED BOOKKEEPING
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
-              Our Bookkeeping for{' '}
-              <Box component="span" sx={{ color: primary }}>Real Estate Agents</Box>
+              Why Real Estate Businesses{' '}
+              <Box component="span" sx={{ color: primary }}>Need Specialized Bookkeeping</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 580, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              Seven key areas we cover so agents can optimize deductions, uphold compliance, and improve cash flow for smarter business decisions.
+              From market fluctuations to regulatory compliance, specialized bookkeeping helps real estate professionals stay organized, profitable, and audit-ready.
             </Typography>
           </motion.div>
         </Box>
@@ -128,7 +152,7 @@ const RESolutions = () => {
           })}
         </Box>
 
-        {/* ── TIER 2: 4-col compact grid for remaining 8 ── */}
+        {/* ── TIER 2: 4-col compact grid for remaining 5 ── */}
         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2 }}>
           {rest.map((el, i) => {
             const Icon = el.icon;
@@ -155,8 +179,6 @@ const RESolutions = () => {
                   },
                 }}
               >
-                
-
                 <Box className="cc-mini-icon" sx={{
                   width: 44, height: 44, borderRadius: '12px',
                   bgcolor: alpha(primary, 0.08),

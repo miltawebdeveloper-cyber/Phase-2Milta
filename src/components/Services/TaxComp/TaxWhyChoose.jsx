@@ -1,12 +1,15 @@
 import React from 'react';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Typography, Grid, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
-import SavingsIcon from '@mui/icons-material/Savings';
-import LayersIcon from '@mui/icons-material/Layers';
-import TimerIcon from '@mui/icons-material/Timer';
-import LockIcon from '@mui/icons-material/Lock';
+import DescriptionIcon from '@mui/icons-material/Description';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import GavelIcon from '@mui/icons-material/Gavel';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import SpeedIcon from '@mui/icons-material/Speed';
+import ErrorIcon from '@mui/icons-material/Error';
+import CloudDoneIcon from '@mui/icons-material/CloudDone';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -14,14 +17,6 @@ const fadeUp = (delay = 0) => ({
   viewport: { once: true },
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
-
-const CARDS = [
-  { icon: WorkspacePremiumIcon, title: 'Expert Knowledge & Experience',         desc: 'Our tax professionals bring over 15 years of hands-on expertise across federal, state, and city tax systems — ensuring every return is prepared accurately and every applicable benefit is captured.' },
-  { icon: SavingsIcon,          title: 'Maximum Refunds & Minimal Liabilities', desc: 'We proactively identify every deduction, credit, and tax-saving strategy available to you — reducing your tax burden and maximizing your refund or minimizing what you owe.', featured: true },
-  { icon: LayersIcon,           title: 'Comprehensive End-to-End Services',     desc: 'From federal, state, and city preparation to tax review, e-filing, and audit support — we handle every aspect of your tax obligations so nothing falls through the cracks.' },
-  { icon: TimerIcon,            title: 'Time & Cost Efficiency',                desc: 'Outsourcing your taxes to Milta saves you countless hours and avoids costly errors. Our streamlined process ensures fast turnaround while keeping your costs predictable and competitive.' },
-  { icon: LockIcon,             title: 'Secure & Confidential',                 desc: 'Your financial data is handled with the highest level of security and confidentiality. We use encrypted systems and strict protocols to protect every document and detail you share with us.' },
-];
 
 const TaxWhyChoose = () => {
   const theme = useTheme();
@@ -41,67 +36,287 @@ const TaxWhyChoose = () => {
         <Box sx={{ mb: { xs: 6, md: 8 } }}>
           <motion.div {...fadeUp(0)}>
             <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: '#266929', fontSize: '0.75rem', mb: 2, display: 'block' }}>
-              WHY MILTA
+              OUR SERVICES
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2, maxWidth: 680 }}>
-              Why Choose Milta as Your{' '}
-              <Box component="span" sx={{ color: primary }}>Tax Planning & Preparation Partner?</Box>
+              Comprehensive{' '}
+              <Box component="span" sx={{ color: primary }}>Federal, State, and City Tax Services</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
-            <Box sx={{ width: 48, height: 3, borderRadius: 4, bgcolor: alpha(primary, 0.3), mt: 2 }} />
+            <Typography variant="body1" sx={{ fontSize: '1.1rem', color: 'text.secondary', maxWidth: 580, mt: 2 }}>
+              We provide complete tax planning, preparation, and e-filing services to ensure compliance and optimize refunds.
+            </Typography>
+          </motion.div>
+          <motion.div {...fadeUp(0.22)}>
+            <Box sx={{ width: 48, height: 3, borderRadius: 4, bgcolor: alpha(primary, 0.3), mt: 3 }} />
           </motion.div>
         </Box>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 2.5 }}>
-          {CARDS.map((card, i) => {
-            const Icon = card.icon;
-            return (
-              <Box
-                key={card.title}
-                component={motion.div}
-                {...fadeUp(i * 0.09)}
-                sx={{ ...(card.featured && { gridColumn: { md: '3' }, gridRow: { md: '1 / span 2' } }) }}
-              >
-                <Box sx={{
-                  height: '100%',
-                  p: { xs: 3, md: card.featured ? 4.5 : 3.5 },
-                  borderRadius: '18px',
-                  display: 'flex', flexDirection: 'column',
-                  transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-                  ...(card.featured ? {
-                    background: 'linear-gradient(155deg, #0d1f0e 0%, #163018 55%, #1e4020 100%)',
-                    boxShadow: `0 8px 32px ${alpha(primary, 0.25)}`,
-                    '&:hover': { transform: 'translateY(-5px)', boxShadow: `0 20px 52px ${alpha(primary, 0.35)}` },
-                  } : {
-                    bgcolor: 'background.default',
-                    border: '1px solid rgba(0,0,0,0.07)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-                    '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 12px 32px rgba(0,0,0,0.09)' },
-                  }),
-                }}>
-                  <Box sx={{
-                    width: 52, height: 52, borderRadius: '50%', mb: 3, flexShrink: 0,
+        {/* 2-Column Grid Layout - Each row has exactly 2 columns */}
+        <Grid container spacing={3} justifyContent="center">
+          {/* Row 1, Column 1 - Tax Preparation */}
+          <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <motion.div {...fadeUp(0.1)} style={{ height: '100%', width: '100%', maxWidth: 600 }}>
+              <Box sx={{ 
+                p: 4, 
+                borderRadius: '18px', 
+                bgcolor: 'background.default', 
+                border: '1px solid rgba(0,0,0,0.07)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                width: 600,
+                height: 600,
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 12px 32px rgba(0,0,0,0.09)' }
+              }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                  <Box sx={{ 
+                    width: 48, height: 48, borderRadius: '50%', 
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    ...(card.featured
-                      ? { bgcolor: alpha('#fff', 0.1), border: `1px solid ${alpha('#fff', 0.15)}` }
-                      : { bgcolor: alpha(primary, 0.08), border: `1px solid ${alpha(primary, 0.15)}` }),
+                    bgcolor: alpha(primary, 0.08), border: `1px solid ${alpha(primary, 0.15)}`,
+                    mr: 2,
+                    flexShrink: 0
                   }}>
-                    <Icon sx={{ fontSize: 26, color: card.featured ? alpha('#fff', 0.9) : primary }} />
+                    <DescriptionIcon sx={{ fontSize: 24, color: primary }} />
                   </Box>
-                  <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1.1rem', mb: 1.5, lineHeight: 1.3, color: card.featured ? '#fff' : 'text.primary' }}>
-                    {card.title}
-                  </Typography>
-                  <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.88rem', lineHeight: 1.75, color: card.featured ? alpha('#fff', 0.62) : 'text.secondary', flexGrow: 1 }}>
-                    {card.desc}
+                  <Typography variant="h6" sx={{ fontWeight: 800 }}>
+                    Tax Preparation
                   </Typography>
                 </Box>
+                <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.75 }}>
+                  Federal, State, and City Tax Preparation service refers to organizing and filing tax returns in compliance with U.S. tax laws.
+                </Typography>
+                <List dense disablePadding sx={{ flex: 1 }}>
+                  <ListItem disablePadding sx={{ mb: 1.5 }}>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary }} />
+                    </ListItemIcon>
+                    <ListItemText 
+                      primary={<Typography variant="body2" sx={{ fontWeight: 600 }}>Federal Tax Preparation:</Typography>} 
+                      secondary={<Typography variant="body2" sx={{ color: 'text.secondary' }}>Compliance with IRS requirements for individuals and corporations.</Typography>}
+                    />
+                  </ListItem>
+                  <ListItem disablePadding sx={{ mb: 1.5 }}>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary }} />
+                    </ListItemIcon>
+                    <ListItemText 
+                      primary={<Typography variant="body2" sx={{ fontWeight: 600 }}>State Tax Preparation:</Typography>} 
+                      secondary={<Typography variant="body2" sx={{ color: 'text.secondary' }}>State-specific income, property, and sales tax filing.</Typography>}
+                    />
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary }} />
+                    </ListItemIcon>
+                    <ListItemText 
+                      primary={<Typography variant="body2" sx={{ fontWeight: 600 }}>City Tax Preparation:</Typography>} 
+                      secondary={<Typography variant="body2" sx={{ color: 'text.secondary' }}>Handling local taxes for complete compliance.</Typography>}
+                    />
+                  </ListItem>
+                </List>
+                <Typography variant="body2" sx={{ color: 'text.secondary', mt: 3, pt: 2, borderTop: '1px solid rgba(0,0,0,0.06)', fontStyle: 'italic' }}>
+                  Our planning service minimizes liabilities and optimizes refunds through accurate and timely filings.
+                </Typography>
               </Box>
-            );
-          })}
-        </Box>
+            </motion.div>
+          </Grid>
+
+          {/* Row 1, Column 2 - Tax Review and Finalization */}
+          <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <motion.div {...fadeUp(0.15)} style={{ height: '100%', width: '100%', maxWidth: 600 }}>
+              <Box sx={{ 
+                p: 4, 
+                borderRadius: '18px', 
+                bgcolor: 'background.default', 
+                border: '1px solid rgba(0,0,0,0.07)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                width: 600,
+                height: 600,
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 12px 32px rgba(0,0,0,0.09)' }
+              }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                  <Box sx={{ 
+                    width: 48, height: 48, borderRadius: '50%', 
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    bgcolor: alpha(primary, 0.08), border: `1px solid ${alpha(primary, 0.15)}`,
+                    mr: 2,
+                    flexShrink: 0
+                  }}>
+                    <GavelIcon sx={{ fontSize: 24, color: primary }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ fontWeight: 800 }}>
+                    Tax Review and Finalization
+                  </Typography>
+                </Box>
+                <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.75 }}>
+                  Meticulous evaluation of tax forms to confirm accuracy and compliance before submission.
+                </Typography>
+                <List dense disablePadding sx={{ flex: 1 }}>
+                  <ListItem disablePadding sx={{ mb: 1.5 }}>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary }} />
+                    </ListItemIcon>
+                    <ListItemText primary={<Typography variant="body2">All deductions and credits are applied.</Typography>} />
+                  </ListItem>
+                  <ListItem disablePadding sx={{ mb: 1.5 }}>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary }} />
+                    </ListItemIcon>
+                    <ListItemText primary={<Typography variant="body2">Errors are identified and corrected.</Typography>} />
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary }} />
+                    </ListItemIcon>
+                    <ListItemText primary={<Typography variant="body2">Filings meet federal, state, and city requirements.</Typography>} />
+                  </ListItem>
+                </List>
+              </Box>
+            </motion.div>
+          </Grid>
+
+          {/* Row 2, Column 1 - Tax Forms We Specialize In */}
+          <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <motion.div {...fadeUp(0.2)} style={{ height: '100%', width: '100%', maxWidth: 600 }}>
+              <Box sx={{ 
+                p: 4, 
+                borderRadius: '18px', 
+                bgcolor: 'background.default', 
+                border: '1px solid rgba(0,0,0,0.07)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                width: 600,
+                height: 600,
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 12px 32px rgba(0,0,0,0.09)' }
+              }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                  <Box sx={{ 
+                    width: 48, height: 48, borderRadius: '50%', 
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    bgcolor: alpha(primary, 0.08), border: `1px solid ${alpha(primary, 0.15)}`,
+                    mr: 2,
+                    flexShrink: 0
+                  }}>
+                    <AccountBalanceIcon sx={{ fontSize: 24, color: primary }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ fontWeight: 800 }}>
+                    Tax Forms We Specialize In
+                  </Typography>
+                </Box>
+                <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.75 }}>
+                  We handle the preparation of a broad range of tax forms, including but not limited to:
+                </Typography>
+                <List dense disablePadding sx={{ flex: 1 }}>
+                  <ListItem disablePadding sx={{ mb: 1.5 }}>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary }} />
+                    </ListItemIcon>
+                    <ListItemText 
+                      primary={<Typography variant="body2" sx={{ fontWeight: 600 }}>Form 1040:</Typography>} 
+                      secondary={<Typography variant="body2" sx={{ color: 'text.secondary' }}>Individual Income Tax Returns.</Typography>}
+                    />
+                  </ListItem>
+                  <ListItem disablePadding sx={{ mb: 1.5 }}>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary }} />
+                    </ListItemIcon>
+                    <ListItemText 
+                      primary={<Typography variant="body2" sx={{ fontWeight: 600 }}>Form 1041:</Typography>} 
+                      secondary={<Typography variant="body2" sx={{ color: 'text.secondary' }}>Returns for estates and trusts.</Typography>}
+                    />
+                  </ListItem>
+                  <ListItem disablePadding sx={{ mb: 1.5 }}>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary }} />
+                    </ListItemIcon>
+                    <ListItemText 
+                      primary={<Typography variant="body2" sx={{ fontWeight: 600 }}>Form 1065:</Typography>} 
+                      secondary={<Typography variant="body2" sx={{ color: 'text.secondary' }}>Returns from partnerships used to record credits, losses, and profits.</Typography>}
+                    />
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary }} />
+                    </ListItemIcon>
+                    <ListItemText 
+                      primary={<Typography variant="body2" sx={{ fontWeight: 600 }}>Form 990:</Typography>} 
+                      secondary={<Typography variant="body2" sx={{ color: 'text.secondary' }}>Returns for Non-Profit Organizations, maintaining tax-exempt status.</Typography>}
+                    />
+                  </ListItem>
+                </List>
+              </Box>
+            </motion.div>
+          </Grid>
+
+          {/* Row 2, Column 2 - Tax E-Filing */}
+          <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <motion.div {...fadeUp(0.25)} style={{ height: '100%', width: '100%', maxWidth: 600 }}>
+              <Box sx={{ 
+                p: 4, 
+                borderRadius: '18px', 
+                background: 'linear-gradient(155deg, #0d1f0e 0%, #163018 55%, #1e4020 100%)',
+                boxShadow: `0 8px 32px ${alpha(primary, 0.25)}`,
+                width: 600,
+                height: 600,
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                '&:hover': { transform: 'translateY(-5px)', boxShadow: `0 20px 52px ${alpha(primary, 0.35)}` }
+              }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                  <Box sx={{ 
+                    width: 48, height: 48, borderRadius: '50%', 
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    bgcolor: alpha('#fff', 0.1), border: `1px solid ${alpha('#fff', 0.15)}`,
+                    mr: 2,
+                    flexShrink: 0
+                  }}>
+                    <CloudUploadIcon sx={{ fontSize: 24, color: alpha('#fff', 0.9) }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ fontWeight: 800, color: '#fff' }}>
+                    Tax E-Filing
+                  </Typography>
+                </Box>
+                <Typography variant="body2" sx={{ color: alpha('#fff', 0.75), mb: 3, lineHeight: 1.75 }}>
+                  Electronic submission of tax returns to the IRS and local authorities.
+                </Typography>
+                <Typography variant="body2" sx={{ color: '#fff', fontWeight: 600, mb: 2 }}>
+                  Why Choose E-Filing?
+                </Typography>
+                <List dense disablePadding sx={{ flex: 1 }}>
+                  <ListItem disablePadding sx={{ mb: 1.5 }}>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <SpeedIcon sx={{ fontSize: 18, color: alpha('#fff', 0.8) }} />
+                    </ListItemIcon>
+                    <ListItemText primary={<Typography variant="body2" sx={{ color: alpha('#fff', 0.75) }}>Accelerated processing and faster refunds.</Typography>} />
+                  </ListItem>
+                  <ListItem disablePadding sx={{ mb: 1.5 }}>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <ErrorIcon sx={{ fontSize: 18, color: alpha('#fff', 0.8) }} />
+                    </ListItemIcon>
+                    <ListItemText primary={<Typography variant="body2" sx={{ color: alpha('#fff', 0.75) }}>Reduced risk of errors.</Typography>} />
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <ListItemIcon sx={{ minWidth: 28 }}>
+                      <CloudDoneIcon sx={{ fontSize: 18, color: alpha('#fff', 0.8) }} />
+                    </ListItemIcon>
+                    <ListItemText primary={<Typography variant="body2" sx={{ color: alpha('#fff', 0.75) }}>Environmentally friendly and paperless process.</Typography>} />
+                  </ListItem>
+                </List>
+              </Box>
+            </motion.div>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );

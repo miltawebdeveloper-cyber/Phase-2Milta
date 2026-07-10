@@ -17,11 +17,31 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: GavelIcon,    title: 'Expertise in Law Firm Accounting',  desc: 'We understand the legal industry\'s accounting requirements inside and out — from trust account rules to bar association compliance and partner distributions.' },
-  { icon: TuneIcon,     title: 'Customized Services',               desc: 'Every law firm is different, and so is our approach. We tailor our bookkeeping solutions to fit your practice size, structure, and growth goals.' },
-  { icon: DevicesIcon,  title: 'Software Integration',              desc: 'Seamless syncing with legal tech platforms like Clio, LEAP, and QuickBooks for better efficiency and real-time financial visibility.' },
-  { icon: SavingsIcon,  title: 'Affordable Solutions',              desc: 'We offer flexible plans that significantly reduce your overhead costs compared to maintaining full-time in-house accounting staff.' },
-  { icon: VerifiedIcon, title: 'Accuracy & Compliance',             desc: 'Stay audit-ready and compliant with every report we deliver — accurate, timely, and aligned with all legal and tax reporting standards.' },
+  { 
+    icon: GavelIcon,    
+    title: 'Expertise in Law Firm Accounting',  
+    desc: 'We understand the legal industry\'s accounting requirements inside and out.' 
+  },
+  { 
+    icon: TuneIcon,     
+    title: 'Customized Services',               
+    desc: 'Every law firm is different, and so is our approach.' 
+  },
+  { 
+    icon: DevicesIcon,  
+    title: 'Software Integration',              
+    desc: 'Seamless syncing with legal tech tools for better efficiency.' 
+  },
+  { 
+    icon: SavingsIcon,  
+    title: 'Affordable Solutions',              
+    desc: 'We offer flexible plans that reduce your overhead costs.' 
+  },
+  { 
+    icon: VerifiedIcon, 
+    title: 'Accuracy & Compliance',             
+    desc: 'Stay audit-ready and compliant with every report we deliver.' 
+  },
 ];
 
 const STATS = [
@@ -54,23 +74,16 @@ const LFWhyChoose = () => {
 
           {/* LEFT: sticky text panel */}
           <Box sx={{ flex: '0 0 auto', width: { xs: '100%', lg: 360 }, position: { lg: 'sticky' }, top: { lg: 80 } }}>
-            <motion.div {...fadeUp(0)}>
-              <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
-                <Box sx={{ width: 20, height: 2, borderRadius: 2, bgcolor: primary }} />
-                <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.72rem' }}>
-                  WHY MILTA
-                </Typography>
-              </Box>
-            </motion.div>
+           
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 900, lineHeight: 1.18, letterSpacing: '-0.02em', mb: 2.5 }}>
-                Why Choose Milta for Your{' '}
-                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Law Firm Bookkeeping</Box>
+                Advantages of Law Firm{' '}
+                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Bookkeeping Services</Box>
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.18)}>
               <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '0.95rem', lineHeight: 1.8, mb: 4, fontFamily: '"Outfit", sans-serif' }}>
-                Milta is a trusted provider of bookkeeping services for lawyers across the United States. Here's why firms partner with us.
+                Milta is a trusted provider of bookkeeping services for lawyers across the United States. We help law firms streamline financial management, maintain compliance, and focus more on client advocacy than administrative work.
               </Typography>
             </motion.div>
 

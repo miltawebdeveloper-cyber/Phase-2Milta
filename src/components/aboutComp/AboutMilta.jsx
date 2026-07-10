@@ -128,7 +128,7 @@ const MiltaOverviewSection = () => {
               >
                 Milta Overview of{' '}
                 <Box component="span" sx={{ color: primary }}>
-                  Outsourced Accounting Services
+                  Outsourced Accounting Services In the USA
                 </Box>
               </Typography>
             </motion.div>

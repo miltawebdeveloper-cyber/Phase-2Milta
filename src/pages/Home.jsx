@@ -12,6 +12,7 @@ const ServicesSection     = lazy(() => import('../components/homeComp/ServicesSe
 const IndustriesSection   = lazy(() => import('../components/homeComp/IndustriesSection'));
 const Testimonials        = lazy(() => import('../components/homeComp/Testimonials'));
 const CertificationsSection = lazy(() => import('../components/homeComp/CertificationsSection'));
+const ToolsSection        = lazy(() => import('../components/homeComp/ToolsSection'));
 const CTASection          = lazy(() => import('../components/homeComp/CTASection'));
 const Footer              = lazy(() => import('../components/Footer'));
 
@@ -43,6 +44,8 @@ const Home = () => {
       <ServicesSection />
       <IndustriesSection />
       <Testimonials />
+      <CertificationsSection />
+      <ToolsSection />
       <CTASection />
       <Footer />
     </Suspense>

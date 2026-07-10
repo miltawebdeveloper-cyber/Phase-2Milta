@@ -17,11 +17,31 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: AccountBalanceIcon,       title: 'Accrual & Fund Accounting Setup',     desc: 'We set up accrual and fund accounting tailored to how your nonprofit operates and reports.' },
-  { icon: VolunteerActivismIcon,    title: 'Segregated Grant & Donation Tracking', desc: 'Segregated tracking for grants, donations, and contributions keeps every fund accountable to donor intent.' },
-  { icon: AccountBalanceWalletIcon, title: 'Bank Reconciliations',                desc: 'Regular bank reconciliations keep your books accurate and catch discrepancies early.' },
-  { icon: GavelIcon,                title: 'IRS Reporting & Tax Preparation',     desc: 'IRS reporting and nonprofit tax preparation handled accurately and filed on time.' },
-  { icon: SecurityIcon,             title: 'Ongoing Compliance & Internal Audits', desc: 'Ongoing compliance support and internal audits keep your organization in good standing.' },
+  { 
+    icon: AccountBalanceIcon,       
+    title: 'Accrual and Fund Accounting Setup',     
+    desc: 'We set up accrual and fund accounting tailored to how your nonprofit operates and reports.' 
+  },
+  { 
+    icon: VolunteerActivismIcon,    
+    title: 'Segregated Grant & Donation Tracking', 
+    desc: 'Segregated tracking for grants, donations, and contributions keeps every fund accountable to donor intent.' 
+  },
+  { 
+    icon: AccountBalanceWalletIcon, 
+    title: 'Bank Reconciliations',                
+    desc: 'Regular bank reconciliations keep your books accurate and catch discrepancies early.' 
+  },
+  { 
+    icon: GavelIcon,                
+    title: 'IRS Reporting & Tax Preparation',     
+    desc: 'IRS reporting and nonprofit tax preparation handled accurately and filed on time.' 
+  },
+  { 
+    icon: SecurityIcon,             
+    title: 'Ongoing Compliance & Internal Audits', 
+    desc: 'Ongoing compliance support and internal audits keep your organization in good standing.' 
+  },
 ];
 
 const STATS = [{ num: '6+', label: 'Years Experience' }, { num: '100+', label: 'Nonprofits Served' }, { num: '100%', label: 'Compliance Focus' }];
@@ -50,23 +70,16 @@ const NPWhyChoose = () => {
 
           {/* ── LEFT: sticky text panel ── */}
           <Box sx={{ flex: '0 0 auto', width: { xs: '100%', lg: 360 }, position: { lg: 'sticky' }, top: { lg: 80 } }}>
-            <motion.div {...fadeUp(0)}>
-              <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
-                <Box sx={{ width: 20, height: 2, borderRadius: 2, bgcolor: primary }} />
-                <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.72rem' }}>
-                  WHY MILTA
-                </Typography>
-              </Box>
-            </motion.div>
+            
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 900, lineHeight: 1.18, letterSpacing: '-0.02em', mb: 2.5 }}>
-                How Milta Supports{' '}
-                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Nonprofit Bookkeeping</Box>
+                Comprehensive Nonprofit{' '}
+                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Accounting Services by Milta</Box>
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.18)}>
               <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '0.95rem', lineHeight: 1.8, mb: 4, fontFamily: '"Outfit", sans-serif' }}>
-                Searching for nonprofit accountants near you? Milta offers a complete suite of services for your nonprofit's financial health — so you can stay focused on your mission while we manage the finances accurately, professionally, and on time.
+                If you're searching for "nonprofit accountants near me" or "a nonprofit accountant near me," Milta offers a complete suite of services to support your organization's financial health. We provide professional bookkeeping and accounting services tailored to the unique needs of nonprofit entities, ensuring accuracy, transparency, and compliance.
               </Typography>
             </motion.div>
 
@@ -182,6 +195,27 @@ const NPWhyChoose = () => {
                 </Box>
               );
             })()}
+            
+            {/* Outsourcing note */}
+            <motion.div {...fadeUp(0.55)}>
+              <Box sx={{
+                mt: 2,
+                p: { xs: 2.5, md: 3 },
+                borderRadius: '16px',
+                bgcolor: alpha(primary, 0.08),
+                border: `1px solid ${alpha(primary, 0.2)}`,
+                textAlign: 'center',
+              }}>
+                <Typography sx={{
+                  fontFamily: '"Outfit", sans-serif',
+                  fontSize: '0.9rem',
+                  lineHeight: 1.7,
+                  color: alpha('#fff', 0.7),
+                }}>
+                  Outsourcing to Milta allows your nonprofit to stay focused on its mission while we manage the financial side accurately, professionally, and on time.
+                </Typography>
+              </Box>
+            </motion.div>
           </Box>
 
         </Stack>

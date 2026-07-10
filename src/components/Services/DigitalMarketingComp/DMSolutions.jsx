@@ -10,7 +10,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import AdsClickIcon from '@mui/icons-material/AdsClick';
 import ArticleIcon from '@mui/icons-material/Article';
 import EmailIcon from '@mui/icons-material/Email';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -20,14 +20,86 @@ const fadeUp = (delay = 0) => ({
 });
 
 const SERVICES = [
-  { icon: TravelExploreIcon, title: 'Search Engine Optimization (SEO)',  desc: 'Careful keyword research and ethical SEO techniques to achieve higher organic rankings, attract quality leads, and enhance conversions.' },
-  { icon: BuildIcon,         title: 'Technical SEO',                      desc: 'Crawl error reports, HTTPS checks, site speed optimization, redirect audits, and structured data markup for stronger crawlability and indexability.' },
-  { icon: LinkIcon,          title: 'Link Building',                      desc: 'Strategic guest blogging, data-driven infographics, and quality content partnerships to build high-authority backlinks that drive traffic and sales.' },
-  { icon: WebIcon,           title: 'Web Design & Development',           desc: 'Custom, mobile-ready, and SEO-optimized websites with clear CTAs, visual hierarchy, and audience-tailored content that converts visitors.' },
-  { icon: ShareIcon,         title: 'Social Media Marketing',             desc: 'Goal-aligned campaigns with competitor benchmarking and data analytics for brand management and paid advertising across major social platforms.' },
-  { icon: AdsClickIcon,      title: 'Pay-Per-Click (PPC) Management',     desc: 'AdWords-certified specialists managing bids, customized ad copy, device targeting, and ROI monitoring to drive high-quality leads with precision.' },
-  { icon: ArticleIcon,       title: 'Content Writing',                    desc: 'Precision content creation — compelling headlines, high-performing keywords, relevant imagery, and structured posts optimized to Google standards.' },
-  { icon: EmailIcon,         title: 'Email Marketing',                    desc: 'Personalized newsletters that stay out of spam, build your subscriber list, use impactful language, and encourage customers to take action.' },
+  {
+    icon: TravelExploreIcon,
+    title: 'Search Engine Optimization (SEO)',
+    items: [
+      'Long-term growth using ethical SEO methods.',
+      'On and off-page optimization.',
+      'Research keywords to achieve desired rankings.',
+      'Performance monitoring with Google Search Console.',
+    ],
+  },
+  {
+    icon: BuildIcon,
+    title: 'Technical SEO',
+    items: [
+      'Optimization of website performance and speed.',
+      'HTTPS, crawl error solutions, and redirects.',
+      'Organized data to improve indexability.',
+      'Removal of duplicate content.',
+    ],
+  },
+  {
+    icon: LinkIcon,
+    title: 'Link Building',
+    items: [
+      'Outreach for backlinks with high authority.',
+      'PR collaborations and guest blogging.',
+      'Content-based link building.',
+      'Increasing authority will enhance rankings more quickly.',
+    ],
+  },
+  {
+    icon: WebIcon,
+    title: 'Web Design & Development',
+    items: [
+      'Mobile-friendly, SEO-ready design.',
+      'High-performance pages with clear CTAs.',
+      'User-focused layouts that drive conversions.',
+      'Fast, secure, and visually compelling websites.',
+    ],
+  },
+  {
+    icon: ShareIcon,
+    title: 'Social Media Marketing',
+    items: [
+      'Audience insight analysis.',
+      'Organic + paid campaigns.',
+      'Brand visibility & engagement growth.',
+      'Platform-specific content strategies.',
+    ],
+  },
+  {
+    icon: AdsClickIcon,
+    title: 'PPC Management',
+    items: [
+      'Data-driven Google Ads campaigns.',
+      'ROI-focused bidding strategies.',
+      'Conversion-optimized ad copy.',
+      'Performance tracking & refinement.',
+    ],
+  },
+  {
+    icon: ArticleIcon,
+    title: 'Content Writing',
+    items: [
+      'SEO-optimized blogs & website copy.',
+      'Strong headlines & keyword strategy.',
+      'Engaging, clear & conversion-focused content.',
+      'Compliant with search engine best practices.',
+    ],
+  },
+  {
+    icon: EmailIcon,
+    title: 'Email Marketing',
+    items: [
+      'Personalized campaign messaging.',
+      'Deliverability-optimized execution.',
+      'A/B testing to maximize engagement.',
+      'Customer-driven copy that converts.',
+    ],
+  },
 ];
 
 const DMSolutions = () => {
@@ -47,18 +119,18 @@ const DMSolutions = () => {
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
-              Miltafs Digital Marketing{' '}
+              Milta Digital Marketing{' '}
               <Box component="span" sx={{ color: primary }}>Services</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 560, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              From SEO and PPC to web design and email marketing — every service is designed to increase your visibility, attract quality leads, and grow your revenue.
+              Become Known as the Industry Leader and Increase Profitability
             </Typography>
           </motion.div>
         </Box>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2.5 }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 2.5 }}>
           {SERVICES.map((svc, i) => {
             const Icon = svc.icon;
             return (
@@ -83,25 +155,28 @@ const DMSolutions = () => {
                     '& .icon-svg': { color: '#ffffff' },
                     '& .card-title': { color: primary },
                     '& .card-num': { opacity: 1 },
-                    '& .card-arrow': { opacity: 1, transform: 'translateX(0px)' },
                   },
                 }}
               >
                 <Box className="sweep-bar" sx={{ position: 'absolute', top: 0, left: 0, height: '3px', width: 0, background: `linear-gradient(90deg, ${primary}, ${alpha(primary, 0.5)})`, borderRadius: '0 0 3px 0', transition: 'width 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} />
-                <Typography className="card-num" sx={{ position: 'absolute', bottom: 10, right: 14, fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 900, fontSize: '3.8rem', lineHeight: 1, color: alpha(primary, 0.07), userSelect: 'none', pointerEvents: 'none', opacity: 0, transition: 'opacity 0.32s ease' }}>
+                <Typography className="card-num" sx={{ position: 'absolute', top: 14, right: 18, fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 900, fontSize: '3.2rem', lineHeight: 1, color: alpha(primary, 0.07), userSelect: 'none', pointerEvents: 'none', opacity: 0, transition: 'opacity 0.32s ease' }}>
                   {String(i + 1).padStart(2, '0')}
                 </Typography>
                 <Box className="icon-wrap" sx={{ width: 52, height: 52, borderRadius: '14px', bgcolor: alpha(primary, 0.08), border: `1px solid ${alpha(primary, 0.15)}`, display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2.5, flexShrink: 0, transition: 'all 0.32s cubic-bezier(0.4, 0, 0.2, 1)' }}>
                   <Icon className="icon-svg" sx={{ fontSize: 24, color: primary, transition: 'color 0.32s ease' }} />
                 </Box>
-                <Typography className="card-title" sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '0.95rem', color: 'text.primary', mb: 1, lineHeight: 1.35, transition: 'color 0.28s ease' }}>
+                <Typography className="card-title" sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1rem', color: 'text.primary', mb: 2, lineHeight: 1.35, transition: 'color 0.28s ease' }}>
                   {svc.title}
                 </Typography>
-                <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.84rem', lineHeight: 1.72, color: 'text.secondary', pr: 2 }}>
-                  {svc.desc}
-                </Typography>
-                <Box className="card-arrow" sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, mt: 2.5, color: primary, fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0, transform: 'translateX(-8px)', transition: 'opacity 0.3s ease, transform 0.3s ease' }}>
-                  Learn more <ArrowForwardIcon sx={{ fontSize: '0.8rem' }} />
+                <Box component="ul" sx={{ listStyle: 'none', m: 0, p: 0, display: 'flex', flexDirection: 'column', gap: 1.25 }}>
+                  {svc.items.map((item) => (
+                    <Box component="li" key={item} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.25 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary, mt: '2px', flexShrink: 0 }} />
+                      <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.86rem', lineHeight: 1.55, color: 'text.secondary' }}>
+                        {item}
+                      </Typography>
+                    </Box>
+                  ))}
                 </Box>
               </Box>
             );

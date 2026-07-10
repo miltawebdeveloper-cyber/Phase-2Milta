@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import { Box, TextField, Button, Stack, MenuItem, Snackbar, Alert } from '@mui/material';
+import { Box, TextField, Button, Stack, MenuItem, Typography, Snackbar, Alert } from '@mui/material';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { submitContactForm } from '../../api/client';
 
 const SERVICE_OPTIONS = [
   'Bookkeeping Services',
+  'Payroll Management',
   'Tax Planning & Preparation',
   'CPA Services',
+  'Controller Services',
   'Virtual Assistant',
-  'Data Entry & Management',
-  'Financial Controller',
+  'Data Entry Services',
   'Digital Marketing',
-  'Payroll Management',
-  'Other',
 ];
+
+const FOUND_OPTIONS = ['Google', 'Media', 'Email', 'Referral'];
 
 const fieldSx = {
   '& .MuiOutlinedInput-root': {
@@ -33,9 +35,9 @@ const initialState = {
   firstName: '',
   lastName: '',
   companyName: '',
-  email: '',
-  website: '',
   contactNumber: '',
+  email: '',
+  howDidYouFind: '',
   serviceInterest: '',
   requirement: '',
 };
@@ -45,12 +47,11 @@ const validate = (values) => {
   if (!values.firstName.trim()) errors.firstName = 'First name is required';
   if (!values.lastName.trim()) errors.lastName = 'Last name is required';
   if (!values.companyName.trim()) errors.companyName = 'Company name is required';
-  if (!values.email.trim()) errors.email = 'Email is required';
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) errors.email = 'Enter a valid email address';
   if (!values.contactNumber.trim()) errors.contactNumber = 'Contact number is required';
   else if (!/^[+\d][\d\s()-]{6,}$/.test(values.contactNumber.trim())) errors.contactNumber = 'Enter a valid contact number';
+  if (!values.email.trim()) errors.email = 'Email is required';
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) errors.email = 'Enter a valid email address';
   if (!values.serviceInterest) errors.serviceInterest = 'Please select a service';
-  if (!values.requirement || values.requirement.trim().length < 20) errors.requirement = 'Please describe your requirement (min 20 characters)';
   return errors;
 };
 
@@ -58,7 +59,8 @@ const ContactForm = () => {
   const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
-  const [snackbar, setSnackbar] = useState({ open: false, severity: 'success', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const [snackbar, setSnackbar] = useState({ open: false, severity: 'error', message: '' });
 
   const closeSnackbar = () => setSnackbar((s) => ({ ...s, open: false }));
 
@@ -78,19 +80,15 @@ const ContactForm = () => {
         lastName: values.lastName.trim(),
         companyName: values.companyName.trim(),
         email: values.email.trim(),
-        website: values.website.trim(),
         phoneNumber: values.contactNumber.trim(),
+        howDidYouFind: values.howDidYouFind,
         serviceInterest: values.serviceInterest,
         message: values.requirement.trim(),
       });
 
       if (result?.error) throw new Error(result.error);
 
-      setSnackbar({
-        open: true,
-        severity: 'success',
-        message: "Message sent — we'll contact you soon.",
-      });
+      setSubmitted(true);
       setValues(initialState);
       setErrors({});
     } catch (err) {
@@ -105,10 +103,31 @@ const ContactForm = () => {
     }
   };
 
+  if (submitted) {
+    return (
+      <Box sx={{ textAlign: 'center', py: { xs: 4, sm: 6 }, px: 2 }}>
+        <CheckCircleIcon sx={{ fontSize: 64, color: '#3c8a35', mb: 2 }} />
+        <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 900, fontSize: { xs: '1.6rem', md: '2rem' }, color: 'text.primary', mb: 1.5 }}>
+          Thank You!
+        </Typography>
+        <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 460, mx: 'auto', fontFamily: '"Outfit", sans-serif' }}>
+          We've received your request successfully. One of our accounting specialists will contact you within a few hours.
+        </Typography>
+        <Button
+          onClick={() => setSubmitted(false)}
+          variant="outlined"
+          sx={{ mt: 4, px: 4, py: 1.2, borderRadius: '50px', fontWeight: 700, textTransform: 'none', color: '#266929', borderColor: '#266929', '&:hover': { borderColor: '#266929', bgcolor: 'rgba(38,105,41,0.08)' } }}
+        >
+          Submit Another Request
+        </Button>
+      </Box>
+    );
+  }
+
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%' }}>
       <Stack spacing={2.5}>
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 1.5 }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
           <TextField
             name="firstName"
             label="First name"
@@ -131,7 +150,7 @@ const ContactForm = () => {
           />
         </Box>
 
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 1.5 }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
           <TextField
             name="companyName"
             label="Company name"
@@ -140,28 +159,6 @@ const ContactForm = () => {
             error={!!errors.companyName}
             helperText={errors.companyName}
             fullWidth
-            sx={fieldSx}
-          />
-          <TextField
-            name="email"
-            label="Email address"
-            value={values.email}
-            onChange={handleChange}
-            error={!!errors.email}
-            helperText={errors.email}
-            fullWidth
-            sx={fieldSx}
-          />
-        </Box>
-
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 1.5 }}>
-          <TextField
-            name="website"
-            label="Website"
-            value={values.website}
-            onChange={handleChange}
-            fullWidth
-            placeholder="https://yourcompany.com"
             sx={fieldSx}
           />
           <TextField
@@ -177,15 +174,42 @@ const ContactForm = () => {
         </Box>
 
         <TextField
+          name="email"
+          label="Email address"
+          value={values.email}
+          onChange={handleChange}
+          error={!!errors.email}
+          helperText={errors.email}
+          fullWidth
+          sx={fieldSx}
+        />
+
+        <TextField
+          name="howDidYouFind"
+          label="How did you find us?"
+          value={values.howDidYouFind}
+          onChange={handleChange}
+          select
+          fullWidth
+          sx={fieldSx}
+        >
+          {FOUND_OPTIONS.map((option) => (
+            <MenuItem key={option} value={option}>
+              {option}
+            </MenuItem>
+          ))}
+        </TextField>
+
+        <TextField
           name="serviceInterest"
-          label="Service of interest"
+          label="Service of interest *"
           value={values.serviceInterest}
           onChange={handleChange}
           error={!!errors.serviceInterest}
           helperText={errors.serviceInterest}
           select
           fullWidth
-          sx={{ ...fieldSx, mb: 1.5 }}
+          sx={fieldSx}
         >
           {SERVICE_OPTIONS.map((option) => (
             <MenuItem key={option} value={option}>
@@ -199,8 +223,6 @@ const ContactForm = () => {
           label="Your requirement"
           value={values.requirement}
           onChange={handleChange}
-          error={!!errors.requirement}
-          helperText={errors.requirement}
           multiline
           rows={4}
           fullWidth
@@ -224,7 +246,7 @@ const ContactForm = () => {
               '&:hover': { boxShadow: '0 14px 36px rgba(38,105,41,0.35)', transform: 'translateY(-2px)' }
             }}
           >
-            {submitting ? 'Sending...' : 'Send Message'}
+            {submitting ? 'Sending...' : 'Submit Request'}
           </Button>
         </Box>
       </Stack>

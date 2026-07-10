@@ -1,5 +1,9 @@
 html {
   transition: background-color 0.35s ease, color 0.35s ease;
+  /* Prevent tiny horizontal overflow from decorative elements from toggling
+     the scrollbar and making the fixed header / footer "shiver".
+     `clip` (not `hidden`) keeps position: sticky working. */
+  overflow-x: clip;
 }
 
 body {
@@ -10,6 +14,8 @@ body {
   background-color: #FFFFFF;
   color: #1A1A1A;
   transition: background-color 0.35s ease, color 0.35s ease;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 /* ── Dark mode globals ── */

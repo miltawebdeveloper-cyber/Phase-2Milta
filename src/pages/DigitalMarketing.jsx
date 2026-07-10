@@ -37,8 +37,9 @@ const DigitalMarketing = () => {
     <BKHero />
     
       <DMWhatIs />
+       <DMSolutions />
       <DMWhyChoose />
-      <DMSolutions />
+     
       <DMAdvantages />
       <DMTrustedPartner />
       <DMFAQ />

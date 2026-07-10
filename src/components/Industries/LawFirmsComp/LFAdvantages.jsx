@@ -7,7 +7,7 @@ import SecurityIcon from '@mui/icons-material/Security';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import CloudIcon from '@mui/icons-material/Cloud';
 import SavingsIcon from '@mui/icons-material/Savings';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import InsightsIcon from '@mui/icons-material/Insights';
 import BarChartIcon from '@mui/icons-material/BarChart';
 
 const fadeUp = (delay = 0) => ({
@@ -18,13 +18,32 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ADVANTAGES = [
-  { icon: GavelIcon,       title: 'Expertise in Law Firm Bookkeeping',     desc: 'Deep knowledge of legal industry accounting — trust account rules, bar association compliance, and partner distributions handled with precision.' },
-  { icon: SecurityIcon,    title: 'Compliance with Legal Standards',        desc: 'Stay compliant with tax and legal reporting requirements, fully audit-ready with every report delivered on time.' },
-  { icon: CalculateIcon,   title: 'Strategic Tax Planning',                desc: 'Benefit from tailored tax-saving techniques and proactive year-round tax planning specifically designed for law firms.' },
-  { icon: CloudIcon,       title: 'Seamless Software Integration',         desc: 'Connect effortlessly with platforms like Clio and LEAP for streamlined practice management and real-time accounting sync.' },
-  { icon: SavingsIcon,     title: 'Cost Savings',                          desc: 'Reduce overhead by replacing in-house accounting staff with expert outsourced services at a fraction of the cost.' },
-  { icon: AccessTimeIcon,  title: 'More Time for Legal Work',              desc: 'Free attorneys from financial administration so they can focus fully on billable work, client service, and case outcomes.' },
-  { icon: BarChartIcon,    title: 'Improved Financial Visibility',         desc: 'Clear and accurate financial reporting gives partners the data they need to make confident, strategic business decisions.' },
+  { 
+    icon: GavelIcon,       
+    title: 'Specialized Expertise in Legal Accounting',     
+    desc: 'Our team understands the complexities of law firm accounting, including trust fund management, retainers, client escrow accounts, and partner distributions. We ensure every dollar is tracked accurately and ethically.' 
+  },
+  { 
+    icon: SecurityIcon,    
+    title: 'Compliance with Legal and Tax Regulations',        
+    desc: 'Mila ensures your books comply with IOLTA trust accounting rules, IRS standards, and local bar association requirements. Stay compliant and ready for audits with zero stress.' 
+  },
+  { 
+    icon: CalculateIcon,   
+    title: 'Strategic Tax Planning & Preparation',                
+    desc: 'We help law firms reduce tax liabilities through strategic planning, accurate quarterly estimates, and year-end filings. Our proactive approach maximizes deductions while maintaining compliance.' 
+  },
+  { 
+    icon: CloudIcon,       
+    title: 'Integration with Legal Practice Management Software',         
+    desc: 'Mila seamlessly integrates with industry tools like Clio, LEAP, and MyCase—syncing your accounting and case management systems for real-time financial insights.' 
+  },
+  { 
+    icon: SavingsIcon,     
+    title: 'Cost-Effective Outsourcing Solution',                          
+    desc: 'Save on in-house accounting expenses by outsourcing to Mila. We provide professional bookkeeping at a fraction of the cost—without sacrificing accuracy or control.' 
+  },
+  
 ];
 
 const LFAdvantages = () => {
@@ -71,7 +90,7 @@ const LFAdvantages = () => {
             <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
               <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                THE BENEFITS
+                BENEFITS OF OUTSOURCING LAW FIRM BOOKKEEPING
               </Typography>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
             </Box>
@@ -89,7 +108,7 @@ const LFAdvantages = () => {
           </motion.div>
         </Box>
 
-        {/* Bento grid: row1 [0](2col)+[1], row2 [2][3][4], row3 [5]+[6](2col) */}
+        {/* Bento grid: 6 items in 3-column grid */}
         <Box sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
@@ -97,7 +116,8 @@ const LFAdvantages = () => {
         }}>
           {ADVANTAGES.map((adv, i) => {
             const Icon = adv.icon;
-            const isWide = i === 0 || i === 6;
+            // Make first item wide (span 2) on desktop
+            const isWide = i === 0;
             return (
               <Box
                 key={adv.title}

@@ -17,12 +17,36 @@ const fadeUp = (delay = 0) => ({
 });
 
 const TRUST_POINTS = [
-  { icon: TuneIcon,        title: 'Customized Solutions',          desc: 'We recognize that every business is unique. Our services are designed to meet your specific objectives and produce quantifiable, measurable outcomes.' },
-  { icon: GroupsIcon,      title: 'Expert Team',                   desc: 'Our virtual assistants are skilled, knowledgeable, and dedicated to providing top-notch support in bookkeeping, customer service, and administrative work.' },
-  { icon: DevicesIcon,     title: 'Advanced Technology',           desc: 'We leverage cutting-edge tools — bookkeeping platforms, project management software, and communication channels — for seamless, efficient service delivery.' },
-  { icon: LockIcon,        title: 'Commitment to Confidentiality', desc: 'Your business information is safe with us. We follow strict data security protocols at every stage to maintain confidentiality, integrity, and trust.' },
-  { icon: TrendingUpIcon,  title: 'Scalability',                   desc: 'Our services grow with your business — adjusting to your evolving needs and guaranteeing consistent, reliable assistance at every stage of your journey.' },
-  { icon: HandshakeIcon,   title: 'Dedicated Partnership',         desc: 'We work as an extension of your team — proactively handling your tasks, communicating transparently, and staying committed to your business success.' },
+  {
+    icon: TuneIcon,
+    title: 'Customized Solutions',
+    desc: 'We recognize that every business has its own unique goals, challenges, and operational needs. That’s why our services are thoughtfully designed and fully customizable to align with your specific objectives. We take the time to understand your requirements in detail, allowing us to deliver tailored solutions that drive efficiency, improve performance, and support your growth. Our focus is not just on providing services, but on delivering measurable outcomes that create real value and long-term success for your business.',
+  },
+  {
+    icon: GroupsIcon,
+    title: 'Expert Team',
+    desc: 'Our virtual assistants are skilled, knowledgeable, and dedicated to providing top-notch support. Whether you need help with accounting, customer service, or administrative work — we’ve got you covered.',
+  },
+  {
+    icon: DevicesIcon,
+    title: 'Advanced Technology',
+    desc: 'We leverage cutting-edge tools and software to ensure seamless service delivery, including bookkeeping platforms, project management tools, and communication channels.',
+  },
+  {
+    icon: LockIcon,
+    title: 'Commitment to Confidentiality',
+    desc: 'Your business information is completely safe and secure with us. We understand the importance of confidentiality and treat your data with the highest level of care and responsibility. Our team follows strict data security protocols and industry best practices to ensure that all your information is protected from unauthorized access, misuse, or disclosure.',
+  },
+  {
+    icon: TrendingUpIcon,
+    title: 'Scalability',
+    desc: 'Our services are designed to grow alongside your business, providing consistent, reliable support as your needs evolve. We understand that every stage of your journey comes with new challenges and opportunities, which is why we offer flexible solutions customized to your changing requirements. Whether you’re just starting or scaling to the next level, our team is committed to adapting with you—ensuring seamless support, improved efficiency, and long-term success every step of the way.',
+  },
+  {
+    icon: HandshakeIcon,
+    title: 'Dedicated Partnership',
+    desc: 'We work as an extension of your team — proactively handling your tasks, communicating transparently, and staying committed to your business success.',
+  },
 ];
 
 const STATS = [
@@ -64,8 +88,8 @@ const VATrustedPartner = () => {
             </motion.div>
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2, color: '#ffffff', maxWidth: 720, mx: 'auto', letterSpacing: '-0.02em' }}>
-                Why Miltafs is Your Trusted Partner for{' '}
-                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Virtual Assistant Services in the USA</Box>
+                Why Choose Miltafs for{' '}
+                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Virtual Assistant Services?</Box>
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.18)}>
@@ -96,7 +120,7 @@ const VATrustedPartner = () => {
             {TRUST_POINTS.slice(0, 3).map((pt, i) => {
               const Icon = pt.icon;
               return (
-                <motion.div key={pt.title} {...fadeUp(i * 0.1)}>
+                <motion.div key={pt.title} {...fadeUp(i * 0.1)} style={{ height: '100%' }}>
                   <Box sx={{
                     p: { xs: 3.5, md: 4 }, borderRadius: '22px',
                     bgcolor: 'background.default', border: '1px solid rgba(0,0,0,0.06)',
@@ -137,11 +161,11 @@ const VATrustedPartner = () => {
             {TRUST_POINTS.slice(3).map((pt, i) => {
               const Icon = pt.icon;
               return (
-                <motion.div key={pt.title} {...fadeUp((i + 3) * 0.1)}>
+                <motion.div key={pt.title} {...fadeUp((i + 3) * 0.1)} style={{ height: '100%' }}>
                   <Box sx={{
                     p: { xs: 3.5, md: 4 }, borderRadius: '22px',
                     bgcolor: 'background.default', border: '1px solid rgba(0,0,0,0.06)',
-                    boxShadow: '0 8px 40px rgba(0,0,0,0.1)',
+                    boxShadow: '0 8px 40px rgba(0,0,0,0.1)', height: '100%',
                     position: 'relative', overflow: 'hidden',
                     transition: 'all 0.32s cubic-bezier(0.4,0,0.2,1)',
                     '&:hover': {

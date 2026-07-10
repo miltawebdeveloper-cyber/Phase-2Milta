@@ -26,7 +26,7 @@ const TRUST_POINTS = [
 ];
 
 const STATS = [
-  { num: '15y+',  label: 'Payroll Expertise'  },
+  { num: '10y+',  label: 'Payroll Expertise'  },
   { num: '100+',  label: 'Clients Served'     },
   { num: '100%',  label: 'Payroll Accuracy'   },
   { num: '24/7',  label: 'Support Access'     },

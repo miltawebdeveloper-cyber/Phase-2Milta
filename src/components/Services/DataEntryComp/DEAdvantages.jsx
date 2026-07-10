@@ -1,13 +1,13 @@
 import React from 'react';
-import { Box, Container, Typography, Stack, Button } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
-import GroupsIcon from '@mui/icons-material/Groups';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import SchoolIcon from '@mui/icons-material/School';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import TimerIcon from '@mui/icons-material/Timer';
-import SecurityIcon from '@mui/icons-material/Security';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import LockIcon from '@mui/icons-material/Lock';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -17,18 +17,12 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ADVANTAGES = [
-  { icon: CurrencyExchangeIcon, title: 'Cost Efficiency',        desc: 'Outsourcing eliminates in-house staff and infrastructure costs — save on salaries, training, and technology investments.' },
-  { icon: GroupsIcon,           title: 'Expertise on Demand',    desc: 'Access experienced professionals who specialize in accounting data entry management without the hassle of recruitment.' },
-  { icon: TrendingUpIcon,       title: 'Scalability',            desc: 'Whether managing a seasonal surge or expanding operations, our services adapt seamlessly to your evolving needs.' },
-  { icon: TimerIcon,            title: 'Time Savings',           desc: 'Outsourcing frees up your time, allowing you to focus on core business activities instead of administrative tasks.' },
-  { icon: SecurityIcon,         title: 'Accuracy & Secure Data', desc: 'Error-free records, US compliance, advanced encryption, and secure file transfer protocols protect your sensitive data.' },
-];
-
-const PANEL_STATS = [
-  { num: '30%',   label: 'Error Reduction'   },
-  { num: '$10K+', label: 'Annual Savings'    },
-  { num: '24/7',  label: 'Support Access'    },
-  { num: '100%',  label: 'US Compliance'     },
+  { icon: AttachMoneyIcon, title: 'Cost Efficiency',       desc: 'Outsourcing eliminates the need for in-house staff and infrastructure, saving you money on salaries, training, and technology.' },
+  { icon: SchoolIcon,      title: 'Expertise on Demand',    desc: 'Access experienced professionals who specialize in accounting data entry management services — without recruitment hassles.' },
+  { icon: TrendingUpIcon,  title: 'Scalability',            desc: "Whether you're managing a seasonal surge or expanding operations, our services scale seamlessly with your needs." },
+  { icon: AccessTimeIcon,  title: 'Time Savings',           desc: "Outsourcing frees up your team's valuable time, allowing you to focus on core business operations.", featured: true },
+  { icon: VerifiedIcon,    title: 'Accuracy & Compliance',  desc: 'Ensure your records are error-free and compliant with US accounting standards.' },
+  { icon: LockIcon,        title: 'Secure Data Handling',   desc: 'We prioritize your data safety through advanced encryption and secure file transfer protocols.' },
 ];
 
 const DEAdvantages = () => {
@@ -37,114 +31,75 @@ const DEAdvantages = () => {
 
   return (
     <Box sx={{ py: { xs: 8, md: 14 }, bgcolor: 'background.paper', overflow: 'hidden', position: 'relative' }}>
-      <Container maxWidth={false} sx={{ maxWidth: '1300px', mx: 'auto', px: { xs: 3, md: 4 } }}>
+      <Container maxWidth={false} sx={{ maxWidth: '1200px', mx: 'auto', px: { xs: 3, md: 4 } }}>
 
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', lg: 'row' }, gap: { xs: 6, lg: 5 }, alignItems: 'stretch' }}>
+        {/* Header */}
+        <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
+          <motion.div {...fadeUp(0)}>
+            <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.6rem' }, lineHeight: 1.2 }}>
+              Advantages of Outsourcing Accounting Data Entry Services in{' '}
+              <Box component="span" sx={{ color: primary }}>USA</Box>
+            </Typography>
+          </motion.div>
+          <motion.div {...fadeUp(0.12)}>
+            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, fontFamily: '"Outfit", sans-serif', maxWidth: 720, mx: 'auto', mt: 2 }}>
+              Discover how outsourcing your accounting data entry processes enhances efficiency, reduces costs, and ensures compliance while maintaining data security.
+            </Typography>
+          </motion.div>
+        </Box>
 
-          {/* ── LEFT: dark info panel ── */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            style={{ flex: '0 0 360px', display: 'flex' }}
-          >
-            <Box sx={{
-              width: '100%',
-              minHeight: { xs: 'auto', lg: 500 },
-              background: 'linear-gradient(145deg, #0d1f0e 0%, #163018 50%, #1a3d1c 100%)',
-              borderRadius: '24px',
-              p: { xs: 4, md: 5 },
-              display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-              overflow: 'hidden', position: 'relative',
-            }}>
-              <Box sx={{ position: 'absolute', top: '-20%', right: '-15%', width: 320, height: 320, borderRadius: '50%', background: `radial-gradient(circle, ${alpha(primary, 0.35)} 0%, transparent 65%)`, pointerEvents: 'none' }} />
-              <Box sx={{ position: 'absolute', bottom: '-25%', left: '-15%', width: 280, height: 280, borderRadius: '50%', background: `radial-gradient(circle, ${alpha(primary, 0.2)} 0%, transparent 65%)`, pointerEvents: 'none' }} />
-              <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 460, height: 460, borderRadius: '50%', border: `1px solid ${alpha('#ffffff', 0.05)}`, pointerEvents: 'none' }} />
-
-              <Box sx={{ position: 'relative', zIndex: 1 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
-                  <Box sx={{ width: 24, height: 3, borderRadius: 2, bgcolor: primary }} />
-                  <Typography variant="overline" sx={{ color: primary, fontWeight: 800, letterSpacing: '0.16em', fontSize: '0.72rem' }}>
-                    THE ADVANTAGES
+        {/* Advantage cards */}
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' }, gap: 2.5 }}>
+          {ADVANTAGES.map((adv, i) => {
+            const Icon = adv.icon;
+            return (
+              <Box
+                key={adv.title}
+                component={motion.div}
+                {...fadeUp(i * 0.09)}
+                sx={{
+                  p: { xs: 3, md: 3.5 },
+                  borderRadius: '20px',
+                  display: 'flex', alignItems: 'flex-start', gap: 2.5,
+                  transition: 'all 0.28s cubic-bezier(0.4,0,0.2,1)',
+                  ...(adv.featured ? {
+                    background: 'linear-gradient(155deg, #0d1f0e 0%, #163018 55%, #1e4020 100%)',
+                    boxShadow: `0 8px 32px ${alpha(primary, 0.25)}`,
+                    '&:hover': { transform: 'translateY(-6px)', boxShadow: `0 20px 52px ${alpha(primary, 0.35)}` },
+                  } : {
+                    bgcolor: 'background.default',
+                    border: '1px solid rgba(0,0,0,0.06)',
+                    boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+                    '&:hover': {
+                      transform: 'translateY(-6px)',
+                      boxShadow: `0 16px 44px ${alpha(primary, 0.12)}`,
+                      border: `1px solid ${alpha(primary, 0.25)}`,
+                    },
+                  }),
+                }}
+              >
+                <Box sx={{
+                  width: 54, height: 54, flexShrink: 0, borderRadius: '16px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  ...(adv.featured
+                    ? { bgcolor: alpha('#fff', 0.1), border: `1px solid ${alpha('#fff', 0.15)}` }
+                    : { bgcolor: alpha(primary, 0.08), border: `1px solid ${alpha(primary, 0.15)}` }),
+                }}>
+                  <Icon sx={{ fontSize: 26, color: adv.featured ? alpha('#fff', 0.9) : primary }} />
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1.05rem', color: primary, mb: 0.75, lineHeight: 1.3 }}>
+                    {adv.title}
+                  </Typography>
+                  <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.9rem', lineHeight: 1.7, color: adv.featured ? alpha('#fff', 0.7) : 'text.secondary' }}>
+                    {adv.desc}
                   </Typography>
                 </Box>
-
-                <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '1.75rem', md: '2.1rem' }, fontWeight: 900, lineHeight: 1.2, letterSpacing: '-0.02em', mb: 2.5 }}>
-                  Why Outsource{' '}
-                  <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Accounting Data Entry?</Box>
-                </Typography>
-
-                <Typography sx={{ color: alpha('#ffffff', 0.68), fontSize: '0.9rem', lineHeight: 1.8, mb: 4, fontFamily: '"Outfit", sans-serif' }}>
-                  By outsourcing, a small retail business reduced its bookkeeping errors by 30% and saved over $10,000 annually — freeing the team to focus on growth.
-                </Typography>
-
-                <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1.5, mb: 4 }}>
-                  {PANEL_STATS.map((stat) => (
-                    <Box key={stat.label} sx={{ px: 2, py: 1.5, borderRadius: '12px', bgcolor: alpha('#ffffff', 0.07), border: `1px solid ${alpha('#ffffff', 0.1)}` }}>
-                      <Typography sx={{ color: '#fff', fontWeight: 900, fontSize: '1.3rem', fontFamily: '"Plus Jakarta Sans", sans-serif', lineHeight: 1 }}>
-                        {stat.num}
-                      </Typography>
-                      <Typography sx={{ color: alpha('#fff', 0.55), fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', mt: 0.5 }}>
-                        {stat.label}
-                      </Typography>
-                    </Box>
-                  ))}
-                </Box>
               </Box>
-
-              <Box sx={{ position: 'relative', zIndex: 1 }}>
-                <Button
-                  variant="contained"
-                  href="/contact"
-                  endIcon={<ArrowForwardIcon sx={{ fontSize: '1rem !important' }} />}
-                  sx={{ px: 3.5, py: 1.4, borderRadius: '50px', bgcolor: primary, color: '#fff', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.06em', boxShadow: `0 10px 28px ${alpha(primary, 0.4)}`, '&:hover': { bgcolor: '#1a4d1d', boxShadow: `0 16px 38px ${alpha(primary, 0.5)}` } }}
-                >
-                  GET STARTED
-                </Button>
-              </Box>
-            </Box>
-          </motion.div>
-
-          {/* ── RIGHT: advantage cards ── */}
-          <Stack sx={{ flex: 1 }} spacing={2.5}>
-            {ADVANTAGES.map((adv, i) => {
-              const Icon = adv.icon;
-              return (
-                <motion.div key={adv.title} {...fadeUp(i * 0.09)}>
-                  <Box sx={{
-                    p: { xs: 3, md: 3.5 }, borderRadius: '20px',
-                    bgcolor: 'background.default', border: '1px solid rgba(0,0,0,0.06)',
-                    boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
-                    display: 'flex', alignItems: 'center', gap: 3,
-                    position: 'relative', overflow: 'hidden',
-                    transition: 'all 0.28s cubic-bezier(0.4,0,0.2,1)',
-                    '&:hover': {
-                      transform: 'translateX(8px)',
-                      boxShadow: `0 12px 40px ${alpha(primary, 0.12)}`,
-                      border: `1px solid ${alpha(primary, 0.25)}`,
-                      '& .adv-accent': { opacity: 1, height: '65%' },
-                    },
-                  }}>
-                    <Box className="adv-accent" sx={{ position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', width: 4, height: '35%', borderRadius: '0 4px 4px 0', bgcolor: primary, opacity: 0, transition: '0.28s ease' }} />
-                    <Box sx={{ width: 54, height: 54, flexShrink: 0, borderRadius: '16px', bgcolor: alpha(primary, 0.08), border: `1px solid ${alpha(primary, 0.15)}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Icon sx={{ fontSize: 26, color: primary }} />
-                    </Box>
-                    <Box sx={{ flex: 1, pr: { xs: 4, md: 8 } }}>
-                      <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1.05rem', color: 'text.primary', mb: 0.5, lineHeight: 1.3 }}>
-                        {adv.title}
-                      </Typography>
-                      <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.88rem', lineHeight: 1.75, color: 'text.secondary' }}>
-                        {adv.desc}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </motion.div>
-              );
-            })}
-          </Stack>
-
+            );
+          })}
         </Box>
+
       </Container>
     </Box>
   );

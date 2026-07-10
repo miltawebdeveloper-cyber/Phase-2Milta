@@ -17,7 +17,7 @@ const CareerHero = ({
     <Box
       sx={{
         position: 'relative',
-        minHeight: { xs: 'auto', md: '60vh' },
+        minHeight: { xs: 'auto', md: '78vh' },
         background: `linear-gradient(145deg, #0d1f0e 0%, #163018 50%, #1a3d1c 100%)`,
         display: 'flex',
         alignItems: 'center',
@@ -96,6 +96,8 @@ const CareerHero = ({
               dangerouslySetInnerHTML={{ __html: title }}
               sx={{
                 fontSize: { xs: '2.4rem', sm: '3.5rem', md: '4rem', lg: '4.8rem' },
+                lineHeight: 1.25,
+                textAlign: 'center',
                 color: theme.palette.primary.contrastText,
                 maxWidth: { xs: '100%', md: '820px' },
                 mx: 'auto',

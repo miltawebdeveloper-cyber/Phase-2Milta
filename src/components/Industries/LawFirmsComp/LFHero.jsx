@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Typography, Breadcrumbs, Link } from '@mui/material';
 import { motion } from 'framer-motion';
+import ConsultationButton from '../../ConsultationButton';
 import { useTheme, alpha } from '@mui/material/styles';
 import { NavigateNext as NavigateNextIcon, Home as HomeIcon } from '@mui/icons-material';
 
@@ -12,7 +13,7 @@ const CCHero = () => {
     <Box
       sx={{
         position: 'relative',
-        minHeight: { xs: 'auto', md: '60vh' },
+        minHeight: { xs: 'auto', md: '78vh' },
         background: `linear-gradient(145deg, #0d1f0e 0%, #163018 50%, #1a3d1c 100%)`,
         display: 'flex',
         alignItems: 'center',
@@ -33,6 +34,8 @@ const CCHero = () => {
               variant="h1"
               sx={{
                 fontSize: { xs: '2.2rem', sm: '3.2rem', md: '3.8rem', lg: '3.5rem' },
+                lineHeight: 1.25,
+                textAlign: 'center',
                 color: theme.palette.primary.contrastText,
                 maxWidth: { xs: '100%', md: '860px' },
                 mx: 'auto',
@@ -65,6 +68,10 @@ const CCHero = () => {
                 Contractors
               </Typography>
             </Breadcrumbs>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
+            <ConsultationButton />
           </motion.div>
         </Box>
       </Container>

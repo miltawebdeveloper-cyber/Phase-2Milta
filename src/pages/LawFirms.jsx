@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import LFHero from '../components/Industries/LawFirmsComp/LFHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import ServicesSection from '../components/homeComp/ServicesSection';
+
 
 const LFWhatIs     = lazy(() => import('../components/Industries/LawFirmsComp/LFWhatIs'));
 const LFSolutions  = lazy(() => import('../components/Industries/LawFirmsComp/LFSolutions'));
@@ -38,9 +40,10 @@ const LawFirms = () => {
     <Suspense fallback={null}>
       <LFWhatIs />
       <LFSolutions />
+      <ServicesSection />
       <LFWhyChoose />
       <LFAdvantages />
-      <LFChallenges />
+     
       <LFFAQ />
       <CTASection />
       <Footer />

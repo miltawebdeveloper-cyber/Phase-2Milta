@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Typography, Breadcrumbs, Link } from '@mui/material';
 import { motion } from 'framer-motion';
+import ConsultationButton from '../../ConsultationButton';
 import { useTheme, alpha } from '@mui/material/styles';
 import { NavigateNext as NavigateNextIcon, Home as HomeIcon } from '@mui/icons-material';
 
@@ -12,7 +13,7 @@ const HeroModern = ({ title = "Financial Controller Services", breadcrumbTitle =
     <Box
       sx={{
         position: 'relative',
-        minHeight: { xs: 'auto', md: '60vh' },
+        minHeight: { xs: 'auto', md: '78vh' },
         background: `linear-gradient(145deg, #0d1f0e 0%, #163018 50%, #1a3d1c 100%)`,
         display: 'flex',
         alignItems: 'center',
@@ -72,15 +73,39 @@ const HeroModern = ({ title = "Financial Controller Services", breadcrumbTitle =
               dangerouslySetInnerHTML={{ __html: title }}
               sx={{
                 fontSize: { xs: '2.4rem', sm: '3.5rem', md: '4rem', lg: '3.5rem' },
+                lineHeight: 1.25,
+                textAlign: 'center',
                 color: theme.palette.primary.contrastText,
                 maxWidth: { xs: '100%', md: '820px' },
                 mx: 'auto',
-                mb: 4,
+                mb: 2,
               }}
             />
           </motion.div>
 
-          
+          {/* Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' },
+                lineHeight: 1.8,
+                color: alpha('#ffffff', 0.85),
+                maxWidth: { xs: '100%', md: '720px' },
+                mx: 'auto',
+                mb: 4,
+                fontWeight: 400,
+                letterSpacing: '0.01em',
+              }}
+            >
+              Unlock customized solutions to unify your financial operations and take the stress out of accounting. Don't wait—start your journey toward better financial management today!
+            </Typography>
+          </motion.div>
+
           {/* Breadcrumbs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -118,6 +143,14 @@ const HeroModern = ({ title = "Financial Controller Services", breadcrumbTitle =
             </Breadcrumbs>
           </motion.div>
 
+          {/* Consultation CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            <ConsultationButton />
+          </motion.div>
 
         </Box>
       </Container>

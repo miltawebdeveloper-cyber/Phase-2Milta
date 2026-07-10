@@ -18,13 +18,41 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ADVANTAGES = [
-  { icon: PrecisionManufacturingIcon, title: 'Accurate Job Costing',               desc: 'Precisely track labor, material, and overhead expenses per project to avoid overspending and maintain profitability.' },
-  { icon: ReceiptLongIcon,            title: 'Timely Invoicing & Payments',        desc: 'Generate invoices quickly to improve cash flow and minimize payment disputes with consistent revenue streams.' },
-  { icon: PeopleIcon,                 title: 'Efficient Payroll Management',       desc: 'Manage wages, tax withholdings, and benefits for employees and subcontractors with full labor law compliance.' },
-  { icon: TimerIcon,                  title: 'Reduced Administrative Burden',      desc: 'Automate reconciliation, expense tracking, and payroll so you can focus on winning and managing projects.' },
-  { icon: SecurityIcon,               title: 'Fraud Prevention & Error Reduction', desc: 'Routine reconciliations and internal controls detect errors and unauthorized transactions in real time.' },
-  { icon: BuildIcon,                  title: 'Asset & Equipment Management',       desc: 'Track equipment use, depreciation, and maintenance costs to maximize asset value and plan replacements.' },
-  { icon: VerifiedIcon,               title: 'Regulatory Compliance',              desc: 'Stay audit-ready with compliant financials that help you qualify for licenses, certifications, and future bids.' },
+  { 
+    icon: PrecisionManufacturingIcon, 
+    title: 'Accurate Job Costing',               
+    desc: 'Professional bookkeeping for contractors allows precise tracking of labor costs, overheads, and material expenses, ensuring accurate job costing. Whether you operate a large crew or run a small construction business, this level of detail helps you avoid overspending, properly estimate budgets, and maintain profitability even during fluctuating market conditions.' 
+  },
+  { 
+    icon: ReceiptLongIcon,            
+    title: 'Timely Invoicing & Payments',        
+    desc: 'With specialized bookkeeping for construction companies, invoices can be generated and sent out quickly, reducing delays and improving cash flow. Accurate billing not only strengthens client relationships but also minimizes payment disputes, ensuring a consistent revenue stream and timely client settlements.' 
+  },
+  { 
+    icon: PeopleIcon,                 
+    title: 'Efficient Payroll Management',       
+    desc: 'Contractors often work with multiple employees and subcontractors, making payroll management a critical task. Expert accounting for construction companies ensures timely wage payments, tax withholdings, and benefits calculations, keeping your workforce satisfied while avoiding costly compliance issues and penalties.' 
+  },
+  { 
+    icon: TimerIcon,                  
+    title: 'Reduced Administrative Burden',      
+    desc: 'By automating tasks such as bank reconciliation, expense tracking, and payroll processing, bookkeeping for small construction business owners becomes less stressful. This reduction in manual paperwork allows contractors to focus more on winning new projects and managing ongoing work efficiently.' 
+  },
+  { 
+    icon: SecurityIcon,               
+    title: 'Fraud Prevention & Error Reduction', 
+    desc: 'Routine reconciliations and accurate construction accounting practices help detect errors, unauthorized transactions, and inconsistencies in real time. With solid internal controls, you can prevent fraud, enhance transparency, and maintain complete trust in your financial records.' 
+  },
+  { 
+    icon: BuildIcon,                  
+    title: 'Asset & Equipment Management',       
+    desc: 'Accounting Services for contractors include keeping track of equipment use, depreciation, and maintenance costs. Managing assets properly helps plan replacements, reduce downtime, and get the most value from tools and machines that are vital for completing projects.' 
+  },
+  { 
+    icon: VerifiedIcon,               
+    title: 'Regulatory Compliance',              
+    desc: 'Contractors must follow strict tax and labor regulations. With expert construction tax planning and support from professionals who understand tax planning for contractors, your financials will be kept up to date. Staying compliant not only protects your business but also helps you qualify for licenses, certifications, and future project bids.' 
+  },
 ];
 
 const CCAdvantages = () => {
@@ -71,7 +99,7 @@ const CCAdvantages = () => {
             <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
               <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                THE BENEFITS
+                BENEFITS OF ACCOUNTING AND BOOKKEEPING FOR CONTRACTORS
               </Typography>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
             </Box>

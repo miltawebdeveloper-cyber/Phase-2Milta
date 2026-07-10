@@ -2,11 +2,6 @@ import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import SavingsIcon from '@mui/icons-material/Savings';
-import SellIcon from '@mui/icons-material/Sell';
-import QueryStatsIcon from '@mui/icons-material/QueryStats';
-import SpeedIcon from '@mui/icons-material/Speed';
-import Inventory2Icon from '@mui/icons-material/Inventory2';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import GavelIcon from '@mui/icons-material/Gavel';
@@ -21,16 +16,31 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ADVANTAGES = [
-  { icon: SavingsIcon,     title: 'Cost Control',                  desc: 'Analyze raw material, labor, and overhead costs to identify inefficiencies, streamline production, and negotiate better supplier terms.' },
-  { icon: SellIcon,        title: 'Pricing Strategy',             desc: 'Understand production costs to determine the minimum viable price and set competitive market prices that protect profitability.' },
-  { icon: QueryStatsIcon,  title: 'Budgeting & Forecasting',      desc: 'Estimate future expenses and revenue to guide decisions on production volume and pricing.' },
-  { icon: SpeedIcon,       title: 'Performance Measurement',      desc: 'Reveal opportunities to reduce waste, increase throughput, and enhance product quality.' },
-  { icon: Inventory2Icon,  title: 'Inventory Management',         desc: 'Balance holding costs against the stock needed to satisfy consumer demand.' },
-  { icon: VisibilityIcon,  title: 'Better Financial Visibility',  desc: 'Real-time access to financial data so owners can make confident decisions.' },
-  { icon: TrendingUpIcon,  title: 'Improved Profit Margins',      desc: 'Identify cost drivers to reduce waste and enhance profitability.' },
-  { icon: GavelIcon,       title: 'Accurate Tax Planning',        desc: 'Take advantage of every eligible deduction while staying fully compliant.' },
-  { icon: TuneIcon,        title: 'Strategic Resource Allocation', desc: 'Allocate labor, capital, and materials efficiently across the operation.' },
-  { icon: VerifiedIcon,    title: 'Enhanced Investor Confidence', desc: 'Transparent financial records build trust among stakeholders and financial institutions.' },
+  { 
+    icon: VisibilityIcon,     
+    title: 'Better Financial Visibility',                  
+    desc: 'Gain real-time insights into production costs, inventory levels, and sales performance. With accurate financial data, business owners can make faster and smarter operational decisions.' 
+  },
+  { 
+    icon: TrendingUpIcon,        
+    title: 'Improved Profit Margins',             
+    desc: 'Identify key cost drivers and areas of inefficiency to reduce waste, manage overheads, and enhance overall profitability across your manufacturing operations.' 
+  },
+  { 
+    icon: GavelIcon,       
+    title: 'Accurate Tax Planning',      
+    desc: 'Stay compliant with federal and state tax laws while taking full advantage of eligible manufacturing deductions and credits—reducing tax liabilities and improving cash flow.' 
+  },
+  { 
+    icon: TuneIcon,        
+    title: 'Strategic Resource Allocation',      
+    desc: 'Use detailed accounting data to allocate labor, materials, and capital efficiently—helping streamline production cycles and maximize output with minimal waste.' 
+  },
+  { 
+    icon: VerifiedIcon,    
+    title: 'Enhanced Investor Confidence', 
+    desc: 'Maintain transparency with clear, accurate, and timely financial reporting that builds trust with investors, lenders, and other key stakeholders.' 
+  },
 ];
 
 const MCAdvantages = () => {
@@ -77,7 +87,7 @@ const MCAdvantages = () => {
             <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
               <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                THE BENEFITS
+                BENEFITS OF BOOKKEEPING AND ACCOUNTING IN MANUFACTURING
               </Typography>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
             </Box>
@@ -88,8 +98,8 @@ const MCAdvantages = () => {
               lineHeight: 1.2, letterSpacing: '-0.025em',
               color: '#ffffff', fontWeight: 900,
             }}>
-              The Impact &amp; Benefits of Manufacturing{' '}
-              <Box component="span" sx={{ color: primary }}>Accounting</Box>
+              Benefits of Bookkeeping and{' '}
+              <Box component="span" sx={{ color: primary }}>Accounting in Manufacturing</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.14)}>
@@ -103,7 +113,7 @@ const MCAdvantages = () => {
           </motion.div>
         </Box>
 
-        {/* Bento grid: row1 [0](2col)+[1], row2 [2][3][4], row3 [5]+[6](2col) */}
+        {/* Bento grid for 5 items */}
         <Box sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
@@ -111,7 +121,8 @@ const MCAdvantages = () => {
         }}>
           {ADVANTAGES.map((adv, i) => {
             const Icon = adv.icon;
-            const isWide = i === 0 || i === 6;
+            // Make first item wide (span 2) on desktop
+            const isWide = i === 0;
             return (
               <Box
                 key={adv.title}

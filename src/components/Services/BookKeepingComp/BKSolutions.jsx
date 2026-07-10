@@ -20,14 +20,46 @@ const fadeUp = (delay = 0) => ({
 });
 
 const SERVICES = [
-  { icon: AccountBalanceIcon,   title: 'Bank & Credit Card Reconciliation',       desc: 'Match every transaction to prevent discrepancies, errors, and fraud.' },
-  { icon: CurrencyExchangeIcon, title: 'Cash Flow, AR & AP Management',            desc: 'Track inflows, outflows, outstanding payments, and vendor bills in real time.' },
-  { icon: ReceiptLongIcon,      title: 'Invoice Generation & Recording',           desc: 'Timely invoicing, follow-ups, and accurate payment recording.' },
-  { icon: AssignmentIcon,       title: 'Chart of Accounts & Accounting System',    desc: 'Organized, easy-to-understand transaction categorization for your business.' },
-  { icon: PeopleIcon,           title: 'Payroll Processing & Benefits Management', desc: 'Accurate payroll calculations, tax withholding, and employee benefits compliance.' },
-  { icon: BarChartIcon,         title: 'Regular Financial Reporting',              desc: 'Customized weekly, monthly & yearly reports delivered to management on demand.' },
-  { icon: CleaningServicesIcon, title: 'Small Business & Non-Profit Clean-Up',     desc: 'Assistance with messy books and non-profit bookkeeping to get back on track.' },
-  { icon: HandshakeIcon,        title: 'CPA Collaboration for Year-End Tax',       desc: 'We prepare your records so your CPA can file accurately and on time.' },
+  { 
+    icon: AccountBalanceIcon,   
+    title: 'Bank and Credit Card Reconciliation',       
+    desc: 'We ensure your financial records align with actual bank and credit card statements through regular reconciliation—preventing errors, fraud, and discrepancies.' 
+  },
+  { 
+    icon: CurrencyExchangeIcon, 
+    title: 'Handling Cash Flow, Accounts Receivable (AR), and Accounts Payable (AP)',            
+    desc: 'We document and track all cash inflows and outflows, ensuring effective AR/AP management and a clear picture of your business cash flow.' 
+  },
+  { 
+    icon: ReceiptLongIcon,      
+    title: 'Invoice Generation and Recording',           
+    desc: 'We handle invoice generation, timely recording, and follow-ups to maintain a steady income stream and ensure accurate financial records.' 
+  },
+  { 
+    icon: AssignmentIcon,       
+    title: 'Maintaining a Well-Organized Chart of Accounts and Accounting Preparation System',    
+    desc: 'We help set up and maintain a clear chart of accounts for accurate categorization, easy tracking, and efficient accounting preparation.' 
+  },
+  { 
+    icon: PeopleIcon,           
+    title: 'Payroll Processing, Taxation, and Employee Benefits Management', 
+    desc: 'Our payroll experts manage salary calculations, tax withholdings, and employee benefits, ensuring timely and compliant payroll processing.' 
+  },
+  { 
+    icon: BarChartIcon,         
+    title: 'Regular Financial Reporting (Weekly, Monthly & Yearly)',              
+    desc: 'We provide consistent, detailed financial reports offering insights into revenue, expenses, and profits—helping you make data-driven decisions.' 
+  },
+  { 
+    icon: CleaningServicesIcon, 
+    title: 'Assistance with Small Business Accounting, Non-Profit Bookkeeping, and Clean-Up Tasks',     
+    desc: 'We assist with accounting for small businesses and non-profits and offer bookkeeping clean-up services to keep your records accurate.' 
+  },
+  { 
+    icon: HandshakeIcon,        
+    title: 'Collaborating with CPAs for Year-End Tax Preparations',       
+    desc: 'We work closely with CPAs to ensure accurate and timely year-end tax preparation, keeping your books ready for audits and filings.' 
+  },
 ];
 
 const BKSolutions = () => {
@@ -55,13 +87,13 @@ const BKSolutions = () => {
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
-              Our Bookkeeping{' '}
-              <Box component="span" sx={{ color: primary }}>Services</Box>
+              End-to-End Bookkeeping{' '}
+              <Box component="span" sx={{ color: primary }}>and Financial Organization</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 560, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              From organizing financial records to year-end tax preparation, we have every aspect of your business finances covered.
+              Our Comprehensive Bookkeeping Solutions for Small Businesses
             </Typography>
           </motion.div>
         </Box>
@@ -171,22 +203,6 @@ const BKSolutions = () => {
                 }}>
                   {svc.desc}
                 </Typography>
-
-                {/* Slide-in arrow */}
-                <Box className="card-arrow" sx={{
-                  display: 'inline-flex', alignItems: 'center', gap: 0.5,
-                  mt: 2.5,
-                  color: primary,
-                  fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 700, fontSize: '0.75rem',
-                  letterSpacing: '0.1em', textTransform: 'uppercase',
-                  opacity: 0,
-                  transform: 'translateX(-8px)',
-                  transition: 'opacity 0.3s ease, transform 0.3s ease',
-                }}>
-                  Learn more
-                  <ArrowForwardIcon sx={{ fontSize: '0.8rem' }} />
-                </Box>
 
               </Box>
             );

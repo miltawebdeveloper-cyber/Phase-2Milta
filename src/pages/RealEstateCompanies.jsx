@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import REHero from '../components/Industries/RealEstateComp/REHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
-
+import ServicesSection from '../components/homeComp/ServicesSection';
 const REWhatIs     = lazy(() => import('../components/Industries/RealEstateComp/REWhatIs'));
 const RESolutions  = lazy(() => import('../components/Industries/RealEstateComp/RESolutions'));
 const REWhyChoose  = lazy(() => import('../components/Industries/RealEstateComp/REWhyChoose'));
@@ -38,9 +38,10 @@ const RealEstateCompanies = () => {
     <Suspense fallback={null}>
       <REWhatIs />
       <RESolutions />
+      <ServicesSection/>
       <REWhyChoose />
       <REAdvantages />
-      <REChallenges />
+     
       <REFAQ />
       <CTASection />
       <Footer />

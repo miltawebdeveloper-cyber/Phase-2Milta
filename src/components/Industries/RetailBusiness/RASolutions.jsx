@@ -1,13 +1,17 @@
 import React from 'react';
-import { Box, Container, Typography, Stack } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
-import ShowChartIcon from '@mui/icons-material/ShowChart';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import GavelIcon from '@mui/icons-material/Gavel';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import HubIcon from '@mui/icons-material/Hub';
+import SavingsIcon from '@mui/icons-material/Savings';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import CloudIcon from '@mui/icons-material/Cloud';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -17,12 +21,56 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ELEMENTS = [
-  { icon: PointOfSaleIcon, title: 'Sales & Expense Tracking',   desc: 'Real-time recording and categorization of all sales and expenditures for a clear, current picture.' },
-  { icon: Inventory2Icon,  title: 'Inventory Management',       desc: 'Integrated inventory tracking across multiple locations and platforms.' },
-  { icon: ShowChartIcon,   title: 'Cash Flow Monitoring',       desc: 'Full visibility into receivables, payables, and liquidity.' },
-  { icon: GavelIcon,       title: 'Tax Planning & Preparation', desc: 'Accurate tax return preparation and year-end reporting — our retail tax experts ensure compliance, maximize deductions, and support next-year planning.' },
-  { icon: BarChartIcon,    title: 'Financial Reporting',        desc: 'Clear financial statements for internal use or for lenders.' },
-  { icon: HubIcon,         title: 'Multi-Channel Integration',  desc: 'Unified reports for businesses operating in-store, online, or both.' },
+  { 
+    icon: Inventory2Icon,  
+    title: 'Inventory Management',           
+    desc: 'Accurate bookkeeping for retail businesses begins with effective inventory management. Tracking stock levels, purchase costs, and sales margins helps maintain profitability and avoid overstocking or shortages.' 
+  },
+  { 
+    icon: PointOfSaleIcon,     
+    title: 'Point-of-Sale (POS) Integration',           
+    desc: 'Modern POS systems can sync directly with your accounting software, ensuring every sale, return, and discount is accurately recorded in real time for smoother reconciliation.' 
+  },
+  { 
+    icon: GavelIcon,      
+    title: 'Sales Tax Compliance',      
+    desc: 'Retailers operate under varying state and local sales tax laws. Our team ensures that all sales tax collections and filings are accurate and submitted on time to avoid penalties.' 
+  },
+  { 
+    icon: ReceiptLongIcon,        
+    title: 'Expense Tracking & Cost Control',        
+    desc: 'Keeping track of operational costs—like rent, utilities, and vendor payments—is essential for profitability. We categorize and analyze expenses to identify savings opportunities.' 
+  },
+  { 
+    icon: AccessTimeIcon,           
+    title: 'Payroll Management', 
+    desc: 'Retail businesses often have fluctuating staff levels. Our payroll solutions ensure accurate wage calculations, tip reporting, and compliance with labor regulations.' 
+  },
+  { 
+    icon: BarChartIcon,        
+    title: 'Financial Reporting & Analysis',    
+    desc: 'Comprehensive financial statements, including profit/loss and cash flow reports, help retailers monitor performance and plan strategically for future growth.' 
+  },
+  { 
+    icon: HubIcon,  
+    title: 'Multi-Location Consolidation',         
+    desc: 'For businesses with multiple outlets, we provide consolidated accounting and reporting, ensuring unified financial visibility across all branches.' 
+  },
+  { 
+    icon: SavingsIcon,        
+    title: 'Tax Planning & Preparation',         
+    desc: 'Our retail tax accountants help minimize liabilities through proactive planning, accurate filings, and strategic deductions tailored to your business structure.' 
+  },
+  { 
+    icon: LocalShippingIcon,          
+    title: 'Vendor & Supplier Management', 
+    desc: 'We manage accounts payable, negotiate better payment terms, and track supplier performance to optimize your retail supply chain finances.' 
+  },
+  { 
+    icon: CloudIcon,           
+    title: 'Cloud-Based Accounting Solutions', 
+    desc: 'We leverage cloud accounting tools that allow retailers to access financial data anytime, automate reconciliation, and enhance decision-making with real-time insights.' 
+  },
 ];
 
 const RASolutions = () => {
@@ -47,18 +95,18 @@ const RASolutions = () => {
         <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: 'center' }}>
           <motion.div {...fadeUp(0)}>
             <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.75rem', mb: 2, display: 'block' }}>
-              KEY ELEMENTS
+              KEY COMPONENTS
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
-              What Milta Offers for{' '}
-              <Box component="span" sx={{ color: primary }}>Retail Businesses</Box>
+              Key Components of{' '}
+              <Box component="span" sx={{ color: primary }}>Retail Accounting</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 580, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              Six end-to-end services that keep retailers organized, tax-compliant, and in control of their numbers.
+              10 comprehensive retail accounting services designed to keep retailers organized, tax-compliant, and in control.
             </Typography>
           </motion.div>
         </Box>
@@ -126,7 +174,7 @@ const RASolutions = () => {
           })}
         </Box>
 
-        {/* ── TIER 2: 4-col compact grid for remaining 8 ── */}
+        {/* ── TIER 2: 4-col compact grid ── */}
         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2 }}>
           {rest.map((el, i) => {
             const Icon = el.icon;

@@ -10,7 +10,7 @@ import PublicIcon from '@mui/icons-material/Public';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -20,14 +20,86 @@ const fadeUp = (delay = 0) => ({
 });
 
 const SERVICES = [
-  { icon: PaymentsIcon,                  title: 'End-to-End Payroll Processing',        desc: 'Complete payroll calculation, deductions, and payslip generation — every pay cycle handled accurately and on schedule.' },
-  { icon: GavelIcon,                     title: 'Payroll Tax Compliance & Filing',       desc: 'Accurate filing and payment of federal, state, and local payroll taxes — automated remittances to all authorities.' },
-  { icon: PersonAddIcon,                 title: 'Employee Onboarding & Offboarding',    desc: 'Seamless payroll setup for new hires and accurate final settlements for exits — zero gaps in employee records.' },
-  { icon: AccessTimeIcon,                title: 'Time & Attendance Integration',         desc: 'Automated tracking of working hours, overtime, paid leave, and holidays — synced directly into payroll calculations.' },
-  { icon: PublicIcon,                    title: 'Multi-Country Payroll Support',         desc: 'Payroll services for the USA, UK, Canada, Australia, and India — managed under one unified, compliant system.' },
-  { icon: CardGiftcardIcon,              title: 'Employee Benefits & Deductions',        desc: 'Management of insurance, retirement plans, reimbursements, wage garnishments, and all statutory deductions.' },
-  { icon: BarChartIcon,                  title: 'Custom Payroll Reports',                desc: 'Audit-ready payroll reports and real-time dashboards — labor cost analysis, headcount tracking, and leave balances.' },
-  { icon: IntegrationInstructionsIcon,   title: 'Payroll Software Integration',          desc: 'Seamless integration with QuickBooks, Gusto, ADP, Paychex, Xero, Zoho, and Odoo for a connected workflow.' },
+  {
+    icon: PaymentsIcon,
+    title: 'End-to-End Payroll Processing',
+    items: [
+      'Complete payroll calculation and processing.',
+      'Accurate salary computation and deductions.',
+      'Automated payslip generation and distribution.',
+      'Timely payroll execution without delays.',
+    ],
+  },
+  {
+    icon: GavelIcon,
+    title: 'Payroll Tax Compliance & Filing',
+    items: [
+      'Federal, state, and local payroll tax compliance.',
+      'Accurate tax calculations and timely filings.',
+      'Handling of payroll-related statutory obligations.',
+      'Reduced compliance risks and penalties.',
+    ],
+  },
+  {
+    icon: PersonAddIcon,
+    title: 'Employee Onboarding & Offboarding',
+    items: [
+      'Seamless payroll setup for new hires.',
+      'Accurate salary structuring and tax setup.',
+      'Final settlements and exit payroll processing.',
+      'Compliance-ready documentation management.',
+    ],
+  },
+  {
+    icon: AccessTimeIcon,
+    title: 'Time & Attendance Integration',
+    items: [
+      'Automated tracking of work hours and overtime.',
+      'Leave and attendance synchronization.',
+      'Error-free payroll based on real-time data.',
+      'Improved payroll accuracy and transparency.',
+    ],
+  },
+  {
+    icon: PublicIcon,
+    title: 'Multi-Country Payroll Support',
+    items: [
+      'Payroll services across multiple geographies.',
+      'Support for USA, UK, Canada, Australia, and India.',
+      'Country-specific compliance and tax handling.',
+      'Centralized global payroll management.',
+    ],
+  },
+  {
+    icon: CardGiftcardIcon,
+    title: 'Employee Benefits & Deductions',
+    items: [
+      'Management of insurance and retirement plans.',
+      'Handling reimbursements and statutory deductions.',
+      'Accurate benefit calculations and reporting.',
+      'Employee-friendly and compliant payroll structure.',
+    ],
+  },
+  {
+    icon: BarChartIcon,
+    title: 'Custom Payroll Reports',
+    items: [
+      'Audit-ready payroll and compliance reports.',
+      'Custom reports tailored to business needs.',
+      'Real-time dashboards for payroll insights.',
+      'Improved decision-making with accurate data.',
+    ],
+  },
+  {
+    icon: IntegrationInstructionsIcon,
+    title: 'Payroll Software Integration',
+    items: [
+      'Integration with leading payroll platforms.',
+      'QuickBooks, Gusto, ADP, Paychex support.',
+      'Xero, Zoho, and Odoo payroll integration.',
+      'Seamless data flow across accounting systems.',
+    ],
+  },
 ];
 
 const PMSolutions = () => {
@@ -47,18 +119,18 @@ const PMSolutions = () => {
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
-              Our Payroll Management{' '}
-              <Box component="span" sx={{ color: primary }}>Services in the USA</Box>
+              Payroll Management Services by{' '}
+              <Box component="span" sx={{ color: primary }}>Milta Accounting</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
-            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 560, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              From payroll processing and tax compliance to multi-country support and software integrations — every aspect of your payroll professionally managed.
+            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 620, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
+              Milta Accounting is a leading payroll management company offering comprehensive Payroll Management Services in the USA and globally, helping businesses stay compliant, accurate, and stress-free.
             </Typography>
           </motion.div>
         </Box>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2.5 }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 2.5 }}>
           {SERVICES.map((svc, i) => {
             const Icon = svc.icon;
             return (
@@ -83,25 +155,28 @@ const PMSolutions = () => {
                     '& .icon-svg': { color: '#ffffff' },
                     '& .card-title': { color: primary },
                     '& .card-num': { opacity: 1 },
-                    '& .card-arrow': { opacity: 1, transform: 'translateX(0px)' },
                   },
                 }}
               >
                 <Box className="sweep-bar" sx={{ position: 'absolute', top: 0, left: 0, height: '3px', width: 0, background: `linear-gradient(90deg, ${primary}, ${alpha(primary, 0.5)})`, borderRadius: '0 0 3px 0', transition: 'width 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} />
-                <Typography className="card-num" sx={{ position: 'absolute', bottom: 10, right: 14, fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 900, fontSize: '3.8rem', lineHeight: 1, color: alpha(primary, 0.07), userSelect: 'none', pointerEvents: 'none', opacity: 0, transition: 'opacity 0.32s ease' }}>
+                <Typography className="card-num" sx={{ position: 'absolute', top: 14, right: 18, fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 900, fontSize: '3.2rem', lineHeight: 1, color: alpha(primary, 0.07), userSelect: 'none', pointerEvents: 'none', opacity: 0, transition: 'opacity 0.32s ease' }}>
                   {String(i + 1).padStart(2, '0')}
                 </Typography>
                 <Box className="icon-wrap" sx={{ width: 52, height: 52, borderRadius: '14px', bgcolor: alpha(primary, 0.08), border: `1px solid ${alpha(primary, 0.15)}`, display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2.5, flexShrink: 0, transition: 'all 0.32s cubic-bezier(0.4, 0, 0.2, 1)' }}>
                   <Icon className="icon-svg" sx={{ fontSize: 24, color: primary, transition: 'color 0.32s ease' }} />
                 </Box>
-                <Typography className="card-title" sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '0.95rem', color: 'text.primary', mb: 1, lineHeight: 1.35, transition: 'color 0.28s ease' }}>
+                <Typography className="card-title" sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1rem', color: 'text.primary', mb: 2, lineHeight: 1.35, transition: 'color 0.28s ease' }}>
                   {svc.title}
                 </Typography>
-                <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.84rem', lineHeight: 1.72, color: 'text.secondary', pr: 2 }}>
-                  {svc.desc}
-                </Typography>
-                <Box className="card-arrow" sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, mt: 2.5, color: primary, fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0, transform: 'translateX(-8px)', transition: 'opacity 0.3s ease, transform 0.3s ease' }}>
-                  Learn more <ArrowForwardIcon sx={{ fontSize: '0.8rem' }} />
+                <Box component="ul" sx={{ listStyle: 'none', m: 0, p: 0, display: 'flex', flexDirection: 'column', gap: 1.25 }}>
+                  {svc.items.map((item) => (
+                    <Box component="li" key={item} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.25 }}>
+                      <CheckCircleIcon sx={{ fontSize: 18, color: primary, mt: '2px', flexShrink: 0 }} />
+                      <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.86rem', lineHeight: 1.55, color: 'text.secondary' }}>
+                        {item}
+                      </Typography>
+                    </Box>
+                  ))}
                 </Box>
               </Box>
             );

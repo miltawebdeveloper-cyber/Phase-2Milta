@@ -15,10 +15,26 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ADVANTAGES = [
-  { icon: FactCheckIcon,  title: 'Accurate Financial Records',     desc: 'Every rent payment, vendor invoice, and repair cost is recorded properly, keeping you audit-ready and organized.' },
-  { icon: AssessmentIcon, title: 'Transparent Financial Reporting', desc: 'Clear monthly or quarterly reports reveal each property\'s performance — essential for smart forecasting and planning.' },
-  { icon: SavingsIcon,    title: 'Tax Planning Made Easy',         desc: 'Professional real estate tax planning helps you claim every eligible deduction and reduce liabilities for agents and developers alike.' },
-  { icon: TimerIcon,      title: 'Cost & Time Efficiency',         desc: 'Skip the cost of hiring internally — partner with experienced professionals, reduce overhead, and focus on growing your business.' },
+  { 
+    icon: FactCheckIcon,  
+    title: 'Accurate Financial Records',     
+    desc: 'Every rent payment, vendor invoice, or repair cost is recorded properly. This level of precision helps you stay audit-ready and organized.' 
+  },
+  { 
+    icon: AssessmentIcon, 
+    title: 'Transparent Financial Reporting', 
+    desc: 'Get clear monthly or quarterly reports that help you understand the performance of each property. These reports are essential for smart forecasting and planning.' 
+  },
+  { 
+    icon: SavingsIcon,    
+    title: 'Tax Planning Made Easy',         
+    desc: 'With professional support in real estate tax planning, you can claim every eligible deduction. We also offer tax planning for real estate agents and tax planning for property developers to reduce liabilities and improve tax efficiency.' 
+  },
+  { 
+    icon: TimerIcon,      
+    title: 'Cost and Time Efficiency',         
+    desc: 'Skip the cost and complexity of hiring internally—partner with experienced professionals for your real estate bookkeeping needs. It reduces overhead and lets you focus on what you do best, growing your business.' 
+  },
 ];
 
 const REAdvantages = () => {
@@ -65,7 +81,7 @@ const REAdvantages = () => {
             <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
               <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                THE BENEFITS
+                BENEFITS OF PROPERTY MANAGEMENT BOOKKEEPING SERVICES
               </Typography>
               <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
             </Box>
@@ -91,22 +107,20 @@ const REAdvantages = () => {
           </motion.div>
         </Box>
 
-        {/* Bento grid: row1 [0](2col)+[1], row2 [2][3][4], row3 [5]+[6](2col) */}
+        {/* Bento grid: 2x2 layout since we have 4 items */}
         <Box sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
+          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
           gap: { xs: 1.5, md: 2 },
         }}>
           {ADVANTAGES.map((adv, i) => {
             const Icon = adv.icon;
-            const isWide = i === 0 || i === 6;
             return (
               <Box
                 key={adv.title}
                 component={motion.div}
                 {...fadeUp(0.05 * i)}
                 sx={{
-                  gridColumn: isWide ? { md: 'span 2' } : {},
                   position: 'relative',
                   overflow: 'hidden',
                   borderRadius: '16px',
@@ -117,7 +131,7 @@ const REAdvantages = () => {
                   border: '1px solid rgba(255,255,255,0.08)',
                   cursor: 'default',
                   display: 'flex',
-                  flexDirection: isWide ? { xs: 'column', sm: 'row' } : 'row',
+                  flexDirection: { xs: 'column', sm: 'row' },
                   alignItems: 'flex-start',
                   gap: 2,
                   transition: 'all 0.25s cubic-bezier(0.4,0,0.2,1)',
@@ -160,7 +174,7 @@ const REAdvantages = () => {
                     sx={{
                       fontFamily: '"Plus Jakarta Sans", sans-serif',
                       fontWeight: 700,
-                      fontSize: isWide ? { xs: '0.95rem', md: '1.05rem' } : '0.88rem',
+                      fontSize: { xs: '0.95rem', md: '1.05rem' },
                       color: '#ffffff', mb: 0.75,
                       lineHeight: 1.3,
                       transition: 'color 0.25s ease',

@@ -128,7 +128,7 @@ export default function TaxServices() {
           "From proactive planning to multi-level compliance, we make tax season simple, accurate, and penalty-free for Florida individuals and businesses.",
         panelStats: [
           { num: "1040+", label: "Returns Filed" },
-          { num: "15y+", label: "Experience" },
+          { num: "10y+", label: "Experience" },
           { num: "100%", label: "Compliance" },
           { num: "24/7", label: "Support" },
         ],

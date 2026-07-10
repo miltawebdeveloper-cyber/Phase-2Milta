@@ -73,7 +73,7 @@ const AboutPreview = () => {
                 </Typography>
                 <Stack direction="row" spacing={5} sx={{ py: 2 }}>
                   <Box>
-                    <Typography variant="h4" sx={{ fontWeight: 900 }}>15y+</Typography>
+                    <Typography variant="h4" sx={{ fontWeight: 900 }}>10y+</Typography>
                     <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary' }}>LEGACY</Typography>
                   </Box>
                   <Box>

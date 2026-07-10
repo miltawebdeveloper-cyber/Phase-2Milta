@@ -18,12 +18,36 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: GroupsIcon,      title: 'Industry-Focused Expertise',              desc: 'From raw-material tracking and inventory valuation to job costing and production overheads, we tailor solutions to your specific operational demands.' },
-  { icon: Inventory2Icon,  title: 'Full-Cycle Inventory & Cost Management',  desc: 'Real-time visibility into inventory and COGS — from raw materials to finished goods — for data-driven pricing and production decisions.' },
-  { icon: BarChartIcon,    title: 'Advanced Job Costing & Budgeting',        desc: 'Precise job costing reports and financial forecasts so you can track project profitability, control costs, and plan with confidence.' },
-  { icon: GavelIcon,       title: 'Manufacturing Tax Expertise',             desc: 'We identify eligible deductions, maximize credits, and maintain full compliance with ever-changing state and federal tax laws.' },
-  { icon: DevicesIcon,     title: 'Technology-Driven Solutions',             desc: 'We work with QuickBooks Desktop Enterprise, Xero, NetSuite, and Sage for seamless, secure, cloud-based collaboration.' },
-  { icon: SupportAgentIcon, title: 'Dedicated Support & Transparent Reporting', desc: 'A professional account manager who knows your business, with proactive insights and timely, transparent reports — no surprises, just outcomes.' },
+  { 
+    icon: GroupsIcon,      
+    title: 'Industry-Focused Expertise',              
+    desc: 'We understand the complexities of manufacturing accounting—from raw material tracking and inventory valuation to job costing and production overheads. Our solutions are tailored to your specific operational needs.' 
+  },
+  { 
+    icon: Inventory2Icon,  
+    title: 'Full-Cycle Inventory & Cost Management',  
+    desc: 'From raw materials to finished goods, we ensure real-time visibility into your inventory and cost of goods sold (COGS), helping you make informed pricing and production decisions.' 
+  },
+  { 
+    icon: BarChartIcon,    
+    title: 'Advanced Job Costing and Budgeting',        
+    desc: 'Our detailed job costing reports and accurate forecasts enable you to track profitability, control expenses, and plan confidently for future growth.' 
+  },
+  { 
+    icon: GavelIcon,       
+    title: 'Manufacturing Tax Expertise',             
+    desc: 'We help identify eligible deductions, maximize tax credits, and ensure compliance with evolving federal and state regulations, keeping your finances optimized.' 
+  },
+  { 
+    icon: DevicesIcon,     
+    title: 'Technology-Driven Solutions',             
+    desc: 'We leverage advanced accounting tools like QuickBooks Desktop Enterprise, Xero, NetSuite, and Sage for cloud-based collaboration, automation, and data security.' 
+  },
+  { 
+    icon: SupportAgentIcon, 
+    title: 'Dedicated Support & Transparent Reporting', 
+    desc: 'You\'ll work with a professional account manager who provides proactive insights, consistent communication, and clear, on-time reporting—no surprises, just measurable results.' 
+  },
 ];
 
 const STATS = [{ num: '10+', label: 'Years Experience' }, { num: '500+', label: 'Clients Served' }, { num: '100%', label: 'Retention Rate' }];
@@ -68,7 +92,7 @@ const MCWhyChoose = () => {
             </motion.div>
             <motion.div {...fadeUp(0.18)}>
               <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '0.95rem', lineHeight: 1.8, mb: 4, fontFamily: '"Outfit", sans-serif' }}>
-                We specialize in accurate, efficient, industry-specific accounting and bookkeeping for manufacturing companies across the U.S. Our deep understanding of manufacturers' unique financial challenges sets us apart from generic providers.
+                At Milta, we specialize in delivering accurate, efficient, and industry-specific accounting and bookkeeping services for manufacturing companies across the U.S. Our experience and focus on the manufacturing sector ensure that your financial operations are streamlined, compliant, and built for growth.
               </Typography>
             </motion.div>
 
@@ -101,7 +125,7 @@ const MCWhyChoose = () => {
             </motion.div>
           </Box>
 
-          {/* ── RIGHT: 2×2 glass card grid + 1 wide card ── */}
+          {/* ── RIGHT: 2×2 glass card grid + 2 wide cards ── */}
           <Box sx={{ flex: 1 }}>
             {/* 2×2 grid (cards 1–4) */}
             <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2, mb: 2 }}>

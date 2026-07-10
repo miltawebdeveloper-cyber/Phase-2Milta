@@ -1,317 +1,138 @@
 import React from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useNavigate } from "react-router-dom";
-import useFullSEO from "../../utils/useFullSEO";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import InsightsIcon from "@mui/icons-material/Insights";
+import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
+import CloudSyncIcon from "@mui/icons-material/CloudSync";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import EditNoteIcon from "@mui/icons-material/EditNote";
+import SyncAltIcon from "@mui/icons-material/SyncAlt";
+import FactCheckIcon from "@mui/icons-material/FactCheck";
+import DescriptionIcon from "@mui/icons-material/Description";
+import TimerIcon from "@mui/icons-material/Timer";
+import NightsStayIcon from "@mui/icons-material/NightsStay";
+import SavingsIcon from "@mui/icons-material/Savings";
+import GroupsIcon from "@mui/icons-material/Groups";
+import ServiceLayout from "../_ServiceLayout";
 
-
-/* ================= COLORS ================= */
-const primaryGreen = "#0b3d2e";
-const lightGreen = "#145a43";
-const sectionBg = "#f6f8f3";
-const hoverOrange = "#ff9800";
-const greenGradient = "linear-gradient(135deg, #09271bff 0%, #063d1eff 100%)";
-
-/* ================= BANNER ================= */
-const BannerSection = () => {
-  const navigate = useNavigate();
-
-  return (
-    <Box
-      sx={{
-        background: greenGradient,
-        color: "#fff",
-        py: { xs: 6, sm: 8, md: 10 },
-        textAlign: "center",
-      }}
-    >
-      <Container maxWidth="md">
-        <Typography variant="h4" fontWeight={700} mb={2}>
-          Trusted CPA Firm in Maryland for Business Success
-        </Typography>
-
-        <Typography fontSize={{ xs: "1rem", sm: "1.1rem" }} mb={3} opacity={0.9} color="#ffffff">
-          Optimize Your Business Finances with Expert CPA Services in Maryland
-        </Typography>
-
-        <Typography fontSize="1rem" mb={4} opacity={0.9} color="#ffffff">
-          Milta provides expert CPA services in Maryland, offering tailored
-          financial solutions for individuals and small businesses. As one of
-          the top CPA firms in Maryland, we specialize in accounting, tax
-          preparation, and financial planning to keep your finances accurate,
-          compliant, and growth-ready.
-        </Typography>
-
-        <Button
-          sx={{
-            px: 4,
-            py: 1.3,
-            bgcolor: hoverOrange,
-            color: "#000",
-            fontWeight: 600,
-            borderRadius: 30,
-            "&:hover": { bgcolor: "#ffa726" },
-          }}
-          onClick={() => navigate("/contact")}
-        >
-          Schedule a Free Consultation
-        </Button>
-      </Container>
-    </Box>
-  );
-};
-
-/* ================= REUSABLE SECTION ================= */
-const Section = ({
-  title,
-  children,
-  background = sectionBg,
-  titleColor = primaryGreen,
-}) => (
-  <Box sx={{ py: { xs: 5, md: 8 }, background }}>
-    <Container maxWidth="lg">
-      <Typography
-        variant="h4"
-        fontWeight={700}
-        mb={4}
-        textAlign="center"
-        color={titleColor}
-      >
-        {title}
-      </Typography>
-      {children}
-    </Container>
-  </Box>
-);
-
-/* ================= CARD GRID ================= */
-const CardGrid = ({ items }) => (
-  <Box
-    sx={{
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "center",
-      gap: 3,
-    }}
-  >
-    {items.map((item, i) => (
-      <Box
-        key={i}
-        sx={{
-          width: { xs: "100%", sm: 300 },
-          bgcolor: "#fff",
-          p: 3,
-          borderRadius: 3,
-          boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
-          transition: "all .3s",
-          textAlign: "center",
-          "&:hover": {
-            transform: "translateY(-6px)",
-            bgcolor: hoverOrange,
-            color: "#fff",
-          },
-        }}
-      >
-        <Typography fontWeight={700} mb={1}>
-          {item.title}
-        </Typography>
-        <Typography fontSize="0.9rem">{item.desc}</Typography>
-      </Box>
-    ))}
-  </Box>
-);
-
-/* ================= FAQ ================= */
-const FAQSection = ({ faqData }) => (
-  <Section title="Frequently Asked Questions">
-    <Container maxWidth="md">
-      {faqData.map((item, i) => (
-        <Accordion key={i} sx={{ mb: 2 }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography fontWeight={600}>{item.q}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography fontSize="0.95rem">{item.a}</Typography>
-          </AccordionDetails>
-        </Accordion>
-      ))}
-    </Container>
-  </Section>
-);
-
-/* ================= EMPOWERMENT ================= */
-const EmpowermentSection = ({ cards }) => (
-  <Section title="How Milta Supports Your Business Growth">
-    <Typography
-      fontSize={{ xs: "1rem", md: "1.1rem" }}
-      textAlign="center"
-      maxWidth="900px"
-      mx="auto"
-      mb={6}
-    >
-      A successful CPA firm in Maryland depends on accurate financial records
-      and strategic insights. Managing bookkeeping and financial analysis can be
-      time-consuming. Milta simplifies these tasks so CPA firms near you can
-      focus on high-value financial strategies instead of routine accounting.
-    </Typography>
-
-    <Box
-      sx={{
-        display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-        gap: 4,
-      }}
-    >
-      {cards.map((card, i) => (
-        <Box
-          key={i}
-          sx={{
-            p: 5,
-            borderRadius: 3,
-            bgcolor: "#fff",
-            boxShadow: "0 12px 30px rgba(0,0,0,0.15)",
-            textAlign: "center",
-          }}
-        >
-          <Typography variant="h6" fontWeight={700} mb={2}>
-            {card.title}
-          </Typography>
-          <Typography fontSize="1rem" lineHeight={1.7} color="text.secondary">
-            {card.desc}
-          </Typography>
-        </Box>
-      ))}
-    </Box>
-  </Section>
-);
-
-/* ================= OUTSOURCING ================= */
-const OutsourcingSection = ({ services }) => (
-  <Section
-    title="Our CPA Services for Small Business Include"
-    background={greenGradient}
-    titleColor="#ffffff"
-  >
-    <Box
-      sx={{
-        display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-        gap: 4,
-      }}
-    >
-      {services.map((service, i) => (
-        <Box
-          key={i}
-          sx={{
-            p: 4,
-            bgcolor: "#fff",
-            borderRadius: 3,
-            boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
-            textAlign: "center",
-          }}
-        >
-          <Typography fontWeight={600} mb={1} color={lightGreen}>
-            {service.split(":")[0]}
-          </Typography>
-          <Typography fontSize="0.95rem">
-            {service.split(":")[1]}
-          </Typography>
-        </Box>
-      ))}
-    </Box>
-  </Section>
-);
-
-/* ================= WHY CHOOSE ================= */
-const benefits = [
-  { title: "Available Full-Time", desc: "Dedicated professionals working exclusively on your accounting needs with backup support available." },
-  { title: "Overnight Delivery", desc: "Work completed while you sleep so deliverables are ready when you start your day." },
-  { title: "Offload Non-Core Functions", desc: "Focus on growth and client relationships while we manage accounting operations." },
-  { title: "High-Quality CPA Services in Maryland", desc: "95%+ retention rate delivering consistent, customized accounting excellence." },
-  { title: "Reduced Overheads", desc: "Save 60–70% by eliminating hiring, training, and payroll expenses." },
-  { title: "Diversify Your Customers", desc: "Serve multiple industries without investing in additional training or tools." },
+const faqs = [
+  { q: "Why should I outsource CPA services instead of hiring in-house?", a: "Outsourcing gives you access to specialized expertise on demand, without the overhead of a full-time hire — reducing costs while improving accuracy and turnaround time." },
+  { q: "Does Milta stay current with U.S. tax regulations?", a: "Yes. Our team is fully versed in current U.S. accounting and tax standards, and we monitor regulatory changes so your filings stay compliant year after year." },
+  { q: "What accounting software do you support?", a: "We work across QuickBooks, Xero, Lacerte, Drake, TaxSlayer, TurboTax, and other leading platforms, so we can plug into whatever system you already use." },
+  { q: "Do you offer business consulting alongside CPA services?", a: "Yes, including budgeting, forecasting, and profitability analysis to support smarter decision-making as your business grows." },
+  { q: "Can Milta support businesses with international operations?", a: "Yes. Our team handles cross-border tax considerations and financial reporting for businesses operating beyond Maryland's borders." },
 ];
 
-const WhyChooseMiltaSection = () => (
-  <Section title="Why Choose Milta for CPA Services in Maryland">
-    <CardGrid items={benefits} />
-  </Section>
-);
-
-/* ================= MAIN PAGE ================= */
-export default function CPAMaryland() {
-  useFullSEO({
-  // MAIN SEO
-  title: "Superior CPA Services in Maryland | Milta Accounting Services",
-  description:
-    "We provide expert CPA services in Maryland for small businesses. Partner with CPA firms in Maryland for accuracy, growth, and success!",
-  keywords:
-    "cpa services in maryland, cpa firms near me, cpa firms in maryland, accounting services for small business, cpa services for small businesses, best cpa service for small businesses in maryland, certified public accountant near me",
-  author: "Milta Accounting",
-  canonical: "https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-the-maryland/",
-});
-
-  const empowermentCards = [
-    {
-      title: "Strategic Business Enablement",
-      desc: "Outsourcing to Milta provides access to expert CPA services in Maryland, improving efficiency while reducing operational costs.",
-    },
-    {
-      title: "Operational Excellence",
-      desc: "We leverage advanced accounting technology and deep expertise to streamline workflows and minimize overhead.",
-    },
-  ];
-
-  const coreServices = [
-    { title: "Accounting & Bookkeeping", desc: "Financial statements, reconciliations, payroll, and ledger maintenance." },
-    { title: "Tax Planning & Preparation", desc: "Corporate, individual, sales, and payroll tax filings with compliance." },
-    { title: "Financial Consulting", desc: "Forecasting, budgeting, valuation, and M&A advisory." },
-    { title: "Catch-Up Services", desc: "Fixing backlogs and restoring accurate financial records." },
-    { title: "Software Setup & Conversion", desc: "QuickBooks, Xero, cloud migrations, and training." },
-    { title: "Audit & Assurance", desc: "Audits, reviews, compilations, and regulatory compliance." },
-  ];
-
-  const faqData = [
-    { q: "Why should I outsource CPA services?", a: "It reduces costs, improves efficiency, and provides specialized expertise." },
-    { q: "Does Milta handle U.S. tax regulations?", a: "Yes, our team is fully compliant with U.S. accounting and tax standards." },
-    { q: "What software do you support?", a: "QuickBooks, Xero, Lacerte, Drake, Tax Slayer, TurboTax, and more." },
-    { q: "Do you offer business consulting?", a: "Yes, including budgeting, forecasting, and profitability analysis." },
-    { q: "Can you support international businesses?", a: "Yes, including cross-border tax and financial reporting." },
-  ];
-
-  const outsourcingServices = [
-    "Monthly, Quarterly & Annual Write-Up Services: Accurate data entry and reconciliations.",
-    "Catch-Up & Clean-Up Services: Fixing errors and updating records.",
-    "Accounting Software Conversions: QuickBooks Desktop to Online or Xero.",
-    "Accounting Reviews & Compilations: Performed by US CPAs and CMAs.",
-    "Tax Return Preparation: Forms 1120, 1120S, 1065, 1040, 1041, 990.",
-  ];
-
+export default function CPAServicesMaryland() {
   return (
-    <>
-      <BannerSection />
-      <EmpowermentSection cards={empowermentCards} />
-      <OutsourcingSection services={outsourcingServices} />
-      <WhyChooseMiltaSection />
-
-      {/* ✅ THIS SECTION NOW HAS GREEN GRADIENT */}
-      <Section
-        title="Our Core CPA Services in Maryland"
-        background={greenGradient}
-        titleColor="#ffffff"
-      >
-        <CardGrid items={coreServices} />
-      </Section>
-
-      <FAQSection faqData={faqData} />
-    </>
+    <ServiceLayout
+      seo={{
+        title: "Superior CPA Services in Maryland | Milta Accounting Services",
+        description:
+          "We provide expert CPA services in Maryland for small businesses. Partner with a trusted Maryland CPA firm for accuracy, growth, and success.",
+        keywords:
+          "cpa services in maryland, cpa firms near me, cpa firms in maryland, accounting services for small business, cpa services for small businesses, best cpa service for small businesses in maryland, certified public accountant near me",
+        author: "Milta Accounting",
+        canonical:
+          "https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-the-maryland/",
+      }}
+      hero={{
+        titleLead: "Trusted CPA Firm Services in",
+        highlight: "Maryland, USA",
+        subtitle:
+          "Milta delivers tailored CPA services for individuals and small businesses across Maryland — accounting, tax preparation, and financial planning built to keep your finances accurate, compliant, and ready to grow.",
+        breadcrumb: "CPA Services in Maryland",
+      }}
+      intro={{
+        overline: "STRATEGIC FINANCIAL PARTNERSHIP",
+        titleLead: "CPA Support Built for",
+        highlight: "Maryland Business Growth",
+        paragraphs: [
+          "A successful CPA practice depends on accurate records and strategic insight — but bookkeeping and financial analysis eat up hours that are better spent on clients. Milta takes those routine tasks off your plate so your firm can focus on high-value work.",
+          "By combining advanced accounting technology with hands-on expertise, we streamline everyday workflows and reduce overhead, giving Maryland CPA firms and small businesses alike more room to operate efficiently and scale with confidence.",
+        ],
+        ctaLabel: "Schedule a Free Consultation",
+        imageAlt: "CPA services in Maryland",
+      }}
+      whyEssential={{
+        overline: "WHY CHOOSE MILTA",
+        titleLead: "Built to Support Your",
+        highlight: "Firm's Growth",
+        columns: 3,
+        items: [
+          "Dedicated professionals available full-time on your account, with backup support always on hand.",
+          "Work completed overnight, so deliverables are ready before your day even starts.",
+          "Offload non-core accounting functions to focus on clients and high-value strategy.",
+          "A 95%+ client retention rate reflecting consistent, dependable service quality.",
+          "Cut overhead by 60–70% by eliminating hiring, training, and payroll costs.",
+          "Serve a wider range of clients and industries without investing in extra staff or tools.",
+        ],
+      }}
+      solutions={{
+        overline: "CORE SERVICES",
+        titleLead: "Our Core CPA Services",
+        highlight: "in Maryland",
+        subtitle: "A full range of accounting and advisory services tailored to Maryland businesses.",
+        items: [
+          { icon: AccountBalanceIcon, title: "Accounting & Bookkeeping", desc: "Financial statements, reconciliations, payroll, and ledger maintenance handled with precision." },
+          { icon: ReceiptLongIcon, title: "Tax Planning & Preparation", desc: "Corporate, individual, sales, and payroll tax filings prepared with full compliance in mind." },
+          { icon: InsightsIcon, title: "Financial Consulting", desc: "Forecasting, budgeting, valuation, and M&A advisory to support long-term decision-making." },
+          { icon: CleaningServicesIcon, title: "Catch-Up Services", desc: "Clearing backlogs and restoring accurate, up-to-date financial records." },
+          { icon: CloudSyncIcon, title: "Software Setup & Conversion", desc: "QuickBooks and Xero setup, cloud migrations, and hands-on training for your team." },
+          { icon: VerifiedIcon, title: "Audit & Assurance", desc: "Audits, reviews, compilations, and regulatory compliance support you can rely on." },
+        ],
+      }}
+      cardGroups={[
+        {
+          overline: "OUTSOURCED SUPPORT",
+          titleLead: "CPA Services for Small",
+          highlight: "Businesses Include",
+          columns: 2,
+          bg: "paper",
+          items: [
+            { icon: EditNoteIcon, title: "Monthly, Quarterly & Annual Write-Up Services", desc: "Accurate data entry and reconciliations delivered on the schedule your business needs." },
+            { icon: CleaningServicesIcon, title: "Catch-Up & Clean-Up Services", desc: "Correcting errors and bringing outdated records fully up to date." },
+            { icon: SyncAltIcon, title: "Accounting Software Conversions", desc: "Seamless migration from QuickBooks Desktop to Online, or over to Xero." },
+            { icon: FactCheckIcon, title: "Accounting Reviews & Compilations", desc: "Prepared and reviewed by licensed U.S. CPAs and CMAs." },
+            { icon: DescriptionIcon, title: "Tax Return Preparation", desc: "Forms 1120, 1120S, 1065, 1040, 1041, and 990, filed accurately and on time." },
+          ],
+        },
+      ]}
+      advantages={{
+        titleLead: "Why Maryland Firms Choose",
+        highlight: "Milta",
+        intro:
+          "Outsourcing your CPA workload means more time for the work that grows your practice, backed by a team that treats accuracy as non-negotiable.",
+        panelStats: [
+          { num: "95%+", label: "Client Retention" },
+          { num: "60-70%", label: "Cost Savings" },
+          { num: "10y+", label: "Experience" },
+          { num: "24/7", label: "Support" },
+        ],
+        items: [
+          { icon: TimerIcon, title: "Full-Time Dedicated Support", desc: "A team focused exclusively on your accounting needs, with backup always available." },
+          { icon: NightsStayIcon, title: "Overnight Turnaround", desc: "Work completed while you sleep, so deliverables are ready when you log on." },
+          { icon: SavingsIcon, title: "Reduced Overhead", desc: "Save significantly by eliminating hiring, training, and payroll expenses." },
+          { icon: GroupsIcon, title: "Diversify Your Client Base", desc: "Take on new industries confidently, without investing in additional training." },
+        ],
+      }}
+      industries={{
+        overline: "WHO WE SERVE",
+        titleLead: "CPA Services Across",
+        highlight: "Every Industry",
+        items: [
+          "Small Businesses",
+          "CPA Firms",
+          "Nonprofits",
+          "Real Estate",
+          "Healthcare",
+          "Professional Services",
+          "E-commerce",
+          "Construction",
+          "Hospitality",
+        ],
+      }}
+      faqs={faqs}
+    />
   );
 }

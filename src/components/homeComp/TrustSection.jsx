@@ -2,43 +2,48 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Box, Container, Typography, Divider } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 
-const AnimatedCounter = ({ from, to, duration = 2, prefix = '', suffix = '' }) => {
+const AnimatedCounter = ({ from = 0, to, duration = 2.5, prefix = '', suffix = '' }) => {
   const [count, setCount] = useState(from);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   useEffect(() => {
-    if (isInView) {
-      let startTime;
-      let animationFrame;
-      const animate = (timestamp) => {
-        if (!startTime) startTime = timestamp;
-        const progress = (timestamp - startTime) / (duration * 1000);
-        if (progress < 1) {
-          const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-          setCount(from + (to - from) * easeProgress);
-          animationFrame = requestAnimationFrame(animate);
-        } else {
-          setCount(to);
-        }
-      };
-      animationFrame = requestAnimationFrame(animate);
-      return () => cancelAnimationFrame(animationFrame);
-    }
+    if (!isInView) return;
+
+    let startTime;
+    let animationFrame;
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+      // easeOutCubic — smooth, incremental, consistent feel
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(from + (to - from) * eased);
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(to);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
   }, [from, to, duration, isInView]);
+
+  const reached = count >= to;
+  const display = Math.floor(count).toLocaleString('en-US');
 
   return (
     <span ref={ref}>
-      {prefix}{count % 1 === 0 ? Math.floor(count) : count.toFixed(1)}{suffix}
+      {prefix}{display}{reached ? suffix : ''}
     </span>
   );
 };
 
 const stats = [
-  { label: 'Years Of Success', to: 10, suffix: '+' },
-  { label: 'Happy Clients',    to: 100, suffix: '+' },
-  { label: 'Completed Projects', to: 1000, suffix: '+' },
-  { label: 'Software Used',    to: 10, suffix: '+' },
+  { label: 'Years Of Success',   from: 1,   to: 10,   suffix: '+' },
+  { label: 'Happy Clients',      from: 10,  to: 100,  suffix: '+' },
+  { label: 'Completed Projects', from: 100, to: 1000, suffix: '+' },
+  { label: 'Software Used',      from: 1,   to: 10,   suffix: '+' },
 ];
 
 const TrustSection = () => {
@@ -101,7 +106,7 @@ const TrustSection = () => {
                         WebkitTextFillColor: 'transparent',
                       }}
                     >
-                      <AnimatedCounter from={0} to={stat.to} duration={2.5} suffix={stat.suffix} />
+                      <AnimatedCounter from={stat.from} to={stat.to} duration={2.5} suffix={stat.suffix} />
                     </Typography>
                     <Typography
                       variant="overline"

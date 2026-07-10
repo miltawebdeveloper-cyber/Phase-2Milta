@@ -2,12 +2,12 @@ import React from 'react';
 import { Box, Container, Typography, Stack, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import GroupsIcon from '@mui/icons-material/Groups';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import SecurityIcon from '@mui/icons-material/Security';
-import DevicesIcon from '@mui/icons-material/Devices';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import ApartmentIcon from '@mui/icons-material/Apartment';
+import GavelIcon from '@mui/icons-material/Gavel';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -17,11 +17,36 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: GroupsIcon,       title: 'Real Estate Specialization',     desc: 'Built for agents, investors, and property managers, our bookkeeping solutions scale with your business and streamline complex financial processes.' },
-  { icon: TrendingUpIcon,   title: 'Lower Cost, More Time',          desc: 'Outsourcing reduces operational costs and saves time, with expert tax planning, income tracking, and compliance — no internal hiring or training.' },
-  { icon: SecurityIcon,     title: 'Bank-Grade Data Security',       desc: 'Secure, encrypted, cloud-based systems with multi-level access control and routine audits keep your financial data confidential and compliant.' },
-  { icon: DevicesIcon,      title: 'Works With Your Software',       desc: 'We integrate seamlessly with QuickBooks, Xero, Sage, FreshBooks, Wave, and more for smooth onboarding and ongoing support.' },
-  { icon: SupportAgentIcon, title: 'Dedicated Account Manager',      desc: 'A dedicated manager available by email, phone, or chat delivers responsive, personalized support whenever you need it.' },
+  {
+    icon: AccountBalanceIcon,
+    title: 'Improved Accuracy and Compliance',
+    desc: 'Accurate bookkeeping for real estate ensures your financial records are always up to date and compliant with tax and legal regulations. Our property management bookkeeping services handle everything from security deposits to lease agreements with precision. This helps real estate professionals, investors, and property developers maintain compliance, avoid costly penalties, and ensure seamless financial reporting.'
+  },
+  {
+    icon: AccessTimeIcon,
+    title: 'Time Savings for Real Estate Professionals',
+    desc: 'Outsourcing bookkeeping for real estate agents and property managers saves valuable time that would otherwise be spent on administrative work. Instead, you can focus on high-value tasks like tenant satisfaction, property maintenance, and business growth while our expert team manages your financial records efficiently.'
+  },
+  {
+    icon: TrendingUpIcon,
+    title: 'Enhanced Financial Clarity and Decision-Making',
+    desc: "With professional real estate accounting services, you gain complete visibility into your property's financial performance. Our detailed tracking of income, expenses, and investments gives you the clarity needed for budgeting, forecasting, and maximizing profitability. Whether you're a real estate agent or an investor, accurate financial insights support smarter decision-making."
+  },
+  {
+    icon: AttachMoneyIcon,
+    title: 'Better Cash Flow Management',
+    desc: "Our bookkeeping for real estate investors and developers helps maintain consistent cash flow by tracking receivables, managing vendor payments, and identifying financial bottlenecks early. You'll have the insights to prevent overspending, manage rent collections, and ensure steady income streams for long-term financial stability."
+  },
+  {
+    icon: ApartmentIcon,
+    title: 'Streamlined Property Management Operations',
+    desc: 'By leveraging property management bookkeeping solutions, you can simplify daily financial operations. From automating rent collection to reconciling accounts and generating financial statements, our standardized processes ensure efficiency and accuracy across all your properties.'
+  },
+  {
+    icon: GavelIcon,
+    title: 'Strategic Real Estate Tax Planning',
+    desc: 'Our specialized real estate tax planning services cover every aspect of the industry, including tax planning for real estate agents, tax planning for property developers, and tax planning for real estate investors. We help reduce tax liabilities, identify eligible deductions, and align your financial strategies with your business goals for maximum profitability.'
+  },
 ];
 
 const STATS = [{ num: '10+', label: 'Years Experience' }, { num: '500+', label: 'Clients Served' }, { num: '100%', label: 'Retention Rate' }];
@@ -46,64 +71,19 @@ const REWhyChoose = () => {
       <Box sx={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: `radial-gradient(circle, ${alpha('#fff', 0.035)} 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
 
       <Container maxWidth={false} sx={{ maxWidth: '1300px', mx: 'auto', px: { xs: 3, md: 4 }, position: 'relative', zIndex: 1 }}>
+        <motion.div {...fadeUp(0.1)}>
+              <Typography variant="h2"  sx={{ color: '#ffffff',textAlign: 'center', fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 900, lineHeight: 1.18, letterSpacing: '-0.02em', mb: 2.5 }}>
+                Advantages of Professional{' '}
+                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Real Estate Bookkeeping and Tax Planning Services</Box>
+              </Typography>
+            </motion.div>
         <Stack direction={{ xs: 'column', lg: 'row' }} spacing={{ xs: 8, lg: 10 }} alignItems={{ lg: 'flex-start' }}>
 
-          {/* ── LEFT: sticky text panel ── */}
-          <Box sx={{ flex: '0 0 auto', width: { xs: '100%', lg: 360 }, position: { lg: 'sticky' }, top: { lg: 80 } }}>
-            <motion.div {...fadeUp(0)}>
-              <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
-                <Box sx={{ width: 20, height: 2, borderRadius: 2, bgcolor: primary }} />
-                <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.72rem' }}>
-                  WHY MILTA
-                </Typography>
-              </Box>
-            </motion.div>
-            <motion.div {...fadeUp(0.1)}>
-              <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 900, lineHeight: 1.18, letterSpacing: '-0.02em', mb: 2.5 }}>
-                Advantages of Choosing Milta for{' '}
-                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Real Estate Accounting</Box>
-              </Typography>
-            </motion.div>
-            <motion.div {...fadeUp(0.18)}>
-              <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '0.95rem', lineHeight: 1.8, mb: 4, fontFamily: '"Outfit", sans-serif' }}>
-                We recognize the unique financial requirements of the real estate business. Whether you're an agent, investor, or property manager, our solutions scale with you and streamline complex financial processes.
-              </Typography>
-            </motion.div>
 
-            {/* Stats */}
-            <motion.div {...fadeUp(0.25)}>
-              <Stack direction="row" spacing={3} sx={{ mb: 4 }}>
-                {STATS.map((s) => (
-                  <Box key={s.label}>
-                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 900, fontSize: '1.5rem', color: '#fff', lineHeight: 1 }}>{s.num}</Typography>
-                    <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.68rem', color: alpha('#fff', 0.45), fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', mt: 0.4 }}>{s.label}</Typography>
-                  </Box>
-                ))}
-              </Stack>
-            </motion.div>
-
-            <motion.div {...fadeUp(0.3)}>
-              <Button
-                variant="outlined"
-                href="/contact"
-                endIcon={<ArrowForwardIcon sx={{ fontSize: '0.9rem !important' }} />}
-                sx={{
-                  px: 3.5, py: 1.3, borderRadius: '50px',
-                  color: '#fff', borderColor: alpha('#fff', 0.3),
-                  fontWeight: 700, fontSize: '0.82rem', letterSpacing: '0.06em',
-                  '&:hover': { borderColor: primary, bgcolor: alpha(primary, 0.15) },
-                }}
-              >
-                GET STARTED
-              </Button>
-            </motion.div>
-          </Box>
-
-          {/* ── RIGHT: 2×2 glass card grid + 1 wide card ── */}
+          {/* ── RIGHT: 3-per-row glass card grid ── */}
           <Box sx={{ flex: 1 }}>
-            {/* 2×2 grid (cards 1–4) */}
-            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2, mb: 2 }}>
-              {CARDS.slice(0, 4).map((card, i) => {
+            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 2 }}>
+              {CARDS.map((card, i) => {
                 const Icon = card.icon;
                 return (
                   <Box
@@ -147,41 +127,6 @@ const REWhyChoose = () => {
                 );
               })}
             </Box>
-
-            {/* Card 5 — full-width featured bar */}
-            {(() => {
-              const card = CARDS[4];
-              const Icon = card.icon;
-              return (
-                <Box
-                  component={motion.div}
-                  {...fadeUp(0.5)}
-                  sx={{
-                    p: { xs: 3, md: 3.5 },
-                    borderRadius: '20px',
-                    display: 'flex', alignItems: 'center', gap: 3,
-                    background: `linear-gradient(135deg, ${alpha(primary, 0.25)} 0%, ${alpha(primary, 0.1)} 100%)`,
-                    border: `1px solid ${alpha(primary, 0.35)}`,
-                    backdropFilter: 'blur(8px)',
-                    transition: 'all 0.3s ease',
-                    cursor: 'default',
-                    '&:hover': { transform: 'translateY(-4px)', boxShadow: `0 20px 50px ${alpha(primary, 0.25)}` },
-                  }}
-                >
-                  <Box sx={{ width: 52, height: 52, flexShrink: 0, borderRadius: '16px', bgcolor: alpha(primary, 0.3), border: `1px solid ${alpha(primary, 0.45)}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon sx={{ fontSize: 24, color: '#fff' }} />
-                  </Box>
-                  <Box sx={{ flex: 1 }}>
-                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1rem', color: '#ffffff', mb: 0.5, lineHeight: 1.3 }}>
-                      {card.title}
-                    </Typography>
-                    <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.86rem', lineHeight: 1.7, color: alpha('#fff', 0.65) }}>
-                      {card.desc}
-                    </Typography>
-                  </Box>
-                </Box>
-              );
-            })()}
           </Box>
 
         </Stack>

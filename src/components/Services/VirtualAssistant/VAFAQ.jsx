@@ -12,11 +12,26 @@ const fadeUp = (delay = 0) => ({
 });
 
 const FAQS = [
-  { q: 'What distinguishes a virtual assistant from a typical employee?',          a: 'A virtual assistant works remotely and provides services on a flexible or part-time basis, unlike traditional employees who require physical office space and full-time salaries. This makes VAs significantly more cost-effective — you pay only for the hours or tasks you need, with no overhead costs.' },
-  { q: 'Can virtual assistants handle confidential data?',                          a: 'Yes. Our virtual assistants follow strict security measures and data handling protocols to ensure the complete confidentiality of your business data. Your sensitive information is protected at every stage — from intake to task completion.' },
-  { q: 'Are virtual assistant services affordable for small businesses?',           a: 'Absolutely. Our services are cost-effective and designed specifically with small businesses in mind — offering professional-grade support without the high expenses associated with full-time employees, recruitment, training, or benefits.' },
-  { q: 'How can I contact my virtual assistant?',                                   a: 'We provide multiple communication channels, including email, video calls, and project management tools, ensuring seamless and transparent interaction between you and your dedicated virtual assistant at all times.' },
-  { q: 'Can I customize the tasks assigned to my virtual assistant?',              a: 'Yes, our services are entirely customizable to suit your specific business needs and priorities. Whether you need help with bookkeeping, administrative tasks, research, scheduling, or customer correspondence — we tailor every engagement to your requirements.' },
+  {
+    q: 'What distinguishes a typical employee from a virtual assistant?',
+    a: 'A virtual assistant works remotely and provides services on a flexible or part-time basis, unlike traditional employees who require physical office space and full-time salaries. This makes VAs significantly more cost-effective — you pay only for the hours or tasks you need, with no overhead costs.',
+  },
+  {
+    q: 'Can virtual assistants handle confidential data?',
+    a: 'Yes, our virtual assistants follow strict security measures to ensure the confidentiality of your business data. Your sensitive information is protected at every stage — from intake to task completion.',
+  },
+  {
+    q: 'Are virtual assistant services affordable for small businesses?',
+    a: 'Absolutely! Our services are cost-effective, offering professional support without the high expenses associated with full-time employees, recruitment, training, or benefits.',
+  },
+  {
+    q: 'How can I contact my virtual assistant?',
+    a: 'We provide multiple communication channels, including email, video calls, and project management tools, ensuring seamless interaction between you and your dedicated virtual assistant at all times.',
+  },
+  {
+    q: 'Can I customize the tasks assigned to my virtual assistant services?',
+    a: 'Yes, our services are entirely customizable to suit your specific business needs and priorities. Whether you need help with bookkeeping, administrative tasks, research, scheduling, or customer correspondence — we tailor every engagement to your requirements.',
+  },
 ];
 
 const VAFAQ = () => {

@@ -1,366 +1,116 @@
 import React from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useNavigate } from "react-router-dom";
-import WaveDivider from "../../components/homeComp/WaveDivider";
-import useFullSEO from "../../utils/useFullSEO";
+import HomeWorkIcon from "@mui/icons-material/HomeWork";
+import KeyboardIcon from "@mui/icons-material/Keyboard";
+import EventIcon from "@mui/icons-material/Event";
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import CallIcon from "@mui/icons-material/Call";
+import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
+import DesignServicesIcon from "@mui/icons-material/DesignServices";
+import TableChartIcon from "@mui/icons-material/TableChart";
+import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import SavingsIcon from "@mui/icons-material/Savings";
+import LockIcon from "@mui/icons-material/Lock";
+import TuneIcon from "@mui/icons-material/Tune";
+import ForumIcon from "@mui/icons-material/Forum";
+import ServiceLayout from "../_ServiceLayout";
 
+const faqs = [
+  { q: "What distinguishes a virtual assistant from a typical employee?", a: "A virtual assistant works remotely and provides flexible or part-time support, giving you the help you need without the commitment of a traditional full-time hire." },
+  { q: "Can virtual assistants handle confidential business data?", a: "Yes. Strict security measures are in place to protect the confidentiality of your business information at every stage of the engagement." },
+  { q: "Are virtual assistant services affordable for small businesses?", a: "Yes — you pay only for the support you actually use, without the overhead costs that come with a full-time employee." },
+  { q: "How do I stay in touch with my virtual assistant?", a: "We offer email, video calls, and project management tools, so communication stays seamless no matter where you're working from." },
+  { q: "Can I customize the tasks assigned to my virtual assistant?", a: "Absolutely. Our services are fully customizable to match your business's priorities, whether that's admin work, bookkeeping, or specialized support." },
+];
 
-/* ================= COLORS ================= */
-const primaryGreen = "#0b3d2e";
-const sectionBg = "#f6f8f3";
-const hoverOrange = "#ff9800";
-const softOrange = "#fff3e0";
-const white = "#fff";
-
-/* ================= BANNER ================= */
-const BannerSection = () => {
-  const navigate = useNavigate();
-
-  return (
-    <Box
-      sx={{
-        background: "radial-gradient(circle at top, #0f3f2f 0%, #071f18 70%)",
-        color: white,
-        py: { xs: 7, sm: 9, md: 11 },
-        textAlign: "center",
-      }}
-    >
-      <Container maxWidth="md">
-        <Typography
-          variant="h4"
-          fontWeight={800}
-          mb={2}
-          fontSize={{ xs: "1.7rem", sm: "2.1rem", md: "2.6rem" }}
-        >
-          Enhance Productivity with{" "}
-          <Box component="span" sx={{ color: hoverOrange }}>
-            Expert Virtual Assistant Services in Maryland
-          </Box>
-        </Typography>
-
-        <Typography
-          fontSize={{ xs: "1rem", sm: "1.15rem", md: "1.25rem" }}
-          mb={4}
-          opacity={0.95} color="#ffffff"
-        >
-          Looking for the best virtual assistant companies? Our virtual assistant
-          service in Maryland offers cost-effective solutions to help small
-          businesses streamline operations and grow.
-        </Typography>
-
-        <Typography
-          fontSize={{ xs: "1rem", sm: "1.15rem", md: "1.25rem" }}
-          mb={4}
-          opacity={0.95} color="#ffffff"
-        >
-          Optimize Your Business with a Virtual Assistant. Schedule a free
-          consultation today and see how a virtual assistant for small business
-          can boost efficiency. Need financial support? Our virtual bookkeeping
-          service ensures accurate and organized records. Let our virtual
-          assistant MD experts help your business thrive!
-        </Typography>
-
-        <Button
-          sx={{
-            px: 5,
-            py: 1.4,
-            bgcolor: hoverOrange,
-            color: "#000",
-            fontWeight: 700,
-            borderRadius: 30,
-            fontSize: "1rem",
-            boxShadow: "0 10px 25px rgba(255,152,0,0.35)",
-            "&:hover": {
-              bgcolor: "#ffa726",
-              transform: "translateY(-2px)",
-            },
-          }}
-          onClick={() => navigate("/contact")}
-        >
-          Schedule a Free Consultation
-        </Button>
-      </Container>
-    </Box>
-  );
-};
-
-/* ================= SECTION ================= */
-const Section = ({ title, children, bg }) => (
-  <Box sx={{ py: { xs: 6, md: 9 }, bgcolor: bg || "transparent" }}>
-    <Container maxWidth="lg" sx={{ textAlign: "center" }}>
-      <Typography
-        variant="h4"
-        fontWeight={800}
-        mb={4}
-        color={primaryGreen}
-        fontSize={{ xs: "1.5rem", md: "2.1rem" }}
-      >
-        {title}
-      </Typography>
-
-      <Box maxWidth={900} mx="auto">
-        {children}
-      </Box>
-    </Container>
-  </Box>
-);
-
-/* ================= HIGHLIGHT BOXES ================= */
-const HighlightBoxes = ({ boxes }) => (
-  <Box
-    sx={{
-      display: "grid",
-      gridTemplateColumns: { xs: "1fr", md: "repeat(4, 1fr)" },
-      gap: 3,
-      mt: 2,
-    }}
-  >
-    {boxes.map((text, i) => (
-      <Box
-        key={i}
-        sx={{
-          p: 3.5,
-          bgcolor: softOrange,
-          borderRadius: 3,
-          border: `1px solid ${hoverOrange}`,
-          boxShadow: "0 8px 22px rgba(0,0,0,0.08)",
-          transition: "all 0.3s ease",
-          "&:hover": {
-            transform: "translateY(-6px)",
-            boxShadow: "0 14px 30px rgba(0,0,0,0.18)",
-          },
-        }}
-      >
-        <Typography fontWeight={700} color={primaryGreen}>
-          {text}
-        </Typography>
-      </Box>
-    ))}
-  </Box>
-);
-
-/* ================= SERVICES ================= */
-const VirtualAssistantServices = () => {
-  const services = [
-    {
-      title: "Real Estate Virtual Assistant MD",
-      desc: "Manage property listings, client databases, virtual tours, market research, and reports efficiently.",
-    },
-    {
-      title: "Data Entry",
-      desc: "Ensure accurate data entry and organized records for smooth business operations.",
-    },
-    {
-      title: "Event Planning",
-      desc: "Coordinate RSVPs, vendors, scheduling, and logistics for seamless events.",
-    },
-    {
-      title: "Internet Research",
-      desc: "Conduct market research and competitor analysis for actionable insights.",
-    },
-    {
-      title: "Business Card Scanning",
-      desc: "Digitize and organize contacts for effective communication.",
-    },
-    {
-      title: "Appointment Scheduling",
-      desc: "Manage calendars, reminders, and rescheduling efficiently.",
-    },
-    {
-      title: "Accounting & Virtual Bookkeeping",
-      desc: "Maintain accurate financial records, reconciliations, and tax-ready statements.",
-    },
-    {
-      title: "Call Answering",
-      desc: "Handle customer calls professionally and manage inquiries.",
-    },
-    {
-      title: "Correspondence Management",
-      desc: "Manage emails and communications promptly and professionally.",
-    },
-    {
-      title: "Desktop Publishing Services",
-      desc: "Create brochures, flyers, newsletters, and professional documents.",
-    },
-    {
-      title: "Presentations & Spreadsheets",
-      desc: "Design presentations and spreadsheets for clarity and professionalism.",
-    },
-    {
-      title: "Travel & Hotel Reservations",
-      desc: "Plan flights, hotels, and itineraries seamlessly.",
-    },
-  ];
-
-  return (
-    <Box
-      sx={{
-        background: "linear-gradient(135deg, #09271b 0%, #063d1e 100%)",
-        py: { xs: 7, md: 11 },
-      }}
-    >
-      <Container maxWidth="lg">
-        <Typography
-          variant="h4"
-          fontWeight={800}
-          mb={6}
-          textAlign="center"
-          color={hoverOrange}
-        >
-          Our Virtual Assistant Services in Maryland
-        </Typography>
-
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "1fr",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-            },
-            gap: 4,
-          }}
-        >
-          {services.map((item, i) => (
-            <Box
-              key={i}
-              sx={{
-                bgcolor: white,
-                p: 4,
-                borderRadius: 4,
-                borderTop: `5px solid ${hoverOrange}`,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                transition: "all 0.35s ease",
-                "&:hover": { transform: "translateY(-8px)" },
-              }}
-            >
-              <Typography fontWeight={700} mb={2} color={primaryGreen}>
-                {item.title}
-              </Typography>
-              <Typography fontSize="0.95rem">{item.desc}</Typography>
-            </Box>
-          ))}
-        </Box>
-      </Container>
-    </Box>
-  );
-};
-
-/* ================= FAQ ================= */
-const FAQSection = ({ faqData }) => (
-  <Box sx={{ py: 9, bgcolor: sectionBg }}>
-    <Container maxWidth="md">
-      <Typography
-        variant="h4"
-        fontWeight={800}
-        mb={5}
-        textAlign="center"
-        color={primaryGreen}
-      >
-        Frequently Asked Questions
-      </Typography>
-
-      {faqData.map((item, i) => (
-        <Accordion
-          key={i}
-          sx={{
-            mb: 2,
-            borderRadius: 2,
-            "&:before": { display: "none" },
-          }}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: hoverOrange }} />}
-          >
-            <Typography fontWeight={700}>{item.q}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>{item.a}</Typography>
-          </AccordionDetails>
-        </Accordion>
-      ))}
-    </Container>
-  </Box>
-);
-
-/* ================= PAGE ================= */
 export default function VirtualAssistantMaryland() {
-  useFullSEO({
-  // MAIN SEO
-  title: "Top Virtual Assistants Service in Maryland for Small Business",
-  description:
-    "Our virtual assistants service in Maryland provides expert support, including virtual bookkeeping service, for small businesses.",
-  keywords:
-    "virtual assistants service in maryland, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant md",
-  author: "Milta Accounting",
-  canonical: "https://www.milta.com/us/services/virtual-assistant-service-in-maryland/",
-});
-
-  const highlights = [
-    "Cost Savings",
-    "Enhanced Productivity",
-    "Flexibility & Scalability",
-    "Expert Support in Key Areas",
-  ];
-
-  const faqData = [
-    {
-      q: "What distinguishes a typical employee from a virtual assistant?",
-      a: "A virtual assistant works remotely and provides flexible or part-time support, unlike traditional full-time employees.",
-    },
-    {
-      q: "Can virtual assistants handle confidential data?",
-      a: "Yes, strict security measures ensure confidentiality of your business information.",
-    },
-    {
-      q: "Are virtual assistant services affordable for small businesses?",
-      a: "Yes! You pay only for the services you need without the high costs of full-time employees.",
-    },
-    {
-      q: "How can I contact my virtual assistant?",
-      a: "We provide email, video calls, and project management tools for seamless communication.",
-    },
-    {
-      q: "Can I customize the tasks assigned to my virtual assistant services?",
-      a: "Yes, our services are fully customizable to fit your business priorities.",
-    },
-  ];
-
   return (
-    <>
-      <BannerSection />
-
-      <Section title="Unlock New Opportunities with Virtual Assistant Services in Maryland">
-        <Typography mb={3}>
-          A career in virtual assistant service in Maryland offers flexibility
-          and growth, as businesses increasingly rely on virtual assistants to
-          improve efficiency and success.
-        </Typography>
-        <Typography>
-          At Milta, we handle admin tasks, finances, and daily operations, helping
-          startups and growing businesses streamline workflows. From virtual
-          bookkeeping services to specialized administrative support, we provide
-          tailored solutions.
-        </Typography>
-      </Section>
-      {WaveDivider && <WaveDivider />}
-
-      <Section title="Why Choose Virtual Assistant Services in Maryland?">
-        <HighlightBoxes boxes={highlights} />
-      </Section>
-
-      <VirtualAssistantServices />
-
-      <FAQSection faqData={faqData} />
-    </>
+    <ServiceLayout
+      seo={{
+        title: "Top Virtual Assistants Service in Maryland for Small Business",
+        description:
+          "Milta's virtual assistant services in Maryland provide expert support, including virtual bookkeeping, for small businesses.",
+        keywords:
+          "virtual assistants service in maryland, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant md",
+        author: "Milta Accounting",
+        canonical: "https://www.milta.com/us/services/virtual-assistant-service-in-maryland/",
+      }}
+      hero={{
+        titleLead: "Enhance Productivity with Expert Virtual Assistant Services in",
+        highlight: "Maryland",
+        subtitle:
+          "Looking for the best virtual assistant companies? Milta's virtual assistant services in Maryland offer cost-effective support that helps small businesses streamline operations and grow — including reliable virtual bookkeeping.",
+        breadcrumb: "Virtual Assistant Services in Maryland",
+      }}
+      intro={{
+        overline: "GROW WITH SUPPORT",
+        titleLead: "Unlock New Opportunities with Virtual",
+        highlight: "Assistant Services in Maryland",
+        paragraphs: [
+          "As businesses increasingly rely on remote support to improve efficiency, a great virtual assistant becomes one of the most flexible resources on your team.",
+          "At Milta, we handle admin tasks, finances, and daily operations, helping Maryland startups and growing businesses streamline their workflows. From virtual bookkeeping to specialized administrative support, our solutions are built around your priorities.",
+        ],
+        ctaLabel: "Schedule a Free Consultation",
+        imageAlt: "Virtual assistant services in Maryland",
+      }}
+      whyEssential={{
+        overline: "WHY CHOOSE A VA",
+        titleLead: "Why Choose Virtual Assistant",
+        highlight: "Services in Maryland",
+        items: [
+          "Cost Savings",
+          "Enhanced Productivity",
+          "Flexibility & Scalability",
+          "Expert Support in Key Areas",
+        ],
+      }}
+      solutions={{
+        overline: "OUR SERVICES",
+        titleLead: "Our Virtual Assistant",
+        highlight: "Services in Maryland",
+        subtitle: "Flexible, skilled support across the tasks that keep your business running.",
+        items: [
+          { icon: HomeWorkIcon, title: "Real Estate Virtual Assistant", desc: "Manage property listings, client databases, virtual tours, and market research reports." },
+          { icon: KeyboardIcon, title: "Data Entry", desc: "Accurate, organized data entry that keeps your records clean and business operations smooth." },
+          { icon: EventIcon, title: "Event Planning", desc: "Coordinate RSVPs, vendors, scheduling, and logistics for seamless events." },
+          { icon: TravelExploreIcon, title: "Internet Research", desc: "Market research and competitor analysis that turn into actionable insight." },
+          { icon: ContactMailIcon, title: "Business Card Scanning", desc: "Digitize and organize your contacts for faster, more effective outreach." },
+          { icon: CalendarMonthIcon, title: "Appointment Scheduling", desc: "Manage calendars, reminders, and rescheduling so nothing slips through the cracks." },
+          { icon: AccountBalanceWalletIcon, title: "Virtual Bookkeeping", desc: "Accurate financial records, reconciliations, and tax-ready statements handled remotely." },
+          { icon: CallIcon, title: "Call Answering", desc: "Professional call handling and inquiry management on your behalf." },
+          { icon: MarkEmailReadIcon, title: "Correspondence Management", desc: "Emails and communications managed promptly and professionally." },
+          { icon: DesignServicesIcon, title: "Desktop Publishing", desc: "Brochures, flyers, newsletters, and professional documents created to your specs." },
+          { icon: TableChartIcon, title: "Presentations & Spreadsheets", desc: "Clear, professional presentations and spreadsheets built for impact." },
+          { icon: FlightTakeoffIcon, title: "Travel & Hotel Reservations", desc: "Flights, hotels, and itineraries planned seamlessly from start to finish." },
+        ],
+      }}
+      advantages={{
+        titleLead: "What Makes Our Virtual Assistants",
+        highlight: "Different",
+        intro:
+          "A great virtual assistant should feel like part of your team — responsive, secure, and genuinely useful, not just another vendor.",
+        panelStats: [
+          { num: "12", label: "Core Services" },
+          { num: "10y+", label: "Experience" },
+          { num: "100%", label: "Confidential" },
+          { num: "24/7", label: "Communication" },
+        ],
+        items: [
+          { icon: SavingsIcon, title: "Pay Only for What You Need", desc: "No full-time overhead — just flexible support scaled to your workload." },
+          { icon: LockIcon, title: "Strict Data Confidentiality", desc: "Security measures that protect your business information at every step." },
+          { icon: TuneIcon, title: "Fully Customizable Tasking", desc: "Assign exactly the tasks your business needs, and nothing you don't." },
+          { icon: ForumIcon, title: "Seamless Communication", desc: "Stay connected through email, video calls, and project management tools." },
+        ],
+      }}
+      industries={{
+        overline: "WHO WE SERVE",
+        titleLead: "Virtual Assistant Support Across",
+        highlight: "Every Industry",
+        items: ["Real Estate", "Small Business", "Professional Services", "E-commerce", "Healthcare", "Legal", "Startups"],
+      }}
+      faqs={faqs}
+    />
   );
 }

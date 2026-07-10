@@ -2,11 +2,10 @@ import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import TuneIcon from '@mui/icons-material/Tune';
-import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
-import ListAltIcon from '@mui/icons-material/ListAlt';
-import VerifiedIcon from '@mui/icons-material/Verified';
-import BarChartIcon from '@mui/icons-material/BarChart';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -16,11 +15,32 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: TuneIcon, title: 'Customized for Small Businesses', desc: 'We understand unique challenges like cash flow management and tax compliance. Our experts deliver tailored solutions for your specific needs.' },
-  { icon: CurrencyExchangeIcon, title: 'Affordable, Professional Services', desc: 'Cost-effective bookkeeping without compromising quality. Transparent pricing — you only pay for the services you require.', featured: true },
-  { icon: ListAltIcon, title: 'All-in-One Bookkeeping Support', desc: 'From payroll and bookkeeping to tax preparation and financial reporting — end-to-end solutions under one roof.' },
-  { icon: VerifiedIcon, title: 'Stay Compliant & Avoid Penalties', desc: 'Tax laws are constantly changing. We ensure your business remains compliant with local, state, and federal tax requirements.' },
-  { icon: BarChartIcon, title: 'Regular Financial Reporting', desc: 'Weekly, monthly, and yearly reports providing clear insights into revenue, expenses, and key financial metrics.' },
+  { 
+    icon: CheckCircleIcon, 
+    title: 'Accurate Record Keeping', 
+    desc: 'We maintain precise and error-free financial records to help you focus on growing your business.' 
+  },
+  { 
+    icon: AccessTimeIcon, 
+    title: 'Timely Reporting', 
+    desc: 'Get financial reports delivered on time, every time — helping you make informed business decisions.' 
+  },
+   { 
+    icon: SupportAgentIcon, 
+    title: 'Secure Data Handling', 
+    desc: 'We protect your data with advanced encryption and secure file transfers.' 
+  },
+  { 
+    icon: SupportAgentIcon, 
+    title: 'Expert Support', 
+    desc: 'Our team provides continuous support for all your bookkeeping and financial queries.' 
+  },
+  { 
+    icon: AttachMoneyIcon, 
+    title: 'Affordable Pricing', 
+    desc: 'High-quality bookkeeping services designed to fit every business budget.',
+    featured: true 
+  },
 ];
 
 const BKWhyChoose = () => {
@@ -53,6 +73,11 @@ const BKWhyChoose = () => {
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
+            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 600, mt: 2, fontFamily: '"Outfit", sans-serif' }}>
+              There are many bookkeeping services available, but why choose Miltafs? Here's what sets us apart:
+            </Typography>
+          </motion.div>
+          <motion.div {...fadeUp(0.22)}>
             <Box sx={{ width: 48, height: 3, borderRadius: 4, bgcolor: alpha(primary, 0.3), mt: 2 }} />
           </motion.div>
         </Box>

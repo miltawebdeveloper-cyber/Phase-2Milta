@@ -2,11 +2,11 @@ import React from 'react';
 import { Box, Container, Typography, Stack, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import GroupsIcon from '@mui/icons-material/Groups';
-import DevicesIcon from '@mui/icons-material/Devices';
-import SavingsIcon from '@mui/icons-material/Savings';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import GavelIcon from '@mui/icons-material/Gavel';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import SecurityIcon from '@mui/icons-material/Security';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const fadeUp = (delay = 0) => ({
@@ -17,11 +17,31 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: GroupsIcon,       title: 'Industry Knowledge',            desc: 'We are experts in accounting for healthcare professionals, delivering insight-driven support best suited to your sector.' },
-  { icon: DevicesIcon,      title: 'Technology-Driven Efficiency',  desc: 'Milta leverages the latest accounting software to reduce manual work, enhance accuracy, and provide real-time financial insights.' },
-  { icon: SavingsIcon,      title: 'Cost-Effective Outsourcing',    desc: 'Our offshore team of accountants for medical professionals ensures high-quality service while saving you up to 60% on overhead costs.' },
-  { icon: SupportAgentIcon, title: 'Dedicated Accountants',         desc: 'You\'ll be matched with a dedicated healthcare accountant to ensure smooth communication and consistent support.' },
-  { icon: AccessTimeIcon,   title: 'Real-Time Support',             desc: 'We work in your time zone, providing responsive, U.S.-based service that keeps your financials running smoothly.' },
+  { 
+    icon: VisibilityIcon,       
+    title: 'Enhanced Financial Accuracy and Transparency',            
+    desc: 'Our specialized accounting services for healthcare providers ensure complete accuracy and transparency in every financial record. From diverse revenue streams—insurance reimbursements, patient payments, and medical grants—to managing complex overhead costs, our expert accountants for medical professionals maintain precise records. This accuracy not only eliminates costly errors but also enhances your financial credibility among stakeholders and investors.' 
+  },
+  { 
+    icon: GavelIcon,      
+    title: 'Assured Regulatory Compliance',  
+    desc: 'The healthcare industry operates under strict compliance standards such as HIPAA, Medicare, Medicaid, and evolving tax laws. Partnering with experienced healthcare accounting firms ensures that every financial transaction and document complies with these regulations. Our services help mitigate risks of fines, penalties, and legal complications while maintaining a strong compliance framework.' 
+  },
+  { 
+    icon: TrendingUpIcon,      
+    title: 'Improved Cash Flow and Revenue Cycle Management',            
+    desc: 'Effective accounting in the healthcare industry involves mastering medical billing, insurance claims, and revenue cycle management. We streamline your billing process, ensure accurate medical coding, and manage claim denials efficiently. This approach enhances reimbursement rates, minimizes revenue leakage, and strengthens your overall cash flow—critical for maintaining smooth daily operations.' 
+  },
+  { 
+    icon: SecurityIcon, 
+    title: 'Enhanced Security and Fraud Prevention',         
+    desc: 'We prioritize financial and patient data security. Our accounting services for healthcare include robust internal controls, encrypted data management, and restricted access systems to safeguard sensitive information—helping you prevent fraud and ensure regulatory compliance at all times.' 
+  },
+  { 
+    icon: ReceiptLongIcon,   
+    title: 'Accurate Tax Returns for Healthcare Providers',      
+    desc: 'Our experienced accountants also manage tax returns for healthcare organizations and professionals, ensuring maximum deductions, compliance with healthcare-specific tax codes, and timely submissions.' 
+  },
 ];
 
 const STATS = [{ num: '6+', label: 'Years Experience' }, { num: '60%', label: 'Cost Savings' }, { num: '100%', label: 'Compliance Focus' }];
@@ -60,8 +80,8 @@ const HCWhyChoose = () => {
             </motion.div>
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 900, lineHeight: 1.18, letterSpacing: '-0.02em', mb: 2.5 }}>
-                Why Choose Milta as Your{' '}
-                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Healthcare Accounting Firm</Box>
+                Advantages of Accounting Services for{' '}
+                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Healthcare Professionals</Box>
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.18)}>

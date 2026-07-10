@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Box, Typography, Button, Stack, Divider, Avatar } from '@mui/material';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -15,14 +16,14 @@ const fadeUp = (delay = 0) => ({
 });
 
 const HIGHLIGHTS = [
-  'IRS-Certified Tax Professionals',
-  'Real-Time Financial Reporting',
   'Dedicated Account Managers',
+  'Real-Time Financial Reporting',
+  'Experienced Professional Team',
 ];
 
 const STATS = [
-  { num: 15, suffix: 'y+', label: 'Industry Legacy' },
-  { num: 500, suffix: '+', label: 'Business Partners' },
+  { num: 10, suffix: 'y+', label: 'Experience' },
+  { num: 100, suffix: '+', label: 'Clients' },
 ];
 
 /* Animated count-up — fires once when element enters viewport */
@@ -115,7 +116,7 @@ const AboutPreview = () => {
                 letterSpacing: '0.14em', textTransform: 'uppercase',
                 fontFamily: '"Plus Jakarta Sans", sans-serif',
               }}>
-                Milta Accounts
+                Milta Accounting Services
               </Typography>
             </Box>
 
@@ -248,7 +249,8 @@ const AboutPreview = () => {
                 <Box sx={{ display: 'flex', gap: 2.5, flexWrap: 'wrap', alignItems: 'center' }}>
                   <Button
                     variant="contained"
-                    href="/us/about-us/"
+                    component={RouterLink}
+                    to="/about"
                     endIcon={<ArrowForwardIcon sx={{ fontSize: '1rem !important' }} />}
                     sx={{
                       px: 3.5, py: 1.5,
@@ -268,8 +270,8 @@ const AboutPreview = () => {
                     Know More About Us
                   </Button>
                   <Typography
-                    component="a"
-                    href="/us/services/"
+                    component={RouterLink}
+                    to="/services"
                     sx={{
                       color: 'text.primary',
                       fontWeight: 700,

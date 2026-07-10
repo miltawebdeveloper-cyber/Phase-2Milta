@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import RAHero from '../components/Industries/RetailBusiness/RAHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import ServicesSection from '../components/homeComp/ServicesSection';
+
 
 const RAWhatIs     = lazy(() => import('../components/Industries/RetailBusiness/RAWhatIs'));
 const RASolutions  = lazy(() => import('../components/Industries/RetailBusiness/RASolutions'));
@@ -38,9 +40,9 @@ const RetailBusiness = () => {
     <Suspense fallback={null}>
       <RAWhatIs />
       <RASolutions />
+      <ServicesSection />
       <RAWhyChoose />
-      <RAAdvantages />
-      <RAChallenges />
+      <RAAdvantages />  
       <RAFAQ />
       <CTASection />
       <Footer />

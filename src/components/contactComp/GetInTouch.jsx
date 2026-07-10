@@ -21,7 +21,7 @@ const fadeUp = (delay = 0) => ({
 
 const GetInTouch = () => {
   return (
-    <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: 'background.default', overflow: 'hidden' }}>
+    <Box id="contact-form" sx={{ py: { xs: 6, md: 8 }, bgcolor: 'background.default', overflow: 'hidden', scrollMarginTop: '90px' }}>
       <Container maxWidth={false} sx={{ maxWidth: '1200px', mx: 'auto', px: { xs: 3, md: 4 } }}>
 
         <Box

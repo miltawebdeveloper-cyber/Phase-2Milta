@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import MCHero from '../components/Industries/ManufacturingCompaniesComp/MCHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
-
+import ServicesSection from '../components/homeComp/ServicesSection';
 const MCWhatIs     = lazy(() => import('../components/Industries/ManufacturingCompaniesComp/MCWhatIs'));
 const MCSolutions  = lazy(() => import('../components/Industries/ManufacturingCompaniesComp/MCSolutions'));
 const MCWhyChoose  = lazy(() => import('../components/Industries/ManufacturingCompaniesComp/MCWhyChoose'));
@@ -38,9 +38,10 @@ const ManufacturingCompanies = () => {
     <Suspense fallback={null}>
       <MCWhatIs />
       <MCSolutions />
+      <ServicesSection />
       <MCWhyChoose />
       <MCAdvantages />
-      <MCChallenges />
+      
       <MCFAQ />
       <CTASection />
       <Footer />

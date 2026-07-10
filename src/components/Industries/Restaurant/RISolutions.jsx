@@ -1,14 +1,12 @@
 import React from 'react';
-import { Box, Container, Typography, Stack } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-import PaymentsIcon from '@mui/icons-material/Payments';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import GavelIcon from '@mui/icons-material/Gavel';
-import BarChartIcon from '@mui/icons-material/BarChart';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -18,16 +16,34 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ELEMENTS = [
-  { icon: RestaurantMenuIcon, title: 'Daily Sales & Expense Recording', desc: 'Every sale and expense tracked daily — food and beverage, dine-in vs. delivery — for real-time visibility and early spotting of trends or unusual spending.' },
-  { icon: ReceiptLongIcon,    title: 'Vendor Invoice Management',       desc: 'We organize and track every vendor invoice, matching them with payments and reconciling your books to avoid missed payments or overcharges.' },
-  { icon: PaymentsIcon,       title: 'Tip Tracking & Payroll Reports',  desc: 'We handle payroll for tipped employees — tip pooling, reporting, and withholdings — with detailed reports that keep you wage-and-hour compliant.' },
-  { icon: Inventory2Icon,     title: 'Inventory & COGS Calculation',    desc: 'We monitor inventory purchases and usage and calculate Cost of Goods Sold, helping you understand food cost percentages and minimize waste or theft.' },
-  { icon: ShowChartIcon,      title: 'Cash Flow Monitoring',            desc: 'We watch cash inflows (sales, payments) and outflows (payroll, rent, vendor bills) so you maintain healthy cash flow on tight margins.' },
-  { icon: GavelIcon,          title: 'Tax Returns for Restaurant Filing', desc: 'We prepare and file accurate returns — sales tax, payroll tax, and federal/state income taxes — reducing the risk of errors, missed deadlines, or penalties.' },
-  { icon: BarChartIcon,       title: 'Custom Financial Statements',     desc: 'Easy-to-understand Profit & Loss Statements, Balance Sheets, and Cash Flow Statements that support loans, investor reporting, and strategic planning.' },
+  { 
+    icon: PointOfSaleIcon,  
+    title: 'Daily Sales Tracking',           
+    desc: 'Your daily income is tracked and categorized by Mila according to meal type, time slot, or service channel. Our specialized bookkeeping for restaurant businesses helps you understand peak hours, customer preferences, and profitable menu items.' 
+  },
+  { 
+    icon: Inventory2Icon,     
+    title: 'Inventory & Cost Control',           
+    desc: 'In a small restaurant, every ounce and dollar counts. Inventory tracking and cost-of-goods-sold (COGS) calculations are part of our restaurant bookkeeping solution, which helps you eliminate waste and control food costs.' 
+  },
+  { 
+    icon: ReceiptLongIcon,      
+    title: 'Expense Monitoring',      
+    desc: 'From payroll and food purchases to rent and utility bills, we record and classify every transaction. Our accounting for small restaurant business clients gains full visibility into their spending to improve cash management and budgeting.' 
+  },
+  { 
+    icon: ShowChartIcon,        
+    title: 'Cash Flow Management',        
+    desc: 'Cash flow is critical in the restaurant industry. Mila helps small restaurant owners track cash inflows and outflows, ensuring they can cover payroll, vendor payments, and day-to-day costs without falling behind.' 
+  },
+  { 
+    icon: GavelIcon,           
+    title: 'Tax Compliance', 
+    desc: 'Avoid costly IRS penalties and sales tax complications. Mila handles complete tax return preparation and filing for restaurant businesses—including income tax, sales tax, and payroll tax—ensuring full compliance and peace of mind.' 
+  },
 ];
 
-const RISolutions = () => {
+const RASolutions = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
 
@@ -49,18 +65,18 @@ const RISolutions = () => {
         <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: 'center' }}>
           <motion.div {...fadeUp(0)}>
             <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.75rem', mb: 2, display: 'block' }}>
-              KEY ELEMENTS
+              WHY BOOKKEEPING MATTERS
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
-              What's Included in Our{' '}
-              <Box component="span" sx={{ color: primary }}>Restaurant Bookkeeping</Box>
+              Why Bookkeeping Matters for{' '}
+              <Box component="span" sx={{ color: primary }}>Small Restaurant Businesses</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 580, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              Seven core services built for small restaurant owners who need dependable, accurate, and stress-free financial management.
+              5 essential bookkeeping services that keep restaurants profitable, compliant, and stress-free.
             </Typography>
           </motion.div>
         </Box>
@@ -128,8 +144,8 @@ const RISolutions = () => {
           })}
         </Box>
 
-        {/* ── TIER 2: 4-col compact grid for remaining 8 ── */}
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2 }}>
+        {/* ── TIER 2: 4-col compact grid for remaining 3 ── */}
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 2 }}>
           {rest.map((el, i) => {
             const Icon = el.icon;
             return (
@@ -150,14 +166,14 @@ const RISolutions = () => {
                     transform: 'translateY(-5px)',
                     border: `1px solid ${alpha(primary, 0.28)}`,
                     boxShadow: `0 16px 40px ${alpha(primary, 0.1)}`,
-                    '& .cc-mini-icon': { bgcolor: primary, '& svg': { color: '#fff' } },
-                    '& .cc-mini-title': { color: primary },
+                    '& .rest-mini-icon': { bgcolor: primary, '& svg': { color: '#fff' } },
+                    '& .rest-mini-title': { color: primary },
                   },
                 }}
               >
                 
 
-                <Box className="cc-mini-icon" sx={{
+                <Box className="rest-mini-icon" sx={{
                   width: 44, height: 44, borderRadius: '12px',
                   bgcolor: alpha(primary, 0.08),
                   border: `1px solid ${alpha(primary, 0.15)}`,
@@ -167,7 +183,7 @@ const RISolutions = () => {
                   <Icon sx={{ fontSize: 20, color: primary }} />
                 </Box>
 
-                <Typography className="cc-mini-title" sx={{
+                <Typography className="rest-mini-title" sx={{
                   fontFamily: '"Plus Jakarta Sans", sans-serif',
                   fontWeight: 800, fontSize: '0.88rem',
                   color: 'text.primary', mb: 0.75, lineHeight: 1.35,
@@ -192,4 +208,4 @@ const RISolutions = () => {
   );
 };
 
-export default RISolutions;
+export default RASolutions;

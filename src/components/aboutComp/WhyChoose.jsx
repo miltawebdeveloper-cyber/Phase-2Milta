@@ -14,7 +14,7 @@ const strengths = [
   {
     icon: GroupsIcon,
     title: 'Experienced Team',
-    desc: 'Skilled accounting and Accounts professionals with years of industry expertise.',
+    desc: 'Skilled accounting and financial professionals with years of industry expertise.',
   },
   {
     icon: HandshakeIcon,
@@ -24,7 +24,7 @@ const strengths = [
   {
     icon: VerifiedIcon,
     title: 'Proven Reliability',
-    desc: 'Trusted by 100+ clients across 12 countries for consistent, high-quality service. We deliver accurate, timely results that businesses rely on — quarter after quarter.',
+    desc: 'Trusted by 100+ clients across 50 states for consistent, high-quality service. We deliver accurate, timely results that businesses rely on — quarter after quarter.',
     featured: true,
   },
   {

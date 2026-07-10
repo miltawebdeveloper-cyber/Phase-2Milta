@@ -29,6 +29,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Navbar from "../../components/Navbar";
 import ScrollToTop from "../../components/ScrollToTop";
+import ConsultationButton from "../../components/ConsultationButton";
 
 const Footer = lazy(() => import("../../components/Footer"));
 const CTASection = lazy(() => import("../../components/homeComp/CTASection"));
@@ -109,10 +110,9 @@ export const SectionHeader = ({ overline, title, highlight, subtitle, center = t
 };
 
 /* ================= HERO ================= */
-export const StateHero = ({ lead, highlight, subtitle, breadcrumb, ctaText = "Book a Free Consultation" }) => {
+export const StateHero = ({ lead, highlight, subtitle, breadcrumb, ctaText }) => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
-  const navigate = useNavigate();
 
   return (
     <Box sx={{ position: "relative", minHeight: { xs: "auto", md: "62vh" }, background: DARK_GRADIENT, display: "flex", alignItems: "center", overflow: "hidden", pt: { xs: 14, md: 16 }, pb: { xs: 10, md: 12 } }}>
@@ -155,13 +155,9 @@ export const StateHero = ({ lead, highlight, subtitle, breadcrumb, ctaText = "Bo
             </motion.div>
           )}
 
-          {ctaText && (
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
-              <Button variant="contained" endIcon={<ArrowForwardIcon />} onClick={() => navigate("/contact")} sx={{ px: 4, py: 1.4, bgcolor: primary, color: "#fff", fontWeight: 700, boxShadow: `0 12px 30px ${alpha(primary, 0.4)}`, "&:hover": { bgcolor: "#1a4d1d" } }}>
-                {ctaText}
-              </Button>
-            </motion.div>
-          )}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
+            <ConsultationButton />
+          </motion.div>
         </Box>
       </Container>
     </Box>

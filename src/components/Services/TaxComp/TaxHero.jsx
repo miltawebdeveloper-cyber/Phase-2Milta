@@ -1,10 +1,11 @@
 import React from 'react';
 import { Box, Container, Typography, Breadcrumbs, Link } from '@mui/material';
 import { motion } from 'framer-motion';
+import ConsultationButton from '../../ConsultationButton';
 import { useTheme, alpha } from '@mui/material/styles';
 import { NavigateNext as NavigateNextIcon, Home as HomeIcon } from '@mui/icons-material';
 
-const HeroModern = ({ title = "Tax Planning Services", breadcrumbTitle = "Tax Planning Services" }) => {
+const HeroModern = ({ title = "Tax Planning and Preparation Services", breadcrumbTitle = "Tax Planning Services" }) => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
 
@@ -12,7 +13,7 @@ const HeroModern = ({ title = "Tax Planning Services", breadcrumbTitle = "Tax Pl
     <Box
       sx={{
         position: 'relative',
-        minHeight: { xs: 'auto', md: '60vh' },
+        minHeight: { xs: 'auto', md: '78vh' },
         background: `linear-gradient(145deg, #0d1f0e 0%, #163018 50%, #1a3d1c 100%)`,
         display: 'flex',
         alignItems: 'center',
@@ -72,14 +73,38 @@ const HeroModern = ({ title = "Tax Planning Services", breadcrumbTitle = "Tax Pl
               dangerouslySetInnerHTML={{ __html: title }}
               sx={{
                 fontSize: { xs: '2.4rem', sm: '3.5rem', md: '4rem', lg: '3.5rem' },
+                lineHeight: 1.25,
+                textAlign: 'center',
                 color: theme.palette.primary.contrastText,
                 maxWidth: { xs: '100%', md: '820px' },
                 mx: 'auto',
-                mb: 4,
+                mb: 2,
               }}
             />
           </motion.div>
 
+          {/* Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
+                lineHeight: 1.7,
+                color: alpha('#ffffff', 0.85),
+                maxWidth: { xs: '100%', md: '780px' },
+                mx: 'auto',
+                mb: 4,
+                fontWeight: 400,
+                letterSpacing: '0.01em',
+              }}
+            >
+              Streamline Your Tax Filing Process with Expert Federal, State, and City Tax Planning and Preparation Services! We handle complicated tax forms and files, so you don't have to. Get Started Today with a Free Consultation!
+            </Typography>
+          </motion.div>
           
           {/* Breadcrumbs */}
           <motion.div
@@ -118,6 +143,14 @@ const HeroModern = ({ title = "Tax Planning Services", breadcrumbTitle = "Tax Pl
             </Breadcrumbs>
           </motion.div>
 
+          {/* Consultation CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            <ConsultationButton />
+          </motion.div>
 
         </Box>
       </Container>

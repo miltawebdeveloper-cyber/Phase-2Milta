@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import HCHero from '../components/Industries/HealthCare/HCHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import ServicesSection from '../components/homeComp/ServicesSection';
+
 
 const HCWhatIs     = lazy(() => import('../components/Industries/HealthCare/HCWhatIs'));
 const HCSolutions  = lazy(() => import('../components/Industries/HealthCare/HCSolutions'));
@@ -38,9 +40,10 @@ const HealthCare = () => {
     <Suspense fallback={null}>
       <HCWhatIs />
       <HCSolutions />
+      <ServicesSection />
       <HCWhyChoose />
       <HCAdvantages />
-      <HCChallenges />
+      
       <HCFAQ />
       <CTASection />
       <Footer />

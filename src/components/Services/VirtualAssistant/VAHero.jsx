@@ -1,10 +1,11 @@
 import React from 'react';
 import { Box, Container, Typography, Breadcrumbs, Link } from '@mui/material';
 import { motion } from 'framer-motion';
+import ConsultationButton from '../../ConsultationButton';
 import { useTheme, alpha } from '@mui/material/styles';
 import { NavigateNext as NavigateNextIcon, Home as HomeIcon } from '@mui/icons-material';
 
-const HeroModern = ({ title = "Virtual Assistant", breadcrumbTitle = "Virtual Assistant" }) => {
+const HeroModern = ({ title = "Virtual Assistant Services", breadcrumbTitle = "Virtual Assistant" }) => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
 
@@ -12,7 +13,7 @@ const HeroModern = ({ title = "Virtual Assistant", breadcrumbTitle = "Virtual As
     <Box
       sx={{
         position: 'relative',
-        minHeight: { xs: 'auto', md: '60vh' },
+        minHeight: { xs: 'auto', md: '78vh' },
         background: `linear-gradient(145deg, #0d1f0e 0%, #163018 50%, #1a3d1c 100%)`,
         display: 'flex',
         alignItems: 'center',
@@ -72,15 +73,39 @@ const HeroModern = ({ title = "Virtual Assistant", breadcrumbTitle = "Virtual As
               dangerouslySetInnerHTML={{ __html: title }}
               sx={{
                 fontSize: { xs: '2.4rem', sm: '3.5rem', md: '4rem', lg: '3.5rem' },
+                lineHeight: 1.25,
+                textAlign: 'center',
                 color: theme.palette.primary.contrastText,
                 maxWidth: { xs: '100%', md: '820px' },
                 mx: 'auto',
-                mb: 4,
+                mb: 2,
               }}
             />
           </motion.div>
 
-          
+          {/* Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' },
+                lineHeight: 1.8,
+                color: alpha('#ffffff', 0.85),
+                maxWidth: { xs: '100%', md: '700px' },
+                mx: 'auto',
+                mb: 4,
+                fontWeight: 400,
+                letterSpacing: '0.01em',
+              }}
+            >
+              Boost your business and free up your time with a Virtual Assistant! Get the skilled help you need to create a larger, better future.
+            </Typography>
+          </motion.div>
+
           {/* Breadcrumbs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -118,6 +143,14 @@ const HeroModern = ({ title = "Virtual Assistant", breadcrumbTitle = "Virtual As
             </Breadcrumbs>
           </motion.div>
 
+          {/* Consultation CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            <ConsultationButton />
+          </motion.div>
 
         </Box>
       </Container>

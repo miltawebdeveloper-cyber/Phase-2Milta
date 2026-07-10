@@ -10,6 +10,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import HandshakeIcon from '@mui/icons-material/Handshake';
+import TuneIcon from '@mui/icons-material/Tune';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const fadeUp = (delay = 0) => ({
@@ -20,14 +21,15 @@ const fadeUp = (delay = 0) => ({
 });
 
 const SERVICES = [
-  { icon: AccountBalanceIcon,   title: 'General Ledger Entry',                desc: 'Methodically document all financial activities to maintain an accurate and thorough general ledger.' },
-  { icon: CurrencyExchangeIcon, title: 'Accounts Payable & Receivable',        desc: 'Manage billing and payments accurately, streamlining cash flow and improving vendor relationships.' },
-  { icon: ReceiptLongIcon,      title: 'Invoice Data Entry',                   desc: 'Efficient processing of invoices for timely payments and organized, error-free record-keeping.' },
-  { icon: SyncIcon,             title: 'Bank Reconciliation',                  desc: 'Reconcile bank statements with your accounting records to eliminate discrepancies and ensure consistency.' },
-  { icon: PeopleIcon,           title: 'Payroll Data Entry',                   desc: 'From salaries to deductions, ensure payroll records are precise, compliant, and up-to-date.' },
-  { icon: AssignmentIcon,       title: 'Expense Report Management',            desc: 'Organize and evaluate business spending for efficient planning, reporting, and payment workflows.' },
-  { icon: BarChartIcon,         title: 'Financial Statement Preparation',      desc: 'Prepare accurate balance sheets and profit & loss statements for better business decision-making.' },
-  { icon: HandshakeIcon,        title: 'QuickBooks & Custom Data Entry',       desc: 'Specialized QuickBooks integration and flexible custom solutions tailored to your unique business needs.' },
+  { icon: AccountBalanceIcon,   title: 'General Ledger Entry',                        desc: 'We maintain an accurate and thorough general ledger by methodically documenting all of your financial activities.' },
+  { icon: CurrencyExchangeIcon, title: 'Accounts Payable and Receivable Data Entry',  desc: 'We manage your billing and payments accurately, streamlining cash flow and improving vendor relationships.' },
+  { icon: ReceiptLongIcon,      title: 'Invoice Data Entry',                          desc: 'Efficient processing of invoices for timely payments and organized record-keeping.' },
+  { icon: SyncIcon,             title: 'Bank Reconciliation',                         desc: 'We reconcile bank statements with your accounting records to eliminate discrepancies and ensure consistency.' },
+  { icon: PeopleIcon,           title: 'Payroll Data Entry',                          desc: 'From salaries to deductions, we ensure your payroll records are precise and compliant.' },
+  { icon: AssignmentIcon,       title: 'Expense Report Data Management Service',      desc: 'For efficient planning and payment, we arrange and evaluate business spending.' },
+  { icon: BarChartIcon,         title: 'Financial Statement Preparation',             desc: 'Prepare accurate financial reports, including balance sheets and profit and loss statements, for better decision-making.' },
+  { icon: TuneIcon,             title: 'Custom Data Entry Services',                  desc: 'Our flexible solutions cater to your unique business requirements, providing personalized data management support.' },
+  { icon: HandshakeIcon,        title: 'QuickBooks Data Entry',                       desc: 'We specialize in QuickBooks integration, managing everything from invoice entry to report generation. By leveraging QuickBooks, we help you maintain accurate and accessible financial records.' },
 ];
 
 const DESolutions = () => {
@@ -56,18 +58,18 @@ const DESolutions = () => {
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
               Our Data Entry{' '}
-              <Box component="span" sx={{ color: primary }}>Services in the USA</Box>
+              <Box component="span" sx={{ color: primary }}>Services in USA</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 560, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              From general ledger entry to QuickBooks integration — every service is customized to ensure accuracy, efficiency, and compliance for your business.
+              All of your accounting data entry needs are met by our extensive variety of services. Each service is customized to ensure accuracy and efficiency.
             </Typography>
           </motion.div>
         </Box>
 
         {/* Service grid */}
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2.5 }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 2.5 }}>
           {SERVICES.map((svc, i) => {
             const Icon = svc.icon;
             return (
@@ -113,9 +115,7 @@ const DESolutions = () => {
                 <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.84rem', lineHeight: 1.72, color: 'text.secondary', pr: 2 }}>
                   {svc.desc}
                 </Typography>
-                <Box className="card-arrow" sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, mt: 2.5, color: primary, fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0, transform: 'translateX(-8px)', transition: 'opacity 0.3s ease, transform 0.3s ease' }}>
-                  Learn more <ArrowForwardIcon sx={{ fontSize: '0.8rem' }} />
-                </Box>
+                
               </Box>
             );
           })}

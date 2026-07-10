@@ -1,14 +1,14 @@
 import React from 'react';
-import { Box, Container, Typography, Stack } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-import GavelIcon from '@mui/icons-material/Gavel';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import HandshakeIcon from '@mui/icons-material/Handshake';
+import GavelIcon from '@mui/icons-material/Gavel';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -18,21 +18,46 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ELEMENTS = [
-  { icon: AccountTreeIcon,          title: 'Direct Cost Accounting',             desc: 'Allocate costs to inventory using standard costing, weighted-average, or cost layering — ensuring precise valuation aligned with actual production levels.' },
-  { icon: AccountBalanceWalletIcon, title: 'Overhead Cost Accounting',           desc: 'Consolidate factory overhead into cost pools and allocate it across units produced, increasing recorded inventory cost while limiting administrative burden.' },
-  { icon: ReceiptLongIcon,          title: 'Cost of Goods Sold (COGS)',          desc: 'COGS = Beginning Inventory + Purchases − Ending Inventory. Accurate inventory valuation procedures are critical for correct COGS reporting.' },
-  { icon: BarChartIcon,             title: 'Cost Accounting',                    desc: 'Track raw materials, labor, and overhead precisely to control production expenses, determine true cost of goods sold, and set competitive pricing.' },
-  { icon: AccountBalanceIcon,       title: 'Budgeting & Forecasting',            desc: 'Turn financial insights into production schedules, cash-flow management, and informed business decisions.' },
-  { icon: GavelIcon,                title: 'Tax Planning & Preparation',         desc: 'Accurate tax return preparation and comprehensive year-end reporting that ensures compliance, maximizes deductions, and supports next-year planning.' },
-  { icon: HandshakeIcon,            title: 'Financial Reporting',                desc: 'Well-prepared financial statements that build credibility with investors and lenders and help secure financial support.' },
+  { 
+    icon: AccountBalanceIcon,  
+    title: 'Direct Cost Accounting',           
+    desc: 'This process includes allocating costs to inventory using methods such as standard costing, weighted-average, or cost layering. It ensures precise inventory valuation and aligns expenses with actual production levels.' 
+  },
+  { 
+    icon: ReceiptLongIcon,     
+    title: 'Overhead Cost Accounting',           
+    desc: 'Factory overhead expenses should be consolidated into cost pools and then allocated across the total units produced within a given reporting period. This allocation increases the recorded inventory cost. To streamline the process and reduce administrative burden, it\'s recommended that manufacturers limit the number of cost pools used.' 
+  },
+  { 
+    icon: TrendingUpIcon,      
+    title: 'Cost of Goods Sold (COGS) Recognition',      
+    desc: 'COGS is calculated as: Beginning Inventory + Purchases - Ending Inventory. Accurate inventory valuation procedures are critical for correct COGS reporting, a key part of accounting for manufacturing companies.' 
+  },
+  { 
+    icon: AssessmentIcon,        
+    title: 'Cost Accounting',        
+    desc: 'For manufacturers, precise tracking of raw materials, labor, and overhead costs is essential to maintaining control over production expenses and ensuring profitability. Cost accounting offers the clarity needed to determine the actual cost of goods sold and establish competitive pricing strategies.' 
+  },
+  { 
+    icon: BarChartIcon,           
+    title: 'Budgeting and Forecasting', 
+    desc: 'Accounting and bookkeeping for manufacturing companies offer critical financial insights that support budgeting and forecasting. Manufacturers use this data to plan production schedules, manage cash flow, and make informed decisions.' 
+  },
+  { 
+    icon: GavelIcon,        
+    title: 'Tax Planning & Preparation',    
+    desc: 'We provide accurate tax return preparation for manufacturing businesses, including comprehensive year-end financial reporting. Our manufacturing tax experts ensure compliance, maximize deductions, and support strategic planning for the next fiscal year.' 
+  },
+  { 
+    icon: DescriptionIcon,  
+    title: 'Financial Reporting',         
+    desc: 'Manufacturing companies are required to present their financial performance to key stakeholders such as investors and lenders. Well-prepared and accurate financial statements—made possible through effective accounting—are vital for establishing credibility and obtaining financial support.' 
+  },
 ];
 
-const MCSolutions = () => {
+const RASolutions = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
-
-  const featured = ELEMENTS.slice(0, 2);
-  const rest = ELEMENTS.slice(2);
 
   return (
     <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.paper', overflow: 'hidden', position: 'relative' }}>
@@ -49,135 +74,72 @@ const MCSolutions = () => {
         <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: 'center' }}>
           <motion.div {...fadeUp(0)}>
             <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.75rem', mb: 2, display: 'block' }}>
-              KEY ELEMENTS
+              THE ROLE OF BOOKKEEPING AND ACCOUNTING
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
-              The Role of Bookkeeping and Accounting in{' '}
-              <Box component="span" sx={{ color: primary }}>Manufacturing</Box>
+              The Role of Bookkeeping and{' '}
+              <Box component="span" sx={{ color: primary }}>Accounting in Manufacturing</Box>
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
             <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 580, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              Seven ways accurate accounting supports profitability, cost management, and tax compliance across the manufacturing sector.
+              7 essential accounting functions that help manufacturers maintain profitability, ensure compliance, and drive growth.
             </Typography>
           </motion.div>
         </Box>
 
-        {/* ── TIER 1: 2 large featured cards ── */}
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 3, mb: 3 }}>
-          {featured.map((el, i) => {
-            const Icon = el.icon;
-            const isFirst = i === 0;
-            return (
-              <Box
-                key={el.title}
-                component={motion.div}
-                {...fadeUp(i * 0.1)}
-                sx={{
-                  p: { xs: 3.5, md: 5 },
-                  borderRadius: '24px',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  cursor: 'default',
-                  transition: 'all 0.32s cubic-bezier(0.4, 0, 0.2, 1)',
-                  ...(isFirst ? {
-                    background: `linear-gradient(135deg, ${alpha(primary, 0.1)} 0%, ${alpha(primary, 0.04)} 100%)`,
-                    border: `1px solid ${alpha(primary, 0.25)}`,
-                  } : {
-                    bgcolor: 'background.default',
-                    border: (t) => `1px solid ${t.palette.mode === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)'}`,
-                  }),
-                  '&:hover': {
-                    transform: 'translateY(-6px)',
-                    boxShadow: `0 24px 60px ${alpha(primary, 0.15)}`,
-                    '& .feat-icon': { bgcolor: primary, '& svg': { color: '#fff' } },
-                    '& .feat-title': { color: primary },
-                  },
-                }}
-              >
-                
-                <Box className="feat-icon" sx={{
-                  width: 60, height: 60, borderRadius: '18px',
-                  bgcolor: alpha(primary, 0.1),
-                  border: `1px solid ${alpha(primary, 0.2)}`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  mb: 3, transition: 'all 0.32s ease',
-                }}>
-                  <Icon sx={{ fontSize: 28, color: primary }} />
-                </Box>
-
-                <Typography className="feat-title" sx={{
-                  fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 900, fontSize: { xs: '1.1rem', md: '1.25rem' },
-                  color: 'text.primary', mb: 1.5, lineHeight: 1.25,
-                  transition: 'color 0.28s ease',
-                }}>
-                  {el.title}
-                </Typography>
-                <Typography sx={{
-                  fontFamily: '"Outfit", sans-serif',
-                  fontSize: '0.92rem', lineHeight: 1.8,
-                  color: 'text.secondary', position: 'relative', zIndex: 1,
-                }}>
-                  {el.desc}
-                </Typography>
-              </Box>
-            );
-          })}
-        </Box>
-
-        {/* ── TIER 2: 4-col compact grid for remaining 8 ── */}
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2 }}>
-          {rest.map((el, i) => {
+        {/* ── Uniform card grid ── */}
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 2.5 }}>
+          {ELEMENTS.map((el, i) => {
             const Icon = el.icon;
             return (
               <Box
                 key={el.title}
                 component={motion.div}
-                {...fadeUp(0.1 + i * 0.06)}
+                {...fadeUp(i * 0.07)}
                 sx={{
-                  p: 3,
-                  borderRadius: '18px',
+                  height: '100%',
+                  p: { xs: 3, md: 3.5 },
+                  borderRadius: '20px',
                   bgcolor: 'background.default',
                   border: (t) => `1px solid ${t.palette.mode === 'dark' ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)'}`,
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                  boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
+                  display: 'flex', flexDirection: 'column',
                   position: 'relative', overflow: 'hidden',
                   cursor: 'default',
-                  transition: 'all 0.28s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   '&:hover': {
-                    transform: 'translateY(-5px)',
-                    border: `1px solid ${alpha(primary, 0.28)}`,
-                    boxShadow: `0 16px 40px ${alpha(primary, 0.1)}`,
-                    '& .cc-mini-icon': { bgcolor: primary, '& svg': { color: '#fff' } },
-                    '& .cc-mini-title': { color: primary },
+                    transform: 'translateY(-6px)',
+                    border: `1px solid ${alpha(primary, 0.3)}`,
+                    boxShadow: `0 20px 50px ${alpha(primary, 0.12)}`,
+                    '& .mfg-icon': { bgcolor: primary, '& svg': { color: '#fff' } },
+                    '& .mfg-title': { color: primary },
                   },
                 }}
               >
-                
-
-                <Box className="cc-mini-icon" sx={{
-                  width: 44, height: 44, borderRadius: '12px',
-                  bgcolor: alpha(primary, 0.08),
-                  border: `1px solid ${alpha(primary, 0.15)}`,
+                <Box className="mfg-icon" sx={{
+                  width: 54, height: 54, borderRadius: '16px',
+                  bgcolor: alpha(primary, 0.09),
+                  border: `1px solid ${alpha(primary, 0.16)}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  mb: 2, transition: 'all 0.28s ease',
+                  mb: 2.5, flexShrink: 0, transition: 'all 0.3s ease',
                 }}>
-                  <Icon sx={{ fontSize: 20, color: primary }} />
+                  <Icon sx={{ fontSize: 26, color: primary }} />
                 </Box>
 
-                <Typography className="cc-mini-title" sx={{
+                <Typography className="mfg-title" sx={{
                   fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 800, fontSize: '0.88rem',
-                  color: 'text.primary', mb: 0.75, lineHeight: 1.35,
+                  fontWeight: 800, fontSize: '1rem',
+                  color: 'text.primary', mb: 1, lineHeight: 1.3,
                   transition: 'color 0.28s ease',
                 }}>
                   {el.title}
                 </Typography>
                 <Typography sx={{
                   fontFamily: '"Outfit", sans-serif',
-                  fontSize: '0.8rem', lineHeight: 1.7,
+                  fontSize: '0.86rem', lineHeight: 1.75,
                   color: 'text.secondary',
                 }}>
                   {el.desc}
@@ -192,4 +154,4 @@ const MCSolutions = () => {
   );
 };
 
-export default MCSolutions;
+export default RASolutions;

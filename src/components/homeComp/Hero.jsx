@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Box, Container, Typography, Button, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,24 +8,33 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
-const work1 = '/hero_organic.png';
-const work2 = '/about_modern.png';
-const work3 = '/about_us.png';
-const work4 = '/service_abstract.png';
+import taxImg from '../../assets/images/tax.jpg';
+import payrollImg from '../../assets/images/payroll.jpg';
+import cpaImg from '../../assets/images/cpa.jpg';
+
+const bookkeepingImg = '/about_us.png';
 
 const slides = [
   {
     title: 'Expert <span class="highlight">Outsourcing</span> <br> Accounting & Bookkeeping Services',
-    description: 'Trusted by 100+ Clients Across 12 Countries. Proudly serving small businesses, growing enterprises, and Fortune 500 companies.',
-    image: work3,
+    description: 'Trusted by 100+ Clients Across 50 States. Proudly serving small businesses, growing enterprises, and Fortune 500 companies.',
+    image: bookkeepingImg,
     alt: 'Outsourcing accounting and bookkeeping services for global businesses',
     link: '/us/services/bookkeeping-company-in-the-usa/',
     btnText: 'Learn More',
   },
   {
+    title: 'Reliable <span class="highlight">Payroll</span> <br> Management Services in the USA',
+    description: 'Accurate, automated payroll that ensures compliance and peace of mind every payday.',
+    image: payrollImg,
+    alt: 'Payroll management services for businesses in the USA',
+    link: '/us/services/payroll-management-services-in-the-usa/',
+    btnText: 'Learn More',
+  },
+  {
     title: 'Tax <span class="highlight">Planning</span> and <br> Preparation Services in the USA!',
     description: 'Professional US Expat Tax Service for Federal, State, and City Tax Preparation.',
-    image: work1,
+    image: taxImg,
     alt: 'Tax planning and preparation services for businesses in the USA',
     link: '/us/services/tax-planning-and-preparation-services-usa/',
     btnText: 'Learn More',
@@ -32,17 +42,9 @@ const slides = [
   {
     title: 'The <span class="highlight">Best</span> CPA Service <br> for Small Businesses in the USA',
     description: 'We offer the best CPA service for small businesses in the USA.',
-    image: work4,
+    image: cpaImg,
     alt: 'Certified public accountant services for small businesses in the USA',
     link: '/us/services/best-cpa-services-for-small-businesses-in-the-usa/',
-    btnText: 'Learn More',
-  },
-  {
-    title: 'Expert <span class="highlight">Financial</span> Controller <br> Services in the USA',
-    description: 'Improve your accounting systems with experts.',
-    image: work2,
-    alt: 'Professional financial controller services for business accounting',
-    link: '/us/services/financial-controller-services-in-the-usa/',
     btnText: 'Learn More',
   },
 ];
@@ -233,6 +235,8 @@ const Hero = () => (
                         <Button
                           variant="outlined"
                           size="large"
+                          component={RouterLink}
+                          to="/services"
                           sx={{
                             py: 1.8, px: { xs: 5, md: 7 },
                             borderRadius: '50px',
@@ -251,7 +255,7 @@ const Hero = () => (
                             },
                           }}
                         >
-                          Our Process
+                          Our Services
                         </Button>
                       </motion.div>
                     </Stack>

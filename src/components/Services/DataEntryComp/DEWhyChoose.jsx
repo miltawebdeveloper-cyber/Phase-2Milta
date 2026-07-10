@@ -16,11 +16,11 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { icon: VerifiedIcon,    title: 'Enhanced Accuracy',          desc: 'Our double-entry verification and reconciliation processes significantly reduce errors, keeping your financial records clean and reliable.' },
-  { icon: BarChartIcon,    title: 'Improved Decision-Making',   desc: 'Accurate and timely financial data enables better strategic planning and informed business decisions at every level.', featured: true },
-  { icon: ListAltIcon,     title: 'Regulatory Compliance',      desc: 'We ensure all financial records meet US tax and regulatory standards, protecting your business from penalties and audits.' },
-  { icon: TuneIcon,        title: 'Time Management',            desc: 'Free up valuable resources to focus on core business activities while we handle all your data entry needs efficiently.' },
-  { icon: TrendingUpIcon,  title: 'Business Growth',            desc: 'Streamline operations and reduce administrative burden, allowing your business to scale efficiently and focus on client acquisition.' },
+  { icon: VerifiedIcon,    title: 'Enhanced Accuracy',          desc: 'Our double-entry verification and reconciliation processes significantly reduce errors.' },
+  { icon: BarChartIcon,    title: 'Improved Decision-Making',   desc: 'Accurate and timely financial data enables better strategic planning.', featured: true },
+  { icon: ListAltIcon,     title: 'Regulatory Compliance',      desc: 'We ensure all financial records meet US tax and regulatory standards.' },
+  { icon: TuneIcon,        title: 'Time Management',            desc: 'Free up resources to focus on core business activities.' },
+  { icon: TrendingUpIcon,  title: 'Business Growth',            desc: 'Streamline operations, allowing your business to scale efficiently.' },
 ];
 
 const DEWhyChoose = () => {
@@ -48,8 +48,13 @@ const DEWhyChoose = () => {
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2, maxWidth: 680 }}>
-              Benefits of Our{' '}
-              <Box component="span" sx={{ color: primary }}>Data Entry Services in the USA</Box>
+              Benefits of Our Data Entry Services in the{' '}
+              <Box component="span" sx={{ color: primary }}>USA</Box>
+            </Typography>
+          </motion.div>
+          <motion.div {...fadeUp(0.14)}>
+            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, fontFamily: '"Outfit", sans-serif', mt: 2, maxWidth: 680 }}>
+              We help your business maintain accurate records, enhance decision-making, and stay compliant while saving time and driving growth.
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.18)}>
@@ -105,6 +110,12 @@ const DEWhyChoose = () => {
             );
           })}
         </Box>
+
+        <motion.div {...fadeUp(0.2)}>
+          <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontStyle: 'italic', fontSize: '0.95rem', lineHeight: 1.8, color: 'text.secondary', mt: { xs: 4, md: 5 } }}>
+            Example: A small IT firm achieved 15% growth after outsourcing data entry, which allowed them to focus on client acquisition.
+          </Typography>
+        </motion.div>
       </Container>
     </Box>
   );

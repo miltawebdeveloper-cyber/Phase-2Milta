@@ -113,7 +113,7 @@ export default function CPAConnecticut() {
         panelStats: [
           { num: "95%+", label: "Retention" },
           { num: "60-70%", label: "Cost Saving" },
-          { num: "15y+", label: "Experience" },
+          { num: "10y+", label: "Experience" },
           { num: "24/7", label: "Support" },
         ],
         items: [

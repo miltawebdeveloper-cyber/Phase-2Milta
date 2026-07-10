@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Typography, Button, Stack, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
+import { Link as RouterLink } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const CTASection = () => {
@@ -65,7 +66,7 @@ const CTASection = () => {
                   }}
                 >
                   Efficient, Cost-Effective Outsourced{' '}
-                  <Box component="span" sx={{ color: '#266929' }}>Accounting Services</Box>
+                  <Box component="span" sx={{ color: '#266929' }}>Accounting Services in the USA</Box>
                 </Typography>
               </motion.div>
 
@@ -87,7 +88,7 @@ const CTASection = () => {
                     mb: 5
                   }}
                 >
-                  Reduce labor costs and improve financial accuracy with our expert team
+                 Save Up to 50-60% on Your Outsourcing Costs — Without Reducing Service Quality or Scope.
                 </Typography>
               </motion.div>
 
@@ -102,6 +103,8 @@ const CTASection = () => {
                     <Button
                       variant="contained"
                       size="large"
+                      component={RouterLink}
+                      to="/contact#contact-form"
                       endIcon={<ArrowForwardIcon />}
                       sx={{
                         px: 6, py: 2,
@@ -123,6 +126,8 @@ const CTASection = () => {
                     <Button
                       variant="outlined"
                       size="large"
+                      component={RouterLink}
+                      to="/services"
                       sx={{
                         px: 6, py: 2,
                         borderRadius: '50px',
@@ -135,7 +140,7 @@ const CTASection = () => {
                         '&:hover': { border: '2px solid #266929', backgroundColor: 'rgba(38,105,41,0.06)' }
                       }}
                     >
-                      View Framework
+                      Our Services
                     </Button>
                   </motion.div>
                 </Stack>

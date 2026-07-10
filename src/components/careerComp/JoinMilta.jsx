@@ -85,7 +85,7 @@ const JoinMilta = () => (
               variant="body1"
               sx={{ color: "text.secondary", lineHeight: 1.8, mb: 2.5, textAlign: { xs: "center", md: "justify" }, fontSize: { xs: "0.97rem", md: "1.05rem" } }}
             >
-              For 15+ years, Milta has empowered global businesses including Fortune 100
+              For 10+ years, Milta has empowered global businesses including Fortune 100
               companies across US countries, with a focus on US-based clients through
               Finance &amp; Accounting, IT, and Revenue Cycle Management solutions.
             </Typography>
