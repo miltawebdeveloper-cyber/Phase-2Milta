@@ -24,7 +24,7 @@ const STATS = [
   { num: '10y+', label: 'Experience' },
 ];
 
-const CCWhatIs = () => {
+const RIWhatIs = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
 
@@ -47,9 +47,9 @@ const CCWhatIs = () => {
               textAlign: 'center',
             }}
           >
-            Best Bookkeeping and{' '}
+            Bookkeeping &amp; Accounting Services for{' '}
             <Box component="span" sx={{ color: primary }}>
-              Accounting Services for Real Estate Agents
+              Small Restaurants
             </Box>
           </Typography><br></br>
         </motion.div>
@@ -66,26 +66,19 @@ const CCWhatIs = () => {
             {/* Body copy - Paragraph 1 */}
             <motion.div {...fadeUp(0.18)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                Real estate businesses, including agents, investors, and property managers, face unique financial challenges. From development and leasing to property management and investment, every transaction impacts your bottom line. That's why bookkeeping for real estate professionals is essential to stay organized, compliant, and profitable.
+                Running a small restaurant is no easy task; you’re balancing food quality, customer satisfaction, and daily operations. Disorganized financials can cause stress, lead to mistakes, and prevent your business from seizing new opportunities. At Milta, we provide expert accounting and bookkeeping for small restaurant businesses to help you stay organized, compliant, and profitable.
               </Typography>
             </motion.div>
 
             {/* Body copy - Paragraph 2 */}
             <motion.div {...fadeUp(0.22)}>
-              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                Whether you're focused on residential rentals, commercial developments, or investment properties, our expert team at Milta provides property management bookkeeping services, real estate accounting services, and tax planning for real estate developers customized to your business goals.
-              </Typography>
-            </motion.div>
-
-            {/* Body copy - Paragraph 3 */}
-            <motion.div {...fadeUp(0.26)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 4 }}>
-                With specialized bookkeeping support, you can simplify complex financial operations, manage your property portfolio efficiently, and ensure every transaction—from tenant rent to vendor payments—is recorded accurately. Our tailored solutions help real estate professionals maintain transparency, streamline cash flow, and make data-driven investment decisions.
+                Whether you’re managing a single-location café, a cozy diner, or a family-owned restaurant, our best restaurant bookkeeping services ensure that your books are accurate, your taxes are filed on time, and your business stays financially healthy.
               </Typography>
             </motion.div>
 
             {/* Stats row */}
-            <motion.div {...fadeUp(0.34)}>
+            <motion.div {...fadeUp(0.28)}>
               <Box sx={{
                 display: 'inline-flex',
                 gap: 0,
@@ -131,7 +124,7 @@ const CCWhatIs = () => {
             }}>
               <img
                 src={restaurantImage}
-                alt="Bookkeeping and Accounting Services for Real Estate Agents"
+                alt="Bookkeeping & Accounting Services for Small Restaurants"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -148,4 +141,4 @@ const CCWhatIs = () => {
   );
 };
 
-export default CCWhatIs;
+export default RIWhatIs;

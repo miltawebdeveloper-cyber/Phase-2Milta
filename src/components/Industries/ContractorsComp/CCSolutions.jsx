@@ -21,16 +21,16 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ELEMENTS = [
-  { icon: AccountTreeIcon,          title: 'Project-Based Accounting',            desc: 'Track income, expenses, and profitability per project with WIP reports for billable milestones and future cash flow needs.' },
-  { icon: AccountBalanceWalletIcon, title: 'Expense Management',                  desc: 'Categorize materials, labor, and overhead costs with approval systems to maintain budgets and prevent unauthorized spending.' },
-  { icon: PaymentsIcon,             title: 'Payroll Processing',                  desc: 'On-time payments, tax deductions, and labor law compliance for full-time employees and subcontractors.' },
-  { icon: ReceiptLongIcon,          title: 'Invoicing & Payment Tracking',        desc: 'Create accurate invoices, monitor outstanding balances, and integrate payment platforms for better cash flow.' },
-  { icon: GavelIcon,                title: 'Tax Compliance & Planning',           desc: 'Capture all deductible expenses, file tax documents on time, and use strategic methods to lower tax liability.' },
-  { icon: BuildIcon,                title: 'Equipment & Asset Tracking',          desc: 'Track asset purchases, depreciation, maintenance schedules, and resale value for accurate financial projections.' },
-  { icon: AccountBalanceIcon,       title: 'Bank Reconciliation',                 desc: 'Regularly compare bank statements with financial records to catch errors early and prevent fraud.' },
-  { icon: BarChartIcon,             title: 'Financial Reporting',                 desc: 'Timely cash flow reports, balance sheets, and P&L statements to guide bidding and budgeting decisions.' },
-  { icon: HandshakeIcon,            title: 'Subcontractor Payments & Compliance', desc: 'Track contracts, issue 1099s, and maintain compliance to avoid misclassification and IRS penalties.' },
-  { icon: CloudIcon,                title: 'Cloud-Based Bookkeeping Tools',       desc: 'Real-time data sharing between field and office with automated reporting, bank syncing, and 24/7 access.' },
+  { icon: AccountTreeIcon,          title: 'Project-Based Accounting',            desc: 'In the construction industry, every job is different. That’s why bookkeeping for construction companies revolves around project-based accounting—tracking income, expenses, and profitability for each project. This method ensures better cost control and more accurate estimates for future jobs.' },
+  { icon: AccountBalanceWalletIcon, title: 'Expense Management',                  desc: 'Managing day-to-day expenses—like materials, labor, and overhead—is crucial in bookkeeping for small construction businesses. Categorizing and approving each cost helps maintain budgets and avoid overspending.' },
+  { icon: PaymentsIcon,             title: 'Payroll Processing',                  desc: 'Construction businesses often juggle both full-time employees and subcontractors. Automated payroll solutions ensure timely payments, accurate tax deductions, and compliance with labor regulations.' },
+  { icon: ReceiptLongIcon,          title: 'Invoicing & Payment Tracking',        desc: 'Bookkeeping for contractors includes setting up invoice templates, tracking outstanding balances, and integrating payment platforms for better cash flow and transparency.' },
+  { icon: GavelIcon,                title: 'Tax Compliance & Planning',           desc: 'Organized bookkeeping ensures deductible expenses are captured and tax filings are on time. Proper tax planning helps contractors minimize liabilities and stay audit-ready.' },
+  { icon: BuildIcon,                title: 'Equipment & Asset Tracking',          desc: 'Contractors rely heavily on machinery. Good bookkeeping tracks asset purchases, depreciation, and maintenance schedules for accurate reporting.' },
+  { icon: AccountBalanceIcon,       title: 'Bank Reconciliation',                 desc: 'Regular bank reconciliations catch errors early, prevent fraud, and ensure financial reports remain accurate.' },
+  { icon: BarChartIcon,             title: 'Financial Reporting',                 desc: 'Cash flow reports, balance sheets, and profit/loss statements help guide project bids, budgeting, and overall business strategy.' },
+  { icon: HandshakeIcon,            title: 'Subcontractor Payments & Compliance', desc: 'Managing subcontractors requires accurate tracking of contracts, payments, and 1099s to maintain legal compliance and transparency.' },
+  { icon: CloudIcon,                title: 'Cloud-Based Bookkeeping Tools',       desc: 'Modern bookkeeping solutions allow real-time data sharing, automate reporting, and provide 24/7 access for contractors in the field.' },
 ];
 
 const CCSolutions = () => {

@@ -41,7 +41,7 @@ const CPAServices = () => {
       <CPAWhyChoose />
       
       <CPAAdvantages />
-      <CPATrustedPartner />
+      
       <CPAFAQ />
       <CTASection />
       <Footer />

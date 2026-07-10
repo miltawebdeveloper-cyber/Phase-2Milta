@@ -42,11 +42,7 @@ const FCWhatIs = () => {
 
           {/* Text side */}
           <Box sx={{ flex: 1 }}>
-            <motion.div {...fadeUp(0)}>
-              <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: '#266929', fontSize: '0.75rem', mb: 2, display: 'block' }}>
-                UNDERSTANDING FINANCIAL CONTROLLER
-              </Typography>
-            </motion.div>
+          
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ fontSize: { xs: '1.9rem', md: '2.8rem' }, lineHeight: 1.2, mb: 2.5 }}>
                 Maximize Your Financial Reporting & Analysis{' '}
@@ -105,8 +101,8 @@ const FCWhatIs = () => {
                 Controller vs. CFO:{' '}
                 <Box component="span" sx={{ color: primary }}>Different Roles, Unique Value</Box>
               </Typography>
-              <Typography sx={{ color: 'text.secondary', fontSize: '0.95rem', lineHeight: 1.8, fontFamily: '"Outfit", sans-serif', maxWidth: 560, mx: 'auto', mt: 1 }}>
-                A Fractional Controller from Miltafs bridges the gap — providing expert financial leadership without the full-time CFO cost.
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.95rem', lineHeight: 1.8, fontFamily: '"Outfit", sans-serif', maxWidth: 860, mx: 'auto', mt: 1 }}>
+At Miltafs, we recognize that small and medium businesses need strong financial leadership to succeed. Whether you’re in the early stages of growth or scaling up, choosing the right financial leader is crucial. A Fractional Controller from Miltafs can often provide ample financial leadership, filling the gap between a full-time Controller and a CFO. While both roles share some similarities, they offer distinct capabilities that are key to a growing business. Here’s how the roles of a Controller and a CFO differ, and how Miltafs Financial Controller Services for SMEs can bridge the gap for you:
               </Typography>
             </Box>
 

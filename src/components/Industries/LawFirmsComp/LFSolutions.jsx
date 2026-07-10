@@ -93,22 +93,14 @@ const LFSolutions = () => {
 
         {/* Header */}
         <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: 'center' }}>
-          <motion.div {...fadeUp(0)}>
-            <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.75rem', mb: 2, display: 'block' }}>
-              KEY ELEMENTS
-            </Typography>
-          </motion.div>
+         
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
               Key Elements of Bookkeeping for{' '}
               <Box component="span" sx={{ color: primary }}>Contractor Businesses</Box>
             </Typography>
           </motion.div>
-          <motion.div {...fadeUp(0.18)}>
-            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 580, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              10 essential bookkeeping elements tailored specifically for contractors and construction businesses.
-            </Typography>
-          </motion.div>
+          
         </Box>
 
         {/* TIER 1: 2 large featured cards */}

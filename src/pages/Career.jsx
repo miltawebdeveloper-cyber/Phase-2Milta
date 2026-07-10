@@ -64,8 +64,6 @@ const Career = () => {
     <Suspense fallback={null}>
       <JoinMilta />
       <WhyLoveMilta />
-      <VoicesFromTeam />
-      <CareerCta />
       <ApplyForm variant="inline" />
       <Footer />
     </Suspense>

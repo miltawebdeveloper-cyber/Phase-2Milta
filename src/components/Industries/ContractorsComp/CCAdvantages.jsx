@@ -95,34 +95,18 @@ const CCAdvantages = () => {
 
         {/* Header */}
         <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
-          <motion.div {...fadeUp(0)}>
-            <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
-              <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
-              <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                BENEFITS OF ACCOUNTING AND BOOKKEEPING FOR CONTRACTORS
-              </Typography>
-              <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
-            </Box>
-          </motion.div>
+        
           <motion.div {...fadeUp(0.08)}>
             <Typography variant="h2" sx={{
               fontSize: { xs: '1.75rem', md: '2.4rem' },
               lineHeight: 1.2, letterSpacing: '-0.025em',
               color: '#ffffff', fontWeight: 900,
             }}>
-              Benefits of Contractor{' '}
-              <Box component="span" sx={{ color: primary }}>Bookkeeping</Box>
+             Benefits of Accounting and Bookkeeping 
+{' '}<Box component="span" sx={{ color: primary }}>for Contractors</Box>
             </Typography>
           </motion.div>
-          <motion.div {...fadeUp(0.14)}>
-            <Typography sx={{
-              color: alpha('#fff', 0.5), fontSize: '0.88rem',
-              lineHeight: 1.75, fontFamily: '"Outfit", sans-serif',
-              maxWidth: 480, mx: 'auto', mt: 1.5,
-            }}>
-              Professional bookkeeping gives contractors the financial clarity to stay compliant and make confident decisions.
-            </Typography>
-          </motion.div>
+          
         </Box>
 
         {/* Bento grid: row1 [0](2col)+[1], row2 [2][3][4], row3 [5]+[6](2col) */}

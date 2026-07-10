@@ -17,12 +17,12 @@ const fadeUp = (delay = 0) => ({
 });
 
 const PROCESS_STEPS = [
-  { icon: UploadFileIcon,  title: 'Collect Data',          desc: 'Gather financial documents, invoices, receipts, and statements from all relevant sources into a centralized system.' },
-  { icon: FactCheckIcon,   title: 'Verify Data',            desc: 'Cross-check all incoming data for completeness and accuracy before entry to eliminate errors at the source.' },
-  { icon: AccountTreeIcon, title: 'Chart of Accounts',      desc: 'Categorize every transaction under the correct account code following US GAAP standards for a clean ledger structure.' },
-  { icon: DoneAllIcon,     title: 'Double-Entry Check',     desc: 'Apply double-entry bookkeeping principles — every debit matched with a corresponding credit — to maintain balanced books.' },
-  { icon: SyncIcon,        title: 'Data Reconciliation',    desc: 'Reconcile entered records against bank statements and source documents to detect and resolve any discrepancies.' },
-  { icon: AssessmentIcon,  title: 'Reporting',              desc: 'Deliver clean, formatted financial reports — including balance sheets and P&L statements — ready for review or audit.' },
+  { icon: UploadFileIcon,  title: 'Collect Data',          desc: 'We securely collect all relevant financial documents such as invoices, receipts, bank statements, and payroll records through encrypted channels to ensure confidentiality.' },
+  { icon: FactCheckIcon,   title: 'Verify Data',            desc: 'Each document undergoes thorough cross-checking for authenticity and completeness. For instance, invoices are validated against purchase orders to prevent discrepancies.' },
+  { icon: AccountTreeIcon, title: 'Chart of Accounts',      desc: 'We create or refine a structured chart of accounts tailored to your business, ensuring accurate categorization of every transaction.' },
+  { icon: DoneAllIcon,     title: 'Double-Entry Check',     desc: 'Using double-entry accounting principles, we maintain balanced records that minimize errors and discrepancies.' },
+  { icon: SyncIcon,        title: 'Data Reconciliation',    desc: 'Our team reconciles bank statements and ledgers in detail, resolving inconsistencies to maintain absolute accuracy.' },
+  { icon: AssessmentIcon,  title: 'Reporting',              desc: 'Finally, we generate clear, insightful reports like profit & loss statements and balance sheets that give you full visibility into performance.' },
 ];
 
 const STATS = [
@@ -71,8 +71,8 @@ const DETrustedPartner = () => {
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.18)}>
-              <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '1rem', lineHeight: 1.8, maxWidth: 580, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-                A structured six-step workflow designed to ensure every transaction is captured accurately, reconciled thoroughly, and reported on time.
+              <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '1rem', lineHeight: 1.8, maxWidth: 720, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
+                Our proven process ensures your financial data is handled efficiently and with the utmost precision. Here's how we do it:
               </Typography>
             </motion.div>
 

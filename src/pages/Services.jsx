@@ -69,13 +69,13 @@ const Services = () => {
       <Box
         sx={{
           position: 'relative',
-          minHeight: { xs: 'auto', md: '52vh' },
+          minHeight: { xs: 'auto', md: '72vh' },
           background: 'linear-gradient(145deg, #0d1f0e 0%, #163018 50%, #1a3d1c 100%)',
           display: 'flex',
           alignItems: 'center',
           overflow: 'hidden',
-          pt: { xs: 14, md: 0 },
-          pb: { xs: 10, md: 0 },
+          pt: { xs: 18, md: 10 },
+          pb: { xs: 14, md: 10 },
         }}
       >
         <Box sx={{
@@ -94,24 +94,18 @@ const Services = () => {
         <Container maxWidth={false} sx={{ maxWidth: '1300px', mx: 'auto', position: 'relative', zIndex: 1 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', py: { xs: 4, md: 0 } }}>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-              <Box sx={{
-                display: 'inline-flex', alignItems: 'center', px: 2.5, py: 0.75, mb: 4,
-                borderRadius: '50px', border: `1px solid ${alpha(primary, 0.5)}`, bgcolor: alpha(primary, 0.15),
-              }}>
-                <Typography variant="overline" sx={{ color: alpha('#ffffff', 0.9), display: 'block', lineHeight: 1 }}>
-                  WHAT WE OFFER
-                </Typography>
-              </Box>
+              
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: '2.4rem', sm: '3.5rem', md: '4rem', lg: '4.5rem' },
+                  fontSize: { xs: '2rem', sm: '2.6rem', md: '3.2rem', lg: '3.6rem' },
+                  lineHeight: 1.2,
                   color: theme.palette.primary.contrastText,
-                  maxWidth: { xs: '100%', md: '820px' },
+                  maxWidth: { xs: '100%', md: '950px' },
                   mx: 'auto', mb: 2.5,
                 }}
               >
-                Our Services
+                Explore Our Dedicated Accounting Services For Small Businesses.
               </Typography>
 
               <Typography
@@ -123,7 +117,7 @@ const Services = () => {
                   mx: 'auto', mb: 4,
                 }}
               >
-                Explore Our Dedicated Accounting Services For Small Businesses.
+                Discover how our customized accounting services for small businesses can simplify your finances, boost efficiency, and support your growth. We'll handle the Count on your behalf!
               </Typography>
             </motion.div>
 
@@ -225,6 +219,47 @@ const Services = () => {
               </motion.div>
             ))}
           </Box>
+        </Container>
+      </Box>
+
+      {/* ── Customized solutions ── */}
+      <Box sx={{ pb: { xs: 8, md: 12 }, bgcolor: 'background.default' }}>
+        <Container maxWidth={false} sx={{ maxWidth: '1300px', mx: 'auto', px: { xs: 3, md: 4 } }}>
+          <motion.div {...fadeUp(0)}>
+            <Box sx={{ textAlign: 'center' }}>
+              <Typography variant="h2" sx={{
+                color: 'text.primary',
+                fontSize: { xs: '1.6rem', md: '2.2rem' },
+                lineHeight: 1.3,
+                maxWidth: 820,
+                mx: 'auto',
+                mb: 2,
+              }}>
+                Seeking Customized Solutions for Outsourced Bookkeeping &amp; Accounting Services?
+              </Typography>
+
+              <Typography sx={{
+                color: 'text.secondary',
+                fontSize: { xs: '0.95rem', md: '1.05rem' },
+                lineHeight: 1.8,
+                maxWidth: 680,
+                mx: 'auto',
+              }}>
+                If you're looking for specialized accounting services for small businesses, we're here to help!
+              </Typography>
+
+              <Typography sx={{
+                color: 'text.secondary',
+                fontSize: { xs: '0.95rem', md: '1.05rem' },
+                lineHeight: 1.8,
+                maxWidth: 680,
+                mx: 'auto',
+                mt: 1.5,
+              }}>
+                Share your needs, and we'll craft a solution just for you.
+              </Typography>
+            </Box>
+          </motion.div>
         </Container>
       </Box>
 

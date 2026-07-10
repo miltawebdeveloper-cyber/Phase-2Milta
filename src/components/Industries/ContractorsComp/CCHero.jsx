@@ -42,8 +42,9 @@ const CCHero = () => {
                 mb: 4,
               }}
             >
-              Accounting and Bookkeeping for{' '}
-              <Box component="span" sx={{ color: primary }}>Contractors</Box>
+             Accounting & Tax Services Built for
+{' '}
+              <Box component="span" sx={{ color: primary }}> Your Contractors Industry</Box>
             </Typography>
           </motion.div>
 

@@ -39,7 +39,6 @@ const HealthCare = () => {
     <HCHero />
     <Suspense fallback={null}>
       <HCWhatIs />
-      <HCSolutions />
       <ServicesSection />
       <HCWhyChoose />
       <HCAdvantages />

@@ -71,22 +71,14 @@ const RESolutions = () => {
 
         {/* Header */}
         <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: 'center' }}>
-          <motion.div {...fadeUp(0)}>
-            <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.75rem', mb: 2, display: 'block' }}>
-              WHY REAL ESTATE BUSINESSES NEED SPECIALIZED BOOKKEEPING
-            </Typography>
-          </motion.div>
+         
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
               Why Real Estate Businesses{' '}
               <Box component="span" sx={{ color: primary }}>Need Specialized Bookkeeping</Box>
             </Typography>
           </motion.div>
-          <motion.div {...fadeUp(0.18)}>
-            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 580, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
-              From market fluctuations to regulatory compliance, specialized bookkeeping helps real estate professionals stay organized, profitable, and audit-ready.
-            </Typography>
-          </motion.div>
+          
         </Box>
 
         {/* ── TIER 1: 2 large featured cards ── */}

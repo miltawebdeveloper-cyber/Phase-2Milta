@@ -13,9 +13,9 @@ const fadeUp = (delay = 0) => ({
 });
 
 const POINTS = [
-  'Startup Accounting Support: Assistance with setting up accounting systems, managing initial tax filings, and establishing financial workflows.',
-  'Financial Health Checkups: Regular reviews to identify financial risks and growth opportunities.',
-  'Customized Reporting: Providing detailed, customized reports to help you make data-driven decisions.',
+  { label: 'Startup Accounting Support', desc: 'Assistance with setting up accounting systems, managing initial tax filings, and establishing financial workflows.' },
+  { label: 'Financial Health Checkups',  desc: 'Regular reviews to identify financial risks and growth opportunities.' },
+  { label: 'Customized Reporting',       desc: 'Providing detailed, customized reports to help you make data-driven decisions.' },
 ];
 
 const CPAWhatIs = () => {
@@ -29,11 +29,7 @@ const CPAWhatIs = () => {
 
           {/* Text side */}
           <Box sx={{ flex: 1 }}>
-            <motion.div {...fadeUp(0)}>
-              <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: '#266929', fontSize: '0.75rem', mb: 2, display: 'block' }}>
-                UNDERSTANDING CPA SERVICES
-              </Typography>
-            </motion.div>
+
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ fontSize: { xs: '1.9rem', md: '2.8rem' }, lineHeight: 1.2, mb: 2.5 }}>
                 Specialized CPA Services {' '}
@@ -49,11 +45,14 @@ At Milta, we understand the unique challenges faced by CPA small businesses in t
             </motion.div>
             <Stack spacing={1.5}>
               {POINTS.map((point, i) => (
-                <motion.div key={point} {...fadeUp(0.22 + i * 0.08)}>
+                <motion.div key={point.label} {...fadeUp(0.22 + i * 0.08)}>
                   <Stack direction="row" spacing={1.5} alignItems="flex-start">
                     <CheckCircleIcon sx={{ fontSize: 20, color: primary, mt: 0.2, flexShrink: 0 }} />
                     <Typography sx={{ color: 'text.secondary', fontSize: '0.95rem', fontFamily: '"Outfit", sans-serif', lineHeight: 1.7 }}>
-                      {point}
+                      <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>
+                        {point.label}:
+                      </Box>{' '}
+                      {point.desc}
                     </Typography>
                   </Stack>
                 </motion.div>

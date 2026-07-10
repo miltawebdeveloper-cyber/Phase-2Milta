@@ -83,15 +83,7 @@ const MCAdvantages = () => {
 
         {/* Header */}
         <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
-          <motion.div {...fadeUp(0)}>
-            <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
-              <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
-              <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                BENEFITS OF BOOKKEEPING AND ACCOUNTING IN MANUFACTURING
-              </Typography>
-              <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
-            </Box>
-          </motion.div>
+          
           <motion.div {...fadeUp(0.08)}>
             <Typography variant="h2" sx={{
               fontSize: { xs: '1.75rem', md: '2.4rem' },
@@ -102,15 +94,7 @@ const MCAdvantages = () => {
               <Box component="span" sx={{ color: primary }}>Accounting in Manufacturing</Box>
             </Typography>
           </motion.div>
-          <motion.div {...fadeUp(0.14)}>
-            <Typography sx={{
-              color: alpha('#fff', 0.5), fontSize: '0.88rem',
-              lineHeight: 1.75, fontFamily: '"Outfit", sans-serif',
-              maxWidth: 480, mx: 'auto', mt: 1.5,
-            }}>
-              Milta's detailed insights help manufacturers control costs, price competitively, and grow profitably — with the financial clarity to make confident decisions.
-            </Typography>
-          </motion.div>
+          
         </Box>
 
         {/* Bento grid for 5 items */}

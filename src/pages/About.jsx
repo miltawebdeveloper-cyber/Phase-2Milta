@@ -56,8 +56,9 @@ const About = () => {
     <Suspense fallback={null}>
       <AboutMilta />
       <VisionMission />
+       <MDPortfolio />
       <WhyChoose />
-      <MDPortfolio />
+     
       <CTASection />
       <Footer />
     </Suspense>

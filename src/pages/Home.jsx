@@ -9,6 +9,7 @@ const TrustSection        = lazy(() => import('../components/homeComp/TrustSecti
 const FeaturesSection     = lazy(() => import('../components/homeComp/FeaturesSection'));
 const AboutPreview        = lazy(() => import('../components/homeComp/AboutPreview'));
 const ServicesSection     = lazy(() => import('../components/homeComp/ServicesSection'));
+const HireProfessionals   = lazy(() => import('../components/homeComp/HireProfessionals'));
 const IndustriesSection   = lazy(() => import('../components/homeComp/IndustriesSection'));
 const Testimonials        = lazy(() => import('../components/homeComp/Testimonials'));
 const CertificationsSection = lazy(() => import('../components/homeComp/CertificationsSection'));
@@ -42,10 +43,13 @@ const Home = () => {
       <FeaturesSection />
       <AboutPreview />
       <ServicesSection />
+      
       <IndustriesSection />
       <Testimonials />
       <CertificationsSection />
+      
       <ToolsSection />
+      <HireProfessionals />
       <CTASection />
       <Footer />
     </Suspense>

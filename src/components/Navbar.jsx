@@ -24,7 +24,7 @@ const navItems = [
     path: '/services',
     hasPage: true,
     children: [
-      { label: 'Book Keeping',        path: '/us/services/bookkeeping-company-in-the-usa/' },
+      { label: 'BookKeeping',        path: '/us/services/bookkeeping-company-in-the-usa/' },
       { label: 'Payroll Management',  path: '/us/services/payroll-management-services-in-the-usa/' },
       { label: 'CPA Services',        path: '/us/services/best-cpa-services-for-small-businesses-in-the-usa/' },
       { label: 'Financial Controller',path: '/us/services/financial-controller-services-in-the-usa/' },

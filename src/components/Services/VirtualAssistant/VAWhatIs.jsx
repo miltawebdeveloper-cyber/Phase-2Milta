@@ -22,11 +22,7 @@ const VAWhatIs = () => {
 
           {/* Text side */}
           <Box sx={{ flex: 1 }}>
-            <motion.div {...fadeUp(0)}>
-              <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: '#266929', fontSize: '0.75rem', mb: 2, display: 'block' }}>
-                UNDERSTANDING VIRTUAL ASSISTANT SERVICES
-              </Typography>
-            </motion.div>
+            
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ fontSize: { xs: '1.9rem', md: '2.8rem' }, lineHeight: 1.2, mb: 2.5 }}>
                 Virtual Assistant Services{' '}

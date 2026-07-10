@@ -24,7 +24,7 @@ const STATS = [
   { num: '10y+', label: 'Experience' },
 ];
 
-const CCWhatIs = () => {
+const HCWhatIs = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
 
@@ -47,9 +47,9 @@ const CCWhatIs = () => {
               textAlign: 'center',
             }}
           >
-            Bookkeeping & Accounting Services for{' '}
+            Professional Accounting Services for Healthcare –{' '}
             <Box component="span" sx={{ color: primary }}>
-              Small Restaurants
+              Powered by Milta
             </Box>
           </Typography>
         </motion.div>
@@ -63,71 +63,57 @@ const CCWhatIs = () => {
 
           {/* ══ LEFT: Text content ══ */}
           <Box>
-            {/* Body copy - Paragraph 1 */}
+            {/* Body copy - Intro */}
             <motion.div {...fadeUp(0.18)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                Running a small restaurant is no easy task; you're balancing food quality, customer satisfaction, and daily operations. Disorganized financials can cause stress, lead to mistakes, and prevent your business from seizing new opportunities. At Mila, we provide expert accounting and bookkeeping for small restaurant businesses to help you stay organized, compliant, and profitable.
+                At Milta, we specialize in delivering reliable, outsourced accounting services for healthcare providers across the United States. With over 6 years of hands-on experience, our team understands the unique financial demands of the healthcare sector. Whether you're running a private practice, managing an urgent care clinic, or operating a large hospital, Milta is your trusted financial partner, so you can focus on delivering quality patient care.
               </Typography>
             </motion.div>
 
-            {/* Body copy - Paragraph 2 */}
+            {/* Body copy - Who We Serve */}
             <motion.div {...fadeUp(0.22)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                Whether you're managing a single-location café, a cozy diner, or a family-owned restaurant, our best restaurant bookkeeping services ensure that your books are accurate, your taxes are filed on time, and your business stays financially healthy.
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>
+                  Who We Serve
+                </Box><br />
+                Milta, one of the leading healthcare accounting companies, works with a variety of healthcare providers, including large healthcare groups and independent medical practitioners.
               </Typography>
             </motion.div>
 
-            {/* Body copy - Paragraph 3 - Why Bookkeeping Matters */}
+            {/* Body copy - Dentists */}
             <motion.div {...fadeUp(0.26)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>
-                  Why Bookkeeping Matters for Small Restaurant Businesses
-                </Box>
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>Dentists</Box><br />
+                We offer specialized accounting for healthcare professionals in the dental industry, ensuring accurate billing, compliance, and smooth financial operations.
               </Typography>
             </motion.div>
 
-            {/* Body copy - Daily Sales Tracking */}
+            {/* Body copy - Pharmacies */}
             <motion.div {...fadeUp(0.30)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>1. Daily Sales Tracking</Box><br />
-                Your daily income is tracked and categorized by Mila according to meal type, time slot, or service channel. Our specialized bookkeeping for restaurant businesses helps you understand peak hours, customer preferences, and profitable menu items.
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>Pharmacies</Box><br />
+                Milta provides custom accounting solutions for pharmacies, helping them navigate complex financial processes while boosting profitability and regulatory compliance.
               </Typography>
             </motion.div>
 
-            {/* Body copy - Inventory & Cost Control */}
+            {/* Body copy - Hospitals & Healthcare Facilities */}
             <motion.div {...fadeUp(0.34)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>2. Inventory & Cost Control</Box><br />
-                In a small restaurant, every ounce and dollar counts. Inventory tracking and cost-of-goods-sold (COGS) calculations are part of our restaurant bookkeeping solution, which helps you eliminate waste and control food costs.
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>Hospitals &amp; Healthcare Facilities</Box><br />
+                We support large healthcare institutions with full-scale financial services, from financial reporting and payroll to insurance claim processing and vendor payments.
               </Typography>
             </motion.div>
 
-            {/* Body copy - Expense Monitoring */}
+            {/* Body copy - Medical Practices */}
             <motion.div {...fadeUp(0.38)}>
-              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>3. Expense Monitoring</Box><br />
-                From payroll and food purchases to rent and utility bills, we record and classify every transaction. Our accounting for small restaurant business clients gains full visibility into their spending to improve cash management and budgeting.
-              </Typography>
-            </motion.div>
-
-            {/* Body copy - Cash Flow Management */}
-            <motion.div {...fadeUp(0.42)}>
-              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>4. Cash Flow Management</Box><br />
-                Cash flow is critical in the restaurant industry. Mila helps small restaurant owners track cash inflows and outflows, ensuring they can cover payroll, vendor payments, and day-to-day costs without falling behind.
-              </Typography>
-            </motion.div>
-
-            {/* Body copy - Tax Compliance */}
-            <motion.div {...fadeUp(0.46)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 4 }}>
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>5. Tax Compliance</Box><br />
-                Avoid costly IRS penalties and sales tax complications. Mila handles complete tax return preparation and filing for restaurant businesses—including income tax, sales tax, and payroll tax—ensuring full compliance and peace of mind.
+                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>Medical Practices</Box><br />
+                Whether you manage a small clinic or a multi-specialty practice, our accountants for medical professionals handle all aspects of your bookkeeping and financial reporting.
               </Typography>
             </motion.div>
 
             {/* Stats row */}
-            <motion.div {...fadeUp(0.50)}>
+            <motion.div {...fadeUp(0.42)}>
               <Box sx={{
                 display: 'inline-flex',
                 gap: 0,
@@ -173,7 +159,7 @@ const CCWhatIs = () => {
             }}>
               <img
                 src={healthcareImage}
-                alt="Bookkeeping & Accounting Services for Small Restaurants"
+                alt="Professional Accounting Services for Healthcare"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -190,4 +176,4 @@ const CCWhatIs = () => {
   );
 };
 
-export default CCWhatIs;
+export default HCWhatIs;

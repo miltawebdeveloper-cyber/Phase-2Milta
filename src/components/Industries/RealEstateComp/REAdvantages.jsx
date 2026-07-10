@@ -77,15 +77,7 @@ const REAdvantages = () => {
 
         {/* Header */}
         <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
-          <motion.div {...fadeUp(0)}>
-            <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
-              <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
-              <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                BENEFITS OF PROPERTY MANAGEMENT BOOKKEEPING SERVICES
-              </Typography>
-              <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
-            </Box>
-          </motion.div>
+          
           <motion.div {...fadeUp(0.08)}>
             <Typography variant="h2" sx={{
               fontSize: { xs: '1.75rem', md: '2.4rem' },
@@ -93,18 +85,10 @@ const REAdvantages = () => {
               color: '#ffffff', fontWeight: 900,
             }}>
               Benefits of Property Management{' '}
-              <Box component="span" sx={{ color: primary }}>Bookkeeping</Box>
+              <Box component="span" sx={{ color: primary }}>Bookkeeping Services</Box>
             </Typography>
           </motion.div>
-          <motion.div {...fadeUp(0.14)}>
-            <Typography sx={{
-              color: alpha('#fff', 0.5), fontSize: '0.88rem',
-              lineHeight: 1.75, fontFamily: '"Outfit", sans-serif',
-              maxWidth: 480, mx: 'auto', mt: 1.5,
-            }}>
-              Here's how property management bookkeeping keeps you organized, audit-ready, and ahead.
-            </Typography>
-          </motion.div>
+          
         </Box>
 
         {/* Bento grid: 2x2 layout since we have 4 items */}

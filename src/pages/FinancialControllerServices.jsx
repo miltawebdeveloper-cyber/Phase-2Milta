@@ -39,9 +39,6 @@ const VirtualAssistant = () => {
        <VASolutions />
          <VAAdvantages />
       <VAWhyChoose />
-     
-    
-      <VATrustedPartner />
       <VAFAQ />
       <Footer />
     <ScrollToTop />

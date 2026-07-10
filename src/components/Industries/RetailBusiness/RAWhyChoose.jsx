@@ -76,25 +76,14 @@ const RAWhyChoose = () => {
 
           {/* ── LEFT: sticky text panel ── */}
           <Box sx={{ flex: '0 0 auto', width: { xs: '100%', lg: 360 }, position: { lg: 'sticky' }, top: { lg: 80 } }}>
-            <motion.div {...fadeUp(0)}>
-              <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
-                <Box sx={{ width: 20, height: 2, borderRadius: 2, bgcolor: primary }} />
-                <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.72rem' }}>
-                  KEY FEATURES
-                </Typography>
-              </Box>
-            </motion.div>
+            
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 900, lineHeight: 1.18, letterSpacing: '-0.02em', mb: 2.5 }}>
                 Key Features of Our Retail{' '}
                 <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Accounting & Bookkeeping Services</Box>
               </Typography>
             </motion.div>
-            <motion.div {...fadeUp(0.18)}>
-              <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '0.95rem', lineHeight: 1.8, mb: 4, fontFamily: '"Outfit", sans-serif' }}>
-                Milta's retail-focused team handles inventory control, real-time sales tracking, and multi-channel operations — so you get accurate books without the overhead of an in-house team.
-              </Typography>
-            </motion.div>
+           
 
             {/* Stats */}
             <motion.div {...fadeUp(0.25)}>

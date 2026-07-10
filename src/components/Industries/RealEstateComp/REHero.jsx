@@ -44,7 +44,7 @@ const REHero = () => {
             >
               Accounting & Tax Services Built for
 {' '}
-              <Box component="span" sx={{ color: primary }}>Real Estate</Box>
+              <Box component="span" sx={{ color: primary }}>Real Estate Companies</Box>
             </Typography>
           </motion.div>
 

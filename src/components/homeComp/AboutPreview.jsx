@@ -214,15 +214,14 @@ const AboutPreview = () => {
                 >
                   Your Trusted{' '}
                   <Box component="span" sx={{ color: 'primary.main' }}>Partner</Box>
-                  {' '}for Outsourced Accounting & Bookkeeping
+                  {' '}for Outsourced Accounting & Bookkeeping Services
                 </Typography>
               </motion.div>
 
               {/* Body */}
               <motion.div {...fadeUp(0.18)}>
                 <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8, fontSize: '1rem' }}>
-                  At Milta Accounting Services, we build lasting partnerships through precision, reliability, and trust. Our offshore solutions simplify your finances — so you can focus on growth.
-                </Typography>
+At Milta Accounting Services, we believe in building lasting partnerships through precision, reliability, and trust. Our offshore accounting solutions simplify your business finances, so you can focus on what matters most — growth.                </Typography>
               </motion.div>
 
               {/* Highlights */}

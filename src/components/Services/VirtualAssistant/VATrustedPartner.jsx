@@ -20,7 +20,7 @@ const TRUST_POINTS = [
   {
     icon: TuneIcon,
     title: 'Customized Solutions',
-    desc: 'We recognize that every business has its own unique goals, challenges, and operational needs. That’s why our services are thoughtfully designed and fully customizable to align with your specific objectives. We take the time to understand your requirements in detail, allowing us to deliver tailored solutions that drive efficiency, improve performance, and support your growth. Our focus is not just on providing services, but on delivering measurable outcomes that create real value and long-term success for your business.',
+    desc: 'We recognize that every business has its own unique goals, challenges, and operational needs. That’s why our services are thoughtfully designed and fully customizable to align with your specific objectives.',
   },
   {
     icon: GroupsIcon,
@@ -35,12 +35,12 @@ const TRUST_POINTS = [
   {
     icon: LockIcon,
     title: 'Commitment to Confidentiality',
-    desc: 'Your business information is completely safe and secure with us. We understand the importance of confidentiality and treat your data with the highest level of care and responsibility. Our team follows strict data security protocols and industry best practices to ensure that all your information is protected from unauthorized access, misuse, or disclosure.',
+    desc: 'Your business information is completely safe and secure with us. We understand the importance of confidentiality and treat your data with the highest level of care and responsibility.',
   },
   {
     icon: TrendingUpIcon,
     title: 'Scalability',
-    desc: 'Our services are designed to grow alongside your business, providing consistent, reliable support as your needs evolve. We understand that every stage of your journey comes with new challenges and opportunities, which is why we offer flexible solutions customized to your changing requirements. Whether you’re just starting or scaling to the next level, our team is committed to adapting with you—ensuring seamless support, improved efficiency, and long-term success every step of the way.',
+    desc: 'Our services are designed to grow alongside your business, providing consistent, reliable support as your needs evolve. We understand that every stage of your journey comes with new challenges and opportunities, which is why we offer flexible solutions customized to your changing requirements.',
   },
   {
     icon: HandshakeIcon,
@@ -77,15 +77,7 @@ const VATrustedPartner = () => {
 
         <Container maxWidth={false} sx={{ maxWidth: '1300px', mx: 'auto', px: { xs: 3, md: 4 }, position: 'relative', zIndex: 1 }}>
           <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
-            <motion.div {...fadeUp(0)}>
-              <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
-                <Box sx={{ width: 24, height: 2, borderRadius: 2, bgcolor: primary }} />
-                <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.75rem' }}>
-                  YOUR TRUSTED PARTNER
-                </Typography>
-                <Box sx={{ width: 24, height: 2, borderRadius: 2, bgcolor: primary }} />
-              </Box>
-            </motion.div>
+           
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2, color: '#ffffff', maxWidth: 720, mx: 'auto', letterSpacing: '-0.02em' }}>
                 Why Choose Miltafs for{' '}

@@ -17,31 +17,11 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { 
-    icon: AccountBalanceIcon,       
-    title: 'Accrual and Fund Accounting Setup',     
-    desc: 'We set up accrual and fund accounting tailored to how your nonprofit operates and reports.' 
-  },
-  { 
-    icon: VolunteerActivismIcon,    
-    title: 'Segregated Grant & Donation Tracking', 
-    desc: 'Segregated tracking for grants, donations, and contributions keeps every fund accountable to donor intent.' 
-  },
-  { 
-    icon: AccountBalanceWalletIcon, 
-    title: 'Bank Reconciliations',                
-    desc: 'Regular bank reconciliations keep your books accurate and catch discrepancies early.' 
-  },
-  { 
-    icon: GavelIcon,                
-    title: 'IRS Reporting & Tax Preparation',     
-    desc: 'IRS reporting and nonprofit tax preparation handled accurately and filed on time.' 
-  },
-  { 
-    icon: SecurityIcon,             
-    title: 'Ongoing Compliance & Internal Audits', 
-    desc: 'Ongoing compliance support and internal audits keep your organization in good standing.' 
-  },
+  { icon: AccountBalanceIcon,       title: 'Accrual and fund accounting setup' },
+  { icon: VolunteerActivismIcon,    title: 'Segregated tracking for grants, donations, and contributions' },
+  { icon: AccountBalanceWalletIcon, title: 'Bank reconciliations' },
+  { icon: GavelIcon,                title: 'IRS reporting and nonprofit tax preparation' },
+  { icon: SecurityIcon,             title: 'Ongoing compliance and internal audits' },
 ];
 
 const STATS = [{ num: '6+', label: 'Years Experience' }, { num: '100+', label: 'Nonprofits Served' }, { num: '100%', label: 'Compliance Focus' }];
@@ -150,11 +130,8 @@ const NPWhyChoose = () => {
                     }}>
                       <Icon sx={{ fontSize: 22, color: primary }} />
                     </Box>
-                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '0.97rem', color: '#ffffff', mb: 1, lineHeight: 1.3 }}>
+                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '0.97rem', color: '#ffffff', lineHeight: 1.4 }}>
                       {card.title}
-                    </Typography>
-                    <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.84rem', lineHeight: 1.72, color: alpha('#fff', 0.58) }}>
-                      {card.desc}
                     </Typography>
                   </Box>
                 );
@@ -185,11 +162,8 @@ const NPWhyChoose = () => {
                     <Icon sx={{ fontSize: 24, color: '#fff' }} />
                   </Box>
                   <Box sx={{ flex: 1 }}>
-                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1rem', color: '#ffffff', mb: 0.5, lineHeight: 1.3 }}>
+                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1rem', color: '#ffffff', lineHeight: 1.4 }}>
                       {card.title}
-                    </Typography>
-                    <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.86rem', lineHeight: 1.7, color: alpha('#fff', 0.65) }}>
-                      {card.desc}
                     </Typography>
                   </Box>
                 </Box>

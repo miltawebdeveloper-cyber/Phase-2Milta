@@ -12,14 +12,14 @@ const fadeUp = (delay = 0) => ({
 });
 
 const FAQS = [
-  { q: 'What is accounting data entry, and why does my business need it?', a: 'Accounting data entry is the systematic recording of all financial transactions — invoices, receipts, payroll, bank activity — into your accounting system. Accurate data entry is the foundation of reliable financial reporting, US GAAP compliance, and sound business decision-making.' },
-  { q: 'How do you ensure accuracy in data entry?', a: 'We use a double-entry verification process where every transaction is reviewed and matched against source documents before being posted. Our reconciliation step catches any discrepancies before they reach your financial statements.' },
-  { q: 'What accounting software do you work with?', a: 'We support QuickBooks (Online and Desktop), Xero, Sage, FreshBooks, and most other major platforms. We also offer custom data entry solutions for businesses using proprietary or industry-specific software.' },
-  { q: 'How long does it take to process data entry tasks?', a: 'Standard turnaround is within 24–48 hours for regular monthly volumes. For catch-up bookkeeping or high-volume projects, we agree on a timeline upfront and provide regular progress updates.' },
-  { q: 'Is my financial data secure with your service?', a: 'Yes. We use advanced encryption, secure file-transfer protocols, and strict access controls. All data is handled under confidentiality agreements and stored in compliance with US data protection standards.' },
-  { q: 'Can you handle large or seasonal spikes in data volume?', a: 'Absolutely. Our team is designed to scale — whether you have a seasonal surge, a large catch-up project, or rapid business growth, we allocate additional resources to meet your deadlines without compromising accuracy.' },
-  { q: 'What types of businesses do you serve?', a: 'We work with small and medium-sized businesses across retail, e-commerce, professional services, hospitality, healthcare, and more. Our services are tailored to each industry\'s specific data entry and compliance requirements.' },
-  { q: 'How do I get started with your data entry services?', a: 'Simply reach out via our contact page to schedule a free consultation. We will assess your current workflow, discuss your needs, and propose a customized data entry plan that fits your budget and timeline.' },
+  { q: 'What is accounting data entry?', a: 'Accounting data entry involves recording financial transactions into organized systems for accurate reporting and analysis. It’s essential for maintaining up-to-date financial records.' },
+  { q: 'Why should I outsource accounting data entry?', a: 'Outsourcing saves time, reduces costs, and ensures accuracy by leveraging the expertise of professionals.' },
+  { q: 'Are your services customized for small businesses?', a: 'Yes, our services are specifically designed to meet the needs of small and medium-scale businesses in the USA.' },
+  { q: 'How do you ensure data security?', a: 'We use secure data transfer methods, encryption, and confidentiality agreements to protect your sensitive information.' },
+  { q: 'Can you handle customized data entry requests?', a: 'Absolutely! We offer customized alternatives to match your specific requirements.' },
+  { q: 'What software do you use for accounting data entry?', a: 'We work with leading accounting software like QuickBooks, Xero, and other custom platforms as per your preference.' },
+  { q: 'How quickly can you process my data?', a: 'Turnaround time depends on the volume of data, but we pride ourselves on delivering timely and efficient service.' },
+  { q: 'Is your team familiar with US accounting standards?', a: 'Yes, our staff is knowledgeable in US accounting rules and concepts.' },
 ];
 
 const DEFAQ = () => {

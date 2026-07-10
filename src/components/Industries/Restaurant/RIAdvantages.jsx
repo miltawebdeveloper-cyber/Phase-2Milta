@@ -7,6 +7,8 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import GavelIcon from '@mui/icons-material/Gavel';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -16,11 +18,13 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ADVANTAGES = [
-  { icon: RestaurantMenuIcon, title: 'Daily Sales Tracking',   desc: 'We track and categorize daily income by meal type, time slot, or service channel — revealing peak hours, customer preferences, and your most profitable menu items.' },
-  { icon: Inventory2Icon,     title: 'Inventory & Cost Control', desc: 'Every ounce and dollar counts. Inventory tracking and COGS calculations help you eliminate waste and control food costs.' },
-  { icon: ReceiptLongIcon,    title: 'Expense Monitoring',     desc: 'From payroll and food purchases to rent and utilities, we record and classify every transaction for full spending visibility.' },
-  { icon: ShowChartIcon,      title: 'Cash Flow Management',   desc: 'We track cash inflows and outflows so you can cover payroll, vendor payments, and day-to-day costs without falling behind.' },
-  { icon: GavelIcon,          title: 'Tax Compliance',         desc: 'Avoid costly IRS penalties and sales-tax complications — we handle income, sales, and payroll tax filing for full peace of mind.' },
+  { icon: RestaurantMenuIcon, title: 'Daily Sales & Expense Recording',   desc: 'We track every sale and expense daily, from food and beverage sales to dine-in versus delivery revenue. Transactions are categorized for real-time financial visibility, helping you identify trends and unusual spending early.' },
+  { icon: ReceiptLongIcon,    title: 'Vendor Invoice Management',         desc: 'Milta manages invoices from all your restaurant vendors—ingredients, beverages, and supplies—ensuring payments are tracked, matched, and reconciled to avoid missed or duplicate payments.' },
+  { icon: PaymentsIcon,       title: 'Tip Tracking & Payroll Reports',    desc: 'We handle payroll for tipped employees, including tip pooling, tax withholdings, and compliance with wage laws. Detailed payroll reports keep your restaurant audit-ready and accurate.' },
+  { icon: Inventory2Icon,     title: 'Inventory & COGS Calculation',      desc: 'Our team monitors inventory purchases and usage while calculating your Cost of Goods Sold (COGS), helping you understand food cost percentages and minimize waste or theft.' },
+  { icon: ShowChartIcon,      title: 'Cash Flow Monitoring',              desc: 'Milta tracks your inflows (sales) and outflows (payroll, rent, vendor bills) to maintain strong cash flow management—crucial for restaurants operating on thin margins.' },
+  { icon: GavelIcon,          title: 'Tax Returns for Restaurant Filing', desc: 'We prepare and file all relevant taxes—sales, payroll, and income—on time. Our team reduces the risk of errors, missed deadlines, and penalties while maximizing compliance.' },
+  { icon: AssessmentIcon,     title: 'Custom Financial Statements',       desc: 'We deliver clear and insightful financial reports, including Profit & Loss Statements, Balance Sheets, and Cash Flow Statements, helping with strategic decisions and lender or investor needs.' },
 ];
 
 const RIAdvantages = () => {
@@ -63,34 +67,18 @@ const RIAdvantages = () => {
 
         {/* Header */}
         <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
-          <motion.div {...fadeUp(0)}>
-            <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
-              <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
-              <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                THE BENEFITS
-              </Typography>
-              <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
-            </Box>
-          </motion.div>
+        
           <motion.div {...fadeUp(0.08)}>
             <Typography variant="h2" sx={{
               fontSize: { xs: '1.75rem', md: '2.4rem' },
               lineHeight: 1.2, letterSpacing: '-0.025em',
               color: '#ffffff', fontWeight: 900,
             }}>
-              Why Bookkeeping Matters for{' '}
-              <Box component="span" sx={{ color: primary }}>Small Restaurants</Box>
+              What’s Included in Milta’s{' '}
+              <Box component="span" sx={{ color: primary }}>Restaurant Bookkeeping Service</Box>
             </Typography>
           </motion.div>
-          <motion.div {...fadeUp(0.14)}>
-            <Typography sx={{
-              color: alpha('#fff', 0.5), fontSize: '0.88rem',
-              lineHeight: 1.75, fontFamily: '"Outfit", sans-serif',
-              maxWidth: 480, mx: 'auto', mt: 1.5,
-            }}>
-              Specialized bookkeeping gives small restaurants the clarity to control costs, stay compliant, and grow with confidence.
-            </Typography>
-          </motion.div>
+          
         </Box>
 
         {/* Bento grid: row1 [0](2col)+[1], row2 [2][3][4], row3 [5]+[6](2col) */}

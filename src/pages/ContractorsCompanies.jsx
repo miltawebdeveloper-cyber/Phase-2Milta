@@ -9,6 +9,7 @@ const CCWhatIs     = lazy(() => import('../components/Industries/ContractorsComp
 const CCSolutions  = lazy(() => import('../components/Industries/ContractorsComp/CCSolutions'));
 const CCWhyChoose  = lazy(() => import('../components/Industries/ContractorsComp/CCWhyChoose'));
 const CCAdvantages = lazy(() => import('../components/Industries/ContractorsComp/CCAdvantages'));
+const CCTrustedPartner = lazy(() => import('../components/Industries/ContractorsComp/CCTrustedPartner'));
 const CCFAQ        = lazy(() => import('../components/Industries/ContractorsComp/CCFAQ'));
 const CTASection   = lazy(() => import('../components/homeComp/CTASection'));
 const Footer       = lazy(() => import('../components/Footer'));
@@ -40,7 +41,8 @@ const ContractorsCompanies = () => {
       <ServicesSection />
       
       <CCAdvantages />
-      
+      <CCTrustedPartner />
+
       <CCFAQ />
       <CTASection />
       <Footer />

@@ -71,15 +71,7 @@ const HCAdvantages = () => {
 
         {/* Header */}
         <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
-          <motion.div {...fadeUp(0)}>
-            <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
-              <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
-              <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: '0.7rem' }}>
-                BENEFITS OF ACCOUNTING SERVICES FOR HEALTHCARE PROFESSIONALS
-              </Typography>
-              <Box sx={{ width: 18, height: 2, borderRadius: 2, bgcolor: primary }} />
-            </Box>
-          </motion.div>
+        
           <motion.div {...fadeUp(0.08)}>
             <Typography variant="h2" sx={{
               fontSize: { xs: '1.75rem', md: '2.4rem' },
@@ -90,15 +82,7 @@ const HCAdvantages = () => {
               <Box component="span" sx={{ color: primary }}>Healthcare Professionals</Box>
             </Typography>
           </motion.div>
-          <motion.div {...fadeUp(0.14)}>
-            <Typography sx={{
-              color: alpha('#fff', 0.5), fontSize: '0.88rem',
-              lineHeight: 1.75, fontFamily: '"Outfit", sans-serif',
-              maxWidth: 480, mx: 'auto', mt: 1.5,
-            }}>
-              From time savings to specialized expertise—discover how our accounting services empower healthcare providers.
-            </Typography>
-          </motion.div>
+         
         </Box>
 
         {/* 3-column grid for 3 items */}

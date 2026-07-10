@@ -8,6 +8,7 @@ import useFullSEO from '../utils/useFullSEO';
 const DMWhatIs        = lazy(() => import('../components/Services/DigitalMarketingComp/DMWhatIs'));
 const DMWhyChoose     = lazy(() => import('../components/Services/DigitalMarketingComp/DMWhyChoose'));
 const DMSolutions     = lazy(() => import('../components/Services/DigitalMarketingComp/DMSolutions'));
+const DMImportance    = lazy(() => import('../components/Services/DigitalMarketingComp/DMImportance'));
 const DMAdvantages    = lazy(() => import('../components/Services/DigitalMarketingComp/DMAdvantages'));
 const DMTrustedPartner = lazy(() => import('../components/Services/DigitalMarketingComp/DMTrustedPartner'));
 const DMFAQ           = lazy(() => import('../components/Services/DigitalMarketingComp/DMFAQ'));
@@ -38,10 +39,11 @@ const DigitalMarketing = () => {
     
       <DMWhatIs />
        <DMSolutions />
+      <DMImportance />
       <DMWhyChoose />
      
       <DMAdvantages />
-      <DMTrustedPartner />
+     
       <DMFAQ />
       <CTASection />
       <Footer />

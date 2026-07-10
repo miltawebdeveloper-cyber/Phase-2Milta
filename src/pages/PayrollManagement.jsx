@@ -8,6 +8,9 @@ import useFullSEO from '../utils/useFullSEO';
 const PMWhatIs        = lazy(() => import('../components/Services/PayrollManagementComp/PMWhatIs'));
 const PMWhyChoose     = lazy(() => import('../components/Services/PayrollManagementComp/PMWhyChoose'));
 const PMSolutions     = lazy(() => import('../components/Services/PayrollManagementComp/PMSolutions'));
+const PMHowItWorks    = lazy(() => import('../components/Services/PayrollManagementComp/PMHowItWorks'));
+const PMBestPractices = lazy(() => import('../components/Services/PayrollManagementComp/PMBestPractices'));
+const PMEssential     = lazy(() => import('../components/Services/PayrollManagementComp/PMEssential'));
 const PMAdvantages    = lazy(() => import('../components/Services/PayrollManagementComp/PMAdvantages'));
 const PMTrustedPartner = lazy(() => import('../components/Services/PayrollManagementComp/PMTrustedPartner'));
 const PMFAQ           = lazy(() => import('../components/Services/PayrollManagementComp/PMFAQ'));
@@ -37,10 +40,13 @@ const PayrollManagement = () => {
     <BKHero />
     
       <PMWhatIs />
-      <PMWhyChoose />
+      <PMHowItWorks />
       <PMSolutions />
-      <PMAdvantages />
-      <PMTrustedPartner />
+      <PMWhyChoose />
+       <PMEssential />
+      <PMBestPractices />
+   
+     
       <PMFAQ />
       <CTASection />
       <Footer />
