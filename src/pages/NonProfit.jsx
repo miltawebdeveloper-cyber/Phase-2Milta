@@ -24,12 +24,12 @@ const NonProfit = () => {
     keywords:
       'nonprofit accounting, fund accounting, grant tracking, form 990, nonprofit bookkeeping, milta nonprofit organizations',
     author: 'Milta Accounting',
-    canonical: 'https://www.miltafs.com/us/industries/non-profit-organizations/',
+    canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-nonprofit-organizations/',
     ogTitle: 'Accounting for Nonprofit Organizations | Milta Financial Services',
     ogDescription:
       'Fund accounting, grant tracking and Form 990-ready reporting to keep your nonprofit transparent and compliant.',
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
-    ogUrl: 'https://www.miltafs.com/us/industries/non-profit-organizations/',
+    ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-nonprofit-organizations/',
     ogType: 'website',
   });
 
@@ -39,7 +39,7 @@ const NonProfit = () => {
     <NPHero />
     <Suspense fallback={null}>
       <NPWhatIs />
-      <NPSolutions />
+      
       <ServicesSection />
       <NPWhyChoose />
 

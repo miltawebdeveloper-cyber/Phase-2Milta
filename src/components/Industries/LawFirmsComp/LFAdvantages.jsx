@@ -7,8 +7,6 @@ import SecurityIcon from '@mui/icons-material/Security';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import CloudIcon from '@mui/icons-material/Cloud';
 import SavingsIcon from '@mui/icons-material/Savings';
-import InsightsIcon from '@mui/icons-material/Insights';
-import BarChartIcon from '@mui/icons-material/BarChart';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -18,32 +16,11 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ADVANTAGES = [
-  { 
-    icon: GavelIcon,       
-    title: 'Specialized Expertise in Legal Accounting',     
-    desc: 'Our team understands the complexities of law firm accounting, including trust fund management, retainers, client escrow accounts, and partner distributions. We ensure every dollar is tracked accurately and ethically.' 
-  },
-  { 
-    icon: SecurityIcon,    
-    title: 'Compliance with Legal and Tax Regulations',        
-    desc: 'Mila ensures your books comply with IOLTA trust accounting rules, IRS standards, and local bar association requirements. Stay compliant and ready for audits with zero stress.' 
-  },
-  { 
-    icon: CalculateIcon,   
-    title: 'Strategic Tax Planning & Preparation',                
-    desc: 'We help law firms reduce tax liabilities through strategic planning, accurate quarterly estimates, and year-end filings. Our proactive approach maximizes deductions while maintaining compliance.' 
-  },
-  { 
-    icon: CloudIcon,       
-    title: 'Integration with Legal Practice Management Software',         
-    desc: 'Mila seamlessly integrates with industry tools like Clio, LEAP, and MyCase—syncing your accounting and case management systems for real-time financial insights.' 
-  },
-  { 
-    icon: SavingsIcon,     
-    title: 'Cost-Effective Outsourcing Solution',                          
-    desc: 'Save on in-house accounting expenses by outsourcing to Mila. We provide professional bookkeeping at a fraction of the cost—without sacrificing accuracy or control.' 
-  },
-  
+  { icon: GavelIcon,     title: 'Expertise in bookkeeping for law firms' },
+  { icon: SecurityIcon,  title: 'Compliance with tax and legal reporting standards' },
+  { icon: CalculateIcon, title: 'Support for tax planning law firm strategies' },
+  { icon: CloudIcon,     title: 'Seamless integration with platforms like Clio and LEAP' },
+  { icon: SavingsIcon,   title: 'Cost savings compared to hiring in-house staff' },
 ];
 
 const LFAdvantages = () => {
@@ -102,8 +79,8 @@ const LFAdvantages = () => {
             </Typography>
           </motion.div>
           <motion.div {...fadeUp(0.14)}>
-            <Typography sx={{ color: alpha('#fff', 0.5), fontSize: '0.88rem', lineHeight: 1.75, fontFamily: '"Outfit", sans-serif', maxWidth: 480, mx: 'auto', mt: 1.5 }}>
-              Legal accounting is complex. Outsourcing to Milta gives your firm expert financial management so attorneys can focus on what they do best.
+            <Typography sx={{ color: alpha('#fff', 0.5), fontSize: '0.88rem', lineHeight: 1.75, fontFamily: '"Outfit", sans-serif', maxWidth: 760, mx: 'auto', mt: 1.5 }}>
+              Legal accounting is complex. Whether it’s handling retainers, trust fund transactions, or partner profit sharing, law firm financials require more than generic solutions. Outsourcing your accounting tasks to Milta provides your organization with the following benefits:
             </Typography>
           </motion.div>
         </Box>
@@ -166,13 +143,10 @@ const LFAdvantages = () => {
                   <Typography className="adv-title" sx={{
                     fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700,
                     fontSize: isWide ? { xs: '0.95rem', md: '1.05rem' } : '0.88rem',
-                    color: '#ffffff', mb: 0.75, lineHeight: 1.3,
+                    color: '#ffffff', lineHeight: 1.3,
                     transition: 'color 0.25s ease',
                   }}>
                     {adv.title}
-                  </Typography>
-                  <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.78rem', lineHeight: 1.7, color: alpha('#fff', 0.5) }}>
-                    {adv.desc}
                   </Typography>
                 </Box>
               </Box>

@@ -78,18 +78,38 @@ const TaxFAQ = () => {
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.8rem' }, lineHeight: 1.2 }}>
-              Frequently Asked{' '}
-              <Box component="span" sx={{ color: primary }}>Questions</Box>
+              Faq's{' '}
+              <Box component="span" sx={{ color: primary }}>About Milta Tax Planning and Preparation Services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</Box>
             </Typography>
           </motion.div>
         </Box>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: { xs: 1.5, md: 3 }, alignItems: 'start' }}>
-          {[FAQS.slice(0, 3), FAQS.slice(3)].map((col, colIdx) => (
-            <Box key={colIdx} sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-              {col.map((faq, rowIdx) => {
-                const i = colIdx * 3 + rowIdx;
-                return (
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, maxWidth: 860, mx: 'auto' }}>
+          {FAQS.map((faq, i) => (
                   <motion.div key={i} {...fadeUp(i * 0.04)}>
                     <Accordion
                       expanded={expanded === `faq-${i}`}
@@ -149,9 +169,6 @@ const TaxFAQ = () => {
                       </AccordionDetails>
                     </Accordion>
                   </motion.div>
-                );
-              })}
-            </Box>
           ))}
         </Box>
 

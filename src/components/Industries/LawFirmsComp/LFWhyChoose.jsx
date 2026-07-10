@@ -2,11 +2,11 @@ import React from 'react';
 import { Box, Container, Typography, Stack, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
-import GavelIcon from '@mui/icons-material/Gavel';
-import TuneIcon from '@mui/icons-material/Tune';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+import LowPriorityIcon from '@mui/icons-material/LowPriority';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
 import DevicesIcon from '@mui/icons-material/Devices';
-import SavingsIcon from '@mui/icons-material/Savings';
-import VerifiedIcon from '@mui/icons-material/Verified';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const fadeUp = (delay = 0) => ({
@@ -17,31 +17,11 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CARDS = [
-  { 
-    icon: GavelIcon,    
-    title: 'Expertise in Law Firm Accounting',  
-    desc: 'We understand the legal industry\'s accounting requirements inside and out.' 
-  },
-  { 
-    icon: TuneIcon,     
-    title: 'Customized Services',               
-    desc: 'Every law firm is different, and so is our approach.' 
-  },
-  { 
-    icon: DevicesIcon,  
-    title: 'Software Integration',              
-    desc: 'Seamless syncing with legal tech tools for better efficiency.' 
-  },
-  { 
-    icon: SavingsIcon,  
-    title: 'Affordable Solutions',              
-    desc: 'We offer flexible plans that reduce your overhead costs.' 
-  },
-  { 
-    icon: VerifiedIcon, 
-    title: 'Accuracy & Compliance',             
-    desc: 'Stay audit-ready and compliant with every report we deliver.' 
-  },
+  { icon: ReceiptLongIcon, title: 'Accurate and timely expense entries' },
+  { icon: HandshakeIcon,   title: 'Vendor payment term negotiations' },
+  { icon: LowPriorityIcon, title: 'Strategic prioritization of outgoing payments' },
+  { icon: FactCheckIcon,   title: 'Routine review of accounts payable' },
+  { icon: DevicesIcon,     title: 'Using accounting software to eliminate errors and increase efficiency.' },
 ];
 
 const STATS = [
@@ -74,16 +54,21 @@ const LFWhyChoose = () => {
 
           {/* LEFT: sticky text panel */}
           <Box sx={{ flex: '0 0 auto', width: { xs: '100%', lg: 360 }, position: { lg: 'sticky' }, top: { lg: 80 } }}>
-           
+
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 900, lineHeight: 1.18, letterSpacing: '-0.02em', mb: 2.5 }}>
-                Advantages of Law Firm{' '}
-                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Bookkeeping Services</Box>
+                What Are Payables in a{' '}
+                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Law Firm?</Box>
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.18)}>
+              <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '0.95rem', lineHeight: 1.8, mb: 2.5, fontFamily: '"Outfit", sans-serif' }}>
+                Payables represent the money your law firm owes to vendors, suppliers, and employees. This includes rent, utility bills, office equipment, consultant fees, and more.
+              </Typography>
+            </motion.div>
+            <motion.div {...fadeUp(0.22)}>
               <Typography sx={{ color: alpha('#fff', 0.6), fontSize: '0.95rem', lineHeight: 1.8, mb: 4, fontFamily: '"Outfit", sans-serif' }}>
-                Milta is a trusted provider of bookkeeping services for lawyers across the United States. We help law firms streamline financial management, maintain compliance, and focus more on client advocacy than administrative work.
+                Managing payables correctly helps maintain vendor relationships, avoid late fees, and preserve the financial health of the firm.
               </Typography>
             </motion.div>
 
@@ -116,8 +101,14 @@ const LFWhyChoose = () => {
             </motion.div>
           </Box>
 
-          {/* RIGHT: 2×2 glass card grid + 1 wide card */}
+          {/* RIGHT: lead-in + 2×2 glass card grid + 1 wide card */}
           <Box sx={{ flex: 1 }}>
+            <motion.div {...fadeUp(0.08)}>
+              <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1.05rem', color: '#ffffff', mb: 2.5, lineHeight: 1.4 }}>
+                Effective law firm bookkeeping includes:
+              </Typography>
+            </motion.div>
+
             <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2, mb: 2 }}>
               {CARDS.slice(0, 4).map((card, i) => {
                 const Icon = card.icon;
@@ -150,11 +141,8 @@ const LFWhyChoose = () => {
                     }}>
                       <Icon sx={{ fontSize: 22, color: primary }} />
                     </Box>
-                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '0.97rem', color: '#ffffff', mb: 1, lineHeight: 1.3 }}>
+                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '0.97rem', color: '#ffffff', lineHeight: 1.3 }}>
                       {card.title}
-                    </Typography>
-                    <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.84rem', lineHeight: 1.72, color: alpha('#fff', 0.58) }}>
-                      {card.desc}
                     </Typography>
                   </Box>
                 );
@@ -183,11 +171,8 @@ const LFWhyChoose = () => {
                     <Icon sx={{ fontSize: 24, color: '#fff' }} />
                   </Box>
                   <Box sx={{ flex: 1 }}>
-                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1rem', color: '#ffffff', mb: 0.5, lineHeight: 1.3 }}>
+                    <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: '1rem', color: '#ffffff', lineHeight: 1.3 }}>
                       {card.title}
-                    </Typography>
-                    <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.86rem', lineHeight: 1.7, color: alpha('#fff', 0.65) }}>
-                      {card.desc}
                     </Typography>
                   </Box>
                 </Box>

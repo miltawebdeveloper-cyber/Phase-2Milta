@@ -24,12 +24,12 @@ const LawFirms = () => {
     keywords:
       'accounting for law firms, legal bookkeeping, iolta trust accounting, attorney accounting services, milta law firms',
     author: 'Milta Accounting',
-    canonical: 'https://www.miltafs.com/us/industries/law-firms/',
+    canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-lawfirms/',
     ogTitle: 'Accounting & Bookkeeping for Law Firms | Milta Financial Services',
     ogDescription:
       'Trust accounting, IOLTA compliance and accurate bookkeeping so attorneys stay compliant and focused on clients.',
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
-    ogUrl: 'https://www.miltafs.com/us/industries/law-firms/',
+    ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-lawfirms/',
     ogType: 'website',
   });
 

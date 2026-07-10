@@ -149,14 +149,14 @@ const Footer = () => {
             </Typography>
             <Stack spacing={1.8}>
               {[
-                { text: 'Contractors',    path: '/us/industries/contractors-companies/' },
-                { text: 'Real Estate',    path: '/us/industries/real-estate-companies/' },
-                { text: 'Manufacturing',  path: '/us/industries/manufacturing-companies/' },
-                { text: 'Healthcare',     path: '/us/industries/health-care-industry/' },
-                { text: 'Non-Profit',     path: '/us/industries/non-profit-organizations/' },
-                { text: 'Restaurant',      path: '/us/industries/restaurant-industry/' },
-                { text: 'Retail Business', path: '/us/industries/retail-business/' },
-                { text: 'Law Firms',      path: '/us/industries/law-firms/' },
+                { text: 'Contractors',    path: '/us/industry/bookkeeping-for-contractors-companies/' },
+                { text: 'Real Estate',    path: '/us/industry/bookkeeping-for-real-estate-companies/' },
+                { text: 'Manufacturing',  path: '/us/industry/accounting-services-for-manufacturing/' },
+                { text: 'Healthcare',     path: '/us/industry/accounting-services-for-healthcare/' },
+                { text: 'Non-Profit',     path: '/us/industry/accounting-services-for-nonprofit-organizations/' },
+                { text: 'Restaurant',      path: '/us/industry/accounting-services-for-restaurant-businesses/' },
+                { text: 'Retail Business', path: '/us/industry/accounting-services-for-retail-businesses/' },
+                { text: 'Law Firms',      path: '/us/industry/accounting-services-for-lawfirms/' },
               ].map(({ text, path }) => (
                 <Link key={text} component={RouterLink} to={path} underline="none" sx={linkSx}>{text}</Link>
               ))}

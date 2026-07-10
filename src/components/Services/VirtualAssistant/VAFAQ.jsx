@@ -60,44 +60,37 @@ const VAFAQ = () => {
           </motion.div>
         </Box>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: { xs: 1.5, md: 3 }, alignItems: 'start' }}>
-          {[FAQS.slice(0, 3), FAQS.slice(3)].map((col, colIdx) => (
-            <Box key={colIdx} sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-              {col.map((faq, rowIdx) => {
-                const i = colIdx * 3 + rowIdx;
-                return (
-                  <motion.div key={i} {...fadeUp(i * 0.04)}>
-                    <Accordion
-                      expanded={expanded === `faq-${i}`}
-                      onChange={handleChange(`faq-${i}`)}
-                      elevation={0}
-                      sx={{
-                        borderRadius: '14px !important',
-                        border: `1px solid ${expanded === `faq-${i}` ? alpha(primary, 0.3) : 'rgba(0,0,0,0.07)'}`,
-                        bgcolor: expanded === `faq-${i}` ? alpha(primary, 0.06) : 'background.default',
-                        transition: 'all 0.25s ease',
-                        '&:before': { display: 'none' },
-                        overflow: 'hidden',
-                      }}
-                    >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon sx={{ color: primary }} />}
-                        sx={{ px: 3, py: 0.5, '& .MuiAccordionSummary-content': { my: 1.5 } }}
-                      >
-                        <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: { xs: '0.9rem', md: '0.97rem' }, color: 'text.primary', lineHeight: 1.4 }}>
-                          {faq.q}
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails sx={{ px: 3, pb: 3, pt: 0 }}>
-                        <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.9rem', lineHeight: 1.8, color: 'text.secondary' }}>
-                          {faq.a}
-                        </Typography>
-                      </AccordionDetails>
-                    </Accordion>
-                  </motion.div>
-                );
-              })}
-            </Box>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, maxWidth: 860, mx: 'auto' }}>
+          {FAQS.map((faq, i) => (
+            <motion.div key={i} {...fadeUp(i * 0.04)}>
+              <Accordion
+                expanded={expanded === `faq-${i}`}
+                onChange={handleChange(`faq-${i}`)}
+                elevation={0}
+                sx={{
+                  borderRadius: '14px !important',
+                  border: `1px solid ${expanded === `faq-${i}` ? alpha(primary, 0.3) : 'rgba(0,0,0,0.07)'}`,
+                  bgcolor: expanded === `faq-${i}` ? alpha(primary, 0.06) : 'background.default',
+                  transition: 'all 0.25s ease',
+                  '&:before': { display: 'none' },
+                  overflow: 'hidden',
+                }}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon sx={{ color: primary }} />}
+                  sx={{ px: 3, py: 0.5, '& .MuiAccordionSummary-content': { my: 1.5 } }}
+                >
+                  <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: { xs: '0.9rem', md: '0.97rem' }, color: 'text.primary', lineHeight: 1.4 }}>
+                    {faq.q}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{ px: 3, pb: 3, pt: 0 }}>
+                  <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: '0.9rem', lineHeight: 1.8, color: 'text.secondary' }}>
+                    {faq.a}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </motion.div>
           ))}
         </Box>
 

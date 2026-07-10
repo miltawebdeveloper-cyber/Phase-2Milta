@@ -11,7 +11,7 @@ import GavelIcon from '@mui/icons-material/Gavel';
 import InsightsIcon from '@mui/icons-material/Insights';
 import GroupsIcon from '@mui/icons-material/Groups';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import CloudIcon from '@mui/icons-material/Cloud';
+import PaymentsIcon from '@mui/icons-material/Payments';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -21,55 +21,55 @@ const fadeUp = (delay = 0) => ({
 });
 
 const ELEMENTS = [
-  { 
-    icon: AccountTreeIcon,  
-    title: 'Project-Based Accounting',           
-    desc: 'In the construction industry, every job is different. That\'s why bookkeeping for construction companies revolves around project-based accounting—tracking income, expenses, and profitability for each project. This method ensures better cost control and more accurate estimates for future jobs.' 
+  {
+    icon: AccountBalanceIcon,
+    title: 'Trust Accounting',
+    desc: 'Ensuring client funds are separated and compliant with legal standards.'
   },
-  { 
-    icon: ReceiptLongIcon,     
-    title: 'Expense Management',           
-    desc: 'Managing day-to-day expenses—like materials, labor, and overhead—is crucial in bookkeeping for small construction businesses. Categorizing and approving each cost helps maintain budgets and avoid overspending.' 
+  {
+    icon: ReceiptLongIcon,
+    title: 'Expense Tracking',
+    desc: 'Monitoring rent, salaries, overheads, and case-related costs.'
   },
-  { 
-    icon: AccessTimeIcon,      
-    title: 'Payroll Processing',      
-    desc: 'Construction businesses often juggle both full-time employees and subcontractors. Automated payroll solutions ensure timely payments, accurate tax deductions, and compliance with labor regulations.' 
+  {
+    icon: AccessTimeIcon,
+    title: 'Timekeeping & Billing',
+    desc: 'Ensuring accurate tracking of billable hours for each attorney.'
   },
-  { 
-    icon: TrendingUpIcon,        
-    title: 'Invoicing & Payment Tracking',        
-    desc: 'Bookkeeping for contractors includes setting up invoice templates, tracking outstanding balances, and integrating payment platforms for better cash flow and transparency.' 
+  {
+    icon: TrendingUpIcon,
+    title: 'Income Tracking',
+    desc: 'Recording revenue from client fees, settlements, and awards.'
   },
-  { 
-    icon: GavelIcon,           
-    title: 'Tax Compliance & Planning', 
-    desc: 'Organized bookkeeping ensures deductible expenses are captured and tax filings are on time. Proper tax planning helps contractors minimize liabilities and stay audit-ready.' 
+  {
+    icon: BarChartIcon,
+    title: 'Financial Reporting',
+    desc: 'Preparing detailed balance sheets, income statements, and cash flow reports.'
   },
-  { 
-    icon: InsightsIcon,        
-    title: 'Equipment & Asset Tracking',    
-    desc: 'Contractors rely heavily on machinery. Good bookkeeping tracks asset purchases, depreciation, and maintenance schedules for accurate reporting.' 
+  {
+    icon: GavelIcon,
+    title: 'Tax Planning & Preparation',
+    desc: 'We provide accurate tax return preparation for retail businesses, including comprehensive year-end financial reporting. Our retail tax experts ensure compliance, maximize deductions, and support strategic planning for the next fiscal year.'
   },
-  { 
-    icon: AccountBalanceIcon,  
-    title: 'Bank Reconciliation',         
-    desc: 'Regular bank reconciliations catch errors early, prevent fraud, and ensure financial reports remain accurate.' 
+  {
+    icon: InsightsIcon,
+    title: 'Budgeting & Forecasting',
+    desc: 'Providing insights for growth and long-term planning.'
   },
-  { 
-    icon: BarChartIcon,        
-    title: 'Financial Reporting',         
-    desc: 'Cash flow reports, balance sheets, and profit/loss statements help guide project bids, budgeting, and overall business strategy.' 
+  {
+    icon: GroupsIcon,
+    title: 'Partner Profit Sharing',
+    desc: 'Managing partner compensation based on custom formulas.'
   },
-  { 
-    icon: GroupsIcon,          
-    title: 'Subcontractor Payments & Compliance', 
-    desc: 'Managing subcontractors requires accurate tracking of contracts, payments, and 1099s to maintain legal compliance and transparency.' 
+  {
+    icon: AccountTreeIcon,
+    title: 'Branch Accounting',
+    desc: 'The process of keeping records for every place where your company operates.'
   },
-  { 
-    icon: CloudIcon,           
-    title: 'Cloud-Based Bookkeeping Tools', 
-    desc: 'Modern bookkeeping solutions allow real-time data sharing, automate reporting, and provide 24/7 access for contractors in the field.' 
+  {
+    icon: PaymentsIcon,
+    title: 'Payroll Management',
+    desc: 'Handling staff costs, benefits, and tax withholdings.'
   },
 ];
 
@@ -96,11 +96,16 @@ const LFSolutions = () => {
          
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2 }}>
-              Key Elements of Bookkeeping for{' '}
-              <Box component="span" sx={{ color: primary }}>Contractor Businesses</Box>
+              Our Law Firm{' '}
+              <Box component="span" sx={{ color: primary }}>Bookkeeping Services</Box>
             </Typography>
           </motion.div>
-          
+          <motion.div {...fadeUp(0.18)}>
+            <Typography sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8, maxWidth: 720, mx: 'auto', mt: 2, fontFamily: '"Outfit", sans-serif' }}>
+              Milta offers a full range of bookkeeping and accounting services for lawyers and law firms, including:
+            </Typography>
+          </motion.div>
+
         </Box>
 
         {/* TIER 1: 2 large featured cards */}

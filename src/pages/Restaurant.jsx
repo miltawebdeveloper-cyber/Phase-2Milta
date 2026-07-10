@@ -23,12 +23,12 @@ const Restaurant = () => {
     keywords:
       'restaurant accounting, food cost tracking, restaurant bookkeeping, tip payroll, restaurant cpa, milta restaurant industry',
     author: 'Milta Accounting',
-    canonical: 'https://www.miltafs.com/us/industries/restaurant-industry/',
+    canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-restaurant-businesses/',
     ogTitle: 'Accounting for the Restaurant Industry | Milta Financial Services',
     ogDescription:
       'Food-cost tracking, tip and payroll management and daily sales reconciliation to protect your margins.',
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
-    ogUrl: 'https://www.miltafs.com/us/industries/restaurant-industry/',
+    ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-restaurant-businesses/',
     ogType: 'website',
   });
 

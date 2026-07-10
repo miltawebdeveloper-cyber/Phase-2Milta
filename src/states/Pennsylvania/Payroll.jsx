@@ -89,7 +89,7 @@ export default function PayrollPennsylvania() {
           titleLead: "Trusted Payroll Data",
           highlight: "Security & Compliance",
           subtitle:
-            "Protecting payroll data is critical. Our payroll management system is built with strong security and compliance controls, including role-based access, routine password updates, identity protection, fraud prevention, and continuous monitoring. Your payroll information is handled with the highest level of confidentiality.",
+            "Protecting payroll data is critical. Our payroll management system is built with strong security and compliance controls, including role-based access, authentication, identity protection, fraud prevention, and continuous system monitoring.",
           items: ["Role-Based Access", "Routine Password Updates", "Identity Protection", "Fraud Prevention & Monitoring"],
         },
       ]}

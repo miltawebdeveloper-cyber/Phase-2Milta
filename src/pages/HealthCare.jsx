@@ -24,12 +24,12 @@ const HealthCare = () => {
     keywords:
       'healthcare accounting, medical practice bookkeeping, medical billing reconciliation, healthcare payroll, milta healthcare industry',
     author: 'Milta Accounting',
-    canonical: 'https://www.miltafs.com/us/industries/health-care-industry/',
+    canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-healthcare/',
     ogTitle: 'Accounting for the Healthcare Industry | Milta Financial Services',
     ogDescription:
       'Medical billing reconciliation, payroll and compliant bookkeeping to keep your practice financially healthy.',
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
-    ogUrl: 'https://www.miltafs.com/us/industries/health-care-industry/',
+    ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-healthcare/',
     ogType: 'website',
   });
 

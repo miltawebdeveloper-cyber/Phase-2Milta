@@ -88,7 +88,7 @@ export default function PayrollVirginia() {
           titleLead: "Trusted Payroll Data",
           highlight: "Security & Compliance",
           subtitle:
-            "Protecting payroll data is critical. Our payroll management system is built with strong security and compliance controls.",
+            "Protecting payroll data is critical. Our payroll management system is built with strong security and compliance controls, including role-based access, authentication, identity protection, fraud prevention, and continuous system monitoring.",
           items: ["Role-Based Access & Authentication", "Identity Protection", "Fraud Prevention", "Continuous System Monitoring"],
         },
       ]}

@@ -24,7 +24,7 @@ const STATS = [
   { num: '10y+', label: 'Experience' },
 ];
 
-const CCWhatIs = () => {
+const LFWhatIs = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
 
@@ -47,9 +47,9 @@ const CCWhatIs = () => {
               textAlign: 'center',
             }}
           >
-            Accounting and Bookkeeping for{' '}
+            Law Firm Bookkeeping and{' '}
             <Box component="span" sx={{ color: primary }}>
-              Contractors
+              Accounting Services
             </Box>
           </Typography>
         </motion.div>
@@ -66,28 +66,14 @@ const CCWhatIs = () => {
             {/* Body copy - Paragraph 1 */}
             <motion.div {...fadeUp(0.18)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                Contractors are self-employed professionals or businesses engaged to complete specific tasks or projects based on a contractual agreement. They may work across various sectors, including IT, consulting, and construction, and are typically responsible for managing their taxes and benefits.
+                Lawyers and law firms are busy professionals who often don’t have the time, or shouldn’t spend their time, on financial management tasks like bookkeeping and accounting. However, accurate financial reporting is essential for legal practices to stay compliant and thrive.
               </Typography>
             </motion.div>
 
             {/* Body copy - Paragraph 2 */}
             <motion.div {...fadeUp(0.22)}>
-              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                Accounting and bookkeeping for contractors means keeping track of all money-related activities, like recording income and expenses, handling payroll, and preparing for taxes. Accurate records help contractors keep track of project costs, control cash flow, and produce reliable financial reports. Good bookkeeping also makes it easier to stay compliant with laws, match bank records, and send correct invoices to clients.
-              </Typography>
-            </motion.div>
-
-            {/* Body copy - Paragraph 3 */}
-            <motion.div {...fadeUp(0.26)}>
-              <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 2 }}>
-                Tools like QuickBooks can simplify the process by automating routine tasks like expense tracking, tax calculations, and financial reporting. Many contractors choose to outsource their bookkeeping to save time, reduce administrative stress, and ensure the accuracy of their financial data, so they can focus on delivering projects and growing their business.
-              </Typography>
-            </motion.div>
-
-            {/* Body copy - Paragraph 4 */}
-            <motion.div {...fadeUp(0.30)}>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.97rem', lineHeight: 1.88, fontFamily: '"Outfit", sans-serif', mb: 4 }}>
-                In addition, well-structured accounting helps contractors with budgeting, profit analysis, and managing payments to subcontractors. Keeping financial records organized makes tax season more manageable and minimizes the risk of costly mistakes. With cloud-based accounting solutions, contractors can access real-time financial insights from anywhere, enhancing overall decision-making and operational efficiency.
+                At Milta, we specialize in law firm bookkeeping services and understand the unique financial landscape legal professionals operate within. From trust accounting to integration with practice management software, our bookkeeping services for lawyers are customized to meet the specific needs of legal practices.
               </Typography>
             </motion.div>
 
@@ -138,7 +124,7 @@ const CCWhatIs = () => {
             }}>
               <img
   src={lawFirmsImage}
-  alt="Accounting and Bookkeeping for Contractors"
+  alt="Law Firm Bookkeeping and Accounting Services"
   style={{
     width: '100%',
     height: '100%',
@@ -155,4 +141,4 @@ const CCWhatIs = () => {
   );
 };
 
-export default CCWhatIs;
+export default LFWhatIs;

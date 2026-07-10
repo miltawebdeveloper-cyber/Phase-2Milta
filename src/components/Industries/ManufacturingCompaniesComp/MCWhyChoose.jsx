@@ -87,7 +87,7 @@ const MCWhyChoose = () => {
             <motion.div {...fadeUp(0.1)}>
               <Typography variant="h2" sx={{ color: '#ffffff', fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 900, lineHeight: 1.18, letterSpacing: '-0.02em', mb: 2.5 }}>
                 Advantages of Choosing Milta for{' '}
-                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Manufacturing Accounting</Box>
+                <Box component="span" sx={{ color: alpha(primary, 0.9) }}>Manufacturing Accounting Needs</Box>
               </Typography>
             </motion.div>
             <motion.div {...fadeUp(0.18)}>

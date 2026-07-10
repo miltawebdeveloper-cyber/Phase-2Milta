@@ -40,10 +40,7 @@ const DigitalMarketing = () => {
       <DMWhatIs />
        <DMSolutions />
       <DMImportance />
-      <DMWhyChoose />
-     
-      <DMAdvantages />
-     
+      <DMWhyChoose />    
       <DMFAQ />
       <CTASection />
       <Footer />

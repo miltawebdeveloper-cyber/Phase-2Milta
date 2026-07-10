@@ -14,35 +14,35 @@ const fadeUp = (delay = 0) => ({
 const FAQS = [
   {
     q: 'Why do law firms need bookkeeping services?',
-    a: 'Law firms need specialized bookkeeping to maintain compliance with bar association rules, manage trust accounts, track billable hours, and streamline financial operations — all of which are too complex and time-sensitive for attorneys to handle themselves.',
+    a: 'Law firms need specialized bookkeeping to maintain compliance, manage trust accounts, and streamline operations.',
   },
   {
     q: 'Can you track billable hours and client invoicing?',
-    a: 'Yes. We ensure accurate timekeeping and invoicing for every matter, helping your firm capture all billable time, send prompt invoices, and maintain healthy cash flow with minimal administrative burden on attorneys.',
+    a: 'Yes, we ensure accurate time tracking and invoicing for every matter.',
   },
   {
     q: 'Do you handle trust accounting and escrow management?',
-    a: 'Absolutely. We specialize in trust and escrow management fully aligned with legal and bar association standards, ensuring client funds are properly separated, reconciled, and reported at all times.',
+    a: 'Absolutely. We specialize in trust and escrow management aligned with legal standards.',
   },
   {
     q: 'How is payroll for employees of legal firms handled?',
-    a: 'We oversee all aspects of payroll — attorney salaries, staff wages, benefits, and tax withholdings — while maintaining full compliance with federal and state labor laws and delivering on-time, accurate pay runs.',
+    a: 'We oversee all aspects of payroll and benefits administration while maintaining tax compliance.',
   },
   {
-    q: 'Do you help attorneys with tax planning?',
-    a: 'Yes. Legal firms benefit from our tailored tax-saving strategies, proactive planning, and year-round support to minimize liability, maximize deductions, and ensure every tax return is filed accurately and on time.',
+    q: 'Do you help attorneys with their tax planning?',
+    a: 'Yes, legal firms can benefit from tailored tax-saving techniques offered by our tax planning lawyer experts.',
   },
   {
     q: 'Which accounting program would you suggest for legal firms?',
-    a: 'We integrate with and recommend platforms like QuickBooks, Clio, and LEAP depending on your firm\'s size and workflow. We help you choose the right tool and manage the setup and ongoing sync between systems.',
+    a: 'We integrate with and suggest programs like LEAP, QuickBooks, and Clio.',
   },
   {
     q: 'Are you able to keep track of case-related costs and payments?',
-    a: 'Yes. We ensure all case-related disbursements, court fees, and allowable expenses are properly recorded, reconciled, and billed back to clients where applicable — preventing revenue leakage.',
+    a: 'Yes, we make sure that all allowable expenses are appropriately recorded and reported.',
   },
   {
-    q: 'Do you handle financial reporting for multi-partner law firms?',
-    a: 'For firms with multiple partners, we offer comprehensive financial reports, profit-and-loss statements, and partner profit-sharing calculations based on your firm\'s custom compensation formulas.',
+    q: 'Are you in charge of multi-partner legal firms\' financial reporting?',
+    a: 'For businesses with multiple partners, we offer comprehensive financial reports and profit-sharing statements.',
   },
 ];
 
@@ -71,7 +71,7 @@ const LFFAQ = () => {
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.8rem' }, lineHeight: 1.2 }}>
               Frequently Asked{' '}
-              <Box component="span" sx={{ color: primary }}>Questions</Box>
+              <Box component="span" sx={{ color: primary }}>Questions for Law Firms</Box>
             </Typography>
           </motion.div>
         </Box>
@@ -101,6 +101,9 @@ const LFFAQ = () => {
                         sx={{ px: 3, py: 0.5, '& .MuiAccordionSummary-content': { my: 1.5 } }}
                       >
                         <Typography sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 700, fontSize: { xs: '0.9rem', md: '0.97rem' }, color: 'text.primary', lineHeight: 1.4 }}>
+                          <Box component="span" sx={{ color: primary, mr: 1 }}>
+                            {String(i + 1).padStart(2, '0')}.
+                          </Box>
                           {faq.q}
                         </Typography>
                       </AccordionSummary>

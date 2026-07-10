@@ -43,20 +43,21 @@ const ELEMENTS = [
     title: 'Cash Flow and Profitability Tracking',        
     desc: 'Accurate financial tracking ensures better cash flow management, so you can meet your obligations, plan future investments, and avoid financial surprises.' 
   },
-  { 
-    icon: SecurityIcon,         
-    title: 'Regulatory Compliance and Risk Management',  
-    desc: 'With detailed bookkeeping and documentation, your business remains compliant with tax laws, licensing regulations, and audit requirements, minimizing risks and penalties.' 
+  {
+    icon: SecurityIcon,
+    title: 'Regulatory Compliance and Risk Management',
+    desc: 'With detailed bookkeeping and documentation, your business remains compliant with tax laws, licensing regulations, and audit requirements, minimizing risks and penalties.'
   },
-  
+  {
+    icon: CloudIcon,
+    title: 'Streamlined Operations through Technology',
+    desc: 'Cloud-based accounting software like QuickBooks, Xero, and Sage make it easier to automate data entry, generate reports, and access real-time insights from anywhere, improving overall efficiency.'
+  },
 ];
 
 const RESolutions = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
-
-  const featured = ELEMENTS.slice(0, 2);
-  const rest = ELEMENTS.slice(2);
 
   return (
     <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.paper', overflow: 'hidden', position: 'relative' }}>
@@ -81,80 +82,19 @@ const RESolutions = () => {
           
         </Box>
 
-        {/* ── TIER 1: 2 large featured cards ── */}
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 3, mb: 3 }}>
-          {featured.map((el, i) => {
+        {/* ── 7 cards across exactly 2 rows: 4 on top, 3 below (last spans 2 cols) ── */}
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2.5 }}>
+          {ELEMENTS.map((el, i) => {
             const Icon = el.icon;
-            const isFirst = i === 0;
+            const isLast = i === ELEMENTS.length - 1;
             return (
               <Box
                 key={el.title}
                 component={motion.div}
-                {...fadeUp(i * 0.1)}
+                {...fadeUp(i * 0.07)}
                 sx={{
-                  p: { xs: 3.5, md: 5 },
-                  borderRadius: '24px',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  cursor: 'default',
-                  transition: 'all 0.32s cubic-bezier(0.4, 0, 0.2, 1)',
-                  ...(isFirst ? {
-                    background: `linear-gradient(135deg, ${alpha(primary, 0.1)} 0%, ${alpha(primary, 0.04)} 100%)`,
-                    border: `1px solid ${alpha(primary, 0.25)}`,
-                  } : {
-                    bgcolor: 'background.default',
-                    border: (t) => `1px solid ${t.palette.mode === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)'}`,
-                  }),
-                  '&:hover': {
-                    transform: 'translateY(-6px)',
-                    boxShadow: `0 24px 60px ${alpha(primary, 0.15)}`,
-                    '& .feat-icon': { bgcolor: primary, '& svg': { color: '#fff' } },
-                    '& .feat-title': { color: primary },
-                  },
-                }}
-              >
-                
-                <Box className="feat-icon" sx={{
-                  width: 60, height: 60, borderRadius: '18px',
-                  bgcolor: alpha(primary, 0.1),
-                  border: `1px solid ${alpha(primary, 0.2)}`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  mb: 3, transition: 'all 0.32s ease',
-                }}>
-                  <Icon sx={{ fontSize: 28, color: primary }} />
-                </Box>
-
-                <Typography className="feat-title" sx={{
-                  fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 900, fontSize: { xs: '1.1rem', md: '1.25rem' },
-                  color: 'text.primary', mb: 1.5, lineHeight: 1.25,
-                  transition: 'color 0.28s ease',
-                }}>
-                  {el.title}
-                </Typography>
-                <Typography sx={{
-                  fontFamily: '"Outfit", sans-serif',
-                  fontSize: '0.92rem', lineHeight: 1.8,
-                  color: 'text.secondary', position: 'relative', zIndex: 1,
-                }}>
-                  {el.desc}
-                </Typography>
-              </Box>
-            );
-          })}
-        </Box>
-
-        {/* ── TIER 2: 4-col compact grid for remaining 5 ── */}
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 2 }}>
-          {rest.map((el, i) => {
-            const Icon = el.icon;
-            return (
-              <Box
-                key={el.title}
-                component={motion.div}
-                {...fadeUp(0.1 + i * 0.06)}
-                sx={{
-                  p: 3,
+                  gridColumn: isLast ? { md: 'span 2' } : {},
+                  p: { xs: 3, md: 3.5 },
                   borderRadius: '18px',
                   bgcolor: 'background.default',
                   border: (t) => `1px solid ${t.palette.mode === 'dark' ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)'}`,
@@ -183,15 +123,15 @@ const RESolutions = () => {
 
                 <Typography className="cc-mini-title" sx={{
                   fontFamily: '"Plus Jakarta Sans", sans-serif',
-                  fontWeight: 800, fontSize: '0.88rem',
+                  fontWeight: 800, fontSize: '0.92rem',
                   color: 'text.primary', mb: 0.75, lineHeight: 1.35,
                   transition: 'color 0.28s ease',
                 }}>
-                  {el.title}
+                  {i + 1}. {el.title}
                 </Typography>
                 <Typography sx={{
                   fontFamily: '"Outfit", sans-serif',
-                  fontSize: '0.8rem', lineHeight: 1.7,
+                  fontSize: '0.82rem', lineHeight: 1.7,
                   color: 'text.secondary',
                 }}>
                   {el.desc}

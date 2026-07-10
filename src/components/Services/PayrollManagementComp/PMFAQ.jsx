@@ -38,8 +38,8 @@ const PMFAQ = () => {
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.8rem' }, lineHeight: 1.2 }}>
-              Frequently Asked{' '}
-              <Box component="span" sx={{ color: primary }}>Questions</Box>
+             Payroll Management Services{' '}
+              <Box component="span" sx={{ color: primary }}>Faq's</Box>
             </Typography>
           </motion.div>
         </Box>

@@ -22,12 +22,12 @@ const ManufacturingCompanies = () => {
     keywords:
       'accounting for manufacturing, inventory costing, manufacturing bookkeeping, cost accounting, milta manufacturing companies',
     author: 'Milta Accounting',
-    canonical: 'https://www.miltafs.com/us/industries/manufacturing-companies/',
+    canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-manufacturing/',
     ogTitle: 'Accounting for Manufacturing Companies | Milta Financial Services',
     ogDescription:
       'Inventory costing, margin analysis and reliable bookkeeping to control costs and grow production profitably.',
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
-    ogUrl: 'https://www.miltafs.com/us/industries/manufacturing-companies/',
+    ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-manufacturing/',
     ogType: 'website',
   });
 

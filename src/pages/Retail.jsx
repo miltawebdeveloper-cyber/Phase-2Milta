@@ -24,12 +24,12 @@ const RetailBusiness = () => {
     keywords:
       'retail accounting, inventory tracking, pos reconciliation, sales tax compliance, retail bookkeeping, milta retail business',
     author: 'Milta Accounting',
-    canonical: 'https://www.miltafs.com/us/industries/retail-business/',
+    canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-retail-businesses/',
     ogTitle: 'Accounting for Retail Businesses | Milta Financial Services',
     ogDescription:
       'Inventory tracking, POS reconciliation and sales-tax compliance to keep your retail margins clear.',
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
-    ogUrl: 'https://www.miltafs.com/us/industries/retail-business/',
+    ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-retail-businesses/',
     ogType: 'website',
   });
 

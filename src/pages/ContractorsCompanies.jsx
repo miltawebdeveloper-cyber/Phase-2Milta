@@ -22,12 +22,12 @@ const ContractorsCompanies = () => {
     keywords:
       'accounting for contractors, construction bookkeeping, job costing, wip reporting, contractor accounting services, milta',
     author: 'Milta Accounting',
-    canonical: 'https://www.miltafs.com/us/industries/contractors-companies/',
+    canonical: 'https://www.miltafs.com/us/industry/bookkeeping-for-contractors-companies/',
     ogTitle: 'Accounting for Contractors & Construction Companies | Milta',
     ogDescription:
       'Job costing, WIP reporting and compliant bookkeeping built for contractors and construction companies.',
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
-    ogUrl: 'https://www.miltafs.com/us/industries/contractors-companies/',
+    ogUrl: 'https://www.miltafs.com/us/industry/bookkeeping-for-contractors-companies/',
     ogType: 'website',
   });
 

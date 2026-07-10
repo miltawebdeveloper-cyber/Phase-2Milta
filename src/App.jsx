@@ -169,14 +169,14 @@ function ThemedApp() {
           <Route path="/us/services/outsourcing-accounting-data-entry-services-in-the-usa/" element={<DataEntryServices />} />
           <Route path="/us/services/best-digital-marketing-agency-in-usa/" element={<DigitalMarketing />} />
           <Route path="/us/services/payroll-management-services-in-the-usa/" element={<PayrollManagement />} />
-          <Route path="/us/industries/contractors-companies/" element={<ContractorsCompanies />} />
-          <Route path="/us/industries/law-firms/" element={<LawFirms />} />
-          <Route path="/us/industries/manufacturing-companies/" element={<ManufacturingCompanies />} />
-          <Route path="/us/industries/real-estate-companies/" element={<RealEstateCompanies />} />
-          <Route path="/us/industries/non-profit-organizations/" element={<NonProfit />} />
-          <Route path="/us/industries/health-care-industry/" element={<HealthCare />} />
-          <Route path="/us/industries/restaurant-industry/" element={<Restaurant />} />
-          <Route path="/us/industries/retail-business/" element={<RetailBusiness />} />
+          <Route path="/us/industry/bookkeeping-for-contractors-companies/" element={<ContractorsCompanies />} />
+          <Route path="/us/industry/accounting-services-for-lawfirms/" element={<LawFirms />} />
+          <Route path="/us/industry/accounting-services-for-manufacturing/" element={<ManufacturingCompanies />} />
+          <Route path="/us/industry/bookkeeping-for-real-estate-companies/" element={<RealEstateCompanies />} />
+          <Route path="/us/industry/accounting-services-for-nonprofit-organizations/" element={<NonProfit />} />
+          <Route path="/us/industry/accounting-services-for-healthcare/" element={<HealthCare />} />
+          <Route path="/us/industry/accounting-services-for-restaurant-businesses/" element={<Restaurant />} />
+          <Route path="/us/industry/accounting-services-for-retail-businesses/" element={<RetailBusiness />} />
           <Route path="/blogs" element={<Blog />} />
           <Route path="/us/blogs/:slug" element={<BlogDetails />} />
           <Route path="/areas-we-serve" element={<Areas />} />

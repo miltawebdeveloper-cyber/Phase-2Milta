@@ -22,12 +22,12 @@ const RealEstateCompanies = () => {
     keywords:
       'real estate accounting, property bookkeeping, cam reconciliation, investor reporting, real estate cpa, milta real estate',
     author: 'Milta Accounting',
-    canonical: 'https://www.miltafs.com/us/industries/real-estate-companies/',
+    canonical: 'https://www.miltafs.com/us/industry/bookkeeping-for-real-estate-companies/',
     ogTitle: 'Accounting for Real Estate Companies | Milta Financial Services',
     ogDescription:
       'Property-level bookkeeping, CAM reconciliations and investor reporting to keep your portfolio clear and compliant.',
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
-    ogUrl: 'https://www.miltafs.com/us/industries/real-estate-companies/',
+    ogUrl: 'https://www.miltafs.com/us/industry/bookkeeping-for-real-estate-companies/',
     ogType: 'website',
   });
 
