@@ -14,7 +14,10 @@ const VISION_POINTS  = ['Global reach across 50 states', 'Financial clarity for 
 const MISSION_POINTS = ['Precision-driven bookkeeping & tax', 'Full regulatory compliance assured', 'Freeing clients to scale faster'];
 
 const Bullet = ({ text, rtl = false }) => (
-  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2, flexDirection: rtl ? 'row-reverse' : 'row' }}>
+  <Box sx={{
+    display: 'flex', alignItems: 'center', gap: 1.2,
+    flexDirection: rtl ? { xs: 'row', md: 'row-reverse' } : 'row',
+  }}>
     <Box sx={{
       width: 20, height: 20, borderRadius: '50%', flexShrink: 0,
       backgroundColor: 'rgba(255,255,255,0.16)',
@@ -71,19 +74,26 @@ const VisionMission = () => (
 
     {/* ── Parallelogram card row ── */}
     <Box sx={{ maxWidth: CONTENT_WIDTH, mx: 'auto', px: { xs: 2, md: 4 } }}>
-      <Box sx={{ display: 'flex', alignItems: 'stretch', minHeight: { xs: 'auto', md: 360 } }}>
+      <Box sx={{
+        display: 'flex',
+        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: 'stretch',
+        gap: { xs: 3, md: 0 },
+        minHeight: { xs: 'auto', md: 360 },
+      }}>
 
         {/* ══ LEFT — Vision (dark green) ══ */}
-        <motion.div
+        <Box
+          component={motion.div}
           initial={{ opacity: 0, x: -48 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          style={{ width: CARD_W, flexShrink: 0, zIndex: 1, display: 'flex' }}
+          sx={{ width: { xs: '100%', md: CARD_W }, flexShrink: 0, zIndex: 1, display: 'flex' }}
         >
           <Box sx={{
             flex: 1,
-            transform: `skewX(${SKEW}deg)`,
+            transform: { xs: 'none', md: `skewX(${SKEW}deg)` },
             borderRadius: '24px',
             overflow: 'hidden',
             background: 'linear-gradient(145deg, #1b5220 0%, #266929 60%, #2e7a31 100%)',
@@ -95,7 +105,7 @@ const VisionMission = () => (
             <Typography sx={{
               position: 'absolute', bottom: '-14%', left: '-2%',
               fontFamily: '"Plus Jakarta Sans", sans-serif',
-              fontWeight: 900, fontSize: '16rem', lineHeight: 1,
+              fontWeight: 900, fontSize: { xs: '9rem', md: '16rem' }, lineHeight: 1,
               color: 'rgba(255,255,255,0.04)',
               userSelect: 'none', pointerEvents: 'none', zIndex: 0,
             }}>V</Typography>
@@ -116,7 +126,7 @@ const VisionMission = () => (
 
             {/* Counter-skew content */}
             <Box sx={{
-              transform: `skewX(${-SKEW}deg)`,
+              transform: { xs: 'none', md: `skewX(${-SKEW}deg)` },
               flex: 1, display: 'flex', flexDirection: 'column',
               position: 'relative', zIndex: 1,
             }}>
@@ -124,7 +134,7 @@ const VisionMission = () => (
               {/* TOP — icon badge */}
               <Box sx={{
                 flex: 1, display: 'flex', alignItems: 'center',
-                px: { xs: 4, md: 5.5 },
+                px: { xs: 3, md: 5.5 },
                 pt: { xs: 3.5, md: 4.5 }, pb: { xs: 2, md: 2.5 },
               }}>
                 <Box sx={{
@@ -141,14 +151,14 @@ const VisionMission = () => (
 
               {/* Gradient separator */}
               <Box sx={{
-                height: '1px', mx: { xs: 4, md: 5.5 },
+                height: '1px', mx: { xs: 3, md: 5.5 },
                 background: 'linear-gradient(90deg, rgba(255,255,255,0.22) 0%, transparent 80%)',
               }} />
 
               {/* BOTTOM — text block, left-aligned */}
               <Box sx={{
                 background: 'rgba(0,0,0,0.10)',
-                px: { xs: 4, md: 5.5 },
+                px: { xs: 3, md: 5.5 },
                 pt: { xs: 2.5, md: 3 },
                 pb: { xs: 3.5, md: 4.5 },
               }}>
@@ -175,23 +185,24 @@ const VisionMission = () => (
 
             </Box>
           </Box>
-        </motion.div>
+        </Box>
 
         {/* ══ RIGHT — Mission (light green) ══ */}
-        <motion.div
+        <Box
+          component={motion.div}
           initial={{ opacity: 0, x: 48 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            width: CARD_W, flexShrink: 0,
-            marginLeft: `-${OVERLAP}`,
+          sx={{
+            width: { xs: '100%', md: CARD_W }, flexShrink: 0,
+            ml: { xs: 0, md: `-${OVERLAP}` },
             zIndex: 2, display: 'flex',
           }}
         >
           <Box sx={{
             flex: 1,
-            transform: `skewX(${SKEW}deg)`,
+            transform: { xs: 'none', md: `skewX(${SKEW}deg)` },
             borderRadius: '24px',
             overflow: 'hidden',
             background: 'linear-gradient(145deg, #3d9e41 0%, #4caf50 60%, #5dbb61 100%)',
@@ -203,7 +214,7 @@ const VisionMission = () => (
             <Typography sx={{
               position: 'absolute', bottom: '-14%', right: '-2%',
               fontFamily: '"Plus Jakarta Sans", sans-serif',
-              fontWeight: 900, fontSize: '16rem', lineHeight: 1,
+              fontWeight: 900, fontSize: { xs: '9rem', md: '16rem' }, lineHeight: 1,
               color: 'rgba(255,255,255,0.05)',
               userSelect: 'none', pointerEvents: 'none', zIndex: 0,
             }}>M</Typography>
@@ -224,7 +235,7 @@ const VisionMission = () => (
 
             {/* Counter-skew content */}
             <Box sx={{
-              transform: `skewX(${-SKEW}deg)`,
+              transform: { xs: 'none', md: `skewX(${-SKEW}deg)` },
               flex: 1, display: 'flex', flexDirection: 'column',
               position: 'relative', zIndex: 1,
             }}>
@@ -232,8 +243,9 @@ const VisionMission = () => (
               {/* TOP — icon badge, right-aligned */}
               <Box sx={{
                 flex: 1, display: 'flex',
-                alignItems: 'center', justifyContent: 'flex-end',
-                px: { xs: 4, md: 6 },
+                alignItems: 'center',
+                justifyContent: { xs: 'flex-start', md: 'flex-end' },
+                px: { xs: 3, md: 6 },
                 pt: { xs: 3.5, md: 4.5 }, pb: { xs: 2, md: 2.5 },
               }}>
                 <Box sx={{
@@ -250,17 +262,20 @@ const VisionMission = () => (
 
               {/* Gradient separator — fades right to left */}
               <Box sx={{
-                height: '1px', mx: { xs: 4, md: 6 },
-                background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 100%)',
+                height: '1px', mx: { xs: 3, md: 6 },
+                background: {
+                  xs: 'linear-gradient(90deg, rgba(255,255,255,0.22) 0%, transparent 80%)',
+                  md: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 100%)',
+                },
               }} />
 
-              {/* BOTTOM — text block, right-aligned */}
+              {/* BOTTOM — text block, right-aligned on desktop */}
               <Box sx={{
                 background: 'rgba(0,0,0,0.08)',
-                px: { xs: 4, md: 6 },
+                px: { xs: 3, md: 6 },
                 pt: { xs: 2.5, md: 3 },
                 pb: { xs: 3.5, md: 4.5 },
-                textAlign: 'right',
+                textAlign: { xs: 'left', md: 'right' },
               }}>
                 <Typography sx={{
                   fontFamily: '"Plus Jakarta Sans", sans-serif',
@@ -274,19 +289,19 @@ const VisionMission = () => (
                   fontSize: { xs: '0.84rem', md: '0.91rem' },
                   color: 'rgba(255,255,255,0.75)',
                   lineHeight: 1.75, mb: 2.5,
-                  ml: 'auto', maxWidth: 360,
+                  ml: { xs: 0, md: 'auto' }, maxWidth: 360,
                 }}>
                   To deliver precision-driven accounting, bookkeeping, and tax solutions
                   that ensure full compliance and free clients to focus on scaling.
                 </Typography>
-                <Stack spacing={1} alignItems="flex-end">
+                <Stack spacing={1} alignItems={{ xs: 'flex-start', md: 'flex-end' }}>
                   {MISSION_POINTS.map((p) => <Bullet key={p} text={p} rtl />)}
                 </Stack>
               </Box>
 
             </Box>
           </Box>
-        </motion.div>
+        </Box>
 
       </Box>
     </Box>

@@ -93,7 +93,7 @@ const sendBrevoTemplateEmail = async ({ templateId, params, recipients, replyTo,
 
 const jobRecipients = () =>
   parseRecipients(
-    process.env.BREVO_JOB_TO_EMAILS,
+    process.env.BREVO_JOB_TO_EMAILS || process.env.BREVO_NOTIFICATION_TO_EMAILS,
     process.env.BREVO_TO_EMAIL,
     process.env.BREVO_TO_NAME || "HR Team"
   );

@@ -98,7 +98,7 @@ const CTASection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
               >
-                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3} justifyContent="center">
+                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3} justifyContent="center" alignItems="center">
                   <motion.div whileHover={{ scale: 1.05, y: -4 }} whileTap={{ scale: 0.96 }} transition={{ duration: 0.2 }}>
                     <Button
                       variant="contained"
@@ -122,27 +122,7 @@ const CTASection = () => {
                       Book a Consultation
                     </Button>
                   </motion.div>
-                  <motion.div whileHover={{ scale: 1.05, y: -4 }} whileTap={{ scale: 0.96 }} transition={{ duration: 0.2 }}>
-                    <Button
-                      variant="outlined"
-                      size="large"
-                      component={RouterLink}
-                      to="/services"
-                      sx={{
-                        px: 6, py: 2,
-                        borderRadius: '50px',
-                        border: '2px solid rgba(38,105,41,0.4)',
-                        color: '#266929',
-                        fontWeight: 700,
-                        letterSpacing: 1.5,
-                        textTransform: 'uppercase',
-                        fontSize: '0.95rem',
-                        '&:hover': { border: '2px solid #266929', backgroundColor: 'rgba(38,105,41,0.06)' }
-                      }}
-                    >
-                      Our Services
-                    </Button>
-                  </motion.div>
+                
                 </Stack>
               </motion.div>
 
