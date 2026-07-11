@@ -53,6 +53,7 @@ const navItems = [
 
 const DARK_HERO_PATHS = [
   '/about', '/contact', '/career', '/areas-we-serve', '/services',
+  '/us/software/tools-we-use/',
   '/us/services/bookkeeping-company-in-the-usa/',
   '/us/services/tax-planning-and-preparation-services-usa/',
   '/us/services/virtual-assistant-service-in-the-usa/',
@@ -154,8 +155,8 @@ const Navbar = () => {
         backgroundColor: navBg,
         backdropFilter: trigger ? 'blur(24px)' : 'none',
         borderBottom: trigger ? `1px solid ${alpha(primary, 0.08)}` : 'none',
-        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-        py: trigger ? 0.5 : 1.5,
+        transition: 'background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease',
+        py: 1.5,
         color: onHero ? '#ffffff' : 'text.primary',
       }}
     >
@@ -171,11 +172,16 @@ const Navbar = () => {
         <Toolbar sx={{ justifyContent: 'space-between', px: { xs: 0 } }}>
 
           {/* Logo */}
-          <Box sx={{
-            width: { xs: 100, md: 140 }, height: { xs: 52, md: 72 }, display: 'flex', alignItems: 'center',
-            filter: onHero ? 'brightness(0) invert(1)' : mode === 'dark' ? 'brightness(0) invert(1)' : 'none',
-            transition: 'filter 0.4s ease',
-          }}>
+          <Box
+            component={RouterLink}
+            to="/"
+            aria-label="Milta home"
+            sx={{
+              width: { xs: 100, md: 140 }, height: { xs: 52, md: 72 }, display: 'flex', alignItems: 'center',
+              filter: onHero ? 'brightness(0) invert(1)' : mode === 'dark' ? 'brightness(0) invert(1)' : 'none',
+              transition: 'filter 0.4s ease',
+            }}
+          >
             <img src="/logo.svg" alt="Milta Logo" style={{ width: '100%', maxHeight: '100%' }} />
           </Box>
 
@@ -235,7 +241,7 @@ const Navbar = () => {
                       {openDropdown === item.label && (
                         <Box sx={{
                           position: 'fixed',
-                          top: trigger ? '72px' : '88px',
+                          top: '88px',
                           left: '50%',
                           zIndex: 1500,
                           pointerEvents: 'none',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography, Button, Stack, Paper } from '@mui/material';
+import { Box, Container, Typography, Button, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -33,7 +33,7 @@ const CTASection = () => {
               alignItems: 'center'
             }}
           >
-            <Box>
+            <Box sx={{ width: '100%' }}>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -97,8 +97,18 @@ const CTASection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
+                style={{ width: '100%' }}
               >
-                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3} justifyContent="center" alignItems="center">
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: { xs: 'column', sm: 'row' },
+                    gap: 3,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '100%',
+                  }}
+                >
                   <motion.div whileHover={{ scale: 1.05, y: -4 }} whileTap={{ scale: 0.96 }} transition={{ duration: 0.2 }}>
                     <Button
                       variant="contained"
@@ -122,8 +132,7 @@ const CTASection = () => {
                       Book a Consultation
                     </Button>
                   </motion.div>
-                
-                </Stack>
+                </Box>
               </motion.div>
 
             </Box>

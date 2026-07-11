@@ -1,7 +1,9 @@
 import React from 'react';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Typography, Button } from '@mui/material';
 import { useTheme, alpha } from '@mui/material/styles';
 import { motion } from 'framer-motion';
+import { Link as RouterLink } from 'react-router-dom';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import tool1 from '../../assets/tools/tools-1.png';
 import tool2 from '../../assets/tools/tools-2.png';
@@ -162,6 +164,37 @@ const ToolsSection = () => {
               </Box>
             ))}
           </Box>
+        </Box>
+
+        {/* Explore Tools CTA */}
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: { xs: 6, md: 8 } }}>
+          <motion.div {...fadeUp(0.1)}>
+            <Button
+              variant="contained"
+              component={RouterLink}
+              to="/us/software/tools-we-use/"
+              endIcon={<ArrowForwardIcon sx={{ fontSize: '1rem !important' }} />}
+              sx={{
+                px: 4, py: 1.6,
+                borderRadius: '50px',
+                backgroundColor: 'primary.main',
+                color: 'primary.contrastText',
+                fontWeight: 700,
+                fontSize: '0.9rem',
+                letterSpacing: '0.04em',
+                textTransform: 'none',
+                boxShadow: `0 10px 28px ${alpha(primary, 0.28)}`,
+                transition: 'all 0.32s cubic-bezier(0.4,0,0.2,1)',
+                '&:hover': {
+                  backgroundColor: theme.palette.mode === 'dark' ? alpha(primary, 0.85) : '#1a4d1d',
+                  transform: 'translateY(-3px)',
+                  boxShadow: `0 16px 38px ${alpha(primary, 0.36)}`,
+                },
+              }}
+            >
+              Explore Tools
+            </Button>
+          </motion.div>
         </Box>
       </Container>
     </Box>

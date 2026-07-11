@@ -8,8 +8,8 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 const contactDetails = [
   { icon: <EmailOutlinedIcon sx={{ fontSize: '1.1rem' }} />, label: 'Email', value: 'info@miltafs.com' },
-  { icon: <PhoneOutlinedIcon sx={{ fontSize: '1.1rem' }} />, label: 'Phone', value: '+1 (800) 123-4567' },
-  { icon: <LocationOnOutlinedIcon sx={{ fontSize: '1.1rem' }} />, label: 'Office', value: 'United States' },
+  { icon: <PhoneOutlinedIcon sx={{ fontSize: '1.1rem' }} />, label: 'Phone', value: '+18133030213' },
+  { icon: <LocationOnOutlinedIcon sx={{ fontSize: '1.1rem' }} />, label: 'Office', value: 'India' },
 ];
 
 const fadeUp = (delay = 0) => ({

@@ -51,6 +51,7 @@ const validate = (values) => {
   else if (!/^[+\d][\d\s()-]{6,}$/.test(values.contactNumber.trim())) errors.contactNumber = 'Enter a valid contact number';
   if (!values.email.trim()) errors.email = 'Email is required';
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) errors.email = 'Enter a valid email address';
+  if (!values.howDidYouFind) errors.howDidYouFind = 'Please let us know how you found us';
   if (!values.serviceInterest) errors.serviceInterest = 'Please select a service';
   return errors;
 };
@@ -186,9 +187,11 @@ const ContactForm = () => {
 
         <TextField
           name="howDidYouFind"
-          label="How did you find us?"
+          label="How did you find us? *"
           value={values.howDidYouFind}
           onChange={handleChange}
+          error={!!errors.howDidYouFind}
+          helperText={errors.howDidYouFind}
           select
           fullWidth
           sx={fieldSx}

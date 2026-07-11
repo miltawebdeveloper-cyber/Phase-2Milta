@@ -143,7 +143,30 @@ import ScrollToTopOnNavigate from './components/ScrollToTopOnNavigate';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsofService';
 import Services from './pages/Services';
+import AccountingSoftware from './pages/AccountingSoftware';
+import QuickBooksDesktop from './pages/QuickBooksDesktop';
+import QuickBooksOnline from './pages/quickBooksOnline';
+import Xero from './pages/Xero';
+import WaveAccounting from './pages/WaveAccounting';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import SocialBar from './components/SocialBar';
+import { Box } from '@mui/material';
 import { ConsultationProvider } from './components/ConsultationModal';
+
+// Shell for the software sub-pages (QuickBooks, Xero, Wave), which are
+// authored as bare content sections. Adds the shared navbar/footer and top
+// clearance for the fixed navbar so they render as complete pages.
+const SoftwareLayout = ({ children }) => (
+  <Box sx={{ minHeight: '100vh', bgcolor: 'background.default', position: 'relative' }}>
+    <Navbar />
+    <Box component="main" sx={{ pt: { xs: 10, md: 12 } }}>{children}</Box>
+    <Footer />
+    <ScrollToTop />
+  </Box>
+);
+
 function ThemedApp() {
   const { mode } = useThemeMode();
   const theme = createAppTheme(mode);
@@ -158,6 +181,11 @@ function ThemedApp() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/us/software/tools-we-use/" element={<AccountingSoftware />} />
+          <Route path="/us/software/bookkeeping-with-quickbook-desktop/" element={<SoftwareLayout><QuickBooksDesktop /></SoftwareLayout>} />
+          <Route path="/us/software/bookkeeping-with-quickbook-online/" element={<SoftwareLayout><QuickBooksOnline /></SoftwareLayout>} />
+          <Route path="/us/software/xero-for-small-business/" element={<SoftwareLayout><Xero /></SoftwareLayout>} />
+          <Route path="/us/software/wave-accounting-for-small-business/" element={<SoftwareLayout><WaveAccounting /></SoftwareLayout>} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/career" element={<Career />} />
           <Route path="/career/open-positions" element={<CareerSub />} />
@@ -322,6 +350,7 @@ function ThemedApp() {
            <Route path="/us/services/payroll-management-services-in-the-virginia/" element={<PayrollVirginia />} />
 
         </Routes>
+        <SocialBar />
       </Router>
       </ConsultationProvider>
     </ThemeProvider>

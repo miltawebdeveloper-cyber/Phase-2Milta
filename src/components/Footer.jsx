@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Container, Grid, Typography, Link, IconButton, Stack, Divider } from '@mui/material';
-import { motion } from 'framer-motion';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import { Box, Container, Grid, Typography, Link, Stack, Divider } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -23,9 +18,9 @@ const linkSx = {
   fontWeight: 500,
   color: TEXT_BODY,
   textDecoration: 'none',
-  transition: 'all 0.25s ease',
+  transition: 'color 0.25s ease',
   display: 'block',
-  '&:hover': { color: ACCENT, pl: '6px' },
+  '&:hover': { color: ACCENT },
 };
 
 const companyLinks = [
@@ -104,12 +99,20 @@ const Footer = () => {
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <PhoneIcon sx={{ fontSize: 16, color: ACCENT, flexShrink: 0 }} />
                   <Typography sx={{ fontSize: '0.85rem', color: TEXT_BODY }}>
-                    +1 (813) 303-0213 &nbsp;|&nbsp; +91-96001 03723
+                    <Link href="tel:+18133030213" underline="none" sx={{ color: 'inherit', '&:hover': { color: ACCENT } }}>
+                      +1 (813) 303-0213
+                    </Link>
+                    &nbsp;|&nbsp;
+                    <Link href="tel:+919600103723" underline="none" sx={{ color: 'inherit', '&:hover': { color: ACCENT } }}>
+                      +91-96001 03723
+                    </Link>
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <EmailIcon sx={{ fontSize: 16, color: ACCENT, flexShrink: 0 }} />
-                  <Typography sx={{ fontSize: '0.85rem', color: TEXT_BODY }}>info@miltafs.com</Typography>
+                  <Link href="mailto:info@miltafs.com" underline="none" sx={{ fontSize: '0.85rem', color: TEXT_BODY, '&:hover': { color: ACCENT } }}>
+                    info@miltafs.com
+                  </Link>
                 </Stack>
               </Stack>
             </Stack>
@@ -230,70 +233,6 @@ const Footer = () => {
               >
                 {item.label}
               </Link>
-            ))}
-          </Stack>
-
-          <Stack direction="row" spacing={1.2}>
-            {[
-              {
-                icon: <EmailIcon sx={{ fontSize: { xs: 18, md: 22 }, color: '#D44638' }} />,
-                bg: '#ffffff',
-                hoverBg: '#f5f5f5',
-                link: 'mailto:info@miltafs.com',
-                external: false,
-              },
-              {
-                icon: <CalendarMonthIcon sx={{ fontSize: { xs: 18, md: 22 }, color: '#ff9401' }} />,
-                bg: '#ffffff',
-                hoverBg: '#f5f5f5',
-                link: 'https://calendly.com/frank-miltafs/milta-accounting-service-zoom-meeting',
-                external: false,
-              },
-              {
-                icon: <FacebookIcon sx={{ fontSize: { xs: 18, md: 22 }, color: '#1877F2' }} />,
-                bg: '#ffffff',
-                hoverBg: '#f5f5f5',
-                link: 'https://www.facebook.com/miltaaccountingservices/',
-                external: true,
-              },
-              {
-                icon: <InstagramIcon sx={{ fontSize: { xs: 18, md: 22 }, color: '#E1306C' }} />,
-                bg: '#ffffff',
-                hoverBg: '#f5f5f5',
-                link: 'https://www.instagram.com/milta_accountings/',
-                external: true,
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.2, y: -4 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ duration: 0.2 }}
-              >
-                <IconButton
-                  component="a"
-                  href={item.link}
-                  target={item.external ? '_blank' : undefined}
-                  rel={item.external ? 'noreferrer' : undefined}
-                  size="small"
-                  sx={{
-                    color: TEXT_BODY,
-                    backgroundColor: item.bg,
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    width: 36,
-                    height: 36,
-                    transition: 'background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease',
-                    '&:hover': {
-                      backgroundColor: item.hoverBg,
-                      color: '#FFFFFF',
-                      borderColor: item.hoverBg,
-                      boxShadow: `0 12px 24px ${item.hoverBg}40`,
-                    },
-                  }}
-                >
-                  {item.icon}
-                </IconButton>
-              </motion.div>
             ))}
           </Stack>
         </Box>
