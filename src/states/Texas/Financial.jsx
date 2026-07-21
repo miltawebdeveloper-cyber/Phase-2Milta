@@ -58,8 +58,8 @@ export default function FinancialTexas() {
           "Drive smarter financial strategy with Milta's certified financial controllers in Texas, delivering accuracy, compliance, and growth.",
         keywords:
           "financial controller services, outsourced financial controller, accounting controller, certified financial controller",
-        canonical: "https://www.miltafs.com/us/services/financial-controller-services-in-texas/",
         author: "Milta Accounting",
+        canonical: "https://www.miltafs.com/us/services/financial-controller-services-in-texas/",
         schema: faqSchema,
       }}
       hero={{

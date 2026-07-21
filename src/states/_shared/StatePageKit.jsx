@@ -31,7 +31,7 @@ import Navbar from "../../components/Navbar";
 import ScrollToTop from "../../components/ScrollToTop";
 import ConsultationButton from "../../components/ConsultationButton";
 
-const Footer = lazy(() => import("../../components/Footer"));
+import Footer from "../../components/Footer";
 const CTASection = lazy(() => import("../../components/homeComp/CTASection"));
 
 const DARK_GRADIENT =
@@ -124,7 +124,7 @@ export const StateHero = ({ lead, highlight, subtitle, breadcrumb, ctaText }) =>
       <Container maxWidth={false} sx={{ maxWidth: "1300px", mx: "auto", position: "relative", zIndex: 1 }}>
         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", py: { xs: 4, md: 0 } }}>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-            <Typography variant="h1" sx={{ fontSize: { xs: "2.2rem", sm: "3.2rem", md: "3.8rem", lg: "3.4rem" }, color: theme.palette.primary.contrastText, maxWidth: { xs: "100%", md: "900px" }, mx: "auto", mb: 2.5 }}>
+            <Typography variant="h1" sx={{ letterSpacing: "0.25px", fontSize: { xs: "2.2rem", sm: "3.2rem", md: "3.8rem", lg: "3.4rem" }, color: theme.palette.primary.contrastText, maxWidth: { xs: "100%", md: "900px" }, mx: "auto", mb: 2.5 }}>
               {lead}
               {highlight && (
                 <>

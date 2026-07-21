@@ -12,7 +12,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 // `groups` is optional: when present it renders as titled bullet lists below `a`.
-const FAQS = [
+export const FAQS = [
   {
     q: 'Can Milta prepare both personal and company tax returns?',
     a: 'Absolutely. We specialize in individual and business tax returns, including complex filings for partnerships, corporations, and non-profits.',

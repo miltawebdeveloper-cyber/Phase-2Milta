@@ -28,7 +28,7 @@ const AboutPreview = () => {
               >
                 <Box 
                   component="img" 
-                  src="/about_modern.png" 
+                  src="/about_modern.webp" 
                   sx={{ 
                     width: '100%', 
                     height: '100%', 

@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   { q: 'Why should I outsource CPA services?', a: 'Outsourcing helps reduce operational costs, enhances efficiency, and provides access to specialized expertise.' },
   { q: 'Is Milta experienced in handling U.S.-based accounting regulations?', a: 'Yes, our team is well-versed in U.S. tax laws, accounting standards, and regulatory compliance.' },
   { q: 'What accounting software does Milta support?', a: 'We support QuickBooks, Xero, Lacerte, Drake, Tax Slayer, TurboTax, and other leading accounting platforms.' },

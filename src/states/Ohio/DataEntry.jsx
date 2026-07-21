@@ -22,7 +22,7 @@ export default function DataEntryOhio() {
         keywords:
           "data entry companies, accounting data entry, data entry services, data management services",
         author: "Milta Accounting",
-        canonical: "https://miltafs.com/us/services/outsourcing-accounting-data-entry-ohio/",
+        canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-ohio/",
       }}
       hero={{
         titleLead: "Precision-Driven Data Management Services in",

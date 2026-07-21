@@ -89,7 +89,7 @@ const AboutPreview = () => {
                 sx={{
                   width: '100%',
                   height: '120%',
-                  background: 'url(/about_modern.png) no-repeat center center / cover',
+                  background: 'url(/about_modern.webp) no-repeat center center / cover',
                 }}
               />
             </motion.div>

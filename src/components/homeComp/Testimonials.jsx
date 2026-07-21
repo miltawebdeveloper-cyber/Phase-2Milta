@@ -3,7 +3,6 @@ import { Box, Typography, Rating, Card } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import StarIcon from '@mui/icons-material/Star';
 
 const CONTENT_WIDTH = 1300;
 
@@ -80,10 +79,10 @@ const Testimonials = () => {
 
       {/* ── Carousel ── */}
       <Box sx={{ maxWidth: CONTENT_WIDTH, mx: 'auto', px: { xs: 3, md: 4 } }}>
-        <Box sx={{ display: 'flex', gap: { xs: 2, md: 3 }, alignItems: 'stretch' }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 2, md: 3 }, alignItems: 'stretch' }}>
 
           {/* ── Left: active quote card ── */}
-          <Box sx={{ flex: '1 1 58%', minWidth: 0 }}>
+          <Box sx={{ flex: { xs: '1 1 auto', md: '1 1 58%' }, width: '100%', minWidth: 0 }}>
             <AnimatePresence mode="wait" custom={dir}>
               <motion.div
                 key={active}
@@ -106,13 +105,6 @@ const Testimonials = () => {
                     backgroundColor: 'background.paper',
                   }}
                 >
-                  {/* Stars */}
-                  <Rating
-                    value={t.rating}
-                    readOnly
-                    sx={{ mb: 3, '& .MuiRating-iconFilled': { color: '#FFA500' } }}
-                  />
-
                   {/* Quote text — scrolls when the review is long */}
                   <Typography
                     variant="body1"
@@ -136,38 +128,21 @@ const Testimonials = () => {
                     {t.text}
                   </Typography>
 
-                  {/* Bottom row: rating badge */}
-                  <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
-
-                    {/* Rating badge */}
-                    <Box
-                      sx={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: 0.5,
-                        px: 2, py: 0.75,
-                        borderRadius: '50px',
-                        border: '1.5px solid',
-                        borderColor: 'primary.main',
-                        color: 'primary.main',
-                        fontFamily: '"Plus Jakarta Sans", sans-serif',
-                        fontWeight: 700,
-                        fontSize: '0.8rem',
-                        letterSpacing: '0.04em',
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      
-                      {t.rating}/5
-                    </Box>
+                  {/* Bottom row: star rating */}
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Rating
+                      value={t.rating}
+                      readOnly
+                      sx={{ '& .MuiRating-iconFilled': { color: '#FFA500' } }}
+                    />
                   </Box>
                 </Card>
               </motion.div>
             </AnimatePresence>
           </Box>
 
-          {/* ── Right: 3 person pills ── */}
-          <Box sx={{ flex: '0 0 260px', display: 'flex', flexDirection: 'column', gap: 2, justifyContent: 'center' }}>
+          {/* ── Right: 3 person pills (desktop only) ── */}
+          <Box sx={{ flex: '0 0 260px', display: { xs: 'none', md: 'flex' }, flexDirection: 'column', gap: 2, justifyContent: 'center' }}>
             {pills.map((p, i) => (
               <motion.div
                 key={`${p.text.slice(0, 24)}-${i}`}
@@ -193,16 +168,6 @@ const Testimonials = () => {
                   }}
                 >
                   <Box sx={{ minWidth: 0 }}>
-                    
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mt: 0.5 }}>
-
-                      <Typography
-                        variant="caption"
-                        sx={{ color: 'text.secondary', fontSize: '0.72rem', fontWeight: 700 }}
-                      >
-                        {p.rating}/5
-                      </Typography>
-                    </Box>
 
                     {/* Review excerpt (1–2 lines) */}
                     <Typography
@@ -212,7 +177,6 @@ const Testimonials = () => {
                         WebkitLineClamp: 2,
                         WebkitBoxOrient: 'vertical',
                         overflow: 'hidden',
-                        mt: 0.75,
                         color: 'text.secondary',
                         fontSize: '0.72rem',
                         fontWeight: 500,
@@ -221,14 +185,22 @@ const Testimonials = () => {
                     >
                       {p.text}
                     </Typography>
+
+                    {/* Stars at bottom */}
+                    <Rating
+                      value={p.rating}
+                      readOnly
+                      size="small"
+                      sx={{ mt: 1, '& .MuiRating-iconFilled': { color: '#FFA500' } }}
+                    />
                   </Box>
                 </Box>
               </motion.div>
             ))}
           </Box>
 
-          {/* ── Up / Down arrows ── */}
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, justifyContent: 'center', flexShrink: 0 }}>
+          {/* ── Up / Down arrows (desktop only) ── */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'column', gap: 1.5, justifyContent: 'center', flexShrink: 0 }}>
             {[
               { icon: <KeyboardArrowUpIcon />,   d: -1 },
               { icon: <KeyboardArrowDownIcon />, d:  1 },
@@ -254,6 +226,25 @@ const Testimonials = () => {
             ))}
           </Box>
 
+        </Box>
+
+        {/* ── Dot navigation (mobile only) ── */}
+        <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'center', alignItems: 'center', gap: 1.25, mt: 4 }}>
+          {testimonials.map((_, i) => (
+            <Box
+              key={i}
+              onClick={() => { setDir(i >= active ? 1 : -1); setActive(i); }}
+              aria-label={`Go to testimonial ${i + 1}`}
+              sx={{
+                width: i === active ? 26 : 9,
+                height: 9,
+                borderRadius: '50px',
+                backgroundColor: i === active ? 'primary.main' : 'rgba(38,105,41,0.25)',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+              }}
+            />
+          ))}
         </Box>
       </Box>
     </Box>

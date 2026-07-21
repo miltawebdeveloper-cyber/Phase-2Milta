@@ -44,8 +44,8 @@ const initialState = {
 
 const validate = (values) => {
   const errors = {};
+  // Every field is required except Last name.
   if (!values.firstName.trim()) errors.firstName = 'First name is required';
-  if (!values.lastName.trim()) errors.lastName = 'Last name is required';
   if (!values.companyName.trim()) errors.companyName = 'Company name is required';
   if (!values.contactNumber.trim()) errors.contactNumber = 'Contact number is required';
   else if (!/^[+\d][\d\s()-]{6,}$/.test(values.contactNumber.trim())) errors.contactNumber = 'Enter a valid contact number';
@@ -53,6 +53,7 @@ const validate = (values) => {
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) errors.email = 'Enter a valid email address';
   if (!values.howDidYouFind) errors.howDidYouFind = 'Please let us know how you found us';
   if (!values.serviceInterest) errors.serviceInterest = 'Please select a service';
+  if (!values.requirement.trim()) errors.requirement = 'Please share your requirement';
   return errors;
 };
 
@@ -131,7 +132,7 @@ const ContactForm = () => {
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
           <TextField
             name="firstName"
-            label="First name"
+            label="First name *"
             value={values.firstName}
             onChange={handleChange}
             error={!!errors.firstName}
@@ -154,7 +155,7 @@ const ContactForm = () => {
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
           <TextField
             name="companyName"
-            label="Company name"
+            label="Company name *"
             value={values.companyName}
             onChange={handleChange}
             error={!!errors.companyName}
@@ -164,7 +165,7 @@ const ContactForm = () => {
           />
           <TextField
             name="contactNumber"
-            label="Contact number"
+            label="Contact number *"
             value={values.contactNumber}
             onChange={handleChange}
             error={!!errors.contactNumber}
@@ -176,7 +177,7 @@ const ContactForm = () => {
 
         <TextField
           name="email"
-          label="Email address"
+          label="Email address *"
           value={values.email}
           onChange={handleChange}
           error={!!errors.email}
@@ -223,9 +224,11 @@ const ContactForm = () => {
 
         <TextField
           name="requirement"
-          label="Your requirement"
+          label="Your requirement *"
           value={values.requirement}
           onChange={handleChange}
+          error={!!errors.requirement}
+          helperText={errors.requirement}
           multiline
           rows={4}
           fullWidth

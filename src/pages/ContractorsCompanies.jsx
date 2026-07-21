@@ -4,31 +4,33 @@ import Navbar from '../components/Navbar';
 import CCHero from '../components/Industries/ContractorsComp/CCHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import { faqSchema } from '../utils/faqSchema';
 import ServicesSection from '../components/homeComp/ServicesSection';
 const CCWhatIs     = lazy(() => import('../components/Industries/ContractorsComp/CCWhatIs'));
 const CCSolutions  = lazy(() => import('../components/Industries/ContractorsComp/CCSolutions'));
 const CCWhyChoose  = lazy(() => import('../components/Industries/ContractorsComp/CCWhyChoose'));
 const CCAdvantages = lazy(() => import('../components/Industries/ContractorsComp/CCAdvantages'));
 const CCTrustedPartner = lazy(() => import('../components/Industries/ContractorsComp/CCTrustedPartner'));
-const CCFAQ        = lazy(() => import('../components/Industries/ContractorsComp/CCFAQ'));
+import CCFAQ, { FAQS } from '../components/Industries/ContractorsComp/CCFAQ';
 const CTASection   = lazy(() => import('../components/homeComp/CTASection'));
-const Footer       = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const ContractorsCompanies = () => {
   useFullSEO({
-    title: 'Accounting for Contractors & Construction Companies | Milta',
+    title: "Accounting and Bookkeeping Services for Contractor Businesses",
     description:
-      'Job costing, WIP reporting and compliant bookkeeping built for contractors and construction companies. Milta keeps your projects profitable and your books accurate.',
+      "Expert bookkeeping for services contractors, track income, expenses, payroll, and taxes to keep your construction finances on point.",
     keywords:
-      'accounting for contractors, construction bookkeeping, job costing, wip reporting, contractor accounting services, milta',
+      "bookkeeping for contractors, bookkeeping for construction companies, bookkeeping for small construction business, accounting for construction companies, accounting for construction, construction tax planning, tax planning for contractors",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/us/industry/bookkeeping-for-contractors-companies/',
-    ogTitle: 'Accounting for Contractors & Construction Companies | Milta',
+    ogTitle: "Accounting and Bookkeeping Services for Contractor Businesses",
     ogDescription:
-      'Job costing, WIP reporting and compliant bookkeeping built for contractors and construction companies.',
+      "Expert bookkeeping for services contractors, track income, expenses, payroll, and taxes to keep your construction finances on point.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/us/industry/bookkeeping-for-contractors-companies/',
     ogType: 'website',
+    schema: faqSchema(FAQS),
   });
 
   return (

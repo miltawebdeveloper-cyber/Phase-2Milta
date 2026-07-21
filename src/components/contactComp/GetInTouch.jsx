@@ -208,6 +208,7 @@ const GetInTouch = () => {
               <Box
                 sx={{
                   position: 'relative',
+                  overflow: 'hidden',
                   p: { xs: 3, md: 4 },
                   borderRadius: '34px',
                   background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(244,248,236,0.98) 100%)',
@@ -215,9 +216,9 @@ const GetInTouch = () => {
                   border: '1px solid rgba(38,105,41,0.12)',
                 }}
               >
-                <Box sx={{ position: 'absolute', top: 16, right: 16, width: 84, height: 84, borderRadius: '28px', background: 'rgba(154,187,59,0.1)' }} />
+                <Box sx={{ display: { xs: 'none', md: 'block' }, position: 'absolute', top: 16, right: 16, width: 84, height: 84, borderRadius: '28px', background: 'rgba(154,187,59,0.1)' }} />
                 <Box sx={{ position: 'absolute', bottom: -24, left: -24, width: 92, height: 92, borderRadius: '50%', background: 'rgba(38,105,41,0.12)' }} />
-                <Box sx={{ position: 'absolute', top: -24, left: 24, width: 72, height: 72, borderRadius: '50%', background: 'rgba(38,105,41,0.06)' }} />
+                <Box sx={{ display: { xs: 'none', md: 'block' }, position: 'absolute', top: -24, left: 24, width: 72, height: 72, borderRadius: '50%', background: 'rgba(38,105,41,0.06)' }} />
 
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
                   <Box sx={{ width: 28, height: 4, borderRadius: '999px', background: 'linear-gradient(90deg, #266929, #9ABB3B)' }} />

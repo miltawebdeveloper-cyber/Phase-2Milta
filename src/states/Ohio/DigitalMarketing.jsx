@@ -11,7 +11,7 @@ export default function DigitalMarketingOhio() {
         keywords:
           "digital marketing agency, digital marketing services, digital marketing agency in ohio, ohio internet marketing, digital marketing services in ohio",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/best-digital-marketing-agency-in-ohio/",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-ohio/",
       }}
       hero={{
         titleLead: "Elevate Your Brand with a Top",

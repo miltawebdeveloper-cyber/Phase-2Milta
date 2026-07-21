@@ -11,7 +11,7 @@ export default function DigitalMarketingNorthCarolina() {
         keywords:
           "digital marketing agency, digital marketing services, digital marketing agency in north carolina, north carolina internet marketing, digital marketing services in north carolina",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/best-digital-marketing-agency-in-northcarolina/",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-northcarolina/",
       }}
       hero={{
         titleLead: "Elevate Your Success with North Carolina's Leading",

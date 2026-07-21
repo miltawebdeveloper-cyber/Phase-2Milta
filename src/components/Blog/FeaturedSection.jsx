@@ -1,6 +1,6 @@
 import { Box, Grid, Typography, Chip, Card } from "@mui/material";
 import { Link } from "react-router-dom";
-import { getBlogs } from "../../api/client";
+import { getBlogs } from "../../api/blogs";
 import { useEffect, useState } from "react";
 
 const FeaturedSection = () => {

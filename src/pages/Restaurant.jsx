@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import RIHero from '../components/Industries/Restaurant/RIHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import { faqSchema } from '../utils/faqSchema';
 import ServicesSection from '../components/homeComp/ServicesSection';
 
 const RIWhatIs     = lazy(() => import('../components/Industries/Restaurant/RIWhatIs'));
@@ -11,25 +12,26 @@ const RISolutions  = lazy(() => import('../components/Industries/Restaurant/RISo
 const RIWhyChoose  = lazy(() => import('../components/Industries/Restaurant/RIWhyChoose'));
 const RIAdvantages = lazy(() => import('../components/Industries/Restaurant/RIAdvantages'));
 const RIChallenges = lazy(() => import('../components/Industries/Restaurant/RIChallenges'));
-const RIFAQ        = lazy(() => import('../components/Industries/Restaurant/RIFAQ'));
+import RIFAQ, { FAQS } from '../components/Industries/Restaurant/RIFAQ';
 const CTASection   = lazy(() => import('../components/homeComp/CTASection'));
-const Footer       = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const Restaurant = () => {
   useFullSEO({
-    title: 'Accounting for the Restaurant Industry | Milta Financial Services',
+    title: "Accounting and Bookkeeping for Small Restaurant Business - Milta",
     description:
-      'Food-cost tracking, tip and payroll management and daily sales reconciliation for restaurants. Milta helps you protect margins and run a profitable kitchen.',
+      "We provide expert accounting and bookkeeping for small restaurant businesses to help you stay organized, compliant, and profitable.",
     keywords:
-      'restaurant accounting, food cost tracking, restaurant bookkeeping, tip payroll, restaurant cpa, milta restaurant industry',
+      "bookkeeping for small restaurant, accounting for small restaurant business, bookkeeping for restaurant business, bookkeeping for restaurant, restaurant bookkeeping service, tax returns for restaurant",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-restaurant-businesses/',
-    ogTitle: 'Accounting for the Restaurant Industry | Milta Financial Services',
+    ogTitle: "Accounting and Bookkeeping for Small Restaurant Business - Milta",
     ogDescription:
-      'Food-cost tracking, tip and payroll management and daily sales reconciliation to protect your margins.',
+      "We provide expert accounting and bookkeeping for small restaurant businesses to help you stay organized, compliant, and profitable.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-restaurant-businesses/',
     ogType: 'website',
+    schema: faqSchema(FAQS),
   });
 
   return (

@@ -5,13 +5,15 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/aboutComp/AboutHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import { faqSchema } from '../utils/faqSchema';
+import AboutFAQ, { FAQS } from '../components/aboutComp/AboutFAQ';
 
 const AboutMilta    = lazy(() => import('../components/aboutComp/AboutMilta'));
 const VisionMission = lazy(() => import('../components/aboutComp/VisionMission'));
 const WhyChoose     = lazy(() => import('../components/aboutComp/WhyChoose'));
 const MDPortfolio   = lazy(() => import('../components/aboutComp/MDPortfolio'));
 const CTASection    = lazy(() => import('../components/homeComp/CTASection'));
-const Footer        = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const ScrollProgressBar = () => {
   const { scrollYProgress } = useScroll();
@@ -33,19 +35,20 @@ const ScrollProgressBar = () => {
 
 const About = () => {
   useFullSEO({
-    title: 'About Milta Financial Services | Your Offshore Accounting Partner',
+    title: "Trusted Partner for Accounting Outsourcing Services for Small Business",
     description:
-      'Learn how Milta Financial Services helps US businesses grow with reliable offshore bookkeeping, tax and accounting expertise, personalized service and cost savings.',
+      "We specialize in providing exceptional accounting outsourcing services customized specifically for small businesses in the USA. We understand your business needs.",
     keywords:
-      'about milta, offshore accounting partner, us accounting firm, outsourced bookkeeping team, milta financial services',
+      "business outsourcing services, accounting services for small business, finance and accounting outsourcing, outsource accounting services, virtual cfo services.",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/about',
-    ogTitle: 'About Milta Financial Services | Your Offshore Accounting Partner',
+    ogTitle: "Trusted Partner for Accounting Outsourcing Services for Small Business",
     ogDescription:
-      'Reliable offshore bookkeeping, tax and accounting expertise with personalized service and real cost savings for US businesses.',
+      "We specialize in providing exceptional accounting outsourcing services customized specifically for small businesses in the USA. We understand your business needs.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/about',
     ogType: 'website',
+    schema: faqSchema(FAQS),
   });
 
   return (
@@ -58,7 +61,7 @@ const About = () => {
       <VisionMission />
        <MDPortfolio />
       <WhyChoose />
-     
+      <AboutFAQ />
       <CTASection />
       <Footer />
     </Suspense>

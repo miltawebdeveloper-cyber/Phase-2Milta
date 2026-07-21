@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   {
     q: 'Why do nonprofit organizations need bookkeeping services?',
     a: 'Nonprofits must maintain transparent and accurate financial records to ensure compliance with IRS regulations, attract donors, and manage grants effectively. Reliable bookkeeping for nonprofit organizations in the US also supports better decision-making and long-term sustainability.',

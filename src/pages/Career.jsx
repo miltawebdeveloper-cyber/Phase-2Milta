@@ -11,7 +11,7 @@ const JoinMilta     = lazy(() => import('../components/careerComp/JoinMilta'));
 const WhyLoveMilta  = lazy(() => import('../components/careerComp/WhyLoveMilta'));
 const VoicesFromTeam = lazy(() => import('../components/careerComp/VoicesFromTeam'));
 const CareerCta     = lazy(() => import('../components/homeComp/CTASection'));
-const Footer        = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const ScrollProgressBar = () => {
   const { scrollYProgress } = useScroll();
@@ -41,16 +41,16 @@ const Career = () => {
   }, []);
 
   useFullSEO({
-    title: 'Careers at Milta Financial Services | Join Our Accounting Team',
+    title: "Work with Our Team That Values Your Growth | Careers at Milta",
     description:
-      'Build your career with Milta Financial Services. Explore open roles in accounting, bookkeeping and finance, and join a team that values growth and people.',
+      "Looking for a career to grow and shine? Join Milta, where we value people as much as results. Click to explore opportunities and join us!",
     keywords:
-      'milta careers, accounting jobs, bookkeeping careers, finance jobs, work at milta, join milta financial services',
+      "business development jobs, digital marketing jobs, virtual assistant jobs, us tax analyst jobs, business development executive, digital marketing specialist, digital marketing manager, hiring a virtual assistant, virtual assistant jobs for beginners, looking for a virtual assistant, hiring bookkeeper, bookkeeper job posting, hiring a bookkeeper near me, senior bookkeeper, bookkeeping job openings.",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/career',
-    ogTitle: 'Careers at Milta Financial Services | Join Our Accounting Team',
+    ogTitle: "Work with Our Team That Values Your Growth | Careers at Milta",
     ogDescription:
-      'Explore open roles in accounting, bookkeeping and finance, and join a team that values growth and people.',
+      "Looking for a career to grow and shine? Join Milta, where we value people as much as results. Click to explore opportunities and join us!",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/career',
     ogType: 'website',

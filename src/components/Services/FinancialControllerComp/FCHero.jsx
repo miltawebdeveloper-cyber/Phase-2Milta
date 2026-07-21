@@ -71,7 +71,7 @@ const HeroModern = ({ title = "Financial Controller Services", breadcrumbTitle =
             <Typography
               variant="h1"
               dangerouslySetInnerHTML={{ __html: title }}
-              sx={{
+              sx={{ letterSpacing: "0.25px",
                 fontSize: { xs: '2.4rem', sm: '3.5rem', md: '4rem', lg: '3.5rem' },
                 lineHeight: 1.25,
                 textAlign: 'center',

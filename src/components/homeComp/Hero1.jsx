@@ -15,21 +15,21 @@ const slides = [
   {
     title: 'Pure Financial Clarity.',
     subtitle: 'We simplify the complex. High-precision accounting strategies for the modern visionary.',
-    image: '/hero_organic.png',
+    image: '/hero_organic.webp',
     accent: 'ESTABLISHED 2009',
     insight: '10+ Years Legacy'
   },
   {
     title: 'Architecting Future Assets.',
     subtitle: 'Global enterprise scaling powered by rigorous financial frameworks and digital systems.',
-    image: '/about_modern.png',
+    image: '/about_modern.webp',
     accent: 'GLOBAL REACH',
     insight: '500+ Corporate Clients'
   },
   {
     title: 'Precision in Every Frame.',
     subtitle: 'Bespoke structural planning that turns regulatory compliance into strategic advantage.',
-    image: '/about_us.png',
+    image: '/about_us.webp',
     accent: 'STRATEGIC DESIGN',
     insight: 'Top Rated Firm 2024'
   }
@@ -133,6 +133,7 @@ const Hero = () => {
                           lineHeight: 1,
                           mb: 4,
                           letterSpacing: '-0.05em',
+                          wordSpacing: "0.1em",
                           maxWidth: { xs: '100%', md: '650px' }
                         }}
                       >

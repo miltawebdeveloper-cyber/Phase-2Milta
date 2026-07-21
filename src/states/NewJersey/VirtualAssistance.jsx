@@ -19,7 +19,7 @@ export default function VirtualAssistantNewJersey() {
         keywords:
           "virtual assistants service in new jersey, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant nj",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/virtual-assistant-service-in-newjersey/",
+        canonical: "https://www.miltafs.com/us/services/virtual-assistant-service-in-newjersey/",
       }}
       hero={{
         titleLead: "Boost Your Business with the Best",

@@ -11,7 +11,7 @@ export default function DigitalMarketingNewJersey() {
         keywords:
           "digital marketing agency, digital marketing services, digital marketing agency in new jersey, new jersey internet marketing, digital marketing services in new jersey",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/best-digital-marketing-agency-in-newjersey/",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-newjersey/",
       }}
       hero={{
         titleLead: "Full Digital Marketing Solutions Provider in",

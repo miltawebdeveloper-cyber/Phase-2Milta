@@ -1,153 +1,191 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, CssBaseline, CircularProgress } from '@mui/material';
 import { ThemeContextProvider, useThemeMode } from './ThemeContext';
 import { createAppTheme } from './theme';
+import lazyWithRetry from './utils/lazyWithRetry';
+import RouteErrorBoundary from './components/RouteErrorBoundary';
 import Home from './pages/Home';
-const About = lazy(() => import('./pages/About'));
-const Contact = lazy(() => import('./pages/Contact'));
-const Career = lazy(() => import('./pages/Career'));
-const CareerSub = lazy(() => import('./pages/careersub'));
-const BookKeeping = lazy(() => import('./pages/BookKeeping'));
-const TaxPlanning = lazy(() => import('./pages/TaxPlanning'));
-const VirtualAssistance = lazy(() => import('./pages/VirtualAssistance'));
-const CPAServices = lazy(() => import('./pages/CPAServices'));
-const FinancialControllerServices = lazy(() => import('./pages/FinancialControllerServices'));
-const DataEntryServices = lazy(() => import('./pages/DataEntryServices'));
-const DigitalMarketing = lazy(() => import('./pages/DigitalMarketing'));
-const PayrollManagement = lazy(() => import('./pages/PayrollManagement'));
-const ContractorsCompanies = lazy(() => import('./pages/ContractorsCompanies'));
-const LawFirms = lazy(() => import('./pages/LawFirms'));
-const ManufacturingCompanies = lazy(() => import('./pages/ManufacturingCompanies'));
-const RealEstateCompanies = lazy(() => import('./pages/RealEstateCompanies'));
-const NonProfit = lazy(() => import('./pages/NonProfit'));
-const HealthCare = lazy(() => import('./pages/HealthCare'));
-const RetailBusiness = lazy(() => import('./pages/Retail'));
-const Restaurant = lazy(() => import('./pages/Restaurant'));
-const Blog = lazy(() => import('./pages/Blog'));
-const BlogDetails = lazy(() => import('./pages/BlogDetails'));
-const Areas = lazy(() => import('./pages/Areas'));
-const BookkeepingCalifornia = lazy(() => import('./states/California/Bookkeeping'));
-const TaxCalifornia = lazy(() => import('./states/California/Tax'));
-const PayrollCalifornia = lazy(() => import('./states/California/Payroll'));
-const FinancialCalifornia = lazy(() => import('./states/California/Financial'));
-const DataEntryCalifornia = lazy(() => import('./states/California/DataEntry'));
-const VirtualAssistantCalifornia = lazy(() => import('./states/California/VirtualAssistance'));
-const CPACalifornia = lazy(() => import('./states/California/CPAfirms'));
-const DigitalMarketingCalifornia = lazy(() => import('./states/California/DigitalMarketing'));
-const BookkeepingFlorida = lazy(() => import('./states/Florida/Bookkeeping'));
-const TaxFlorida = lazy(() => import('./states/Florida/Tax'));
-const PayrollFlorida = lazy(() => import('./states/Florida/Payroll'));
-const FinancialFlorida = lazy(() => import('./states/Florida/Financial'));
-const DataEntryFlorida = lazy(() => import('./states/Florida/DataEntry'));
-const VirtualAssistantFlorida = lazy(() => import('./states/Florida/VirtualAssistance'));
-const CPAFlorida = lazy(() => import('./states/Florida/CPAfirms'));
-const DigitalMarketingFlorida = lazy(() => import('./states/Florida/DigitalMarketing'));
-const BookkeepingConnecticut = lazy(() => import('./states/Connecticut/Bookkeeping'));
-const TaxConnecticut = lazy(() => import('./states/Connecticut/Tax'));
-const PayrollConnecticut = lazy(() => import('./states/Connecticut/Payroll'));
-const FinancialConnecticut = lazy(() => import('./states/Connecticut/Financial'));
-const DataEntryConnecticut = lazy(() => import('./states/Connecticut/DataEntry'));
-const VirtualAssistantConnecticut = lazy(() => import('./states/Connecticut/VirtualAssistance'));
-const CPAConnecticut = lazy(() => import('./states/Connecticut/CPAfirms'));
-const DigitalMarketingConnecticut = lazy(() => import('./states/Connecticut/DigitalMarketing'));
-const BookkeepingGeorgia = lazy(() => import('./states/Gorgeia/Bookkeeping'));
-const TaxGeorgia = lazy(() => import('./states/Gorgeia/Tax'));
-const PayrollGeorgia = lazy(() => import('./states/Gorgeia/Payroll'));
-const FinancialGeorgia = lazy(() => import('./states/Gorgeia/Financial'));
-const DataEntryGeorgia = lazy(() => import('./states/Gorgeia/DataEntry'));
-const VirtualAssistantGeorgia = lazy(() => import('./states/Gorgeia/VirtualAssistance'));
-const CPAGeorgia = lazy(() => import('./states/Gorgeia/CPAfirms'));
-const DigitalMarketingGeorgia = lazy(() => import('./states/Gorgeia/DigitalMarketing'));
-const DigitalMarketingMaryland = lazy(() => import('./states/Maryland/DigitalMarketing'));
-const CPAfirmsMaryland = lazy(() => import('./states/Maryland/CPAfirms'));
-const DataEntryMaryland = lazy(() => import('./states/Maryland/DataEntry'));
-const BookkeepingMaryland = lazy(() => import('./states/Maryland/Bookkeeping'));
-const TaxMaryland = lazy(() => import('./states/Maryland/Tax'));
-const VirtualAssistantMaryland = lazy(() => import('./states/Maryland/VirtualAssistance'));
-const FinancialMaryland = lazy(() => import('./states/Maryland/Financial'));
-const PayrollMaryland = lazy(() => import('./states/Maryland/Payroll'));
-const PayrollMassachusetts = lazy(() => import('./states/Massachusetts/Payroll'));
-const BookkeepingMassachusetts = lazy(() => import('./states/Massachusetts/Bookkeeping'));
-const TaxMassachusetts = lazy(() => import('./states/Massachusetts/Tax'));
-const CPAMassachusetts = lazy(() => import('./states/Massachusetts/CPAfirms'));
-const VirtualAssistantMassachusetts = lazy(() => import('./states/Massachusetts/VirtualAssistance'));
-const DigitalMarketingMassachusetts = lazy(() => import('./states/Massachusetts/DigitalMarketing'));
-const DataEntryMassachusetts = lazy(() => import('./states/Massachusetts/DataEntry'));
-const FinancialControllerMassachusetts = lazy(() => import('./states/Massachusetts/Financial'));
-const BookkeepingNewJersey = lazy(() => import('./states/NewJersey/Bookkeeping'));
-const TaxNewJersey = lazy(() => import('./states/NewJersey/Tax'));
-const CPANewJersey = lazy(() => import('./states/NewJersey/CPAfirms'));
-const VirtualAssistantNewJersey = lazy(() => import('./states/NewJersey/VirtualAssistance'));
-const DigitalMarketingNewJersey = lazy(() => import('./states/NewJersey/DigitalMarketing'));
-const DataEntryNewJersey = lazy(() => import('./states/NewJersey/DataEntry'));
-const FinancialNewJersey = lazy(() => import('./states/NewJersey/Financial'));
-const PayrollNewJersey = lazy(() => import('./states/NewJersey/Payroll'));
-const BookkeepingNewYork = lazy(() => import('./states/Newyork/Bookkeeping'));
-const TaxNewYork = lazy(() => import('./states/Newyork/Tax'));
-const CPANewYork = lazy(() => import('./states/Newyork/CPAfirms'));
-const VirtualAssistantNewYork = lazy(() => import('./states/Newyork/VirtualAssistance'));
-const DigitalMarketingNewYork = lazy(() => import('./states/Newyork/DigitalMarketing'));
-const DataEntryNewYork = lazy(() => import('./states/Newyork/DataEntry'));
-const FinancialNewYork = lazy(() => import('./states/Newyork/Financial'));
-const PayrollNewYork = lazy(() => import('./states/Newyork/Payroll'));
-const BookkeepingNorthCarolina = lazy(() => import('./states/NorthCarolina/Bookkeeping'));
-const TaxNorthCarolina = lazy(() => import('./states/NorthCarolina/Tax'));
-const CPANorthCarolina = lazy(() => import('./states/NorthCarolina/CPAfirms'));
-const VirtualAssistantNorthCarolina = lazy(() => import('./states/NorthCarolina/VirtualAssistance'));
-const DigitalMarketingNorthCarolina = lazy(() => import('./states/NorthCarolina/DigitalMarketing'));
-const DataEntryNorthCarolina = lazy(() => import('./states/NorthCarolina/DataEntry'));
-const FinancialNorthCarolina = lazy(() => import('./states/NorthCarolina/Financial'));
-const PayrollNorthCarolina = lazy(() => import('./states/NorthCarolina/Payroll'));
-const BookkeepingOhio = lazy(() => import('./states/Ohio/Bookkeeping'));
-const TaxOhio = lazy(() => import('./states/Ohio/Tax'));
-const CPAOhio = lazy(() => import('./states/Ohio/CPAfirms'));
-const VirtualAssistantOhio = lazy(() => import('./states/Ohio/VirtualAssistance'));
-const DigitalMarketingOhio = lazy(() => import('./states/Ohio/DigitalMarketing'));
-const DataEntryOhio = lazy(() => import('./states/Ohio/DataEntry'));
-const FinancialOhio = lazy(() => import('./states/Ohio/Financial'));
-const PayrollOhio = lazy(() => import('./states/Ohio/Payroll'));
-const BookkeepingPennsylvania = lazy(() => import('./states/Pennsylvania/Bookkeeping'));
-const TaxPennsylvania = lazy(() => import('./states/Pennsylvania/Tax'));
-const CPAPennsylvania = lazy(() => import('./states/Pennsylvania/CPAfirms'));
-const VirtualAssistantPennsylvania = lazy(() => import('./states/Pennsylvania/VirtualAssistance'));
-const DigitalMarketingPennsylvania = lazy(() => import('./states/Pennsylvania/DigitalMarketing'));
-const DataEntryPennsylvania = lazy(() => import('./states/Pennsylvania/DataEntry'));
-const FinancialPennsylvania = lazy(() => import('./states/Pennsylvania/Financial'));
-const PayrollPennsylvania = lazy(() => import('./states/Pennsylvania/Payroll'));
-const BookkeepingSouthCarolina = lazy(() => import('./states/SouthCarolina/Bookkeeping'));
-const TaxSouthCarolina = lazy(() => import('./states/SouthCarolina/Tax'));
-const CPASouthCarolina = lazy(() => import('./states/SouthCarolina/CPAfirms'));
-const VirtualAssistantSouthCarolina = lazy(() => import('./states/SouthCarolina/VirtualAssistance'));
-const DigitalMarketingSouthCarolina = lazy(() => import('./states/SouthCarolina/DigitalMarketing'));
-const DataEntrySouthCarolina = lazy(() => import('./states/SouthCarolina/DataEntry'));
-const FinancialSouthCarolina = lazy(() => import('./states/SouthCarolina/Financial'));
-const PayrollSouthCarolina = lazy(() => import('./states/SouthCarolina/Payroll'));
-const BookkeepingTexas = lazy(() => import('./states/Texas/Bookkeeping'));
-const TaxTexas = lazy(() => import('./states/Texas/Tax'));
-const CPATexas = lazy(() => import('./states/Texas/CPAfirms'));
-const VirtualAssistantTexas = lazy(() => import('./states/Texas/VirtualAssistance'));
-const DigitalMarketingTexas = lazy(() => import('./states/Texas/DigitalMarketing'));
-const DataEntryTexas = lazy(() => import('./states/Texas/DataEntry'));
-const FinancialTexas = lazy(() => import('./states/Texas/Financial'));
-const PayrollTexas = lazy(() => import('./states/Texas/Payroll'));
-const BookkeepingVirginia = lazy(() => import('./states/Virginia/Bookkeeping'));
-const TaxVirginia = lazy(() => import('./states/Virginia/Tax'));
-const CPAVirginia = lazy(() => import('./states/Virginia/CPAfirms'));
-const VirtualAssistantVirginia = lazy(() => import('./states/Virginia/VirtualAssistance'));
-const DigitalMarketingVirginia = lazy(() => import('./states/Virginia/DigitalMarketing'));
-const DataEntryVirginia = lazy(() => import('./states/Virginia/DataEntry'));
-const FinancialVirginia = lazy(() => import('./states/Virginia/Financial'));
-const PayrollVirginia = lazy(() => import('./states/Virginia/Payroll'));
+const About = lazyWithRetry(() => import('./pages/About'));
+const Contact = lazyWithRetry(() => import('./pages/Contact'));
+const Career = lazyWithRetry(() => import('./pages/Career'));
+const CareerSub = lazyWithRetry(() => import('./pages/careersub'));
+const BookKeeping = lazyWithRetry(() => import('./pages/BookKeeping'));
+const TaxPlanning = lazyWithRetry(() => import('./pages/TaxPlanning'));
+const VirtualAssistance = lazyWithRetry(() => import('./pages/VirtualAssistance'));
+const CPAServices = lazyWithRetry(() => import('./pages/CPAServices'));
+const FinancialControllerServices = lazyWithRetry(() => import('./pages/FinancialControllerServices'));
+const DataEntryServices = lazyWithRetry(() => import('./pages/DataEntryServices'));
+const DigitalMarketing = lazyWithRetry(() => import('./pages/DigitalMarketing'));
+const PayrollManagement = lazyWithRetry(() => import('./pages/PayrollManagement'));
+const ContractorsCompanies = lazyWithRetry(() => import('./pages/ContractorsCompanies'));
+const LawFirms = lazyWithRetry(() => import('./pages/LawFirms'));
+const ManufacturingCompanies = lazyWithRetry(() => import('./pages/ManufacturingCompanies'));
+const RealEstateCompanies = lazyWithRetry(() => import('./pages/RealEstateCompanies'));
+const NonProfit = lazyWithRetry(() => import('./pages/NonProfit'));
+const HealthCare = lazyWithRetry(() => import('./pages/HealthCare'));
+const RetailBusiness = lazyWithRetry(() => import('./pages/Retail'));
+const Restaurant = lazyWithRetry(() => import('./pages/Restaurant'));
+const Blog = lazyWithRetry(() => import('./pages/Blog'));
+const BlogDetails = lazyWithRetry(() => import('./pages/BlogDetails'));
+const Areas = lazyWithRetry(() => import('./pages/Areas'));
+const BookkeepingCalifornia = lazyWithRetry(() => import('./states/California/Bookkeeping'));
+const TaxCalifornia = lazyWithRetry(() => import('./states/California/Tax'));
+const PayrollCalifornia = lazyWithRetry(() => import('./states/California/Payroll'));
+const FinancialCalifornia = lazyWithRetry(() => import('./states/California/Financial'));
+const DataEntryCalifornia = lazyWithRetry(() => import('./states/California/DataEntry'));
+const VirtualAssistantCalifornia = lazyWithRetry(() => import('./states/California/VirtualAssistance'));
+const CPACalifornia = lazyWithRetry(() => import('./states/California/CPAfirms'));
+const DigitalMarketingCalifornia = lazyWithRetry(() => import('./states/California/DigitalMarketing'));
+const BookkeepingFlorida = lazyWithRetry(() => import('./states/Florida/Bookkeeping'));
+const TaxFlorida = lazyWithRetry(() => import('./states/Florida/Tax'));
+const PayrollFlorida = lazyWithRetry(() => import('./states/Florida/Payroll'));
+const FinancialFlorida = lazyWithRetry(() => import('./states/Florida/Financial'));
+const DataEntryFlorida = lazyWithRetry(() => import('./states/Florida/DataEntry'));
+const VirtualAssistantFlorida = lazyWithRetry(() => import('./states/Florida/VirtualAssistance'));
+const CPAFlorida = lazyWithRetry(() => import('./states/Florida/CPAfirms'));
+const DigitalMarketingFlorida = lazyWithRetry(() => import('./states/Florida/DigitalMarketing'));
+const BookkeepingConnecticut = lazyWithRetry(() => import('./states/Connecticut/Bookkeeping'));
+const TaxConnecticut = lazyWithRetry(() => import('./states/Connecticut/Tax'));
+const PayrollConnecticut = lazyWithRetry(() => import('./states/Connecticut/Payroll'));
+const FinancialConnecticut = lazyWithRetry(() => import('./states/Connecticut/Financial'));
+const DataEntryConnecticut = lazyWithRetry(() => import('./states/Connecticut/DataEntry'));
+const VirtualAssistantConnecticut = lazyWithRetry(() => import('./states/Connecticut/VirtualAssistance'));
+const CPAConnecticut = lazyWithRetry(() => import('./states/Connecticut/CPAfirms'));
+const DigitalMarketingConnecticut = lazyWithRetry(() => import('./states/Connecticut/DigitalMarketing'));
+const BookkeepingGeorgia = lazyWithRetry(() => import('./states/Gorgeia/Bookkeeping'));
+const TaxGeorgia = lazyWithRetry(() => import('./states/Gorgeia/Tax'));
+const PayrollGeorgia = lazyWithRetry(() => import('./states/Gorgeia/Payroll'));
+const FinancialGeorgia = lazyWithRetry(() => import('./states/Gorgeia/Financial'));
+const DataEntryGeorgia = lazyWithRetry(() => import('./states/Gorgeia/DataEntry'));
+const VirtualAssistantGeorgia = lazyWithRetry(() => import('./states/Gorgeia/VirtualAssistance'));
+const CPAGeorgia = lazyWithRetry(() => import('./states/Gorgeia/CPAfirms'));
+const DigitalMarketingGeorgia = lazyWithRetry(() => import('./states/Gorgeia/DigitalMarketing'));
+const DigitalMarketingMaryland = lazyWithRetry(() => import('./states/Maryland/DigitalMarketing'));
+const CPAfirmsMaryland = lazyWithRetry(() => import('./states/Maryland/CPAfirms'));
+const DataEntryMaryland = lazyWithRetry(() => import('./states/Maryland/DataEntry'));
+const BookkeepingMaryland = lazyWithRetry(() => import('./states/Maryland/Bookkeeping'));
+const TaxMaryland = lazyWithRetry(() => import('./states/Maryland/Tax'));
+const VirtualAssistantMaryland = lazyWithRetry(() => import('./states/Maryland/VirtualAssistance'));
+const FinancialMaryland = lazyWithRetry(() => import('./states/Maryland/Financial'));
+const PayrollMaryland = lazyWithRetry(() => import('./states/Maryland/Payroll'));
+const PayrollMassachusetts = lazyWithRetry(() => import('./states/Massachusetts/Payroll'));
+const BookkeepingMassachusetts = lazyWithRetry(() => import('./states/Massachusetts/Bookkeeping'));
+const TaxMassachusetts = lazyWithRetry(() => import('./states/Massachusetts/Tax'));
+const CPAMassachusetts = lazyWithRetry(() => import('./states/Massachusetts/CPAfirms'));
+const VirtualAssistantMassachusetts = lazyWithRetry(() => import('./states/Massachusetts/VirtualAssistance'));
+const DigitalMarketingMassachusetts = lazyWithRetry(() => import('./states/Massachusetts/DigitalMarketing'));
+const DataEntryMassachusetts = lazyWithRetry(() => import('./states/Massachusetts/DataEntry'));
+const FinancialControllerMassachusetts = lazyWithRetry(() => import('./states/Massachusetts/Financial'));
+const BookkeepingNewJersey = lazyWithRetry(() => import('./states/NewJersey/Bookkeeping'));
+const TaxNewJersey = lazyWithRetry(() => import('./states/NewJersey/Tax'));
+const CPANewJersey = lazyWithRetry(() => import('./states/NewJersey/CPAfirms'));
+const VirtualAssistantNewJersey = lazyWithRetry(() => import('./states/NewJersey/VirtualAssistance'));
+const DigitalMarketingNewJersey = lazyWithRetry(() => import('./states/NewJersey/DigitalMarketing'));
+const DataEntryNewJersey = lazyWithRetry(() => import('./states/NewJersey/DataEntry'));
+const FinancialNewJersey = lazyWithRetry(() => import('./states/NewJersey/Financial'));
+const PayrollNewJersey = lazyWithRetry(() => import('./states/NewJersey/Payroll'));
+const BookkeepingNewYork = lazyWithRetry(() => import('./states/Newyork/Bookkeeping'));
+const TaxNewYork = lazyWithRetry(() => import('./states/Newyork/Tax'));
+const CPANewYork = lazyWithRetry(() => import('./states/Newyork/CPAfirms'));
+const VirtualAssistantNewYork = lazyWithRetry(() => import('./states/Newyork/VirtualAssistance'));
+const DigitalMarketingNewYork = lazyWithRetry(() => import('./states/Newyork/DigitalMarketing'));
+const DataEntryNewYork = lazyWithRetry(() => import('./states/Newyork/DataEntry'));
+const FinancialNewYork = lazyWithRetry(() => import('./states/Newyork/Financial'));
+const PayrollNewYork = lazyWithRetry(() => import('./states/Newyork/Payroll'));
+const BookkeepingNorthCarolina = lazyWithRetry(() => import('./states/NorthCarolina/Bookkeeping'));
+const TaxNorthCarolina = lazyWithRetry(() => import('./states/NorthCarolina/Tax'));
+const CPANorthCarolina = lazyWithRetry(() => import('./states/NorthCarolina/CPAfirms'));
+const VirtualAssistantNorthCarolina = lazyWithRetry(() => import('./states/NorthCarolina/VirtualAssistance'));
+const DigitalMarketingNorthCarolina = lazyWithRetry(() => import('./states/NorthCarolina/DigitalMarketing'));
+const DataEntryNorthCarolina = lazyWithRetry(() => import('./states/NorthCarolina/DataEntry'));
+const FinancialNorthCarolina = lazyWithRetry(() => import('./states/NorthCarolina/Financial'));
+const PayrollNorthCarolina = lazyWithRetry(() => import('./states/NorthCarolina/Payroll'));
+const BookkeepingOhio = lazyWithRetry(() => import('./states/Ohio/Bookkeeping'));
+const TaxOhio = lazyWithRetry(() => import('./states/Ohio/Tax'));
+const CPAOhio = lazyWithRetry(() => import('./states/Ohio/CPAfirms'));
+const VirtualAssistantOhio = lazyWithRetry(() => import('./states/Ohio/VirtualAssistance'));
+const DigitalMarketingOhio = lazyWithRetry(() => import('./states/Ohio/DigitalMarketing'));
+const DataEntryOhio = lazyWithRetry(() => import('./states/Ohio/DataEntry'));
+const FinancialOhio = lazyWithRetry(() => import('./states/Ohio/Financial'));
+const PayrollOhio = lazyWithRetry(() => import('./states/Ohio/Payroll'));
+const BookkeepingPennsylvania = lazyWithRetry(() => import('./states/Pennsylvania/Bookkeeping'));
+const TaxPennsylvania = lazyWithRetry(() => import('./states/Pennsylvania/Tax'));
+const CPAPennsylvania = lazyWithRetry(() => import('./states/Pennsylvania/CPAfirms'));
+const VirtualAssistantPennsylvania = lazyWithRetry(() => import('./states/Pennsylvania/VirtualAssistance'));
+const DigitalMarketingPennsylvania = lazyWithRetry(() => import('./states/Pennsylvania/DigitalMarketing'));
+const DataEntryPennsylvania = lazyWithRetry(() => import('./states/Pennsylvania/DataEntry'));
+const FinancialPennsylvania = lazyWithRetry(() => import('./states/Pennsylvania/Financial'));
+const PayrollPennsylvania = lazyWithRetry(() => import('./states/Pennsylvania/Payroll'));
+const BookkeepingSouthCarolina = lazyWithRetry(() => import('./states/SouthCarolina/Bookkeeping'));
+const TaxSouthCarolina = lazyWithRetry(() => import('./states/SouthCarolina/Tax'));
+const CPASouthCarolina = lazyWithRetry(() => import('./states/SouthCarolina/CPAfirms'));
+const VirtualAssistantSouthCarolina = lazyWithRetry(() => import('./states/SouthCarolina/VirtualAssistance'));
+const DigitalMarketingSouthCarolina = lazyWithRetry(() => import('./states/SouthCarolina/DigitalMarketing'));
+const DataEntrySouthCarolina = lazyWithRetry(() => import('./states/SouthCarolina/DataEntry'));
+const FinancialSouthCarolina = lazyWithRetry(() => import('./states/SouthCarolina/Financial'));
+const PayrollSouthCarolina = lazyWithRetry(() => import('./states/SouthCarolina/Payroll'));
+const BookkeepingTexas = lazyWithRetry(() => import('./states/Texas/Bookkeeping'));
+const TaxTexas = lazyWithRetry(() => import('./states/Texas/Tax'));
+const CPATexas = lazyWithRetry(() => import('./states/Texas/CPAfirms'));
+const VirtualAssistantTexas = lazyWithRetry(() => import('./states/Texas/VirtualAssistance'));
+const DigitalMarketingTexas = lazyWithRetry(() => import('./states/Texas/DigitalMarketing'));
+const DataEntryTexas = lazyWithRetry(() => import('./states/Texas/DataEntry'));
+const FinancialTexas = lazyWithRetry(() => import('./states/Texas/Financial'));
+const PayrollTexas = lazyWithRetry(() => import('./states/Texas/Payroll'));
+const BookkeepingVirginia = lazyWithRetry(() => import('./states/Virginia/Bookkeeping'));
+const TaxVirginia = lazyWithRetry(() => import('./states/Virginia/Tax'));
+const CPAVirginia = lazyWithRetry(() => import('./states/Virginia/CPAfirms'));
+const VirtualAssistantVirginia = lazyWithRetry(() => import('./states/Virginia/VirtualAssistance'));
+const DigitalMarketingVirginia = lazyWithRetry(() => import('./states/Virginia/DigitalMarketing'));
+const DataEntryVirginia = lazyWithRetry(() => import('./states/Virginia/DataEntry'));
+const FinancialVirginia = lazyWithRetry(() => import('./states/Virginia/Financial'));
+const PayrollVirginia = lazyWithRetry(() => import('./states/Virginia/Payroll'));
 import ScrollToTopOnNavigate from './components/ScrollToTopOnNavigate';
-const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
-const TermsOfService = lazy(() => import('./pages/TermsofService'));
-const Services = lazy(() => import('./pages/Services'));
-const AccountingSoftware = lazy(() => import('./pages/AccountingSoftware'));
-const QuickBooksDesktop = lazy(() => import('./pages/QuickBooksDesktop'));
-const QuickBooksOnline = lazy(() => import('./pages/quickBooksOnline'));
-const Xero = lazy(() => import('./pages/Xero'));
-const WaveAccounting = lazy(() => import('./pages/WaveAccounting'));
+const PrivacyPolicy = lazyWithRetry(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazyWithRetry(() => import('./pages/TermsofService'));
+const Services = lazyWithRetry(() => import('./pages/Services'));
+const AccountingSoftware = lazyWithRetry(() => import('./pages/AccountingSoftware'));
+const QuickBooksDesktop = lazyWithRetry(() => import('./pages/QuickBooksDesktop'));
+const QuickBooksOnline = lazyWithRetry(() => import('./pages/quickBooksOnline'));
+const Xero = lazyWithRetry(() => import('./pages/Xero'));
+const WaveAccounting = lazyWithRetry(() => import('./pages/WaveAccounting'));
+
+// ── UK site (rendered inside UkLayout under /uk) ──
+const UkLayout = lazyWithRetry(() => import('./uk-pages/UkLayout'));
+const UkHome = lazyWithRetry(() => import('./uk-pages/Home'));
+const UkAbout = lazyWithRetry(() => import('./uk-pages/About'));
+const UkWhyMilta = lazyWithRetry(() => import('./uk-pages/WhyMilta'));
+const UkServices = lazyWithRetry(() => import('./uk-pages/Services'));
+const UkBookKeeping = lazyWithRetry(() => import('./uk-pages/BookKeeping'));
+const UkAccountsPayable = lazyWithRetry(() => import('./uk-pages/AccountsPayable'));
+const UkAccountsReceivable = lazyWithRetry(() => import('./uk-pages/AccountsReceivable'));
+const UkDigitalMarketing = lazyWithRetry(() => import('./uk-pages/DigitalMarketing'));
+const UkPayroll = lazyWithRetry(() => import('./uk-pages/PayrollOutsourcing'));
+const UkVirtualAssistance = lazyWithRetry(() => import('./uk-pages/VirtualAssistance'));
+const UkDataEntry = lazyWithRetry(() => import('./uk-pages/DataEntry'));
+const UkEcommerce = lazyWithRetry(() => import('./uk-pages/Ecommerce-accounting'));
+const UkHealthcare = lazyWithRetry(() => import('./uk-pages/Healthcare'));
+const UkLawFirms = lazyWithRetry(() => import('./uk-pages/LawFirms'));
+const UkRealEstate = lazyWithRetry(() => import('./uk-pages/RealEstate'));
+const UkHospitality = lazyWithRetry(() => import('./uk-pages/Hospitality'));
+const UkBlog = lazyWithRetry(() => import('./uk-pages/Blog'));
+const UkBlogDetails = lazyWithRetry(() => import('./uk-pages/BlogDetails'));
+const UkContact = lazyWithRetry(() => import('./uk-pages/Contact'));
+const UkPrivacy = lazyWithRetry(() => import('./uk-pages/PrivacyPolicy'));
+const UkTerms = lazyWithRetry(() => import('./uk-pages/TermsofService'));
+const UkContractors = lazyWithRetry(() => import('./uk-pages/Contractors'));
+const UkManufacturing = lazyWithRetry(() => import('./uk-pages/Manufacturing'));
+const UkNonProfit = lazyWithRetry(() => import('./uk-pages/Non-Profit'));
+const UkRestaurant = lazyWithRetry(() => import('./uk-pages/Restaurant'));
+const UkRetail = lazyWithRetry(() => import('./uk-pages/RetailBusiness'));
+const UkController = lazyWithRetry(() => import('./uk-pages/ControllerService'));
+const UkFinancialReporting = lazyWithRetry(() => import('./uk-pages/FinancialReporting'));
+const UkInvoiceProcessing = lazyWithRetry(() => import('./uk-pages/InvoiceProcessing'));
+const UkAccountingOutsourcing = lazyWithRetry(() => import('./uk-pages/AccountingOutsourcing'));
+const UkTaxPlanning = lazyWithRetry(() => import('./uk-pages/TaxPlanning'));
+const UkAddblog = lazyWithRetry(() => import('./uk-pages/Addblog'));
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -184,6 +222,7 @@ function ThemedApp() {
       <ConsultationProvider>
       <Router>
         <ScrollToTopOnNavigate />
+        <RouteErrorBoundary>
         <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -194,6 +233,42 @@ function ThemedApp() {
           <Route path="/us/software/bookkeeping-with-quickbook-online/" element={<SoftwareLayout><QuickBooksOnline /></SoftwareLayout>} />
           <Route path="/us/software/xero-for-small-business/" element={<SoftwareLayout><Xero /></SoftwareLayout>} />
           <Route path="/us/software/wave-accounting-for-small-business/" element={<SoftwareLayout><WaveAccounting /></SoftwareLayout>} />
+
+          {/* ── UK site ── */}
+          <Route path="/uk" element={<UkLayout />}>
+            <Route index element={<UkHome />} />
+            <Route path="about" element={<UkAbout />} />
+            <Route path="why-choose-milta" element={<UkWhyMilta />} />
+            <Route path="services" element={<UkServices />} />
+            <Route path="bookkeeping-services-for-small-business" element={<UkBookKeeping />} />
+            <Route path="accounts-payable-services-in-uk" element={<UkAccountsPayable />} />
+            <Route path="accounts-receivable-services-in-uk" element={<UkAccountsReceivable />} />
+            <Route path="best-digital-marketing-service-in-uk" element={<UkDigitalMarketing />} />
+            <Route path="payroll-services-for-small-business" element={<UkPayroll />} />
+            <Route path="virtual-assistant-services-in-the-uk" element={<UkVirtualAssistance />} />
+            <Route path="accounting-data-entry-services-uk" element={<UkDataEntry />} />
+            <Route path="ecommerce-accounting-service" element={<UkEcommerce />} />
+            <Route path="accounting-services-for-healthcare" element={<UkHealthcare />} />
+            <Route path="law-firm-accounting-services" element={<UkLawFirms />} />
+            <Route path="accounting-services-for-real-estate" element={<UkRealEstate />} />
+            <Route path="hospitality-accounting-services" element={<UkHospitality />} />
+            <Route path="blogs" element={<UkBlog />} />
+            <Route path="blogs/:slug" element={<UkBlogDetails />} />
+            <Route path="contact" element={<UkContact />} />
+            <Route path="privacy-policy" element={<UkPrivacy />} />
+            <Route path="terms-of-service" element={<UkTerms />} />
+            <Route path="accounting-services-for-contractors" element={<UkContractors />} />
+            <Route path="accounting-services-for-manufacturing" element={<UkManufacturing />} />
+            <Route path="accounting-services-for-non-profit" element={<UkNonProfit />} />
+            <Route path="accounting-services-for-restaurants" element={<UkRestaurant />} />
+            <Route path="accounting-services-for-retail-business" element={<UkRetail />} />
+            <Route path="controller-services" element={<UkController />} />
+            <Route path="financial-reporting-services" element={<UkFinancialReporting />} />
+            <Route path="invoice-processing-services" element={<UkInvoiceProcessing />} />
+            <Route path="accounting-outsourcing-services" element={<UkAccountingOutsourcing />} />
+            <Route path="tax-planning-services" element={<UkTaxPlanning />} />
+            <Route path="addblog" element={<UkAddblog />} />
+          </Route>
           <Route path="/contact" element={<Contact />} />
           <Route path="/career" element={<Career />} />
           <Route path="/career/open-positions" element={<CareerSub />} />
@@ -359,6 +434,7 @@ function ThemedApp() {
 
         </Routes>
         </Suspense>
+        </RouteErrorBoundary>
         <SocialBar />
       </Router>
       </ConsultationProvider>

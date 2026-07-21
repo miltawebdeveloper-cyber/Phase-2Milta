@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import NPHero from '../components/Industries/NonProfit/NPHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import { faqSchema } from '../utils/faqSchema';
 import ServicesSection from '../components/homeComp/ServicesSection';
 
 
@@ -12,25 +13,26 @@ const NPSolutions  = lazy(() => import('../components/Industries/NonProfit/NPSol
 const NPWhyChoose  = lazy(() => import('../components/Industries/NonProfit/NPWhyChoose'));
 const NPAdvantages = lazy(() => import('../components/Industries/NonProfit/NPAdvantages'));
 const NPChallenges = lazy(() => import('../components/Industries/NonProfit/NPChallenges'));
-const NPFAQ        = lazy(() => import('../components/Industries/NonProfit/NPFAQ'));
+import NPFAQ, { FAQS } from '../components/Industries/NonProfit/NPFAQ';
 const CTASection   = lazy(() => import('../components/homeComp/CTASection'));
-const Footer       = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const NonProfit = () => {
   useFullSEO({
-    title: 'Accounting for Nonprofit Organizations | Milta Financial Services',
+    title: "Best Bookkeeping for Nonprofits in the US",
     description:
-      'Fund accounting, grant tracking and Form 990-ready reporting for nonprofits. Milta helps your organization stay transparent, compliant and mission-focused.',
+      "Milta is your reliable partner for bookkeeping for nonprofits in the US. Whether you are launching a new nonprofit or managing a growing foundation, we can help.",
     keywords:
-      'nonprofit accounting, fund accounting, grant tracking, form 990, nonprofit bookkeeping, milta nonprofit organizations',
+      "bookkeeping for nonprofits in the us, nonprofit accountants near me, bookkeeping for nonprofit, bookkeeping for nonprofit organizations in the us, non profit accountant near me, accounting for small nonprofits, tax returns for nonprofit, nonprofit tax preparation, nonprofit tax preparers near me, tax filing for nonprofit corporation, nonprofit corporation tax filing",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-nonprofit-organizations/',
-    ogTitle: 'Accounting for Nonprofit Organizations | Milta Financial Services',
+    ogTitle: "Best Bookkeeping for Nonprofits in the US",
     ogDescription:
-      'Fund accounting, grant tracking and Form 990-ready reporting to keep your nonprofit transparent and compliant.',
+      "Milta is your reliable partner for bookkeeping for nonprofits in the US. Whether you are launching a new nonprofit or managing a growing foundation, we can help.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-nonprofit-organizations/',
     ogType: 'website',
+    schema: faqSchema(FAQS),
   });
 
   return (

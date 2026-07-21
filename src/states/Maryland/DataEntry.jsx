@@ -31,7 +31,7 @@ export default function DataEntryMaryland() {
         keywords:
           "data entry companies, accounting data entry, data entry services, data management services, data management services in maryland",
         author: "Milta Accounting",
-        canonical: "https://miltafs.com/us/services/outsourcing-accounting-data-entry-maryland/",
+        canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-maryland/",
       }}
       hero={{
         titleLead: "Precision-Driven Data Management Services in",

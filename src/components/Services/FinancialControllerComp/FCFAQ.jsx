@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   { q: 'What is a Financial Controller?',                                          a: 'A financial controller is in charge of the accounting department of your business, guaranteeing compliance, accurate financial reporting, and strategic financial management.' },
   { q: 'Why should I outsource Financial Controller Services?',                    a: 'Outsourcing provides access to experienced professionals without the cost of a full-time hire, helping you save money while maintaining high-quality financial oversight.' },
   { q: 'What types of businesses benefit from Financial Controller Services?',     a: 'Small and medium-sized businesses, startups, and growing companies that need expert financial management but are not ready for a full-time hire can greatly benefit.' },

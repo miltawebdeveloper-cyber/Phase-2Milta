@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   {
     q: 'Why do welders and contractors need bookkeeping services?',
     a: 'Welders and construction professionals manage project-based billing, job costing, and subcontractor payments, making accurate financial tracking essential for staying profitable. Proper bookkeeping for contractors ensures smoother operations, from invoicing to tax filings.',

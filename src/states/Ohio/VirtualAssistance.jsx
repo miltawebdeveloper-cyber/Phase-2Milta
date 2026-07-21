@@ -19,7 +19,7 @@ export default function VirtualAssistantOhio() {
         keywords:
           "virtual assistants service in ohio, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant oh",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/virtual-assistant-service-in-ohio/",
+        canonical: "https://www.miltafs.com/us/services/virtual-assistant-service-in-ohio/",
       }}
       hero={{
         titleLead: "Elite Virtual Assistant Services in Ohio:",

@@ -46,7 +46,7 @@ export default function VirtualAssistantMaryland() {
         keywords:
           "virtual assistants service in maryland, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant md",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/virtual-assistant-service-in-maryland/",
+        canonical: "https://www.miltafs.com/us/services/virtual-assistant-service-in-maryland/",
       }}
       hero={{
         titleLead: "Enhance Productivity with",

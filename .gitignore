@@ -16,6 +16,9 @@ server/node_modules
 /build
 /dist
 
+# build/backup archives (never commit — dist.zip is 174MB, over GitHub's 100MB limit)
+*.zip
+
 # misc
 .DS_Store
 .env

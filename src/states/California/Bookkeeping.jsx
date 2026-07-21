@@ -37,7 +37,7 @@ import useFullSEO from "../../utils/useFullSEO";
 import Navbar from "../../components/Navbar";
 import ScrollToTop from "../../components/ScrollToTop";
 
-const Footer = lazy(() => import("../../components/Footer"));
+import Footer from "../../components/Footer";
 const CTASection = lazy(() => import("../../components/homeComp/CTASection"));
 
 /* ================= MOTION ================= */
@@ -183,7 +183,7 @@ const Hero = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <Typography
               variant="h1"
-              sx={{
+              sx={{ letterSpacing: "0.25px",
                 fontSize: { xs: "2.4rem", sm: "3.5rem", md: "4rem", lg: "3.5rem" },
                 color: theme.palette.primary.contrastText,
                 maxWidth: { xs: "100%", md: "880px" },

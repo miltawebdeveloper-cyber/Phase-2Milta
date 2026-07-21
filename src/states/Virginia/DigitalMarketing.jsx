@@ -11,7 +11,7 @@ export default function DigitalMarketingVirginia() {
         keywords:
           "digital marketing agency, digital marketing services, digital marketing agency in virginia, virginia internet marketing, digital marketing services in virginia",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/best-digital-marketing-agency-in-virginia/",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-virginia/",
       }}
       hero={{
         titleLead: "Elevate Your Brand with a Top Digital Marketing Agency in",

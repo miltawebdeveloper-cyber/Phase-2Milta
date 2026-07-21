@@ -19,7 +19,7 @@ export default function VirtualAssistantPennsylvania() {
         keywords:
           "virtual assistants service in Pennsylvania, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant pa",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/virtual-assistant-service-in-pennsylvania/",
+        canonical: "https://www.miltafs.com/us/services/virtual-assistant-service-in-pennsylvania/",
       }}
       hero={{
         titleLead: "Boost Productivity with Trusted",

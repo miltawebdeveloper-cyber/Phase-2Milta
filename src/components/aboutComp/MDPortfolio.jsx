@@ -12,7 +12,7 @@ const people = [
     experience: "10+ Years",
     content:
       "Mohammed Rizwan holds a Bachelor's degree in Commerce and brings over a decade of hands-on experience in the financial services industry. His expertise spans accounting, strategic planning, and client relationship management.",
-    img: "/MD2.png",
+    img: "/MD2.webp",
     linkedin: "https://www.linkedin.com/in/mohammed-rizwan-8b4a221a2/",
     email: "mohammed@miltafs.com",
   },
@@ -22,7 +22,7 @@ const people = [
     experience: "10+ Years",
     content:
       "Raja Vignesh is a graduate with a Bachelor's degree in Business Administration and has more than 10 years of experience in the financial sector. He specializes in growing the business, improving operations, and leading teams.",
-    img: "/MD1.png",
+    img: "/MD1.webp",
     linkedin: "https://www.linkedin.com/in/raja-vignesh-5ab3a3375/",
     email: "conway@miltafs.com",
   },

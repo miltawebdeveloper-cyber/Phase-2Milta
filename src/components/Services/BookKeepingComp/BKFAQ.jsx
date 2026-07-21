@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   { q: 'What is bookkeeping, and why do I need it for my small business?', a: "Bookkeeping involves recording, organizing, and managing your business's financial transactions. It helps you maintain accurate financial records, make informed decisions, and ensure compliance with U.S. tax laws and regulations. Proper bookkeeping is essential for tracking cash flow, preparing for tax season, and growing your business." },
   { q: 'Can I handle bookkeeping myself, or should I hire a professional?', a: 'While some small business owners manage their bookkeeping, hiring a professional ensures accuracy and saves time. Professionals are well-versed in U.S. tax laws, payroll management, and financial reporting, giving you peace of mind and allowing you to focus on your business.' },
   { q: 'What types of bookkeeping services do you offer?', a: 'We provide a wide range of services, including bank and credit card reconciliation, accounts receivable and payable management, payroll processing, invoice generation, financial reporting, and tax preparation support. Our services are tailored to meet the unique needs of small businesses in the USA.' },

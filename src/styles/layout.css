@@ -1,0 +1,11 @@
+/* Layout classes used by the UK layout shell (UkLayout.jsx).
+   The UK pages are otherwise styled with MUI `sx` props. */
+.uk-main {
+  display: block;
+  width: 100%;
+}
+
+.uk-container {
+  width: 100%;
+  margin: 0 auto;
+}

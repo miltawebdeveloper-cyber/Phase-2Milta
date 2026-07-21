@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Container, Grid, Typography, Link, Stack, Divider } from '@mui/material';
+import { Box, Container, Grid, Typography, Link, Stack, Divider, IconButton } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const BG = '#0B1A0C';
 const BG_CARD = 'rgba(255,255,255,0.04)';
@@ -29,7 +33,15 @@ const companyLinks = [
   { text: 'Contact Us', path: '/contact' },
   { text: 'Blogs & Resources', path: '/blogs' },
   { text: 'Areas We Serve', path: '/areas-we-serve' },
-  
+
+];
+
+// Social links (shared with the UK header / site-wide sameAs profiles).
+const SOCIALS = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/milta-accounding-services-pvt-ltd/', Icon: LinkedInIcon },
+  { label: 'Facebook', href: 'https://www.facebook.com/miltaaccountingservices/', Icon: FacebookIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/milta_accountings/', Icon: InstagramIcon },
+  { label: 'YouTube', href: 'https://www.youtube.com/@milta-accounting-service', Icon: YouTubeIcon },
 ];
 
 const Footer = () => {
@@ -114,6 +126,36 @@ const Footer = () => {
                     info@miltafs.com
                   </Link>
                 </Stack>
+              </Stack>
+
+              {/* Social icons */}
+              <Stack direction="row" spacing={1.5}>
+                {SOCIALS.map(({ label, href, Icon }) => (
+                  <IconButton
+                    key={label}
+                    component="a"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    sx={{
+                      width: 38,
+                      height: 38,
+                      color: TEXT_BODY,
+                      backgroundColor: BG_CARD,
+                      border: '1px solid rgba(255,255,255,0.12)',
+                      transition: 'all 0.25s ease',
+                      '&:hover': {
+                        color: BG,
+                        backgroundColor: ACCENT,
+                        borderColor: ACCENT,
+                        transform: 'translateY(-3px)',
+                      },
+                    }}
+                  >
+                    <Icon sx={{ fontSize: 18 }} />
+                  </IconButton>
+                ))}
               </Stack>
             </Stack>
           </Grid>

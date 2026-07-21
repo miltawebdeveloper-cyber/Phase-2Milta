@@ -21,8 +21,8 @@ export default function DataEntryTexas() {
           "Our Texas data entry specialists deliver accurate accounting data management services that improve efficiency and reduce errors.",
         keywords:
           "data entry companies, accounting data entry, data entry services, data management services",
-        canonical: "https://miltafs.com/us/services/outsourcing-accounting-data-entry-texas/",
         author: "Milta Accounting",
+        canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-texas/",
       }}
       hero={{
         titleLead: "Precision-Driven Data Management Services in",

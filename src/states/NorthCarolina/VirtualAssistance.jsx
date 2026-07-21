@@ -19,7 +19,7 @@ export default function VirtualAssistantNorthCarolina() {
         keywords:
           "virtual assistants service in north carolina, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant nc",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/virtual-assistant-service-in-northcarolina/",
+        canonical: "https://www.miltafs.com/us/services/virtual-assistant-service-in-northcarolina/",
       }}
       hero={{
         titleLead: "Boost Your Business with the Best",

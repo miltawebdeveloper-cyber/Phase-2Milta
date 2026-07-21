@@ -19,7 +19,7 @@ export default function VirtualAssistantSouthCarolina() {
         keywords:
           "virtual assistants service in south carolina, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant sc",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/virtual-assistant-service-in-southcarolina/",
+        canonical: "https://www.miltafs.com/us/services/virtual-assistant-service-in-southcarolina/",
       }}
       hero={{
         titleLead: "Supercharge Your Business with",

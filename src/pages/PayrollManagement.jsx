@@ -15,20 +15,20 @@ const PMAdvantages    = lazy(() => import('../components/Services/PayrollManagem
 const PMTrustedPartner = lazy(() => import('../components/Services/PayrollManagementComp/PMTrustedPartner'));
 const PMFAQ           = lazy(() => import('../components/Services/PayrollManagementComp/PMFAQ'));
 const CTASection           = lazy(() => import('../components/homeComp/CTASection'));
-const Footer          = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const PayrollManagement = () => {
   useFullSEO({
-    title: 'Payroll Management Services in the USA | Milta Financial Services',
+    title: "Payroll Management Services in the USA",
     description:
-      'Accurate, on-time payroll for US businesses. Milta handles payroll processing, tax filings and compliance so your employees are paid right, every time.',
+      "Save time and reduce costs with our expert Payroll Management Services in the USA! Contact us today for affordable payroll management solutions by professionals.",
     keywords:
-      'payroll management services usa, outsourced payroll, payroll processing, payroll tax compliance, milta payroll',
+      "payroll management services in the usa, payroll management system, payroll management company, payroll management services, payroll management",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/us/services/payroll-management-services-in-the-usa/',
-    ogTitle: 'Payroll Management Services in the USA | Milta Financial Services',
+    ogTitle: "Payroll Management Services in the USA",
     ogDescription:
-      'Accurate, on-time payroll processing, tax filings and compliance so employees are paid right, every time.',
+      "Save time and reduce costs with our expert Payroll Management Services in the USA! Contact us today for affordable payroll management solutions by professionals.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/us/services/payroll-management-services-in-the-usa/',
     ogType: 'website',

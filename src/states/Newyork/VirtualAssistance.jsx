@@ -19,7 +19,7 @@ export default function VirtualAssistantNewYork() {
         keywords:
           "virtual assistants service in new york, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant ny",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/virtual-assistant-service-in-newyork/",
+        canonical: "https://www.miltafs.com/us/services/virtual-assistant-service-in-newyork/",
       }}
       hero={{
         titleLead: "Boost Your Business Efficiency with",

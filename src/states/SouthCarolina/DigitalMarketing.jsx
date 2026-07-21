@@ -11,7 +11,7 @@ export default function DigitalMarketingSouthCarolina() {
         keywords:
           "digital marketing agency, digital marketing services, digital marketing agency in south carolina, south carolina internet marketing, digital marketing services in south carolina",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/best-digital-marketing-agency-in-southcarolina/",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-southcarolina/",
       }}
       hero={{
         titleLead: "Outshine the competition with cutting-edge",

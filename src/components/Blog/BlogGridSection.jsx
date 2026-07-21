@@ -13,7 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useTheme, alpha } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { getBlogs } from "../../api/client";
+import { getBlogs } from "../../api/blogs";
 import BlogCard from "./BlogCard";
 
 const categories = [

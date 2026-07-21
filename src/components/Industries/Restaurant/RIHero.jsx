@@ -32,7 +32,7 @@ const RIHero = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <Typography
               variant="h1"
-              sx={{
+              sx={{ letterSpacing: "0.25px",
                 fontSize: { xs: '2.2rem', sm: '3.2rem', md: '3.8rem', lg: '3.5rem' },
                 lineHeight: 1.25,
                 textAlign: 'center',

@@ -10,7 +10,6 @@ import { AccountTree, Receipt, Settings, SupportAgent, Payment, AccountBalance, 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const CARD_WIDTH    = 300;
 const CARD_GAP      = 32;
 const CONTENT_WIDTH = 1300;
 
@@ -92,6 +91,7 @@ const ServicesSection = () => (
         <IconButton
           className="srv-prev"
           sx={{
+            display: { xs: 'none', md: 'flex' },
             position: 'absolute', left: { xs: 8, md: 16 },
             top: '50%', transform: 'translateY(-50%)', zIndex: 20,
             width: 64, height: 44, borderRadius: '12px',
@@ -118,15 +118,15 @@ const ServicesSection = () => (
             modules={[Navigation, Autoplay]}
           >
             {slides.map((service, index) => (
-              <SwiperSlide key={index} style={{ width: CARD_WIDTH }}>
+              <SwiperSlide key={index} style={{ width: 'min(300px, 84vw)', maxWidth: '100%' }}>
                 <Card
                   className="srv-card"
                   component="a"
                   href={service.link}
                   sx={{
-                    width: CARD_WIDTH,
-                    minHeight: 360,
-                    p: 4,
+                    width: '100%',
+                    minHeight: { xs: 'auto', md: 360 },
+                    p: { xs: 3, md: 4 },
                     display: 'flex',
                     flexDirection: 'column',
                     position: 'relative',
@@ -181,6 +181,7 @@ const ServicesSection = () => (
         <IconButton
           className="srv-next"
           sx={{
+            display: { xs: 'none', md: 'flex' },
             position: 'absolute', right: { xs: 8, md: 16 },
             top: '50%', transform: 'translateY(-50%)', zIndex: 20,
             width: 64, height: 44, borderRadius: '12px',

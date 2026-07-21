@@ -4,31 +4,33 @@ import Navbar from '../components/Navbar';
 import REHero from '../components/Industries/RealEstateComp/REHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import { faqSchema } from '../utils/faqSchema';
 import ServicesSection from '../components/homeComp/ServicesSection';
 const REWhatIs     = lazy(() => import('../components/Industries/RealEstateComp/REWhatIs'));
 const RESolutions  = lazy(() => import('../components/Industries/RealEstateComp/RESolutions'));
 const REWhyChoose  = lazy(() => import('../components/Industries/RealEstateComp/REWhyChoose'));
 const REAdvantages = lazy(() => import('../components/Industries/RealEstateComp/REAdvantages'));
 const REChallenges = lazy(() => import('../components/Industries/RealEstateComp/REChallenges'));
-const REFAQ        = lazy(() => import('../components/Industries/RealEstateComp/REFAQ'));
+import REFAQ, { FAQS } from '../components/Industries/RealEstateComp/REFAQ';
 const CTASection   = lazy(() => import('../components/homeComp/CTASection'));
-const Footer       = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const RealEstateCompanies = () => {
   useFullSEO({
-    title: 'Accounting for Real Estate Companies | Milta Financial Services',
+    title: "Reliable Bookkeeping For Real Estate Companies | Milta",
     description:
-      'Property-level bookkeeping, CAM reconciliations and investor reporting for real estate firms. Milta keeps your portfolio’s finances clear and compliant.',
+      "Milta offers bookkeeping services for real estate. Book your free consultation today and simplify your property financial management.",
     keywords:
-      'real estate accounting, property bookkeeping, cam reconciliation, investor reporting, real estate cpa, milta real estate',
+      "bookkeeping for real estate, property management bookkeeping, bookkeeping for real estate agents, bookkeeping for real estate investors, property management bookkeeping services, real estate accounting services",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/us/industry/bookkeeping-for-real-estate-companies/',
-    ogTitle: 'Accounting for Real Estate Companies | Milta Financial Services',
+    ogTitle: "Reliable Bookkeeping For Real Estate Companies | Milta",
     ogDescription:
-      'Property-level bookkeeping, CAM reconciliations and investor reporting to keep your portfolio clear and compliant.',
+      "Milta offers bookkeeping services for real estate. Book your free consultation today and simplify your property financial management.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/us/industry/bookkeeping-for-real-estate-companies/',
     ogType: 'website',
+    schema: faqSchema(FAQS),
   });
 
   return (

@@ -38,7 +38,7 @@ export default function DataEntryCalifornia() {
     description: "Our California data entry experts streamline processes, ensure data accuracy, protect sensitive information, and support businesses with efficient accounting data management.",
     keywords: "data entry companies, accounting data entry, data entry services, data management services",
     author: "Milta Accounting",
-    canonical: "https://miltafs.com/us/services/outsourcing-accounting-data-entry-california/",
+    canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-california/",
   });
 
   return (

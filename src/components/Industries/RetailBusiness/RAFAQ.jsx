@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   {
     q: 'Are tax returns for retail firms your area of expertise?',
     a: 'Yes, we specialize in preparing accurate tax returns for retail businesses of all sizes. Our team understands the unique tax challenges retailers face and ensures full compliance with federal and state tax laws.',

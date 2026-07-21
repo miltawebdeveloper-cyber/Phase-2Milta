@@ -91,7 +91,7 @@ const HeroModern = ({ title = "About Us", breadcrumbTitle = "About" }) => {
             <Typography
               variant="h1"
               dangerouslySetInnerHTML={{ __html: title }}
-              sx={{
+              sx={{ letterSpacing: "0.25px",
                 fontSize: { xs: '2.4rem', sm: '3.5rem', md: '4rem', lg: '4.8rem' },
                 lineHeight: 1.25,
                 textAlign: 'center',

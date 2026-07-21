@@ -1,22 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
+  <!-- Structural (must stay first) -->
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NH93DD6B');</script>
+  <!-- End Google Tag Manager -->
+  <meta name="google-site-verification" content="GzTpEIXXqmMPbL6lJsebJ7anz-1TjAfGYaJUZ1eAXL4" />
+
+  <!-- ═══ SEO metadata (order per provided reference) ═══ -->
+  <meta name="author" content="Milta Accounting" />
+  <title>Outsource Accounting Services | Milta Accounting</title>
+  <meta name="description" content="Professional Outsource Accounting Services for Businesses. Focus on growth while we manage your books. Accurate, efficient, and cost-effective. Contact us now!" />
+  <meta name="keywords" content="business outsourcing services, accounting services for small business, finance and accounting outsourcing, outsource accounting services, virtual cfo services." />
+
+  <!-- Legacy directory meta (ignored by modern search engines; kept per request) -->
+  <meta name="language" content="en" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="Expires" content="never" />
+  <meta name="Distribution" content="Global" />
+  <meta name="Rating" content="general" />
+  <meta name="search engines" content="ALL" />
+  <meta name="copyright" content="https://www.miltafs.com/" />
+  <meta name="email" content="info@miltafs.com" />
+
+  <link rel="canonical" href="https://www.miltafs.com/" />
+  <link rel="alternate" hreflang="en-US" href="https://www.miltafs.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.miltafs.com/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.miltafs.com/" />
+  <meta property="og:site_name" content="Milta Accounting" />
+  <meta property="og:image" content="https://www.miltafs.com/images/miltafs-og.jpg" />
+  <meta property="og:title" content="Outsource Accounting Services | Milta Accounting" />
+  <meta property="og:description" content="Professional Outsource Accounting Services for Businesses. Focus on growth while we manage your books. Accurate, efficient, and cost-effective. Contact us now!" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Outsource Accounting Services | Milta Accounting" />
+  <meta name="twitter:description" content="Professional Outsource Accounting Services for Businesses. Focus on growth while we manage your books. Accurate, efficient, and cost-effective. Contact us now!" />
+  <meta name="twitter:image" content="https://www.miltafs.com/images/miltafs-og.jpg" />
+
+  <!-- Favicon & Icons -->
+  <meta name="theme-color" content="#266929" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#266929" />
-  <meta name="description" content="Milta Finance - Modern Financial Architecture and Precision Accounting." />
   <link rel="apple-touch-icon" href="/favicon.ico?v=2" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- LCP hero image. The preload scanner starts this at parse time instead of
+       waiting for React to boot. Desktop-only: the hero image is display:none
+       below the md (900px) breakpoint, so mobile must not pay for it. -->
+  <link rel="preload" as="image" href="/about_us.webp" fetchpriority="high" media="(min-width: 900px)" />
+
+  <!-- CSS (fonts; Vite injects the bundled stylesheet after this) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="manifest" href="/manifest.json" />
-  <title>Milta Finance | Precision Financial Architecture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- JavaScript is injected by Vite at the end of <head>. -->
+
+  <!-- Structured Data (JSON-LD) — a Vite post-build step moves these to the very
+       end of <head>. Page-level JSON-LD is added at runtime by useFullSEO. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.miltafs.com/#website",
+    "name": "Milta Accounting Services Private Limited",
+    "alternateName": ["Milta Accounting Services Pvt. Ltd", "Miltafs"],
+    "url": "https://www.miltafs.com/",
+    "publisher": { "@id": "https://www.miltafs.com/#organization" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "@id": "https://www.miltafs.com/#organization",
+    "name": "Milta Accounting Services Pvt. Ltd",
+    "image": "https://www.miltafs.com/logo.svg",
+    "logo": "https://www.miltafs.com/logo.svg",
+    "url": "https://www.miltafs.com/",
+    "telephone": "+91-96001-03723",
+    "priceRange": "$15",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "No 175, Sri Sai Tower, Bharathi Colony Rd, 3rd floor, Peelamedu",
+      "addressLocality": "Coimbatore",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "641004",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 11.0240877,
+      "longitude": 76.9941393
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "sameAs": [
+      "https://www.facebook.com/miltaaccountingservices/",
+      "https://www.instagram.com/milta_accountings/",
+      "https://www.youtube.com/@milta-accounting-service",
+      "https://www.linkedin.com/company/milta-accounding-services-pvt-ltd/"
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NH93DD6B"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <script type="module" src="/src/index.jsx"></script>

@@ -19,7 +19,7 @@ export default function DigitalMarketingMaryland() {
         keywords:
           "digital marketing agency, digital marketing services, digital marketing agency in maryland, Maryland internet marketing, digital marketing services in Maryland",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/best-digital-marketing-agency-in-maryland/",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-maryland/",
       }}
       hero={{
         titleLead: "Expand Your Brand with a Top",

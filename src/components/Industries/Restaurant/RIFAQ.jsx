@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   {
     q: 'Do you specialize in tax returns for restaurant businesses?',
     a: 'Yes, we specialize in preparing accurate tax returns for restaurants, cafés, and food service businesses. We understand the complicated tax and regulatory problems restaurant operators confront, and we are here to help you negotiate them.',

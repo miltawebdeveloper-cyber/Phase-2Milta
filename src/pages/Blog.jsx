@@ -8,7 +8,7 @@ const SubscriptionBanner = lazy(() => import("../components/Blog/SubscriptionBan
 const EditorsPickCarousel = lazy(() => import("../components/Blog/EditorsPickCarousel"));
 const BlogGridSection = lazy(() => import("../components/Blog/BlogGridSection"));
 const CTASection = lazy(() => import("../components/homeComp/CTASection"));
-const Footer = lazy(() => import("../components/Footer"));
+import Footer from "../components/Footer";
 
 const Blog = () => {
   useFullSEO({

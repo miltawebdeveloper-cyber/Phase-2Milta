@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Link as RouterLink } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const JoinImage = "/about_modern.png";
+const JoinImage = "/about_modern.webp";
 
 const JoinMilta = () => (
   <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.paper" }}>

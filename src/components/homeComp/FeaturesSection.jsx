@@ -51,18 +51,24 @@ const FeaturesSection = () => {
         </Box>
 
         <Stack
-          direction="row"
-          spacing={{ xs: 4, md: 3 }}
-          divider={<Box sx={{ width: '1px', alignSelf: 'stretch', backgroundColor: 'rgba(0,0,0,0.05)', flexShrink: 0 }} />}
+          direction={{ xs: 'column', md: 'row' }}
+          spacing={{ xs: 3, md: 3 }}
+          divider={
+            <Box
+              sx={{
+                backgroundColor: 'rgba(0,0,0,0.05)',
+                alignSelf: 'stretch',
+                flexShrink: 0,
+                width: { xs: '100%', md: '1px' },
+                height: { xs: '1px', md: 'auto' },
+              }}
+            />
+          }
           sx={{
             justifyContent: 'space-between',
             alignItems: 'stretch',
-            overflowX: { xs: 'auto', md: 'visible' },
-            pb: { xs: 2, md: 0 },
-            py: { xs: 2, md: 5 },
+            py: { xs: 1, md: 5 },
             px: { xs: 2, md: 0 },
-            '&::-webkit-scrollbar': { display: 'none' }, // Hide scrollbar for a cleaner look
-            scrollbarWidth: 'none', // Firefox
           }}
         >
           {features.map((feature, index) => (
@@ -74,7 +80,7 @@ const FeaturesSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Stack direction="row" spacing={2} alignItems="flex-start" sx={{ minWidth: { xs: '260px', md: '100%' }, width: '100%' }}>
+              <Stack direction="row" spacing={2} alignItems="flex-start" sx={{ width: '100%' }}>
                 <Box
                   sx={{
                     width: 48,

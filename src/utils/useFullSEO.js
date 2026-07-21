@@ -1,123 +1,120 @@
 import { useEffect } from "react";
 
+// Site-wide defaults for tags that are the same on every page. Any of these can
+// be overridden per page by passing the matching key in the SEO config.
+const SITE_URL = "https://www.miltafs.com/";
+const SITE_NAME = "Milta Accounting";
+const DEFAULT_AUTHOR = "Milta Accounting";
+const DEFAULT_OG_IMAGE = "https://www.miltafs.com/images/miltafs-og.jpg";
+const DEFAULT_TWITTER_CARD = "summary";
+const DEFAULT_ROBOTS = "index, follow";
+
 export default function useFullSEO(config = null) {
   useEffect(() => {
-    // Exit early if no config is provided
     if (!config) return;
+    const head = document.head;
 
-    const setTag = (selector, tagName, attributes) => {
-      let tag = document.querySelector(selector);
-      if (!tag) {
-        tag = document.createElement(tagName);
-        Object.entries(attributes).forEach(([key, value]) => {
-          if (key === "innerText") tag.innerText = value;
-          else tag.setAttribute(key, value);
-        });
-        document.head.appendChild(tag);
-      } else {
-        Object.entries(attributes).forEach(([key, value]) => {
-          if (key === "innerText") tag.innerText = value;
-          else tag.setAttribute(key, value);
-        });
+    // The head shell (index.html) already contains every one of these tags in
+    // the correct order. We UPDATE them in place — never append — so the head
+    // order stays fixed and no duplicates are ever created. (If a tag is somehow
+    // missing it's created once, then reused on every subsequent navigation.)
+    const setTag = (selector, tagName, attrs, text) => {
+      let el = head.querySelector(selector);
+      if (!el) {
+        el = document.createElement(tagName);
+        head.appendChild(el);
       }
+      Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+      if (text != null) el.textContent = text;
+      return el;
     };
 
-    // Title
+    // Per-page values fall back to the core fields so Open Graph / Twitter are
+    // always populated even when a page only sets title/description/canonical.
+    const ogTitle = config.ogTitle || config.title;
+    const ogDescription = config.ogDescription || config.description;
+    const ogUrl = config.ogUrl || config.canonical || SITE_URL;
+    const ogImage = config.ogImage || DEFAULT_OG_IMAGE;
+
+    // ── 1. Title ──
     if (config.title) document.title = config.title;
 
-    // Regular meta tags
+    // ── 2. Description ──
     if (config.description)
       setTag('meta[name="description"]', "meta", {
         name: "description",
         content: config.description,
       });
 
-    if (config.keywords)
-      setTag('meta[name="keywords"]', "meta", {
-        name: "keywords",
-        content: config.keywords,
-      });
-
-    if (config.author)
-      setTag('meta[name="author"]', "meta", {
-        name: "author",
-        content: config.author,
-      });
-
+    // ── 3. Canonical ──
     if (config.canonical)
       setTag('link[rel="canonical"]', "link", {
         rel: "canonical",
         href: config.canonical,
       });
-      
 
-    // OPEN GRAPH TAGS
-    if (config.ogTitle)
-      setTag('meta[property="og:title"]', "meta", {
-        property: "og:title",
-        content: config.ogTitle,
+    // ── 3b. hreflang alternates ── point at the page's own canonical, so they
+    // never contradict it after a client-side navigation.
+    const alternateUrl = config.canonical || SITE_URL;
+    setTag('link[rel="alternate"][hreflang="en-US"]', "link", {
+      rel: "alternate",
+      hreflang: "en-US",
+      href: alternateUrl,
+    });
+    setTag('link[rel="alternate"][hreflang="x-default"]', "link", {
+      rel: "alternate",
+      hreflang: "x-default",
+      href: alternateUrl,
+    });
+
+    // ── 4. Robots ──
+    setTag('meta[name="robots"]', "meta", {
+      name: "robots",
+      content: config.robots || DEFAULT_ROBOTS,
+    });
+
+    // keywords / author (kept adjacent, after robots)
+    if (config.keywords)
+      setTag('meta[name="keywords"]', "meta", {
+        name: "keywords",
+        content: config.keywords,
       });
+    setTag('meta[name="author"]', "meta", {
+      name: "author",
+      content: config.author || DEFAULT_AUTHOR,
+    });
 
-    if (config.ogDescription)
-      setTag('meta[property="og:description"]', "meta", {
-        property: "og:description",
-        content: config.ogDescription,
-      });
+    // ── 5. Open Graph ──
+    setTag('meta[property="og:type"]', "meta", { property: "og:type", content: config.ogType || "website" });
+    setTag('meta[property="og:url"]', "meta", { property: "og:url", content: ogUrl });
+    setTag('meta[property="og:site_name"]', "meta", { property: "og:site_name", content: SITE_NAME });
+    setTag('meta[property="og:image"]', "meta", { property: "og:image", content: ogImage });
+    if (ogTitle)
+      setTag('meta[property="og:title"]', "meta", { property: "og:title", content: ogTitle });
+    if (ogDescription)
+      setTag('meta[property="og:description"]', "meta", { property: "og:description", content: ogDescription });
 
-    if (config.ogImage)
-      setTag('meta[property="og:image"]', "meta", {
-        property: "og:image",
-        content: config.ogImage,
-      });
+    // ── 6. Twitter ──
+    setTag('meta[name="twitter:card"]', "meta", { name: "twitter:card", content: config.twitterCard || DEFAULT_TWITTER_CARD });
+    if (ogTitle)
+      setTag('meta[name="twitter:title"]', "meta", { name: "twitter:title", content: config.twitterTitle || ogTitle });
+    if (ogDescription)
+      setTag('meta[name="twitter:description"]', "meta", { name: "twitter:description", content: config.twitterDescription || ogDescription });
+    setTag('meta[name="twitter:image"]', "meta", { name: "twitter:image", content: config.twitterImage || ogImage });
 
-    if (config.ogUrl)
-      setTag('meta[property="og:url"]', "meta", {
-        property: "og:url",
-        content: config.ogUrl,
-      });
-
-    if (config.ogType)
-      setTag('meta[property="og:type"]', "meta", {
-        property: "og:type",
-        content: config.ogType,
-      });
-
-    // TWITTER TAGS
-    if (config.twitterTitle)
-      setTag('meta[name="twitter:title"]', "meta", {
-        name: "twitter:title",
-        content: config.twitterTitle,
-      });
-
-    if (config.twitterDescription)
-      setTag('meta[name="twitter:description"]', "meta", {
-        name: "twitter:description",
-        content: config.twitterDescription,
-      });
-
-    if (config.twitterImage)
-      setTag('meta[name="twitter:image"]', "meta", {
-        name: "twitter:image",
-        content: config.twitterImage,
-      });
-
-    if (config.twitterCard)
-      setTag('meta[name="twitter:card"]', "meta", {
-        name: "twitter:card",
-        content: config.twitterCard,
-      });
-
-    // SCHEMA
+    // ── 10. Structured data (JSON-LD) — page-level, kept last. Reuses one
+    // dedicated <script id="page-schema"> so it never duplicates or clobbers the
+    // site-wide schema in index.html.
     if (config.schema) {
-      let scriptTag = document.querySelector('script[type="application/ld+json"]');
-      if (!scriptTag) {
-        scriptTag = document.createElement("script");
-        scriptTag.type = "application/ld+json";
-        scriptTag.text = JSON.stringify(config.schema);
-        document.head.appendChild(scriptTag);
-      } else {
-        scriptTag.text = JSON.stringify(config.schema);
-      }
+      setTag(
+        'script#page-schema',
+        "script",
+        { id: "page-schema", type: "application/ld+json" },
+        JSON.stringify(config.schema),
+      );
+    } else {
+      const existing = head.querySelector("script#page-schema");
+      if (existing) existing.remove();
     }
   }, [config]);
 }

@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import LFHero from '../components/Industries/LawFirmsComp/LFHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import { faqSchema } from '../utils/faqSchema';
 import ServicesSection from '../components/homeComp/ServicesSection';
 
 
@@ -12,25 +13,26 @@ const LFSolutions  = lazy(() => import('../components/Industries/LawFirmsComp/LF
 const LFWhyChoose  = lazy(() => import('../components/Industries/LawFirmsComp/LFWhyChoose'));
 const LFAdvantages = lazy(() => import('../components/Industries/LawFirmsComp/LFAdvantages'));
 const LFChallenges = lazy(() => import('../components/Industries/LawFirmsComp/LFChallenges'));
-const LFFAQ        = lazy(() => import('../components/Industries/LawFirmsComp/LFFAQ'));
+import LFFAQ, { FAQS } from '../components/Industries/LawFirmsComp/LFFAQ';
 const CTASection   = lazy(() => import('../components/homeComp/CTASection'));
-const Footer       = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const LawFirms = () => {
   useFullSEO({
-    title: 'Accounting & Bookkeeping for Law Firms | Milta Financial Services',
+    title: "Bookkeeping And Accounting Services For Law Firms And Lawyers",
     description:
-      'Trust accounting, IOLTA compliance and accurate bookkeeping for law firms. Milta helps attorneys stay compliant and focused on clients, not paperwork.',
+      "Outsourced bookkeeping and accounting for lawyers and law firms. We offer financial management, billing, and compliance support.",
     keywords:
-      'accounting for law firms, legal bookkeeping, iolta trust accounting, attorney accounting services, milta law firms',
+      "law firm bookkeeping, bookkeeping for lawyers, law firm accounting services, law firm bookkeeping services, bookkeeping services for lawyers, tax planning lawyer, tax planning law firm",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-lawfirms/',
-    ogTitle: 'Accounting & Bookkeeping for Law Firms | Milta Financial Services',
+    ogTitle: "Bookkeeping And Accounting Services For Law Firms And Lawyers",
     ogDescription:
-      'Trust accounting, IOLTA compliance and accurate bookkeeping so attorneys stay compliant and focused on clients.',
+      "Outsourced bookkeeping and accounting for lawyers and law firms. We offer financial management, billing, and compliance support.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-lawfirms/',
     ogType: 'website',
+    schema: faqSchema(FAQS),
   });
 
   return (

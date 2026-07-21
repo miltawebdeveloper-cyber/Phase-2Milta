@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Container, Typography, Button, Stack } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Box, Container, Typography, Button, Stack, useMediaQuery, useTheme } from '@mui/material';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
-import taxImg from '../../assets/images/tax.jpg';
-import payrollImg from '../../assets/images/payroll.jpg';
-import cpaImg from '../../assets/images/cpa.jpg';
+// Square 1000px webp crops matching the rendered box exactly — see
+// scripts/build-hero-images.mjs, which regenerates these from the source jpgs.
+import taxImg from '../../assets/images/hero/tax.webp';
+import payrollImg from '../../assets/images/hero/payroll.webp';
+import cpaImg from '../../assets/images/hero/cpa.webp';
 
-const bookkeepingImg = '/about_us.png';
+const bookkeepingImg = '/about_us.webp';
 
 const slides = [
   {
@@ -49,7 +51,30 @@ const slides = [
   },
 ];
 
-const Hero = () => (
+const Hero = () => {
+  const theme = useTheme();
+  // noSsr evaluates matchMedia on the first render (this app is client-rendered),
+  // so the hero image is correct immediately rather than popping in on a re-render.
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'), { noSsr: true });
+  const reduceMotion = useReducedMotion();
+
+  // Only the first slide's image is on the critical path. The other three are
+  // invisible behind the fade for at least one autoplay interval, so they wait
+  // until the browser is idle instead of competing with the LCP paint.
+  const [loadRestOfSlides, setLoadRestOfSlides] = useState(false);
+  useEffect(() => {
+    if (!isDesktop) return undefined;
+    const idle = window.requestIdleCallback || ((cb) => window.setTimeout(cb, 1500));
+    const cancel = window.cancelIdleCallback || window.clearTimeout;
+    const handle = idle(() => setLoadRestOfSlides(true), { timeout: 3000 });
+    return () => cancel(handle);
+  }, [isDesktop]);
+
+  // The orbs blur a ~580px layer; animating scale re-rasterises it every frame.
+  // Not worth the main-thread cost on phones, and reduced-motion users opt out.
+  const animateOrbs = isDesktop && !reduceMotion;
+
+  return (
   <Box
     sx={{
       position: 'relative',
@@ -72,7 +97,7 @@ const Hero = () => (
 
     {/* ── Floating aurora orbs ── */}
     <motion.div
-      animate={{ x: [0, 28, 0], y: [0, -22, 0], scale: [1, 1.15, 1] }}
+      animate={animateOrbs ? { x: [0, 28, 0], y: [0, -22, 0], scale: [1, 1.15, 1] } : undefined}
       transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       style={{ position: 'absolute', top: '-12%', right: '-6%', width: 580, height: 580, pointerEvents: 'none', zIndex: 0 }}
     >
@@ -86,7 +111,7 @@ const Hero = () => (
     </motion.div>
 
     <motion.div
-      animate={{ x: [0, -20, 0], y: [0, 26, 0], scale: [1, 1.12, 1] }}
+      animate={animateOrbs ? { x: [0, -20, 0], y: [0, 26, 0], scale: [1, 1.12, 1] } : undefined}
       transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
       style={{ position: 'absolute', bottom: '-18%', left: '-8%', width: 520, height: 520, pointerEvents: 'none', zIndex: 0 }}
     >
@@ -100,7 +125,7 @@ const Hero = () => (
     </motion.div>
 
     <motion.div
-      animate={{ x: [0, 16, -10, 0], y: [0, -14, 8, 0], scale: [1, 1.1, 0.95, 1] }}
+      animate={animateOrbs ? { x: [0, 16, -10, 0], y: [0, -14, 8, 0], scale: [1, 1.1, 0.95, 1] } : undefined}
       transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
       style={{ position: 'absolute', top: '20%', left: '38%', width: 380, height: 380, pointerEvents: 'none', zIndex: 0 }}
     >
@@ -190,6 +215,7 @@ const Hero = () => (
                         lineHeight: { xs: 1.1, md: 1.2 },
                         mb: 3,
                         letterSpacing: '-0.05em',
+                        wordSpacing: "0.1em",
                         maxWidth: { xs: '100%', md: '600px' },
                         '& .highlight': { color: 'primary.main' },
                       }}
@@ -262,8 +288,10 @@ const Hero = () => (
                   </motion.div>
                 </Box>
 
-                {/* Image */}
-                <Box sx={{ flex: 1, position: 'relative', width: { xs: '100%', md: 'auto' }, display: 'flex', justifyContent: 'center', mt: { xs: 4, md: 0 } }}>
+                {/* Image — not rendered at all below md. A `display: none` here
+                    would still download every slide image on mobile. */}
+                {isDesktop && (
+                <Box sx={{ flex: 1, position: 'relative', width: 'auto', display: 'flex', justifyContent: 'center', mt: 0 }}>
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
                     animate={isActive ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.9, rotate: 5 }}
@@ -302,8 +330,12 @@ const Hero = () => (
                     >
                       <Box
                         component="img"
-                        src={slide.image}
+                        src={index === 0 || loadRestOfSlides ? slide.image : undefined}
                         alt={slide.alt}
+                        width="500"
+                        height="500"
+                        decoding={index === 0 ? 'sync' : 'async'}
+                        fetchPriority={index === 0 ? 'high' : 'low'}
                         sx={{
                           width: '100%',
                           height: '100%',
@@ -317,6 +349,7 @@ const Hero = () => (
                     </Box>
                   </motion.div>
                 </Box>
+                )}
 
               </Box>
             </Container>
@@ -325,6 +358,7 @@ const Hero = () => (
       ))}
     </Swiper>
   </Box>
-);
+  );
+};
 
 export default Hero;

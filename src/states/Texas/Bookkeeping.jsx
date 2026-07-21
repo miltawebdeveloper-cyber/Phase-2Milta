@@ -17,8 +17,8 @@ export default function BookkeepingTexas() {
           "Keep your finances organized with expert bookkeeping services in Texas. Accurate records, clear reports, and professional support.",
         keywords:
           "bookkeeping services, bookkeeping services near me, bookkeeping services for small business, best bookkeeping for small business, bookkeeping company in texas, bookkeeping services in texas",
-        canonical: "https://www.miltafs.com/us/services/best-bookkeeping-services-in-texas/",
         author: "Milta Accounting",
+        canonical: "https://www.miltafs.com/us/services/best-bookkeeping-services-in-texas/",
       }}
       hero={{
         titleLead: "Best Bookkeeping Services for Small Businesses in",

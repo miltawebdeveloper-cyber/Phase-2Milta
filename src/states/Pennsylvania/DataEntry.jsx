@@ -22,7 +22,7 @@ export default function DataEntryPennsylvania() {
         keywords:
           "data entry companies, accounting data entry, data entry services, data management services",
         author: "Milta Accounting",
-        canonical: "https://miltafs.com/us/services/outsourcing-accounting-data-entry-pennsylvania/",
+        canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-pennsylvania/",
       }}
       hero={{
         titleLead: "Accuracy-Focused Data Management Services in",

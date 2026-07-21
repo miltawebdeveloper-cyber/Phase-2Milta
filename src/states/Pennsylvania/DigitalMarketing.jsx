@@ -11,7 +11,7 @@ export default function DigitalMarketingPennsylvania() {
         keywords:
           "digital marketing agency, digital marketing services, digital marketing agency in pennsylvania, pennsylvania internet marketing, digital marketing services in pennsylvania",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/best-digital-marketing-agency-in-pennsylvania/",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-pennsylvania/",
       }}
       hero={{
         titleLead: "Grow Your Brand with a Leading Digital Marketing Agency in",

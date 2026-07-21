@@ -11,7 +11,7 @@ export default function DigitalMarketingMassachusetts() {
         keywords:
           "digital marketing agency, digital marketing services, digital marketing agency in massachusetts, massachusetts internet marketing, digital marketing services in massachusetts",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/best-digital-marketing-agency-in-massachusetts/",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-massachusetts/",
       }}
       hero={{
         titleLead: "Accelerate Your Brand's Success with",

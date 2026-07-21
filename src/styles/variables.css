@@ -1,0 +1,14 @@
+/* UK site CSS custom properties.
+   The UK components style themselves largely via MUI `sx` props; these tokens
+   exist for the handful of plain-CSS class names they reference. */
+:root {
+  --uk-primary: #266929;
+  --uk-primary-dark: #1a4d1d;
+  --uk-accent: #d4af37;
+  --uk-text: #1a1a1a;
+  --uk-text-muted: #666666;
+  --uk-surface: #ffffff;
+  --uk-surface-alt: #f7faf7;
+  --uk-border: rgba(38, 105, 41, 0.12);
+  --uk-container-max: 1300px;
+}

@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import Navbar from "../Navbar";
 import ScrollToTop from "../ScrollToTop";
 
-const Footer = lazy(() => import("../Footer"));
+import Footer from "../Footer";
 
 const MainLayout = ({ children }) => (
   <Box sx={{ minHeight: "100vh", bgcolor: "background.default", position: "relative" }}>

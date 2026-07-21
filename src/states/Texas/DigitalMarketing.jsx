@@ -11,7 +11,7 @@ export default function DigitalMarketingTexas() {
         keywords:
           "digital marketing agency, digital marketing services, digital marketing agency in texas, texas internet marketing, digital marketing services in texas",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/best-digital-marketing-agency-in-texas/",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-texas/",
       }}
       hero={{
         titleLead: "Boost Your Business with a Leading Digital Marketing Agency in",

@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   { q: 'How does Milta create a customized marketing plan?',             a: 'Our first step at Milta is to understand your target market, business goals, and industry dynamics. We then select the most effective platforms and create a tailored digital marketing strategy aligned with your objectives.' },
   { q: 'Can Milta help with website design and development?',            a: 'Yes, we offer professional website design and development services in the USA to ensure your website reflects your brand identity and delivers an exceptional user experience.' },
   { q: 'How does Milta ensure a high return on investment (ROI)?',       a: 'As a leading digital marketing company in the USA, we use data-driven strategies to attract high-quality leads, continuously optimize campaigns, and focus on measurable growth and revenue.' },

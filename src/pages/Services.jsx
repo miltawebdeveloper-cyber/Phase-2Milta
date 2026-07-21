@@ -21,7 +21,7 @@ import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
 
 const CTASection = lazy(() => import('../components/homeComp/CTASection'));
-const Footer = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const SERVICES = [
   { icon: <Receipt />,       title: 'Book Keeping',          description: 'Streamlined bookkeeping services that keep your financial records organized and compliant.',            link: '/us/services/bookkeeping-company-in-the-usa/' },
@@ -46,16 +46,16 @@ const Services = () => {
   const primary = theme.palette.primary.main;
 
   useFullSEO({
-    title: 'Our Services | Milta Financial Services',
+    title: "Milta - Our Services You Can Trust to Make Business Easier.",
     description:
-      'Explore the full range of Milta Financial Services — bookkeeping, tax planning, CPA services, virtual assistants, data entry, financial controller, digital marketing and payroll.',
+      "At Milta, we don’t just provide services, we provide solutions. Our services are customized to meet your specific needs and Planned solutions.",
     keywords:
-      'accounting services usa, bookkeeping, tax planning, cpa services, virtual assistant, payroll management, financial controller, milta services',
+      "bookkeeping services for small business, tax planning and preparation service, cpa services for small business, virtual assistant service, digital marketing services usa, financial controller services, accounting data entry services.",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/services',
-    ogTitle: 'Our Services | Milta Financial Services',
+    ogTitle: "Milta - Our Services You Can Trust to Make Business Easier.",
     ogDescription:
-      'Explore the full range of accounting and finance services offered by Milta Financial Services.',
+      "At Milta, we don’t just provide services, we provide solutions. Our services are customized to meet your specific needs and Planned solutions.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/services',
     ogType: 'website',
@@ -97,7 +97,7 @@ const Services = () => {
               
               <Typography
                 variant="h1"
-                sx={{
+                sx={{ letterSpacing: "0.25px",
                   fontSize: { xs: '2rem', sm: '2.6rem', md: '3.2rem', lg: '3.6rem' },
                   lineHeight: 1.2,
                   color: theme.palette.primary.contrastText,

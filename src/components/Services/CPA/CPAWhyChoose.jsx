@@ -37,6 +37,9 @@ const CPAWhyChoose = () => {
 
       <Container maxWidth={false} sx={{ maxWidth: '1300px', mx: 'auto', px: { xs: 3, md: 4 }, position: 'relative', zIndex: 1 }}>
         {/* Header */}
+        Build pass
+        
+        
         <Box sx={{ mb: { xs: 6, md: 8 } }}>
           <motion.div {...fadeUp(0)}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.2, maxWidth: 680 }}>

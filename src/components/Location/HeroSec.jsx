@@ -128,7 +128,7 @@ const HeroSec = ({
             <Typography
               variant="h1"
               dangerouslySetInnerHTML={{ __html: title }}
-              sx={{
+              sx={{ letterSpacing: "0.25px",
                 fontSize: { xs: "2.4rem", sm: "3.5rem", md: "4rem", lg: "4.8rem" },
                 color: theme.palette.primary.contrastText,
                 maxWidth: { xs: "100%", md: "820px" },

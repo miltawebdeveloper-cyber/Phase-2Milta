@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   {
     q: 'What distinguishes a typical employee from a virtual assistant?',
     a: 'A virtual assistant works remotely and provides services on a flexible or part-time basis, unlike traditional employees who require physical office space and full-time salaries.',

@@ -22,7 +22,7 @@ export default function DataEntryNewYork() {
         keywords:
           "data entry companies, accounting data entry, data entry services, data management services",
         author: "Milta Accounting",
-        canonical: "https://miltafs.com/us/services/outsourcing-accounting-data-entry-newyork/",
+        canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-newyork/",
       }}
       hero={{
         titleLead: "Precision-Driven Data Management Services in",

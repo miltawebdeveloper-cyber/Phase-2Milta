@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   { q: 'What is accounting data entry?', a: 'Accounting data entry involves recording financial transactions into organized systems for accurate reporting and analysis. It’s essential for maintaining up-to-date financial records.' },
   { q: 'Why should I outsource accounting data entry?', a: 'Outsourcing saves time, reduces costs, and ensures accuracy by leveraging the expertise of professionals.' },
   { q: 'Are your services customized for small businesses?', a: 'Yes, our services are specifically designed to meet the needs of small and medium-scale businesses in the USA.' },

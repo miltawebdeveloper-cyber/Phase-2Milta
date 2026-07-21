@@ -10,7 +10,7 @@ const StatesServicesSection   = lazy(() => import("../components/Location/States
 const USAChooseMilta          = lazy(() => import("../components/Location/USAChooseMilta"));
 const Faq                     = lazy(() => import("../components/Location/Faq"));
 const CTASection              = lazy(() => import("../components/homeComp/CTASection"));
-const Footer                  = lazy(() => import("../components/Footer"));
+import Footer from "../components/Footer";
 
 function Areas() {
   useFullSEO({

@@ -44,7 +44,7 @@ const BlogHero = ({
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <Typography
               variant="h1"
-              sx={{
+              sx={{ letterSpacing: "0.25px",
                 fontSize: { xs: '2.1rem', sm: '3rem', md: '3.6rem' },
                 color: theme.palette.primary.contrastText,
                 maxWidth: { xs: '100%', md: '900px' },

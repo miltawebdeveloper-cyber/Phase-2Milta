@@ -189,7 +189,7 @@ const QuickBooksOnlineModernHybrid = () => {
   useFullSEO({
 
     // MAIN SEO
-    title: "QuickBooks Online for Small Businesses - Milta",
+    title: "QuickBooks Online for small businesses - Milta",
     description:
       "We provide full bookkeeping support for all QBO versions, including Simple Start, Essentials, Plus, and Advanced.",
     keywords:
@@ -197,7 +197,7 @@ const QuickBooksOnlineModernHybrid = () => {
     author: "Milta Accounting",
     canonical:
       "https://www.miltafs.com/us/software/bookkeeping-with-quickbook-online/",
-    ogTitle: "QuickBooks Online for Small Businesses - Milta",
+    ogTitle: "QuickBooks Online for small businesses - Milta",
     ogDescription: "We provide full bookkeeping support for all QBO versions, including Simple Start, Essentials, Plus, and Advanced.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",
     ogUrl: "https://www.miltafs.com/us/software/bookkeeping-with-quickbook-online/",

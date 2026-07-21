@@ -22,7 +22,7 @@ export default function DataEntryVirginia() {
         keywords:
           "data entry companies, accounting data entry, data entry services, data management services",
         author: "Milta Accounting",
-        canonical: "https://miltafs.com/us/services/outsourcing-accounting-data-entry-virginia/",
+        canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-virginia/",
       }}
       hero={{
         titleLead: "Precision-Driven Data Management Services in",

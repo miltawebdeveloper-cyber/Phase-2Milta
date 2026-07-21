@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   {
     q: 'Why is proper bookkeeping so important to manufacturing companies?',
     a: 'Accurate bookkeeping helps manufacturing businesses monitor production costs, manage inventory, prepare for taxes, and make informed financial decisions. It ensures every transaction — whether related to raw materials, payroll, or overhead — is recorded and tracked, providing clear visibility into profitability and compliance.',

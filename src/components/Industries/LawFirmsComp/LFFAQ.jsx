@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   {
     q: 'Why do law firms need bookkeeping services?',
     a: 'Law firms need specialized bookkeeping to maintain compliance, manage trust accounts, and streamline operations.',

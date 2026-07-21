@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   {
     q: 'What are accounting services for healthcare providers?',
     a: 'Accounting services for healthcare include bookkeeping, payroll, tax planning, financial reporting, budgeting, and compliance support tailored to meet the unique needs of medical professionals and organizations like clinics, hospitals, and pharmacies.',

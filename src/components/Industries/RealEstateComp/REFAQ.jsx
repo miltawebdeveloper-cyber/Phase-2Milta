@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-const FAQS = [
+export const FAQS = [
   {
     q: 'What makes Milta the right choice for real estate bookkeeping outsourcing?',
     a: 'We recognize the unique financial requirements of the real estate business. Whether you\'re a real estate agent, investor, or property manager, our bookkeeping solutions are built to scale with your business and streamline complex financial processes.',

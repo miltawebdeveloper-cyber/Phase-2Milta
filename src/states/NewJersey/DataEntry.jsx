@@ -22,7 +22,7 @@ export default function DataEntryNewJersey() {
         keywords:
           "data entry companies, accounting data entry, data entry services, data management services",
         author: "Milta Accounting",
-        canonical: "https://miltafs.com/us/services/outsourcing-accounting-data-entry-newjersey/",
+        canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-newjersey/",
       }}
       hero={{
         titleLead: "Reliable Data Entry & Management Services in",

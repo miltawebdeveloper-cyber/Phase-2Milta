@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Box, Container, Typography, Stack } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import { Business, HomeWork, Factory, LocalHospital, VolunteerActivism, Restaurant, Storefront } from '@mui/icons-material';
 
 const industries = [
@@ -97,13 +96,6 @@ const IndustriesSection = () => {
                         {activeIdx === index && (
                           <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}>
                             <Typography variant="body1" sx={{ mt: 2, color: 'text.secondary', maxWidth: '450px', lineHeight: 1.6, fontSize: { xs: '0.9rem', md: '1.05rem' }, fontWeight: 300 }}>{item.desc}</Typography>
-                            <Box sx={{ display: { xs: 'flex', md: 'none' }, mt: 3, p: 2, bgcolor: 'background.paper', borderRadius: '16px', alignItems: 'center', justifyContent: 'space-between' }}>
-                              <Box>
-                                <Typography variant="caption" sx={{ fontWeight: 900, color: 'primary.main', letterSpacing: 1, display: 'block' }}>ADVANTAGE</Typography>
-                                <Typography variant="body2" sx={{ fontWeight: 900 }}>{item.stat}</Typography>
-                              </Box>
-                              <ElectricBoltIcon sx={{ color: 'secondary.main' }} />
-                            </Box>
                             <Box sx={{ mt: 3, display: 'inline-block' }}>
                               <Stack component="a" href={item.link} direction="row" alignItems="center" spacing={1} sx={{ color: 'primary.main', textDecoration: 'none', cursor: 'pointer', fontWeight: 800, '&:hover': { opacity: 0.8 } }}>
                                 <Typography variant="button" sx={{ fontSize: '0.9rem' }}>EXPLORE SERVICES</Typography>

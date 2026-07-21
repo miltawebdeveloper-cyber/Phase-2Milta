@@ -4,31 +4,33 @@ import Navbar from '../components/Navbar';
 import MCHero from '../components/Industries/ManufacturingCompaniesComp/MCHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import { faqSchema } from '../utils/faqSchema';
 import ServicesSection from '../components/homeComp/ServicesSection';
 const MCWhatIs     = lazy(() => import('../components/Industries/ManufacturingCompaniesComp/MCWhatIs'));
 const MCSolutions  = lazy(() => import('../components/Industries/ManufacturingCompaniesComp/MCSolutions'));
 const MCWhyChoose  = lazy(() => import('../components/Industries/ManufacturingCompaniesComp/MCWhyChoose'));
 const MCAdvantages = lazy(() => import('../components/Industries/ManufacturingCompaniesComp/MCAdvantages'));
 const MCChallenges = lazy(() => import('../components/Industries/ManufacturingCompaniesComp/MCChallenges'));
-const MCFAQ        = lazy(() => import('../components/Industries/ManufacturingCompaniesComp/MCFAQ'));
+import MCFAQ, { FAQS } from '../components/Industries/ManufacturingCompaniesComp/MCFAQ';
 const CTASection   = lazy(() => import('../components/homeComp/CTASection'));
-const Footer       = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const ManufacturingCompanies = () => {
   useFullSEO({
-    title: 'Accounting for Manufacturing Companies | Milta Financial Services',
+    title: "Bookkeeping For Manufacturing Companies | Milta",
     description:
-      'Inventory costing, margin analysis and reliable bookkeeping for manufacturers. Milta gives you the numbers to control costs and grow production profitably.',
+      "We provide accounting and bookkeeping services for manufacturing companies, handling the tracking of financial operations and ensuring compliance with tax laws and regulations.",
     keywords:
-      'accounting for manufacturing, inventory costing, manufacturing bookkeeping, cost accounting, milta manufacturing companies',
+      "accounting services for manufacturing, accounting for manufacturing, manufacturing accounting, tax returns for manufacturing, manufacturing tax planning, tax planning for manufacturing.",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-manufacturing/',
-    ogTitle: 'Accounting for Manufacturing Companies | Milta Financial Services',
+    ogTitle: "Bookkeeping For Manufacturing Companies | Milta",
     ogDescription:
-      'Inventory costing, margin analysis and reliable bookkeeping to control costs and grow production profitably.',
+      "We provide accounting and bookkeeping services for manufacturing companies, handling the tracking of financial operations and ensuring compliance with tax laws and regulations.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-manufacturing/',
     ogType: 'website',
+    schema: faqSchema(FAQS),
   });
 
   return (

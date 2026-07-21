@@ -80,8 +80,10 @@ the test-parameters box to see template 11's contact path render fully:
   "form_type": "contact",
   "first_name": "Jane",
   "last_name": "Doe",
+  "company_name": "Doe & Co Accounting",
   "email": "jane@example.com",
   "phone_number": "+1 555 0100",
+  "how_did_you_find": "Google",
   "service_interest": "Bookkeeping Services",
   "message": "Looking for monthly bookkeeping for a 12-person firm."
 }

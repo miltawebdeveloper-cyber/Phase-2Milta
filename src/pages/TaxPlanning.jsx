@@ -4,31 +4,34 @@ import Navbar from '../components/Navbar';
 import TaxHero from '../components/Services/TaxComp/TaxHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import { faqSchema } from '../utils/faqSchema';
+import TaxFAQ, { FAQS } from '../components/Services/TaxComp/TaxFAQ';
 
 const TaxWhatIs        = lazy(() => import('../components/Services/TaxComp/TaxWhatIs'));
 const TaxWhyChoose     = lazy(() => import('../components/Services/TaxComp/TaxWhyChoose'));
 const TaxSolutions     = lazy(() => import('../components/Services/TaxComp/TaxSolutions'));
 const TaxAdvantages    = lazy(() => import('../components/Services/TaxComp/TaxAdvantages'));
 const TaxTrustedPartner = lazy(() => import('../components/Services/TaxComp/TaxTrustedPartner'));
-const TaxFAQ           = lazy(() => import('../components/Services/TaxComp/TaxFAQ'));
 const CTASection       = lazy(() => import('../components/homeComp/CTASection'));
-const Footer           = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const TaxPlanning = () => {
   useFullSEO({
-    title: 'Tax Planning & Preparation Services in the USA | Milta',
+    title: "US Expat Tax Service | Federal, State, and City Tax Filing",
     description:
-      'Minimize tax liability and stay compliant with Milta’s tax planning and preparation services for US businesses. Accurate filings, proactive strategy, year-round support.',
+      "Professional US Expat Tax Service for Federal, State, and City Tax Preparation. We specialize in Forms 1040, 1041, 1065, 1120, 1120S, 990 etc.",
     keywords:
-      'tax planning services usa, tax preparation, business tax filing, tax compliance, outsourced tax services, milta tax',
+      "us expat tax service, tax planning and preparation services, tax preparation service in the usa, tax planning and preparation services in the usa",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/us/services/tax-planning-and-preparation-services-usa/',
-    ogTitle: 'Tax Planning & Preparation Services in the USA | Milta',
+    ogTitle: "US Expat Tax Service | Federal, State, and City Tax Filing",
     ogDescription:
-      'Minimize tax liability and stay compliant with accurate filings, proactive strategy and year-round support.',
+      "Professional US Expat Tax Service for Federal, State, and City Tax Preparation. We specialize in Forms 1040, 1041, 1065, 1120, 1120S, 990 etc.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/us/services/tax-planning-and-preparation-services-usa/',
     ogType: 'website',
+    // FAQPage built from the FAQs this page actually renders.
+    schema: faqSchema(FAQS),
   });
 
   return (

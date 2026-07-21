@@ -6,7 +6,7 @@ import AccountingSoftwareSection from "../components/SoftwareTools/AccountingSof
 import useFullSEO from "../utils/useFullSEO";
 
 const CTASection = lazy(() => import("../components/homeComp/CTASection"));
-const Footer = lazy(() => import("../components/Footer"));
+import Footer from "../components/Footer";
 
 function AccountingSoftware() {
   useFullSEO({

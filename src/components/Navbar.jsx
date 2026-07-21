@@ -15,6 +15,7 @@ import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { useTheme, alpha } from '@mui/material/styles';
 import { useThemeMode } from '../ThemeContext';
 import { useConsultation } from './ConsultationModal';
+import CountrySwitcher from './CountrySwitcher';
 
 const navItems = [
   { label: 'Home',     path: '/' },
@@ -226,7 +227,7 @@ const Navbar = () => {
                         : '1px solid transparent',
                       '&:hover': {
                         color: onHero ? '#ffffff' : primary,
-                        bgcolor: onHero ? alpha('#ffffff', 0.12) : alpha(primary, 0.08),
+                        bgcolor: 'transparent',
                       },
                     }}>
                       {item.label.toUpperCase()}
@@ -291,8 +292,8 @@ const Navbar = () => {
                                       border: `1px solid ${childActive ? alpha(primary, 0.2) : 'transparent'}`,
                                       transition: 'all 0.2s ease',
                                       '&:hover': {
-                                        bgcolor: alpha(primary, 0.07),
-                                        border: `1px solid ${alpha(primary, 0.15)}`,
+                                        bgcolor: 'transparent',
+                                        border: '1px solid transparent',
                                         '& .dot': { transform: 'scale(1.2)', color: primary },
                                         '& .lbl': { color: primary, letterSpacing: 1.4 },
                                       },
@@ -345,7 +346,7 @@ const Navbar = () => {
                       : '1px solid transparent',
                     '&:hover': {
                       color: onHero ? '#ffffff' : primary,
-                      bgcolor: onHero ? alpha('#ffffff', 0.12) : alpha(primary, 0.08),
+                      bgcolor: 'transparent',
                     },
                   }}
                 >
@@ -355,8 +356,11 @@ const Navbar = () => {
             })}
           </Box>
 
-          {/* Right cluster: theme toggle + CTA */}
+          {/* Right cluster: country switcher + theme toggle + CTA */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1.5 }}>
+
+            {/* Country switcher */}
+            <CountrySwitcher onHero={onHero} />
 
             {/* Dark / Light toggle */}
             <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.92 }} transition={{ duration: 0.18 }}>
@@ -467,6 +471,7 @@ const Navbar = () => {
               />
             </Box>
             <Stack direction="row" alignItems="center" gap={1}>
+              <CountrySwitcher size={38} />
               <IconButton
                 onClick={toggleMode}
                 sx={{ bgcolor: alpha(primary, 0.08), border: `1px solid ${alpha(primary, 0.15)}`, color: 'text.primary', width: 38, height: 38 }}

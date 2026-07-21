@@ -19,7 +19,7 @@ export default function VirtualAssistantVirginia() {
         keywords:
           "virtual assistants service in virginia, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant va",
         author: "Milta Accounting",
-        canonical: "https://www.milta.com/us/services/virtual-assistant-service-in-virginia/",
+        canonical: "https://www.miltafs.com/us/services/virtual-assistant-service-in-virginia/",
       }}
       hero={{
         titleLead: "Maximize Productivity with Expert Virtual Assistant Services in",

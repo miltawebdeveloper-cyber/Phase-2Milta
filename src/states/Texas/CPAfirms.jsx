@@ -18,8 +18,8 @@ export default function CPATexas() {
           "Our Texas-based CPA professionals help small businesses gain financial clarity, ensure compliance, and strengthen long-term fiscal control.",
         keywords:
           "cpa services in texas, cpa firms near me, cpa firms in texas, accounting services for small business, cpa services for small businesses, best cpa service for small businesses in texas, certified public accountant near me",
-        canonical: "https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-the-texas/",
         author: "Milta Accounting",
+        canonical: "https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-the-texas/",
       }}
       hero={{
         titleLead: "Expert CPA Services in Texas",

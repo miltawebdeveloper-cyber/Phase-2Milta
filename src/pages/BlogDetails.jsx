@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useParams, Link } from "react-router-dom";
-import { getBlogBySlug } from "../api/client";
+import { getBlogBySlug } from "../api/blogs";
 import { useEffect, useState, lazy, Suspense } from "react";
 import useFullSEO from "../utils/useFullSEO";
 import { blogSEO } from "../utils/blogSEO";
@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 import ScrollToTop from "../components/ScrollToTop";
 
 const CTASection = lazy(() => import("../components/homeComp/CTASection"));
-const Footer = lazy(() => import("../components/Footer"));
+import Footer from "../components/Footer";
 
 const BlogDetails = () => {
   const { slug } = useParams();

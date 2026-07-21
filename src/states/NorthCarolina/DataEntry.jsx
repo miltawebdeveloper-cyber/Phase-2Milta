@@ -22,7 +22,7 @@ export default function DataEntryNorthCarolina() {
         keywords:
           "data entry companies, accounting data entry, data entry services, data management services",
         author: "Milta Accounting",
-        canonical: "https://miltafs.com/us/services/outsourcing-accounting-data-entry-northcarolina/",
+        canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-northcarolina/",
       }}
       hero={{
         titleLead: "Reliable Data Entry & Management Services in",

@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import { Box, Container, Typography, Chip, IconButton, Card } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getBlogs } from "../../api/client";
+import { getBlogs } from "../../api/blogs";
 
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";

@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import HCHero from '../components/Industries/HealthCare/HCHero';
 import ScrollToTop from '../components/ScrollToTop';
 import useFullSEO from '../utils/useFullSEO';
+import { faqSchema } from '../utils/faqSchema';
 import ServicesSection from '../components/homeComp/ServicesSection';
 
 
@@ -12,25 +13,26 @@ const HCSolutions  = lazy(() => import('../components/Industries/HealthCare/HCSo
 const HCWhyChoose  = lazy(() => import('../components/Industries/HealthCare/HCWhyChoose'));
 const HCAdvantages = lazy(() => import('../components/Industries/HealthCare/HCAdvantages'));
 const HCChallenges = lazy(() => import('../components/Industries/HealthCare/HCChallenges'));
-const HCFAQ        = lazy(() => import('../components/Industries/HealthCare/HCFAQ'));
+import HCFAQ, { FAQS } from '../components/Industries/HealthCare/HCFAQ';
 const CTASection   = lazy(() => import('../components/homeComp/CTASection'));
-const Footer       = lazy(() => import('../components/Footer'));
+import Footer from '../components/Footer';
 
 const HealthCare = () => {
   useFullSEO({
-    title: 'Accounting for the Healthcare Industry | Milta Financial Services',
+    title: "We Provide Accounting Services For Healthcare.",
     description:
-      'Medical billing reconciliation, payroll and compliant bookkeeping for healthcare practices. Milta keeps your practice financially healthy and audit-ready.',
+      "Our specialized Accounting Services for Healthcare ensure accurate services for doctors, medical practices, and the healthcare industry.",
     keywords:
-      'healthcare accounting, medical practice bookkeeping, medical billing reconciliation, healthcare payroll, milta healthcare industry',
+      "accounting services for healthcare, healthcare accounting firms, accounting for healthcare professionals, accounting in the healthcare industry, accountants for medical professionals, tax returns for healthcare",
     author: 'Milta Accounting',
     canonical: 'https://www.miltafs.com/us/industry/accounting-services-for-healthcare/',
-    ogTitle: 'Accounting for the Healthcare Industry | Milta Financial Services',
+    ogTitle: "We Provide Accounting Services For Healthcare.",
     ogDescription:
-      'Medical billing reconciliation, payroll and compliant bookkeeping to keep your practice financially healthy.',
+      "Our specialized Accounting Services for Healthcare ensure accurate services for doctors, medical practices, and the healthcare industry.",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
     ogUrl: 'https://www.miltafs.com/us/industry/accounting-services-for-healthcare/',
     ogType: 'website',
+    schema: faqSchema(FAQS),
   });
 
   return (
