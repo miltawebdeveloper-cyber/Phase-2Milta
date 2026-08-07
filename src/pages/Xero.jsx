@@ -237,6 +237,8 @@ const XeroAccountingModern = () => {
 
           <Typography
             variant="h3"
+            // Page title: h3 is the size it is drawn at, h1 is what it is.
+            component="h1"
             align="center"
             fontWeight={800}
             color={COLORS.text}

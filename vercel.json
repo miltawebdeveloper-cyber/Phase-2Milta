@@ -1,6 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/us/blogs/best-tools-for-the-accountingservices-industry",
+      "destination": "/us/blogs/best-tools-for-the-accounting-services-industry",
+      "permanent": true
+    },
+    {
+      "source": "/us/blogs/best-tools-for-the-accountingservices-industry/",
+      "destination": "/us/blogs/best-tools-for-the-accounting-services-industry",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],

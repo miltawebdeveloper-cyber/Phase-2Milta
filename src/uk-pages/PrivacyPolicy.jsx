@@ -20,11 +20,11 @@ const PrivacyPolicy = () => {
     keywords:
       "milta privacy policy, security policy, privacy policy, Business security policy",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/privacy-policy",
-     ogTitle: "Your Privacy Is Safe With Us | Milta’s Policy",
+    canonical: "https://www.miltafs.com/uk/privacy-policy",
+    ogTitle: "Your Privacy Is Safe With Us | Milta’s Policy",
     ogDescription: "We know trust matters. That’s why Milta is dedicated to protecting your personal and business information. Click to see how we keep you safe.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",
-    ogUrl: "https://www.miltafs.com/privacy-policy",
+    ogUrl: "https://www.miltafs.com/uk/privacy-policy",
   });
 
   return (

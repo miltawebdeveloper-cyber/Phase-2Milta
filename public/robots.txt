@@ -1,3 +1,13 @@
 # https://www.robotstxt.org/robotstxt.html
+#
+# The previous production file declared a Googlebot group only, which left every
+# other crawler (Bing, DuckDuckBot, the AI crawlers) matching no group at all.
+# A single wildcard group covers all of them.
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Authoring UI, not content.
+Disallow: /uk/addblog
+
+Sitemap: https://www.miltafs.com/sitemap.xml

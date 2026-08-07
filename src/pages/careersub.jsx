@@ -1,6 +1,6 @@
 // src/pages/CareerPage.jsx
 import React, { useState } from "react";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import JobFilterBar from "../components/careerComp/JobFilterBar";
@@ -402,6 +402,24 @@ const CareerPage = () => {
           pt: { xs: 12, md: 14 },
         }}
       >
+        {/* --- Page heading --- */}
+        {/* The page went straight from the navbar into the filter bar, so it
+            shipped with no h1 and nothing naming what the list is. */}
+        <Typography
+          variant="h3"
+          component="h1"
+          align="center"
+          sx={{ fontWeight: 800, mb: 1, fontSize: { xs: "1.8rem", md: "2.6rem" } }}
+        >
+          Open Positions at Milta
+        </Typography>
+        <Typography
+          align="center"
+          sx={{ color: "text.secondary", mb: 4, maxWidth: 620 }}
+        >
+          Current openings across accounting, technology and client services.
+        </Typography>
+
         {/* --- Filter Bar --- */}
         <JobFilterBar onFilter={handleFilter} />
 {/* --- Job List & Details Layout --- */}

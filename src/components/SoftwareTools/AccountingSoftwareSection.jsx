@@ -139,6 +139,9 @@ const AccountingSoftwareSection = () => {
           <motion.div {...fadeUp(0.08)}>
             <Typography
               variant="h3"
+              // Only heading on /us/software/tools-we-use/, which is this
+              // section's only consumer — so it is the page's h1.
+              component="h1"
               sx={{
                 fontWeight: 800,
                 color: "#ffffff",

@@ -24,6 +24,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "^10.0.3",
+    "puppeteer-core": "^24.43.1",
     "sharp": "^0.35.3",
     "vite": "^6.3.5",
     "vitest": "^3.2.3"
@@ -33,7 +34,11 @@
     "dev:web": "vite",
     "dev:api": "npm --prefix server run dev",
     "start": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
+    "build:nossg": "vite build",
+    "prerender": "node scripts/prerender.mjs",
+    "package": "powershell -NoProfile -Command \"Compress-Archive -Path dist/* -DestinationPath deploy/site.zip -Force\"",
+    "verify:deploy": "node scripts/verify-deploy.mjs",
     "preview": "vite preview",
     "test": "vitest"
   }

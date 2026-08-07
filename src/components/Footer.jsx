@@ -62,6 +62,11 @@ const Footer = () => {
       {/* Watermark */}
       <Typography
         variant="h1"
+        // Typography's h1 variant renders a real <h1> element unless told
+        // otherwise. The footer is on every page, so that gave all 141 pages a
+        // second h1 — one holding decorative text at 4% opacity. component keeps
+        // the type scale and drops the heading semantics.
+        component="span"
         sx={{
           position: 'absolute',
           bottom: '-0.1em',

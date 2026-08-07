@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import getHreflangCluster from "./hreflang";
 
 // Site-wide defaults for tags that are the same on every page. Any of these can
 // be overridden per page by passing the matching key in the SEO config.
@@ -53,19 +54,37 @@ export default function useFullSEO(config = null) {
         href: config.canonical,
       });
 
-    // ── 3b. hreflang alternates ── point at the page's own canonical, so they
-    // never contradict it after a client-side navigation.
-    const alternateUrl = config.canonical || SITE_URL;
-    setTag('link[rel="alternate"][hreflang="en-US"]', "link", {
-      rel: "alternate",
-      hreflang: "en-US",
-      href: alternateUrl,
-    });
-    setTag('link[rel="alternate"][hreflang="x-default"]', "link", {
-      rel: "alternate",
-      hreflang: "x-default",
-      href: alternateUrl,
-    });
+    // ── 3b. hreflang alternates ── driven by the US↔UK pair table. Only en-US
+    // and x-default are emitted: the en-GB annotation was removed by request, so
+    // a page in a pair no longer declares the UK side at all. Pages with no
+    // counterpart emit nothing.
+    //
+    // These are positioned relative to the canonical rather than via setTag's
+    // append, because the set is variable-length: a page without a pair removes
+    // them, and appending on the next navigation would break the head order.
+    const cluster = getHreflangCluster(window.location.pathname);
+    let anchor = head.querySelector('link[rel="canonical"]');
+    const setAlternate = (hreflang) => {
+      const href = cluster && cluster[hreflang];
+      let el = head.querySelector(`link[rel="alternate"][hreflang="${hreflang}"]`);
+      if (!href) {
+        if (el) el.remove();
+        return;
+      }
+      if (!el) {
+        el = document.createElement("link");
+        el.setAttribute("rel", "alternate");
+      }
+      el.setAttribute("hreflang", hreflang);
+      el.setAttribute("href", href);
+      // .after() moves the node when it is already in the document, so the
+      // canonical → en-US → x-default order is re-established every run.
+      if (anchor) anchor.after(el);
+      else head.appendChild(el);
+      anchor = el;
+    };
+    setAlternate("en-US");
+    setAlternate("x-default");
 
     // ── 4. Robots ──
     setTag('meta[name="robots"]', "meta", {

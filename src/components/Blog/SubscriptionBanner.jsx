@@ -118,6 +118,9 @@ const SubscriptionBanner = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
           <Typography
             variant="h2"
+            // Top heading on /blogs, this banner's only consumer, and the page
+            // had no h1 at all before.
+            component="h1"
             sx={{
               fontFamily: '"Plus Jakarta Sans", sans-serif',
               fontWeight: 900,

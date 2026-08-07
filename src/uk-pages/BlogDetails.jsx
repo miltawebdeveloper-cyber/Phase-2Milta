@@ -53,6 +53,9 @@ const BlogDetails = () => {
           <Box>
             <Typography
               variant="h4"
+              // The post title is the page heading; h4 is the size, not the
+              // level. Without this the UK post pages ship no h1 at all.
+              component="h1"
               fontWeight={700}
               sx={{ mt: 3, fontSize: { xs: "22px", md: "32px" } }}
             >

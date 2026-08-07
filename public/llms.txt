@@ -1,0 +1,64 @@
+# Milta Accounting Services Pvt. Ltd
+
+> Outsourced accounting, bookkeeping, payroll, tax preparation and back-office
+> support for small and mid-sized businesses in the United States and the United
+> Kingdom, delivered from Coimbatore, India. Services are organised by region
+> (`/us/...` for the United States, `/uk/...` for the United Kingdom), then by
+> service, industry, and US state.
+
+## About
+
+- [About Milta](https://www.miltafs.com/about): Company background, leadership and how the delivery model works.
+- [Services overview](https://www.miltafs.com/services): Index of every service line offered to US clients.
+- [Areas we serve](https://www.miltafs.com/areas-we-serve): US states with dedicated service pages.
+- [Contact](https://www.miltafs.com/contact): Enquiry form, phone and office address.
+- [Careers](https://www.miltafs.com/career): Working at Milta and current openings.
+
+## Services (United States)
+
+- [Bookkeeping](https://www.miltafs.com/us/services/bookkeeping-company-in-the-usa/): Day-to-day bookkeeping, reconciliations and clean-up work.
+- [Tax planning and preparation](https://www.miltafs.com/us/services/tax-planning-and-preparation-services-usa/): Federal and state return preparation and planning support.
+- [Payroll management](https://www.miltafs.com/us/services/payroll-management-services-in-the-usa/): Payroll processing, filings and compliance.
+- [CPA services](https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-the-usa/): CPA-supervised services for small businesses.
+- [Financial controller services](https://www.miltafs.com/us/services/financial-controller-services-in-the-usa/): Outsourced controller and management reporting.
+- [Accounting data entry](https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-services-in-the-usa/): High-volume transaction and document data entry.
+- [Virtual assistant services](https://www.miltafs.com/us/services/virtual-assistant-service-in-the-usa/): Administrative and back-office support staff.
+- [Digital marketing](https://www.miltafs.com/us/services/best-digital-marketing-agency-in-usa/): Marketing services offered alongside the accounting practice.
+
+## Industries (United States)
+
+- [Contractors](https://www.miltafs.com/us/industry/bookkeeping-for-contractors-companies/)
+- [Law firms](https://www.miltafs.com/us/industry/accounting-services-for-lawfirms/)
+- [Manufacturing](https://www.miltafs.com/us/industry/accounting-services-for-manufacturing/)
+- [Real estate](https://www.miltafs.com/us/industry/bookkeeping-for-real-estate-companies/)
+- [Non-profit organisations](https://www.miltafs.com/us/industry/accounting-services-for-nonprofit-organizations/)
+- [Healthcare](https://www.miltafs.com/us/industry/accounting-services-for-healthcare/)
+- [Restaurants](https://www.miltafs.com/us/industry/accounting-services-for-restaurant-businesses/)
+- [Retail](https://www.miltafs.com/us/industry/accounting-services-for-retail-businesses/)
+
+## Software
+
+- [Tools we use](https://www.miltafs.com/us/software/tools-we-use/): The accounting stack Milta works in.
+- [QuickBooks Online](https://www.miltafs.com/us/software/bookkeeping-with-quickbook-online/)
+- [QuickBooks Desktop](https://www.miltafs.com/us/software/bookkeeping-with-quickbook-desktop/)
+- [Xero](https://www.miltafs.com/us/software/xero-for-small-business/)
+- [Wave](https://www.miltafs.com/us/software/wave-accounting-for-small-business/)
+
+## United Kingdom
+
+- [Milta UK](https://www.miltafs.com/uk): UK homepage.
+- [UK services](https://www.miltafs.com/uk/services): Service index for UK clients.
+- [UK bookkeeping](https://www.miltafs.com/uk/bookkeeping-services-for-small-business/)
+- [UK payroll](https://www.miltafs.com/uk/payroll-services-for-small-business/)
+- [UK accounts payable](https://www.miltafs.com/uk/accounts-payable-services-in-uk/)
+- [UK accounts receivable](https://www.miltafs.com/uk/accounts-receivable-services-in-uk/)
+- [UK data entry](https://www.miltafs.com/uk/accounting-data-entry-services-uk/)
+- [UK virtual assistants](https://www.miltafs.com/uk/virtual-assistant-services-in-the-uk/)
+- [UK contact](https://www.miltafs.com/uk/contact)
+
+## Optional
+
+- [Blog](https://www.miltafs.com/blogs): Articles on outsourced accounting, tax deadlines and bookkeeping practice.
+- [Privacy policy](https://www.miltafs.com/privacy-policy)
+- [Terms of service](https://www.miltafs.com/terms-of-service)
+- [Sitemap](https://www.miltafs.com/sitemap.xml): Full machine-readable URL list.

@@ -208,6 +208,11 @@ const Hero = () => {
                   >
                     <Typography
                       variant="h1"
+                      // Only the first slide is the page heading. The other
+                      // slides sit behind visibility:hidden until the carousel
+                      // reaches them, so marking them h1 gave the homepage four
+                      // headings, three of them hidden.
+                      component={index === 0 ? 'h1' : 'h2'}
                       dangerouslySetInnerHTML={{ __html: slide.title }}
                       sx={{
                         fontSize: { xs: '2.4rem', sm: '3.5rem', md: '4rem', lg: '3.5rem' },

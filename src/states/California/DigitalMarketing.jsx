@@ -37,7 +37,7 @@ export default function DigitalMarketingCalifornia() {
       "digital marketing agency, digital marketing services, digital marketing agency in california, california internet marketing, digital marketing services in california",
     author: "Milta Accounting",
     canonical:
-      "https://www.milta.com/us/services/best-digital-marketing-agency-in-california/",
+      "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-california/",
   });
 
   return (

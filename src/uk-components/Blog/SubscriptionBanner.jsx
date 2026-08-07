@@ -90,6 +90,9 @@ const SubscriptionBanner = () => {
 
             {/* Heading */}
             <Typography
+              // Typography defaults to <p>. This is the only heading on
+              // /uk/blogs, so the page shipped without an h1.
+              component="h1"
               sx={{
                 mt: 1.5,
                 fontSize: { xs: "26px", sm: "32px", md: "40px" },

@@ -1,0 +1,177 @@
+APACHE CONFIG PATCH — apply by hand to the .htaccess in the production web root
+===============================================================================
+
+This is NOT a drop-in replacement. The live .htaccess already does work this
+repo has no copy of (it is what makes http -> https, http-non-www -> www, and
+the SPA fallback function today). Back it up, then add the blocks below.
+
+    cp .htaccess .htaccess.bak-2026-08-05
+
+Verified against the live server on 2026-08-05:
+  - Server: Apache
+  - http://miltafs.com/  and  http://www.miltafs.com/  -> 301 https://www.miltafs.com/   (already correct)
+  - https://miltafs.com/                                -> 200, serves a full duplicate  (block 1 fixes this)
+  - No Strict-Transport-Security header on any response                                  (block 2 fixes this)
+  - /assets -> 301 /assets/, so DirectorySlash is On                                     (block 3 depends on this)
+
+Re-verified 2026-08-07 — NONE of the blocks below had been applied, and the
+upload itself is wrong. What production is actually serving today:
+  - /dist.zip           -> 200, 195 MB, PUBLICLY DOWNLOADABLE       (block 0 — urgent)
+  - /src/App.jsx        -> 200   the project tree was extracted into the web root
+  - /package.json       -> 200
+  - Every page URL      -> byte-identical 175,739b copy of the home page,
+                           each with canonical -> https://www.miltafs.com/
+                           (/about, /contact, /blogs, /uk/about, /us/services/..., and
+                           made-up URLs all return the same document)
+  - /about.html         -> 200, correct page      so SOME of dist/ is uploaded...
+  - /contact.html       -> 200, the home page     ...but most of it is not
+  - /uk/                -> 403   empty `uk` directory, no index.html in it
+  - /no-such-page-xyz   -> 200   nothing on the site can 404
+
+That combination is the whole reason only the home page is indexed: Google
+fetches every sitemap URL, receives the same document each time, and collapses
+the site into one page. Fix the upload (block 0 + a full dist/ upload) before
+attributing any indexing problem to tags, hreflang or metadata.
+
+
+-------------------------------------------------------------------------------
+BLOCK 0 — DELETE THE EXPOSED FILES FROM public_html  (do this before anything else)
+-------------------------------------------------------------------------------
+https://www.miltafs.com/dist.zip currently returns 200 and downloads 195 MB to
+anyone who asks. That archive is not a build — it is a zip of the whole project
+directory, and it contains:
+
+    .env            (BREVO_API_KEY, VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, …)
+    server/.env
+    .git/           full repository history
+    src/, server/, node_modules/
+
+Apache already returns 403 for /.env and /server/.env directly, but that is
+irrelevant while the same files are downloadable inside the zip.
+
+  1. Delete public_html/dist.zip.
+  2. Delete public_html/src, /server, /node_modules, /.git, /package.json,
+     /package-lock.json, /vite.config.js, /scripts, /assets-originals.
+     The web root should contain the CONTENTS of dist/ and nothing else.
+  3. Rotate every credential in .env and server/.env — treat them as public.
+     The Brevo API key is the urgent one; it can send mail as you.
+  4. Never upload a project-root zip again. `npm run package` writes
+     deploy/site.zip containing only dist/ (~17 MB), which is what gets
+     extracted into public_html.
+
+Belt-and-braces once the files are gone — this does NOT substitute for deleting
+them, since a deny rule protects nothing if the file can be renamed or moved:
+
+    # No archives or dotfiles in the web root, ever.
+    <FilesMatch "\.(zip|tar|gz|bak|sql|env|json|jsx?|mjs)$">
+      Require all denied
+    </FilesMatch>
+    <DirectoryMatch "^.*/\.git/">
+      Require all denied
+    </DirectoryMatch>
+
+CAUTION: that FilesMatch denies .json and .js at the web root, which would also
+block /manifest.json and everything in /assets. Only add it with an exemption
+for /assets, or scope it to the specific extensions you actually need blocked
+(zip|tar|gz|bak|sql|env). Verify /assets/*.js still loads before you walk away.
+
+
+-------------------------------------------------------------------------------
+BLOCK 1 — send https://miltafs.com to https://www.miltafs.com
+-------------------------------------------------------------------------------
+The http side already redirects; the https side does not, so the whole site is
+reachable twice over TLS. That duplicate host is also the reason Semrush
+reported "Hreflang conflicts within page source code" on miltafs.com and not on
+www: every page's hreflang set names www URLs, so on the bare host no annotation
+points back at the page being crawled.
+
+Place immediately after the existing `RewriteEngine On`, and BEFORE the SPA
+fallback rule (rules are evaluated in order; the fallback ends processing).
+
+    # Canonical host: www, over TLS.
+    RewriteCond %{HTTP_HOST} ^miltafs\.com$ [NC]
+    RewriteRule ^(.*)$ https://www.miltafs.com/$1 [R=301,L]
+
+
+-------------------------------------------------------------------------------
+BLOCK 2 — HSTS
+-------------------------------------------------------------------------------
+Semrush issue: "No HSTS support" (both homepage variants).
+
+Start at max-age=300 and confirm nothing breaks over TLS before raising it — the
+header tells browsers to refuse plain http for the domain, and a long max-age is
+not something you can take back quickly. Once it is proven, raise to 31536000.
+
+Do NOT add `preload` (or submit to the preload list) unless every current and
+future subdomain is https-only; that step is effectively irreversible.
+
+    <IfModule mod_headers.c>
+      Header always set Strict-Transport-Security "max-age=300"
+      # After a week of clean https: max-age=31536000; includeSubDomains
+    </IfModule>
+
+
+-------------------------------------------------------------------------------
+BLOCK 3 — serve the prerendered .html files at their extensionless URLs
+-------------------------------------------------------------------------------
+`npm run build` now writes static HTML for every route (see scripts/prerender.mjs).
+Routes whose canonical ends in a slash land as directories and are already served
+correctly by DirectoryIndex — no rule needed:
+
+    /us/software/xero-for-small-business/  ->  .../index.html      works today
+
+Routes whose canonical has NO trailing slash are written as `<name>.html`,
+because writing them as directories would make DirectorySlash 301 /about to
+/about/ — turning every canonical URL on the site into a redirect. This rule
+serves them at the exact canonical URL instead:
+
+    /about        ->  /about.html
+    /blogs        ->  /blogs.html
+    /us/blogs/<slug>  ->  /us/blogs/<slug>.html
+
+Place BEFORE the SPA fallback rule.
+
+    # Prerendered page for this URL, if one was built.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+    RewriteRule ^(.*)$ /$1.html [L]
+
+There is deliberately NO `RewriteCond %{REQUEST_FILENAME} !-d` here (an earlier
+draft of this file had one). /uk is both a page and a parent of /uk/about, so
+dist/ contains uk.html AND a uk/ directory. With `!-d` the rule skips /uk, and
+DirectorySlash then 301s it to /uk/ — the redirect that serves 403 today. The
+`.html -f` condition is already precise enough on its own: it only fires when a
+prerendered file of that exact name exists.
+
+The build also now writes a parent route twice — uk.html and uk/index.html — so
+/uk and /uk/ both resolve regardless of which one Apache reaches first.
+
+Without this block nothing breaks: those URLs keep falling through to the SPA
+shell exactly as they do today. They just stay unprerendered — which is 29 of
+the 162 URLs in the sitemap, including /about, /blogs, /contact and every blog
+post.
+
+
+-------------------------------------------------------------------------------
+NOT INCLUDED, deliberately: real 404s
+-------------------------------------------------------------------------------
+Every unknown URL currently returns 200 with the SPA shell —
+/this-page-does-not-exist-12345 included. That is why the audit's "4xx errors"
+column reads 0: nothing on this site is capable of returning 404.
+
+Fixing it means replacing the catch-all fallback with something that 404s for
+paths that are not real routes, and that is only safe once you are confident
+every route prerenders (a route that silently fails to build would become a hard
+404 instead of a working client-rendered page). Revisit after a couple of clean
+`npm run build` runs. It was not in the Semrush findings and is not worth
+risking a live 404 on a real page today.
+
+
+-------------------------------------------------------------------------------
+AFTER DEPLOYING — verify
+-------------------------------------------------------------------------------
+    curl -sI https://miltafs.com/            | head -3      # expect 301 -> www
+    curl -sI https://www.miltafs.com/        | grep -i strict-transport
+    curl -s  https://www.miltafs.com/about   | grep -c "<h1"     # expect 1
+    curl -s  https://www.miltafs.com/llms.txt | head -1          # expect "# Milta Accounting..."
+    curl -sI https://www.miltafs.com/llms.txt | grep -i content-type   # expect text/plain

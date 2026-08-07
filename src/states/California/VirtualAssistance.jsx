@@ -41,7 +41,7 @@ export default function VirtualAssistantCalifornia() {
       "virtual assistants service in california, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant sc",
     author: "Milta Accounting",
     canonical:
-      "https://www.milta.com/us/services/virtual-assistant-service-in-california/",
+      "https://www.miltafs.com/us/services/virtual-assistant-service-in-california/",
   });
 
   return (

@@ -19,7 +19,7 @@ export default function CPAPennsylvania() {
         keywords:
           "cpa services in pennsylvania, cpa firms near me, cpa firms in pennsylvania, accounting services for small business, cpa services for small businesses, best cpa service for small businesses in pennsylvania, certified public accountant near me",
         author: "Milta Accounting",
-        canonical: "https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-pennsylvania/",
+        canonical: "https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-the-pennsylvania/",
       }}
       hero={{
         titleLead: "Trusted CPA Firm in Pennsylvania",

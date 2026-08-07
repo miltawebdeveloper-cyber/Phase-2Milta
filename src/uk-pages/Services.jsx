@@ -19,11 +19,11 @@ function App() {
     keywords:
       "outsourcing and accounting services, accounting services for small businesses uk, accounting outsourcing services uk, finance and accounting outsourcing, outsourced accounting services, small business accounting uk",
     author: "Milta Accounting Services",
-    canonical: "https://www.miltafs.com/services/uk",
-      ogTitle: "Outsourcing and Accounting Services for Small Businesses",
+    canonical: "https://www.miltafs.com/uk/services",
+    ogTitle: "Outsourcing and Accounting Services for Small Businesses",
     ogDescription: "Our customized outsourcing and accounting services for small businesses in the UK simplify your finances, improve efficiency, and support sustainable business growth with expert-led solutions.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",
-    ogUrl: "https://www.miltafs.com/uk/services/",
+    ogUrl: "https://www.miltafs.com/uk/services",
   });
 
 
