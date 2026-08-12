@@ -47,12 +47,14 @@ const Career = () => {
     keywords:
       "business development jobs, digital marketing jobs, virtual assistant jobs, us tax analyst jobs, business development executive, digital marketing specialist, digital marketing manager, hiring a virtual assistant, virtual assistant jobs for beginners, looking for a virtual assistant, hiring bookkeeper, bookkeeper job posting, hiring a bookkeeper near me, senior bookkeeper, bookkeeping job openings.",
     author: 'Milta Accounting',
-    canonical: 'https://www.miltafs.com/career',
+    // Trailing slash required — /career is also the parent of
+    // /career/open-positions, so DirectorySlash 301s /career -> /career/.
+    canonical: 'https://www.miltafs.com/career/',
     ogTitle: "Work with Our Team That Values Your Growth | Careers at Milta",
     ogDescription:
       "Looking for a career to grow and shine? Join Milta, where we value people as much as results. Click to explore opportunities and join us!",
     ogImage: 'https://www.miltafs.com/images/miltafs-og.jpg',
-    ogUrl: 'https://www.miltafs.com/career',
+    ogUrl: 'https://www.miltafs.com/career/',
     ogType: 'website',
   });
 

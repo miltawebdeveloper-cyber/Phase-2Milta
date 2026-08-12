@@ -1,5 +1,5 @@
 // src/components/ApplyForm.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Dialog,
   Container,
@@ -61,6 +61,15 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [snackbar, setSnackbar] = useState({ open: false, severity: "success", message: "" });
+
+  // Releases the previous blob URL whenever resumePreview changes — on a new
+  // file pick, on resetForm() clearing it to null, and on unmount. The popup
+  // stays mounted (with open=false) across closes rather than unmounting, so
+  // without this every close/reopen/reselect cycle leaked one blob URL.
+  useEffect(() => {
+    if (!resumePreview) return;
+    return () => URL.revokeObjectURL(resumePreview);
+  }, [resumePreview]);
 
   const resetForm = () => {
     setValues(initialState);

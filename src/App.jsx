@@ -205,10 +205,19 @@ const SoftwareLayout = ({ children }) => (
   </Box>
 );
 
-// Shown while a lazily-loaded route chunk is being fetched.
+// Shown while a lazily-loaded route chunk is being fetched. Every page
+// renders its own <Navbar/>, so without one here Suspense's fallback swap
+// unmounts it — the logo vanishes and reappears a moment later, which reads
+// as a blink on every reload (the client boots un-hydrated, see index.jsx,
+// so this fallback is what the very first paint after a reload shows for
+// any route other than the eagerly-imported Home). Navbar reads its own
+// route/theme state, so rendering it here needs no props to stay in sync.
 const PageLoader = () => (
-  <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: 'background.default' }}>
-    <CircularProgress sx={{ color: 'primary.main' }} />
+  <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+    <Navbar />
+    <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <CircularProgress sx={{ color: 'primary.main' }} />
+    </Box>
   </Box>
 );
 

@@ -357,7 +357,7 @@ export default function UkHeader() {
             {/* Logo */}
             <Box
               component={Link}
-              to="/uk"
+              to="/uk/"
               sx={{ display: "flex", alignItems: "center", flexShrink: 0, lineHeight: 0 }}
             >
               <Box
@@ -624,7 +624,7 @@ export default function UkHeader() {
           >
             <Box
               component={Link}
-              to="/uk"
+              to="/uk/"
               onClick={() => setOpen(false)}
               sx={{ display: "flex", alignItems: "center", lineHeight: 0 }}
             >

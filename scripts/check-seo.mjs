@@ -158,6 +158,70 @@ const record = (check, lines) => {
   record('build assets are minified', problems);
 }
 
+// ── meta descriptions must be prose, not CSS ─────────────────────────────────
+// summarise() in blogSEO.js strips HTML tags, which removes <style> and
+// </style> but left the CSS declarations between them as text. 52 of 71 US
+// blog posts shipped with a description reading ".main-title { font-size:26px
+// … }". The tag itself is long gone by the time it reaches dist/, so this
+// asserts on the rendered string: a description with a braced "prop: value"
+// block in it is a stylesheet, not a summary.
+{
+  const CSS_LIKE = /\{[^{}]*:[^{}]*\}|font-family\s*:|font-size\s*:\s*\d/i;
+  const problems = [];
+  for (const f of htmlFiles) {
+    const html = fs.readFileSync(f, 'utf8');
+    for (const attr of ['<meta name="description"', '<meta property="og:description"']) {
+      const m = html.match(
+        new RegExp(`${attr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} content="([^"]*)"`),
+      );
+      if (m && CSS_LIKE.test(m[1])) {
+        problems.push(`${rel(f)}  ${attr.match(/"([^"]+)"/)[1]} = ${m[1].slice(0, 60)}…`);
+      }
+    }
+  }
+  record('meta descriptions are prose, not CSS', problems);
+}
+
+// ── the DirectorySlash trap ──────────────────────────────────────────────────
+// A route that is BOTH a page and a parent of child routes gets written twice:
+// <name>.html and <name>/index.html. Apache's mod_dir then 301s the no-slash
+// URL to the slash one, so the no-slash form can never be the canonical even
+// though the .html file exists and the sitemap check above passes. /uk and
+// /career hit this and pointed their canonical (and the home page's en-GB
+// hreflang) at a redirect until 2026-08-12.
+{
+  const problems = [];
+  const trapped = new Set();
+  for (const f of htmlFiles) {
+    const r = rel(f);
+    if (!r.endsWith('.html') || r.endsWith('/index.html')) continue;
+    const bare = r.slice(0, -'.html'.length);
+    if (fs.existsSync(path.join(DIST, bare, 'index.html'))) trapped.add(`/${bare}`);
+  }
+  const badForm = (u) =>
+    u.startsWith(ORIGIN) && trapped.has(u.slice(ORIGIN.length)) && !u.endsWith('/');
+  for (const f of htmlFiles) {
+    const html = fs.readFileSync(f, 'utf8');
+    const canonical = (html.match(/<link rel="canonical" href="([^"]*)"/) || [])[1];
+    if (canonical && badForm(canonical)) {
+      problems.push(`${rel(f)} canonical=${canonical} — 301s to ${canonical}/`);
+    }
+    for (const [, lang, href] of html.matchAll(
+      /<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g,
+    )) {
+      if (badForm(href)) problems.push(`${rel(f)} hreflang ${lang}=${href} — 301s to ${href}/`);
+    }
+  }
+  const sitemap = path.join(DIST, 'sitemap.xml');
+  if (fs.existsSync(sitemap)) {
+    for (const [, u] of fs.readFileSync(sitemap, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)) {
+      if (badForm(u)) problems.push(`sitemap.xml lists ${u} — 301s to ${u}/`);
+    }
+  }
+  if (trapped.size) console.log(`     (parent routes: ${[...trapped].join(', ')})`);
+  record('no canonical/hreflang/sitemap URL points at a DirectorySlash redirect', problems);
+}
+
 // ── hreflang self-reference ("32 hreflang conflicts") ────────────────────────
 // Cross-checked against the pair table by scripts/check-hreflang.mjs; here we
 // assert the rendered result: if a page emits any alternate, one of them must

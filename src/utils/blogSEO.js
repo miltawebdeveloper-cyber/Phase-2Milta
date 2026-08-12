@@ -3189,7 +3189,16 @@ export function demoteContentHeadings(html) {
 // description does not end in a fragment.
 function summarise(text, limit = 155) {
   const clean = String(text || "")
+    // Drop <style>/<script> WITH their contents first. The general tag strip
+    // below only removes the tags themselves, so a post whose content opens
+    // with an inline <style> block would otherwise have its CSS rules become
+    // the description — which is what shipped on 52 of 71 US posts.
+    .replace(/<(style|script)\b[^>]*>[\s\S]*?<\/\1>/gi, " ")
     .replace(/<[^>]*>/g, " ")
+    // Defensive net: an UNCLOSED <style> survives the rule above and leaves
+    // bare CSS behind. Match a selector-shaped token plus its declaration
+    // block; the required ":" inside the braces keeps this off real prose.
+    .replace(/(?:[.#]?[\w-]+\s*(?:,\s*[.#]?[\w-]+\s*)*)?\{[^{}]*:[^{}]*\}/g, " ")
     .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
     .replace(/\s+/g, " ")

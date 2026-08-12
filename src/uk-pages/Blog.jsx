@@ -16,11 +16,13 @@ const Blog = () => {
     keywords:
       "uk accounting blog, bookkeeping insights uk, payroll guides uk, uk tax updates",
     author: "Milta Accounting Services",
-    canonical: "https://www.miltafs.com/uk/blogs",
+    // Trailing slash required — /uk/blogs is also the parent of
+    // /uk/blogs/:slug, so DirectorySlash 301s the no-slash form.
+    canonical: "https://www.miltafs.com/uk/blogs/",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",
     ogTitle: "Accounting & Finance Insights for UK Businesses | Milta Financial Services",
     ogDescription: "Guides and updates on UK accounting, payroll, tax and outsourcing from the Milta team.",
-    ogUrl: "https://www.miltafs.com/uk/blogs",
+    ogUrl: "https://www.miltafs.com/uk/blogs/",
   });
 
   return (

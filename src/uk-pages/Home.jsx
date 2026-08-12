@@ -23,11 +23,14 @@ function App() {
     keywords:
       "accounts payable solutions, accounts payable services, payroll services for small business, payroll outsourcing, bookkeeping services near me, bookkeeping services for small business",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/uk",
+    // Trailing slash is required: /uk is both a page and a parent route, so
+    // dist/ holds uk.html AND uk/. Apache's DirectorySlash 301s /uk -> /uk/,
+    // which made the no-slash canonical point at a redirect.
+    canonical: "https://www.miltafs.com/uk/",
     ogTitle: "We are Trusted Outsourced Accounting Services in the UK",
     ogDescription: "Milta is not just a service provider—we work alongside you as a long-term partner, delivering consistent guidance, reliable support,",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",
-    ogUrl: "https://www.miltafs.com/uk",
+    ogUrl: "https://www.miltafs.com/uk/",
   });
 
   return (

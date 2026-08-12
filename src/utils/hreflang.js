@@ -29,11 +29,14 @@ const ORIGIN = "https://www.miltafs.com";
 // [ US url, UK url ] — both sides must be present for a pair to exist.
 const PAIRS = [
   // Core pages
-  [`${ORIGIN}/`, `${ORIGIN}/uk`],
+  // /uk keeps its trailing slash: it is a parent route, so DirectorySlash
+  // 301s /uk -> /uk/ and the no-slash form would make this a redirect target.
+  [`${ORIGIN}/`, `${ORIGIN}/uk/`],
   [`${ORIGIN}/about`, `${ORIGIN}/uk/about`],
   [`${ORIGIN}/services`, `${ORIGIN}/uk/services`],
   [`${ORIGIN}/contact`, `${ORIGIN}/uk/contact`],
-  [`${ORIGIN}/blogs`, `${ORIGIN}/uk/blogs`],
+  // /uk/blogs is a parent route too — same DirectorySlash reason as /uk above.
+  [`${ORIGIN}/blogs`, `${ORIGIN}/uk/blogs/`],
   [`${ORIGIN}/privacy-policy`, `${ORIGIN}/uk/privacy-policy`],
   [`${ORIGIN}/terms-of-service`, `${ORIGIN}/uk/terms-of-service`],
 
