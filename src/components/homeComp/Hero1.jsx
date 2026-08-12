@@ -209,9 +209,10 @@ const Hero = () => {
                           aspectRatio: '1/1',
                         }}
                       >
-                        <Box 
-                          component="img" 
-                          src={slide.image} 
+                        <Box
+                          component="img"
+                          src={slide.image}
+                          alt={slide.title || 'Milta outsourced accounting services'}
                           sx={{ 
                             width: '100%', 
                             height: '100%', 

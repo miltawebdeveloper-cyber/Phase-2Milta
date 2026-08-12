@@ -24,7 +24,7 @@ function App() {
     keywords:
       "accounts receivable, accounts receivable financing, accounts receivable services, accounts receivable companies, accounts receivable solutions, outsourcing accounts receivable, quickbooks accounts receivable, accounts receivable management services, outsourcing accounts payable and receivable",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/uk/accounts-receivable-services-in-uk/",
+    canonical: "https://www.miltafs.com/uk/accounts-receivable-services-in-uk",
     ogTitle: "Best Accounts Receivable Services in the UK",
     ogDescription: "Our accounts receivable services optimise the entire cash collection cycle, improve the customer payment experience, and prevent revenue leakage before it impacts cash flow.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",

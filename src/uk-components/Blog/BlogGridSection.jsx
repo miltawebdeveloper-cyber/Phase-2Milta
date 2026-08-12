@@ -7,6 +7,7 @@ import {
   PaginationItem,
 } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getBlogs } from "../../api/blogs";
 import BlogCard from "./BlogCard";
 
@@ -236,6 +237,60 @@ const BlogGridSection = () => {
               />
             )}
           />
+        </Box>
+      )}
+
+      {/* ===== ALL ARTICLES =====
+          Same reasoning as the US grid: pagination is client-side and emits
+          no <a href>, so any post past the first page has no internal link
+          anywhere. This gives each one a real, visible link from a page that
+          is prerendered. */}
+      {blogs.length > 0 && (
+        <Box component="nav" aria-label="All articles" sx={{ mt: { xs: 6, md: 9 } }}>
+          <Typography
+            variant="h3"
+            sx={{
+              fontFamily: "'Poppins', sans-serif",
+              fontSize: { xs: "20px", md: "24px" },
+              fontWeight: 700,
+              mb: 2.5,
+            }}
+          >
+            All articles
+          </Typography>
+          <Box
+            component="ul"
+            sx={{
+              listStyle: "none",
+              p: 0,
+              m: 0,
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)" },
+              columnGap: { xs: 2, md: 4 },
+              rowGap: 1,
+            }}
+          >
+            {blogs.map((b) => (
+              <Box component="li" key={b.id}>
+                <Typography
+                  component={Link}
+                  to={`/uk/blogs/${b.slug}`}
+                  sx={{
+                    display: "block",
+                    py: 0.6,
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: "14px",
+                    lineHeight: 1.45,
+                    color: "rgba(0,0,0,0.7)",
+                    textDecoration: "none",
+                    "&:hover": { color: "#2b6d2a", textDecoration: "underline" },
+                  }}
+                >
+                  {b.title}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
         </Box>
       )}
     </Box>

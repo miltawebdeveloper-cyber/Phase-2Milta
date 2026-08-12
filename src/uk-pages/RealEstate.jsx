@@ -62,7 +62,7 @@ function App() {
     keywords:
       "real estate accounting services, accounting services for real estate, property management accounting, quickbooks for property management, real estate accountant near me, real estate bookkeeping, real estate accounting, property management bookkeeping",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/uk/accounting-services-for-real-estate/",
+    canonical: "https://www.miltafs.com/uk/accounting-services-for-real-estate",
     ogTitle: "Best accounting services for real estate in the UK",
     ogDescription: "We offer real estate bookkeeping to strategic tax planning and compliance, we understand the complexities of property transactions, rental income tracking, and etc.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",

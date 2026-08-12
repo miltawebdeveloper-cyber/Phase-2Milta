@@ -18,14 +18,13 @@ import {
 
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { useNavigate } from "react-router-dom";
+// Aliased: MUI already exports a `Link` above, and this file uses both.
+import { Link as RouterLink } from "react-router-dom";
 import { submitNewsletterForm } from "../../api/client";
 
 const Footer = () => {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const navigate = useNavigate();
 
   // ================= NEWSLETTER SUBMIT =================
   const handleNewsletterSubmitBrevo = async (e) => {
@@ -176,14 +175,19 @@ const Footer = () => {
               <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
                 Services
               </Typography>
+              {/* These were onClick={() => navigate(...)} on a <Typography>,
+                  which renders no <a href>. The whole UK footer was therefore
+                  invisible to crawlers, which is why /uk/ecommerce-accounting-service
+                  and /uk/hospitality-accounting-services had ZERO inbound links
+                  despite being listed here and in the header. */}
               {servicesLinks.map((item, i) => (
                 <Typography
                   key={i}
+                  component={RouterLink}
+                  to={item.to}
                   variant="body2"
                   color="#fff"
-
-                  onClick={() => navigate(item.to)}
-                  sx={{ mb: 1.2, opacity: 0.85, cursor: "pointer", "&:hover": { color: "#97ba3a" } }}
+                  sx={{ display: "block", mb: 1.2, opacity: 0.85, textDecoration: "none", cursor: "pointer", "&:hover": { color: "#97ba3a" } }}
                 >
                   {item.label}
                 </Typography>
@@ -202,10 +206,11 @@ const Footer = () => {
               {industriesLinks.map((item, i) => (
                 <Typography
                   key={i}
+                  component={RouterLink}
+                  to={item.to}
                   variant="body2"
                   color="#fff"
-                  onClick={() => navigate(item.to)}
-                  sx={{ mb: 1.2, opacity: 0.85, cursor: "pointer", "&:hover": { color: "#97ba3a" } }}
+                  sx={{ display: "block", mb: 1.2, opacity: 0.85, textDecoration: "none", cursor: "pointer", "&:hover": { color: "#97ba3a" } }}
                 >
                   {item.label}
                 </Typography>
@@ -269,10 +274,11 @@ const Footer = () => {
             {legalLinks.map((item, i) => (
               <Typography
                 key={i}
+                component={RouterLink}
+                to={item.to}
                 variant="caption"
                 color="#fff"
-                sx={{ cursor: "pointer", "&:hover": { color: "#97ba3a" } }}
-                onClick={() => navigate(item.to)}
+                sx={{ textDecoration: "none", cursor: "pointer", "&:hover": { color: "#97ba3a" } }}
               >
                 {item.label}
               </Typography>

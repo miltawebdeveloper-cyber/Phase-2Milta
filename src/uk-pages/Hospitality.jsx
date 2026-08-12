@@ -55,7 +55,7 @@ useFullSEO({
   keywords:
     "hospitality accounting services, bookkeeping for hospitality, accounting for hospitality, hospitality accounting solutions, hospitality bookkeeping services, accounting services for hospitality",
   author: "Milta Accounting",
-  canonical: "https://www.miltafs.com/uk/hospitality-accounting-services/",
+  canonical: "https://www.miltafs.com/uk/hospitality-accounting-services",
    ogTitle: "Hospitality Accounting Services in the UK",
     ogDescription: "We provide accounting services for the hospitality industry, helping UK businesses stay accurate, organized, and compliant.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",

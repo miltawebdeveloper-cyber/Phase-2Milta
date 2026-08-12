@@ -80,7 +80,7 @@ const AboutUs = () => {
               mx: "auto",
             }}
           >
-            We provide top-notch accounting, bookkeeping, and financial solutions for businesses across the USA.
+            Financial controller support for UK businesses — management accounts, cash flow oversight and board-ready reporting, without hiring in-house.
             Trusted by over 100 clients worldwide.
           </Typography>
 

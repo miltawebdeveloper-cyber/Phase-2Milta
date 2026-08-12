@@ -15,6 +15,23 @@ import "../styles/layout.css";
 import "../styles/variables.css";
 
 function ContractorsUK() {
+  // The import was already here but the hook was never called, so this page
+  // inherited the index.html shell and canonicalised to the US home page.
+  useFullSEO({
+    title: "Accounting Services for Contractors in the UK | Milta Financial Services",
+    description:
+      "Accounting for UK contractors and construction firms: CIS deductions, job costing and subcontractor payments handled end to end.",
+    keywords:
+      "accounting for contractors uk, cis accounting, construction accounting uk, subcontractor payments",
+    author: "Milta Accounting Services",
+    canonical: "https://www.miltafs.com/uk/accounting-services-for-contractors",
+    ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",
+    ogTitle: "Accounting Services for Contractors in the UK | Milta Financial Services",
+    ogDescription:
+      "Accounting for UK contractors and construction firms: CIS deductions, job costing and subcontractor payments handled end to end.",
+    ogUrl: "https://www.miltafs.com/uk/accounting-services-for-contractors",
+  });
+
   return (
     <main>
       <Hero />

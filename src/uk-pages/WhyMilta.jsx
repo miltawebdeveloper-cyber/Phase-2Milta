@@ -20,7 +20,7 @@ function App() {
     keywords:
       "business outsourcing services, accounting services for small business, outsource accounting services, UK accounting outsourcing, small business outsourcing UK",
     author: "Milta Accounting Services",
-    canonical: "https://www.miltafs.com/uk/why-choose-milta/",
+    canonical: "https://www.miltafs.com/uk/why-choose-milta",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",
     ogTitle: "Why UK Businesses Choose Milta for Accounting & Outsourcing Services",
     ogDescription: "Milta is a trusted UK-focused outsourcing partner supporting small and medium-sized businesses with reliable, affordable, and scalable accounting and business outsourcing services.",

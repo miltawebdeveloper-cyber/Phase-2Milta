@@ -79,7 +79,7 @@ const AboutUs = () => {
               mx: "auto",
             }}
           >
-            We provide top-notch accounting, bookkeeping, and financial solutions for businesses across the USA.
+            Accounting for UK manufacturers — job costing, stock valuation and margin reporting across production runs.
             Trusted by over 100 clients worldwide.
           </Typography>
 

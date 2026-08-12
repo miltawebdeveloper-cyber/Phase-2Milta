@@ -21,12 +21,12 @@ function Areas() {
     keywords:
       "bookkeeping services for small businesses, tax planning and preparation, cpa services for florida small businesses, virtual assistant services, data  entry & management services, financial controller services",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/us/areas/usa-accounrting-services/",
+    canonical: "https://www.miltafs.com/areas-we-serve",
     ogTitle: "Areas We Serve in the USA | Milta",
     ogDescription:
       "We offer small and medium-sized businesses in the US expert bookkeeping, accounting, tax planning and preparation, CPA, virtual assistant, and digital marketing services.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",
-    ogUrl: "https://www.miltafs.com/us/areas/usa-accounrting-services/",
+    ogUrl: "https://www.miltafs.com/areas-we-serve",
   });
 
   return (

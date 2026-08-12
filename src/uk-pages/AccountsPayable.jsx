@@ -23,7 +23,7 @@ function App() {
     keywords:
       "accounts payable solutions, accounts payable services, outsource accounts payable, accounts payable process, quickbooks accounts payable, accounts payable outsourcing companies",
     author: "Milta Accounting Services",
-    canonical: "https://www.miltafs.com/uk/accounts-payable-services-in-uk/",
+    canonical: "https://www.miltafs.com/uk/accounts-payable-services-in-uk",
 
     ogTitle: "Stress-free Accounts Payable Services for UK Businesses",
     ogDescription: "We provide comprehensive outsourced accounts payable services to simplify financial operations for UK businesses. Our experts handle invoices, reconciliations, and payments efficiently to save you time and reduce errors.",

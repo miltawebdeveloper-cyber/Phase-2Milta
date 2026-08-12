@@ -21,7 +21,7 @@ function App() {
     keywords:
       "bookkeeping services near me, bookkeeping services for small business, best bookkeeping for small business, payroll and bookkeeping services, bookkeeping company in the UK, bookkeeping services in UK",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/uk/bookkeeping-services-for-small-business/",
+    canonical: "https://www.miltafs.com/uk/bookkeeping-services-for-small-business",
      ogTitle: "Advanced Bookkeeping Services in the UK",
     ogDescription: "We create customized bookkeeping solutions for small and growing businesses in the UK. Speak with our bookkeeping professionals and get a free consultation today.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",

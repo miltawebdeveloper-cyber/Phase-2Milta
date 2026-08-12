@@ -26,9 +26,10 @@ const AboutPreview = () => {
                   boxShadow: '0 50px 100px rgba(0,0,0,0.05)',
                 }}
               >
-                <Box 
-                  component="img" 
-                  src="/about_modern.webp" 
+                <Box
+                  component="img"
+                  src="/about_modern.webp"
+                  alt="The Milta accounting team at work"
                   sx={{ 
                     width: '100%', 
                     height: '100%', 

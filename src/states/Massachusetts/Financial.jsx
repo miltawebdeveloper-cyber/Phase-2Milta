@@ -43,7 +43,7 @@ export default function FinancialControllerMassachusetts() {
         keywords:
           "financial controller services, outsourced financial controller, accounting controller, certified financial controller",
         author: "Milta Accounting",
-        canonical: "https://www.miltafs.com/us/services/services/financial-controller-services-in-massachusetts/",
+        canonical: "https://www.miltafs.com/us/services/financial-controller-services-in-massachusetts/",
       }}
       hero={{
         titleLead: "Optimize Your Finances with Expert",

@@ -1,0 +1,200 @@
+APACHE CONFIG PATCH — Google Search Console "Soft 404" errors
+===============================================================================
+Add to the .htaccess in the production web root. This is an ADDITION to the
+file described in htaccess-FINAL.txt, which is already live (verified 2026-08-12:
+the HSTS header and the prerendered-.html rewrite are both active on the server).
+
+    cp public_html/.htaccess public_html/.htaccess.bak-2026-08-12
+
+
+WHY ALL FOUR ARE "SOFT 404" AND NOT "404"
+-------------------------------------------------------------------------------
+Nothing on this site can return 404. The SPA fallback at the bottom of .htaccess
+rewrites every unmatched URL to /index.html, which is the prerendered HOME page.
+
+Measured on the live server, 2026-08-12 — all four reported URLs:
+
+    HTTP 200
+    Content-Length: 154636          <- byte-identical to the home page
+    <title>Exceptional Accounting Outsourcing Services for Small Businesses USA.
+    <link rel="canonical" href="https://www.miltafs.com/">
+
+A working post, for contrast:
+
+    /us/blogs/best-tools-for-the-accounting-services-industry
+    HTTP 200, 32828 bytes, correct title, self-referencing canonical
+
+So Google requests a URL, gets 200 + the home page, and classifies it soft 404.
+Each of the four reaches that state by a different route — they are four
+separate bugs that share one symptom.
+
+
+-------------------------------------------------------------------------------
+#1  /uk/blogs/advantages-of-choosing-our-outsourcing-services-small-businesses
+-------------------------------------------------------------------------------
+That post exists in `blogs` (US) only. `blogs_uk` holds exactly two posts, and
+this is not one of them. Nothing is prerendered at that path, so it falls to the
+SPA fallback; even client-side, uk-pages/BlogDetails queries blogs_uk, finds no
+row, and renders "Blog not found." — still HTTP 200.
+
+Not in the live sitemap, so Google found it via an old link or a past crawl.
+
+The rule below is deliberately self-maintaining: it fires only when the UK build
+has NO page for that slug AND the US build does. Add a UK post, rebuild, and the
+rule stops firing for it on its own — no slug list to keep in sync.
+
+
+-------------------------------------------------------------------------------
+#2  /us/blogs/boost-your-website-visibility-in-ai-results/     (trailing slash)
+-------------------------------------------------------------------------------
+ROOT CAUSE IS THE LIVE SITEMAP, NOT APACHE. The sitemap.xml currently on the
+server is still the old hand-made 215-URL file, and it lists this URL WITH a
+trailing slash. That is where Google got it.
+
+Without the slash the URL is correct and already works:
+
+    /us/blogs/boost-your-website-visibility-in-ai-results    200, 33788b, correct
+    /us/blogs/boost-your-website-visibility-in-ai-results/   200, 154636b, HOME
+
+The build writes blog posts as flat <slug>.html, so the slash form has neither a
+directory nor a matching .html and falls through. `npm run build` now emits a
+correct sitemap (237 URLs, 0 trailing-slash blog URLs, 0 non-www, 0 duplicates).
+
+    ==> UPLOAD dist/sitemap.xml. That removes the source of this error.
+
+The earlier hold on uploading it ("66 of 72 posts are not prerendered", noted in
+htaccess-FINAL.txt) no longer applies: 71 of 72 US posts prerender today. Rule 4
+below is the belt-and-braces for slash variants that are already in the index.
+
+
+-------------------------------------------------------------------------------
+#3  /us/blogs/how-can-our-virtual-assistant-services-boost-your-business-growth.php
+-------------------------------------------------------------------------------
+Legacy URL from the pre-React site. The US BLOGS section of .htaccess already
+redirects seven .php post URLs; this one was missed.
+
+Its slug ALSO changed, so a generic "strip .php" rule would not fix it — it
+would land on /us/blogs/how-can-our-virtual-assistant-services-boost-your-
+business-growth, which does not exist either. It needs the explicit mapping
+below. Current post: how-virtual-assistant-services-can-help-your-business-grow
+
+
+-------------------------------------------------------------------------------
+#4  /us/blogs/best-tools-for-the-accountingservices-industry   (missing hyphen)
+-------------------------------------------------------------------------------
+A redirect for this exact URL has existed in vercel.json since before 2026-08-11
+and has never had any effect: THIS SITE IS NOT ON VERCEL.
+
+    $ curl -sI https://www.miltafs.com/... | grep -i server
+    Server: Apache
+
+vercel.json is inert on Apache. Every redirect in it — this one and the trailing
+-slash variant beside it — must be restated as a RewriteRule to take effect.
+Worth a look at whether anything else is being maintained there in the belief
+that it is live.
+
+
+===============================================================================
+THE RULES
+===============================================================================
+Insert as one block, DIRECTLY ABOVE the "PRERENDERED PAGES" block (which is
+itself directly above the SPA fallback). Order matters: the SPA fallback ends
+rewrite processing, so anything below it never runs.
+
+##################################
+# SOFT 404 FIXES  (GSC, 2026-08-12)                          # <<< ADDED
+# KEEP ABOVE THE PRERENDERED-PAGES BLOCK AND THE SPA FALLBACK
+##################################
+
+# 1. Legacy typo URL — "accountingservices" missing its hyphen.
+#    Restated from vercel.json, which does not execute on Apache.
+RewriteRule ^us/blogs/best-tools-for-the-accountingservices-industry/?$ /us/blogs/best-tools-for-the-accounting-services-industry [R=301,L]
+
+# 2. Legacy .php post whose slug also changed. Needs the explicit target;
+#    stripping .php alone would land on a slug that does not exist.
+RewriteRule ^us/blogs/how-can-our-virtual-assistant-services-boost-your-business-growth\.php$ /us/blogs/how-virtual-assistant-services-can-help-your-business-grow [R=301,L]
+
+# 3. /uk/blogs/<slug> for a post that only exists in the US table.
+#    Fires only when the UK build has no page for that slug and the US build
+#    does, so it needs no hardcoded list and expires by itself as UK posts are
+#    added. $1 in the conditions is the RewriteRule capture below.
+RewriteCond %{DOCUMENT_ROOT}/uk/blogs/$1.html !-f
+RewriteCond %{DOCUMENT_ROOT}/us/blogs/$1.html -f
+RewriteRule ^uk/blogs/([^/]+?)/?$ /us/blogs/$1 [R=301,L]
+
+# 4. Trailing slash on a route that was built as a flat <name>.html file.
+#    The !-d guard is what protects the directory routes: /us/services/<x>/ and
+#    every other slash-canonical URL is a real directory served by DirectoryIndex
+#    and must NOT be redirected. This only fires when the directory does not
+#    exist and the flat file does.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/$ /$1 [R=301,L]
+
+
+===============================================================================
+ALSO REQUIRED — UPLOAD THE BUILT SITEMAP
+===============================================================================
+Rules alone do not fix #2's cause. The live sitemap actively advertises the
+broken URL to Google.
+
+    npm run build          # writes dist/sitemap.xml, 237 URLs
+    upload dist/sitemap.xml to public_html/sitemap.xml
+
+Live sitemap today : 215 URLs, hand-made, contains the trailing-slash URL
+Built sitemap      : 237 URLs, 0 trailing-slash blog URLs, 0 non-www, 0 dupes
+
+
+===============================================================================
+VERIFY AFTER UPLOADING
+===============================================================================
+    curl -sI https://www.miltafs.com/us/blogs/best-tools-for-the-accountingservices-industry | head -2
+        # expect 301 -> /us/blogs/best-tools-for-the-accounting-services-industry
+
+    curl -sI https://www.miltafs.com/us/blogs/how-can-our-virtual-assistant-services-boost-your-business-growth.php | head -2
+        # expect 301 -> /us/blogs/how-virtual-assistant-services-can-help-your-business-grow
+
+    curl -sI https://www.miltafs.com/uk/blogs/advantages-of-choosing-our-outsourcing-services-small-businesses | head -2
+        # expect 301 -> /us/blogs/advantages-of-choosing-our-outsourcing-services-small-businesses
+
+    curl -sI https://www.miltafs.com/us/blogs/boost-your-website-visibility-in-ai-results/ | head -2
+        # expect 301 -> /us/blogs/boost-your-website-visibility-in-ai-results
+
+REGRESSION CHECKS — rule 4 is the one that can do damage if mis-scoped:
+
+    curl -sI https://www.miltafs.com/us/services/bookkeeping-company-in-the-usa/ | head -1   # expect 200, NOT 301
+    curl -sI https://www.miltafs.com/uk  | head -1                                          # expect 200, NOT 301
+    curl -sI https://www.miltafs.com/uk/ | head -1                                          # expect 200
+    curl -sI https://www.miltafs.com/    | head -1                                          # expect 200
+
+Then, in Search Console, use VALIDATE FIX on the Soft 404 report. Do not expect
+same-day movement; revalidation is typically days to a couple of weeks.
+
+
+===============================================================================
+NOT INCLUDED — real 404s for unknown URLs
+===============================================================================
+These four are fixed by name. The underlying condition is not: any unknown URL
+still returns the home page with 200, so new soft 404s can appear at any time.
+
+The blocker for a real 404 rule has genuinely receded — 71 of 72 US posts now
+prerender, against 6 of 72 when this was last deferred. It is still not free:
+`cash-vs-accrual-accounting-small-business` is in the database but absent from
+the current local dist/, and under a 404 rule a post in that state becomes a
+HARD 404 rather than a working client-rendered page.
+
+Precondition before adding one — this must print nothing:
+
+    node -e "const fs=require('fs');const d='dist/us/blogs';\
+    fetch(process.env.VITE_SUPABASE_URL+'/rest/v1/blogs?select=slug',{headers:{apikey:process.env.VITE_SUPABASE_ANON_KEY}})\
+    .then(r=>r.json()).then(rows=>rows.filter(r=>!fs.existsSync(d+'/'+r.slug+'.html')).forEach(r=>console.log(r.slug)))"
+
+Once it does, the rule is:
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(us|uk)/blogs/.+$ - [R=404,L]
+
+Scoped to blog posts on purpose: those are fully enumerable from the database,
+so "no file" reliably means "no such post". Do not widen it to the whole site
+without the same guarantee for every other route.

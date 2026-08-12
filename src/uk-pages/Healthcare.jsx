@@ -63,7 +63,7 @@ function App() {
     keywords:
       "healthcare accounting services, accounting services for healthcare, healthcare accounting, healthcare bookkeeping, healthcare accounting firms, accountant for medical practice, accounting for healthcare professionals, healthcare bookkeeping services, accounting for healthcare services",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/uk/accounting-services-for-healthcare/",
+    canonical: "https://www.miltafs.com/uk/accounting-services-for-healthcare",
     ogTitle: "Healthcare Accounting Services for UK Businesses",
     ogDescription: "We provide specialised healthcare accounting services customized to the unique financial needs of the UK medical sector.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",

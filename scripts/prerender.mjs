@@ -30,6 +30,7 @@ import http from 'node:http';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import puppeteer from 'puppeteer-core';
+import { transform } from 'esbuild';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -85,6 +86,78 @@ function extractRoutes(src) {
     if (/<\/Route>/.test(line)) stack.pop();
   }
   return out;
+}
+
+// ── Blog posts ────────────────────────────────────────────────────────────────
+//
+// Posts are Supabase rows, not routes, so they have to be enumerated somehow.
+// This USED to be done by reading the <a href>s off /blogs — which silently
+// captured only six of them, because BlogGridSection paginates client-side at
+// BLOGS_PER_PAGE = 6 and the prerenderer only ever sees page 1. On 2026-08-11
+// the `blogs` table held 72 rows and the build was producing 6 pages; the other
+// 66 fell through to the SPA shell and were dropped from sitemap.xml.
+//
+// So the list is read from the same source the app reads, which cannot drift
+// from it. Link discovery below is kept as a safety net for anything reachable
+// that is not in these tables.
+//
+// Note this does NOT fix the internal-linking side of the problem: pagination
+// still renders no crawlable <a href> to page 2, so posts 7+ remain orphaned
+// (Semrush: "188 orphaned pages in sitemaps"). Prerendering them puts them in
+// the sitemap; giving them a real link is a UI change.
+const CMS_TABLES = [
+  { table: 'blogs', prefix: '/us/blogs/' },
+  { table: 'blogs_uk', prefix: '/uk/blogs/' },
+];
+
+function loadEnv() {
+  const out = { ...process.env };
+  for (const name of ['.env.local', '.env']) {
+    const file = path.join(ROOT, name);
+    if (!fs.existsSync(file)) continue;
+    for (const line of fs.readFileSync(file, 'utf8').split('\n')) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const eq = trimmed.indexOf('=');
+      if (eq === -1) continue;
+      const key = trimmed.slice(0, eq).trim();
+      if (out[key] !== undefined) continue; // real env wins
+      out[key] = trimmed.slice(eq + 1).trim().replace(/^["']|["']$/g, '');
+    }
+  }
+  return out;
+}
+
+async function cmsBlogRoutes() {
+  const env = loadEnv();
+  const url = env.VITE_SUPABASE_URL;
+  const key = env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !key) {
+    console.warn(
+      '  ! VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY not set — falling back to\n' +
+        '    link discovery, which only sees the first page of /blogs.',
+    );
+    return [];
+  }
+  const routes = [];
+  for (const { table, prefix } of CMS_TABLES) {
+    try {
+      const res = await fetch(`${url}/rest/v1/${table}?select=slug`, {
+        headers: { apikey: key, Authorization: `Bearer ${key}` },
+      });
+      if (!res.ok) {
+        console.warn(`  ! ${table}: HTTP ${res.status} — skipped`);
+        continue;
+      }
+      const rows = await res.json();
+      const slugs = rows.map((r) => r.slug).filter(Boolean);
+      slugs.forEach((s) => routes.push(prefix + s));
+      console.log(`  ${table}: ${slugs.length} post(s)`);
+    } catch (err) {
+      console.warn(`  ! ${table}: ${err.message} — skipped`);
+    }
+  }
+  return routes;
 }
 
 const allRoutes = extractRoutes(fs.readFileSync(APP, 'utf8'));
@@ -281,6 +354,35 @@ function injectStylesheet(html, href) {
   return `${html.slice(0, end)}${tag}${html.slice(end)}`;
 }
 
+// MUI stamps a bookkeeping class on nearly every element it renders —
+// "MuiBox-root", "MuiPaper-elevation1", "MuiTypography-body2" and so on. On the
+// home page that is 25.2 KB of the 174 KB payload, and only FOUR of the 73
+// distinct tokens are ever selected on by any stylesheet in the build. The rest
+// are inert markup that a crawler has to wade through to reach the copy, which
+// is what Semrush reports as "low text-HTML ratio" (28 pages on 2026-08-10, at
+// ratios of 0.04–0.11 against its 0.10 threshold).
+//
+// Dropping the unreferenced ones is safe HERE, and only here, for one specific
+// reason: src/index.jsx calls createRoot().render(), NOT hydrateRoot(). React
+// throws this markup away and rebuilds the DOM on boot, so the classes are
+// restored the moment the bundle runs, and no hydration mismatch is possible.
+// If this app is ever switched to hydrateRoot, DELETE this function — under
+// hydration the server and client markup must agree exactly.
+//
+// The keep-set is computed from the real stylesheets rather than hardcoded, so
+// a future MUI upgrade that starts selecting on a new class cannot silently
+// lose its styling.
+function stripDeadMuiClasses(html, styledClasses) {
+  return html.replace(/ class="([^"]*)"/g, (whole, value) => {
+    const kept = value
+      .split(/\s+/)
+      .filter((t) => t && (!/^Mui[A-Za-z0-9-]+$/.test(t) || styledClasses.has(t)));
+    if (!kept.length) return '';
+    const next = kept.join(' ');
+    return next === value ? whole : ` class="${next}"`;
+  });
+}
+
 // A route with no trailing slash normally becomes `<name>.html`. But when other
 // routes live underneath it (/uk has /uk/about, /uk/contact, …) dist/ also ends
 // up with a real `uk/` directory, and Apache's DirectorySlash then 301s /uk to
@@ -324,6 +426,18 @@ async function main() {
   const written = [];
   const queue = [...staticRoutes];
   const seen = new Set(queue.map(normalise));
+
+  // Blog posts come from the CMS, not from App.jsx. Skipped for a targeted
+  // `node scripts/prerender.mjs /some/route` run, which is a debugging aid.
+  if (!only.length) {
+    console.log('Reading blog slugs from Supabase…');
+    for (const route of await cmsBlogRoutes()) {
+      if (seen.has(normalise(route)) || EXCLUDE.has(route)) continue;
+      seen.add(normalise(route));
+      queue.push(route);
+    }
+    console.log('');
+  }
   // Blog posts are Supabase rows, not routes. The rendered index pages know the
   // real slugs, so discovered links feed back into the queue.
   const discoverFrom = new Set(['/blogs', '/uk/blogs']);
@@ -389,7 +503,11 @@ async function main() {
     await page.close();
   }
 
-  console.log(`Prerendering ${staticRoutes.length} routes with ${CONCURRENCY} workers…\n`);
+  console.log(
+    `Prerendering ${queue.length} routes ` +
+      `(${staticRoutes.length} from App.jsx + ${queue.length - staticRoutes.length} blog posts) ` +
+      `with ${CONCURRENCY} workers…\n`,
+  );
   await Promise.all(Array.from({ length: CONCURRENCY }, (_, i) => worker(i)));
 
   // ── component stylesheet ───────────────────────────────────────────────────
@@ -398,19 +516,54 @@ async function main() {
   // pre-boot paint match the hydrated layout.
   let cssBytes = 0;
   if (cssUnion.size) {
-    const cssText = [...cssUnion].join('\n');
+    // cssRules.cssText is the browser's PRETTY-PRINTED serialisation — one rule
+    // per line, spaces around every brace and colon. Vite minifies the bundled
+    // stylesheets but never sees this one, so it shipped at 776 KB and Semrush
+    // flagged it as unminified CSS on every page that links it (the 2026-08-10
+    // audit counted 54 unminified JS/CSS issues). esbuild is already present as
+    // a Vite dependency, so minifying here costs nothing extra.
+    const rawCss = [...cssUnion].join('\n');
+    const rawBytes = Buffer.byteLength(rawCss);
+    let cssText = rawCss;
+    try {
+      cssText = (await transform(rawCss, { loader: 'css', minify: true })).code;
+    } catch (err) {
+      // A minifier failure must not cost the pages their styling — ship the
+      // readable version and say so, rather than failing the build.
+      console.warn(`\n  ! CSS minify failed (${err.message}); shipping unminified.`);
+    }
     cssBytes = Buffer.byteLength(cssText);
     const hash = crypto.createHash('sha256').update(cssText).digest('hex').slice(0, 8);
     const cssHref = `/assets/${PRERENDER_CSS_NAME}-${hash}.css`;
     fs.mkdirSync(path.join(DIST, 'assets'), { recursive: true });
     fs.writeFileSync(path.join(DIST, cssHref.replace(/^\//, '')), cssText, 'utf8');
 
+    // Every class that any stylesheet in the build actually selects on. Read
+    // from ALL of dist/assets — the emotion sheet above plus Vite's bundled
+    // CSS — because a token only has to appear in one of them to matter.
+    const styledClasses = new Set();
+    for (const name of fs.readdirSync(path.join(DIST, 'assets'))) {
+      if (!name.endsWith('.css')) continue;
+      const text = fs.readFileSync(path.join(DIST, 'assets', name), 'utf8');
+      for (const m of text.matchAll(/\.(Mui[A-Za-z0-9-]+)/g)) styledClasses.add(m[1]);
+    }
+
+    let strippedBytes = 0;
     for (const file of written) {
-      fs.writeFileSync(file, injectStylesheet(fs.readFileSync(file, 'utf8'), cssHref), 'utf8');
+      let html = injectStylesheet(fs.readFileSync(file, 'utf8'), cssHref);
+      const before = Buffer.byteLength(html);
+      html = stripDeadMuiClasses(html, styledClasses);
+      strippedBytes += before - Buffer.byteLength(html);
+      fs.writeFileSync(file, html, 'utf8');
     }
     console.log(
-      `\nComponent CSS: ${cssUnion.size} rules, ${(cssBytes / 1024).toFixed(1)} KB ` +
+      `\nComponent CSS: ${cssUnion.size} rules, ` +
+        `${(rawBytes / 1024).toFixed(1)} KB -> ${(cssBytes / 1024).toFixed(1)} KB minified ` +
         `-> ${cssHref}, linked from ${written.length} files`,
+    );
+    console.log(
+      `Dead Mui classes stripped: ${(strippedBytes / 1024).toFixed(1)} KB across ` +
+        `${written.length} files (${styledClasses.size} Mui classes kept as styled)`,
     );
   }
 
@@ -419,18 +572,30 @@ async function main() {
   // points at themselves. That drops the UK stub pages (they canonicalise to the
   // US homepage) without needing a hand-maintained exclusion list, and it makes
   // the "wrong host / wrong slug" entries in the old sitemap impossible.
+  //
+  // The URL written is the page's canonical VERBATIM, not `ORIGIN + route`. The
+  // two differ whenever a route and its canonical disagree about a trailing
+  // slash, and the comparison below deliberately ignores that difference (a page
+  // is still self-canonical either way) — so using the route would emit a URL
+  // the page itself does not claim. That was live until 2026-08-11 and put 15
+  // non-canonical URLs in the sitemap, every one of which Apache would 301 or
+  // treat as a duplicate. Semrush counts those as "incorrect pages in
+  // sitemap.xml"; the 2026-08-10 audit found 8.
   const indexable = [];
   const skipped = [];
   for (const r of results) {
     const self = `${ORIGIN}${r.route}`;
-    if (r.canonical && normalise(r.canonical) === normalise(self)) indexable.push(self);
+    if (r.canonical && normalise(r.canonical) === normalise(self)) indexable.push(r.canonical);
     else skipped.push({ route: r.route, canonical: r.canonical });
   }
-  indexable.sort();
+  // Parent routes render once but are written to two files; a canonical could
+  // also be shared by two routes. Either way the sitemap must list it once.
+  const seenLoc = new Set();
+  const sitemapUrls = indexable.filter((u) => !seenLoc.has(u) && seenLoc.add(u)).sort();
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${indexable.map((u) => `  <url>\n    <loc>${u}</loc>\n  </url>`).join('\n')}
+${sitemapUrls.map((u) => `  <url>\n    <loc>${u}</loc>\n  </url>`).join('\n')}
 </urlset>
 `;
   fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap, 'utf8');
@@ -444,7 +609,7 @@ ${indexable.map((u) => `  <url>\n    <loc>${u}</loc>\n  </url>`).join('\n')}
   console.log(`Prerendered      : ${results.length}`);
   console.log(`Failed           : ${failures.length}`);
   console.log(`Dead routes      : ${empty.length}  (linked, but render nothing)`);
-  console.log(`In sitemap.xml   : ${indexable.length}`);
+  console.log(`In sitemap.xml   : ${sitemapUrls.length}`);
   console.log(`Not in sitemap   : ${skipped.length}  (canonical points elsewhere)`);
   if (failures.length) {
     console.log('\nFAILURES');

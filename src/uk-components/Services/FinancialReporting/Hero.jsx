@@ -80,7 +80,7 @@ const AboutUs = () => {
               mx: "auto",
             }}
           >
-            We provide top-notch accounting, bookkeeping, and financial solutions for businesses across the USA.
+            Management and statutory reporting for UK businesses — monthly packs, year-end accounts and Companies House filing.
             Trusted by over 100 clients worldwide.
           </Typography>
 

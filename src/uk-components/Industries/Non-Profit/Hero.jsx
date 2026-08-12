@@ -79,7 +79,7 @@ const AboutUs = () => {
               mx: "auto",
             }}
           >
-            We provide top-notch accounting, bookkeeping, and financial solutions for businesses across the USA.
+            Accounting for UK charities and non-profits — fund accounting, restricted income tracking and Charity Commission reporting.
             Trusted by over 100 clients worldwide.
           </Typography>
 

@@ -117,7 +117,7 @@ const IndustriesSection = () => {
             <AnimatePresence mode="wait">
               <motion.div key={activeIdx} initial={{ opacity: 0, rotateY: 10, scale: 0.9 }} animate={{ opacity: 1, rotateY: 0, scale: 1 }} exit={{ opacity: 0, rotateY: -10, scale: 1.1 }} transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }} style={{ width: '100%', height: '100%', position: 'absolute' }}>
                 <Box sx={{ width: '100%', height: '100%', borderRadius: '48px', overflow: 'hidden', position: 'relative', bgcolor: 'background.paper', boxShadow: '0 50px 100px rgba(0,0,0,0.12)', '&::after': { content: '""', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)', backgroundSize: '24px 24px', zIndex: 2 } }}>
-                  <Box component="img" src={industries[activeIdx].image} sx={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.9) contrast(1.1)' }} />
+                  <Box component="img" src={industries[activeIdx].image} alt={`${industries[activeIdx].title} accounting and bookkeeping services`} loading="lazy" sx={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.9) contrast(1.1)' }} />
                 </Box>
               </motion.div>
             </AnimatePresence>

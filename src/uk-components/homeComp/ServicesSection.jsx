@@ -8,6 +8,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
+import { visuallyHidden } from "@mui/utils";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -292,7 +293,15 @@ const ServicesSection = () => {
                           },
                         }}
                       >
+                        {/* Six cards each linking somewhere different, so the
+                            visible label alone ("Learn more") tells neither a
+                            crawler nor a screen reader which service it opens.
+                            The service name is appended off-screen: it counts as
+                            anchor text without changing the card design. */}
                         Learn more
+                        <Box component="span" sx={visuallyHidden}>
+                          {` about our ${item.title}`}
+                        </Box>
                       </Button>
                     </Box>
                   </Card>

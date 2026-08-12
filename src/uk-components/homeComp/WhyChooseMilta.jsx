@@ -143,7 +143,7 @@ const WhyChooseMilta = () => {
               },
             }}
           >
-            Learn more
+            Contact our UK team
           </Button>
         </Box>
 

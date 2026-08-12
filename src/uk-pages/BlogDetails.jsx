@@ -1,9 +1,9 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useParams, Link } from "react-router-dom";
 import { getBlogBySlug } from "../api/blogs";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import useFullSEO from "../utils/useFullSEO";
-import { blogSEO } from "../utils/blogSEO";
+import { blogSEOUk, buildBlogSEO, demoteContentHeadings } from "../utils/blogSEO";
 
 const BlogDetails = () => {
   const { slug } = useParams();
@@ -11,8 +11,14 @@ const BlogDetails = () => {
   const [latestPosts, setLatestPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Get manual SEO config
-  const seoConfig = blogSEO[slug] || null;
+  // Hand-written config if this post has one, otherwise derive it from the row.
+  // Memoised because useFullSEO keys its effect on the config object.
+  // blogSEOUk, not blogSEO: a slug can exist in both tables as two different
+  // posts, and reading the US map here gave this page a /us/ canonical.
+  const seoConfig = useMemo(
+    () => blogSEOUk[slug] || buildBlogSEO(blog, { prefix: "/uk/blogs/" }),
+    [slug, blog],
+  );
   useFullSEO(seoConfig);
 
   useEffect(() => {
@@ -81,7 +87,9 @@ const BlogDetails = () => {
 
             <Box
               sx={{ mt: 3, lineHeight: 1.8, fontSize: { xs: "14px", md: "16px" } }}
-              dangerouslySetInnerHTML={{ __html: blog.content || "<p>No content</p>" }}
+              dangerouslySetInnerHTML={{
+                __html: demoteContentHeadings(blog.content) || "<p>No content</p>",
+              }}
             />
           </Box>
 

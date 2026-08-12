@@ -235,7 +235,7 @@ const HeroSection = () => {
                 },
               }}
             >
-              Learn More →
+              More about Milta →
             </Button>
           </Box>
         </Box>

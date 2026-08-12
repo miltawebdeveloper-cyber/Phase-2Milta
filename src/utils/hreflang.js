@@ -4,12 +4,18 @@
 // unpaired page (US state pages, /career, the UK-only service pages) gets no
 // annotation at all — a "cluster" of one tells search engines nothing.
 //
-// AS OF 2026-08-07 the en-GB annotation is not emitted (removed by request);
-// useFullSEO writes only en-US and x-default, both of which name the US URL. A
-// paired UK page therefore carries annotations that never point back at itself,
-// which is the shape Search Console reports as "no return tag". The pair table
-// below is unchanged and still decides WHICH routes are annotated at all, so
-// restoring the UK side is one `setAlternate("en-GB")` call in useFullSEO.js.
+// Every paired page emits the WHOLE cluster — en-US, en-GB and x-default — so
+// each page is named by one of its own annotations: the US page by en-US, the
+// UK page by en-GB. That self-reference is what a cluster needs to be valid;
+// without it Search Console reports "no return tag" and Semrush reports
+// "hreflang conflicts within page source code" (32 of them on 2026-08-10, which
+// is what prompted restoring the en-GB side on 2026-08-11).
+//
+// A pair may only be listed here once BOTH sides declare a canonical that
+// points at themselves. Pairing a page whose canonical names some other URL
+// produces the same conflict from the opposite direction: the annotation says
+// "the UK version is here" and that page replies "no, the real version is the
+// US home page". See the exclusion list below the table.
 //
 // Lookup is keyed by ROUTE PATHNAME, not by the page's canonical: several pages
 // declare a wrong canonical or none at all (see notes below), and the hreflang
@@ -34,23 +40,23 @@ const PAIRS = [
   // Services
   [
     `${ORIGIN}/us/services/bookkeeping-company-in-the-usa/`,
-    `${ORIGIN}/uk/bookkeeping-services-for-small-business/`,
+    `${ORIGIN}/uk/bookkeeping-services-for-small-business`,
   ],
   [
     `${ORIGIN}/us/services/payroll-management-services-in-the-usa/`,
-    `${ORIGIN}/uk/payroll-services-for-small-business/`,
+    `${ORIGIN}/uk/payroll-services-for-small-business`,
   ],
   [
     `${ORIGIN}/us/services/virtual-assistant-service-in-the-usa/`,
-    `${ORIGIN}/uk/virtual-assistant-services-in-the-uk/`,
+    `${ORIGIN}/uk/virtual-assistant-services-in-the-uk`,
   ],
   [
     `${ORIGIN}/us/services/outsourcing-accounting-data-entry-services-in-the-usa/`,
-    `${ORIGIN}/uk/accounting-data-entry-services-uk/`,
+    `${ORIGIN}/uk/accounting-data-entry-services-uk`,
   ],
   [
     `${ORIGIN}/us/services/best-digital-marketing-agency-in-usa/`,
-    `${ORIGIN}/uk/best-digital-marketing-service-in-uk/`,
+    `${ORIGIN}/uk/best-digital-marketing-service-in-uk`,
   ],
   [
     `${ORIGIN}/us/services/financial-controller-services-in-the-usa/`,
@@ -64,15 +70,15 @@ const PAIRS = [
   // Industries
   [
     `${ORIGIN}/us/industry/accounting-services-for-healthcare/`,
-    `${ORIGIN}/uk/accounting-services-for-healthcare/`,
+    `${ORIGIN}/uk/accounting-services-for-healthcare`,
   ],
   [
     `${ORIGIN}/us/industry/accounting-services-for-lawfirms/`,
-    `${ORIGIN}/uk/law-firm-accounting-services/`,
+    `${ORIGIN}/uk/law-firm-accounting-services`,
   ],
   [
     `${ORIGIN}/us/industry/bookkeeping-for-real-estate-companies/`,
-    `${ORIGIN}/uk/accounting-services-for-real-estate/`,
+    `${ORIGIN}/uk/accounting-services-for-real-estate`,
   ],
   [
     `${ORIGIN}/us/industry/bookkeeping-for-contractors-companies/`,
@@ -101,9 +107,27 @@ const PAIRS = [
 //   /uk/accounting-outsourcing-services — currently renders the same components
 //   as /uk/accounts-payable-services-in-uk under payroll metadata; it needs its
 //   own content before it can be anything's counterpart.
-//   The UK stub pages (controller-services, tax-planning-services, the industry
-//   pages, invoice-processing-services) — they render a hero and nothing else,
-//   and set no metadata at all.
+//
+//   /uk/invoice-processing-services and /uk/financial-reporting-services — the
+//   two remaining hero-only stubs. They set no metadata, so they still inherit
+//   the index.html shell and canonicalise to the US home page. Pairing a page
+//   in that state is what produced the 2026-08-10 audit's hreflang conflicts:
+//   the US page advertises a UK counterpart, and that counterpart's own
+//   canonical disclaims it.
+//
+// HISTORY, because this table has been wrong in both directions:
+//   Until 2026-08-11 eight pairs pointed at UK stubs that canonicalised to the
+//   US home page, while this very comment claimed they were unpaired. Restoring
+//   the en-GB annotation exposed it. They were removed, then added back the
+//   same day once each stub was given a self-referencing canonical (owner's
+//   call — those pages are still thin, ~110 words, so they are worth revisiting
+//   as content lands).
+//
+// The gate for adding any pair is one command:
+//
+//     node scripts/check-hreflang.mjs
+//
+// It fails if either side of a pair does not declare itself canonical.
 
 // Trailing slashes and case must not decide whether a route matches, so keys are
 // normalised; the stored href values are left untouched.
@@ -117,9 +141,9 @@ const normalise = (pathname) => {
 const pathOf = (url) => normalise(url.slice(ORIGIN.length));
 
 // pathname -> { "en-US", "en-GB", "x-default" }
-// The en-GB entry is currently unread — useFullSEO no longer asks for it (see
-// the note at the top of this file). It is kept so the cluster still describes
-// the whole pair, and so re-enabling the annotation needs no change here.
+// Both sides of the pair map to the SAME cluster object, which is what makes the
+// annotations reciprocal: whichever page a crawler lands on, it sees the same
+// three URLs, one of which is itself.
 const CLUSTERS = new Map();
 PAIRS.forEach(([us, uk]) => {
   // x-default sends unmatched locales to the US site: it is the root of the

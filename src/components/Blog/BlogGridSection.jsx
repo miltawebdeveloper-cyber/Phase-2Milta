@@ -13,6 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useTheme, alpha } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getBlogs } from "../../api/blogs";
 import BlogCard from "./BlogCard";
 
@@ -199,6 +200,67 @@ const BlogGridSection = () => {
                 />
               )}
             />
+          </Box>
+        )}
+
+        {/* ===== ALL ARTICLES =====
+            Pagination above is client-side: clicking page 2 re-renders in
+            place and emits no <a href>, so posts 7+ had NO internal link
+            anywhere on the site. They were reachable only by typing the URL,
+            which is what Semrush reports as orphaned pages (188 of them on
+            2026-08-10). Prerendering alone does not fix that — a page in the
+            sitemap with zero inbound links still gets almost no crawl
+            priority.
+
+            This list renders every post as a real <a href> from a page that
+            IS prerendered, so each post has one honest internal link. It is
+            deliberately visible rather than hidden: a hidden block of links
+            is a cloaking pattern, and this doubles as a usable archive. */}
+        {blogs.length > 0 && (
+          <Box component="nav" aria-label="All articles" sx={{ mt: { xs: 6, md: 9 } }}>
+            <Typography
+              variant="h3"
+              sx={{
+                fontSize: { xs: "1.25rem", md: "1.5rem" },
+                fontWeight: 700,
+                fontFamily: '"Plus Jakarta Sans", sans-serif',
+                mb: 2.5,
+              }}
+            >
+              All articles
+            </Typography>
+            <Box
+              component="ul"
+              sx={{
+                listStyle: "none",
+                p: 0,
+                m: 0,
+                display: "grid",
+                gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)" },
+                columnGap: { xs: 2, md: 4 },
+                rowGap: 1,
+              }}
+            >
+              {blogs.map((b) => (
+                <Box component="li" key={b.id}>
+                  <Typography
+                    component={Link}
+                    to={`/us/blogs/${b.slug}`}
+                    sx={{
+                      display: "block",
+                      py: 0.6,
+                      fontSize: "0.95rem",
+                      lineHeight: 1.45,
+                      color: "text.secondary",
+                      textDecoration: "none",
+                      "&:hover": { color: primary, textDecoration: "underline" },
+                    }}
+                  >
+                    {b.title}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
           </Box>
         )}
       </Container>

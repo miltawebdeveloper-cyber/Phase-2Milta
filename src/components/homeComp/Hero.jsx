@@ -23,7 +23,7 @@ const slides = [
     image: bookkeepingImg,
     alt: 'Outsourcing accounting and bookkeeping services for global businesses',
     link: '/us/services/bookkeeping-company-in-the-usa/',
-    btnText: 'Learn More',
+    btnText: 'Explore bookkeeping services',
   },
   {
     title: 'Reliable <span class="highlight">Payroll</span> <br> Management Services in the USA',
@@ -31,7 +31,7 @@ const slides = [
     image: payrollImg,
     alt: 'Payroll management services for businesses in the USA',
     link: '/us/services/payroll-management-services-in-the-usa/',
-    btnText: 'Learn More',
+    btnText: 'Explore payroll services',
   },
   {
     title: 'Tax <span class="highlight">Planning</span> and <br> Preparation Services in the USA!',
@@ -39,7 +39,7 @@ const slides = [
     image: taxImg,
     alt: 'Tax planning and preparation services for businesses in the USA',
     link: '/us/services/tax-planning-and-preparation-services-usa/',
-    btnText: 'Learn More',
+    btnText: 'Explore tax planning services',
   },
   {
     title: 'The <span class="highlight">Best</span> CPA Service <br> for Small Businesses in the USA',
@@ -47,7 +47,7 @@ const slides = [
     image: cpaImg,
     alt: 'Certified public accountant services for small businesses in the USA',
     link: '/us/services/best-cpa-services-for-small-businesses-in-the-usa/',
-    btnText: 'Learn More',
+    btnText: 'Explore CPA services',
   },
 ];
 

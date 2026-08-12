@@ -11,7 +11,7 @@ export default function DigitalMarketingNewYork() {
         keywords:
           "digital marketing agency, digital marketing services, digital marketing agency in new york, new york internet marketing, digital marketing services in new york",
         author: "Milta Accounting",
-        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-newyork",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-newyork/",
       }}
       hero={{
         titleLead: "Elevate Your Success with New York's Leading",

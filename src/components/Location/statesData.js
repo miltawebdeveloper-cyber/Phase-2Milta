@@ -123,7 +123,7 @@ export const statesData = {
       { name: "Virtual Assistant Services in Massachusetts", url: "/us/services/virtual-assistant-service-in-massachusetts/" },
       { name: "Digital Marketing Services in Massachusetts", url: "/us/services/best-digital-marketing-agency-in-massachusetts/" },
       { name: "Data Entry & Management Services in Massachusetts", url: "/us/services/outsourcing-accounting-data-entry-massachusetts/" },
-      { name: "Financial Controller Services in Massachusetts", url: "/us/services/services/financial-controller-services-in-massachusetts/" },
+      { name: "Financial Controller Services in Massachusetts", url: "/us/services/financial-controller-services-in-massachusetts/" },
       { name: "Payroll Services in Massachusetts", url: "/us/services/payroll-management-services-in-the-massachusetts/" },
     ],
   },

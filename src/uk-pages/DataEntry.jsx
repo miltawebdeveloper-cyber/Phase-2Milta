@@ -22,7 +22,7 @@ function App() {
       keywords:
         "data entry services in the uk, accounting data entry services, data entry companies, bookkeeping data entry, outsourcing accounting data entry.",
       author: "Milta Accounting",
-      canonical: "https://www.miltafs.com/uk/accounting-data-entry-services-uk/",
+      canonical: "https://www.miltafs.com/uk/accounting-data-entry-services-uk",
        ogTitle: "Accounting Data Entry Services in the UK",
       ogDescription: "A trusted provider of reliable and accurate accounting data entry services for small and medium-sized businesses across the UK.",
       ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",

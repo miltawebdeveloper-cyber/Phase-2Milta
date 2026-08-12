@@ -79,7 +79,7 @@ const AboutUs = () => {
               mx: "auto",
             }}
           >
-            We provide top-notch accounting, bookkeeping, and financial solutions for businesses across the USA.
+            Invoice processing for UK businesses — purchase ledger, approval workflows and supplier payment runs handled accurately.
             Trusted by over 100 clients worldwide.
           </Typography>
 

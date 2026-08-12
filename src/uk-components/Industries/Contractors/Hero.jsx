@@ -66,7 +66,7 @@ const AboutUs = () => {
               textShadow: "2px 2px 10px rgba(0,0,0,0.5)",
             }}
           >
-            LawFirms
+            Contractors
           </Typography>
 
           <Typography
@@ -80,7 +80,7 @@ const AboutUs = () => {
               mx: "auto",
             }}
           >
-            We provide top-notch accounting, bookkeeping, and financial solutions for businesses across the USA.
+            Accounting for UK contractors and construction firms — CIS deductions, job costing and subcontractor payments handled end to end.
             Trusted by over 100 clients worldwide.
           </Typography>
 

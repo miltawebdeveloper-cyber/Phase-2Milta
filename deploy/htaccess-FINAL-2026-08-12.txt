@@ -1,0 +1,375 @@
+# =============================================================================
+# COMPLETE REPLACEMENT for public_html/.htaccess
+# Built 2026-08-12 from the live file, + the Google Search Console soft-404 fixes.
+#
+# Every line in this file is valid Apache syntax, including these notes, so
+# pasting the whole thing is safe. (htaccess-FINAL.txt had prose outside the
+# config markers; this one does not, to remove that footgun.)
+#
+# BACK UP FIRST:
+#   cp public_html/.htaccess public_html/.htaccess.bak-2026-08-12
+#
+# CHANGES vs the file currently live (all marked  # <<< ADDED 2026-08-12):
+#   1. Block on downloadable archives/dotfiles — /dist.zip is public RIGHT NOW.
+#   2. Two blog redirects: the .php VA post, and the "accountingservices" typo.
+#   3. /uk/blogs/<slug> for US-only posts -> the US URL (self-maintaining).
+#   4. Trailing-slash URLs for flat .html routes -> the canonical no-slash URL.
+#
+# Everything else is byte-for-byte what you are already running.
+#
+# THIS FILE DOES NOT FIX THE BIGGEST PROBLEM. See "STILL OUTSTANDING" at the
+# bottom — /dist.zip must be deleted and your credentials rotated. A deny rule
+# is not a substitute for deleting a file.
+# =============================================================================
+
+Options -MultiViews
+
+##################################
+# EXPOSED FILES — STOPGAP                     # <<< ADDED 2026-08-12
+##################################
+# https://www.miltafs.com/dist.zip returns 200 and downloads 198 MB today. That
+# archive contains .env (Brevo + Supabase keys), server/.env, and full .git
+# history. This block makes it un-downloadable within seconds of upload, which
+# buys time — it does NOT make the file gone, and it does NOT un-leak anything
+# already taken. Delete the file and rotate the keys.
+#
+# Scoped to archive/data extensions ONLY. Do not add json|js here: that would
+# block /manifest.json and every fingerprinted bundle in /assets.
+<FilesMatch "\.(zip|tar|gz|tgz|rar|7z|bak|sql|env|log|ini)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Dotfile directories. NOTE: <DirectoryMatch> and <Directory> are NOT permitted
+# in .htaccess — Apache returns 500 "not allowed here" if you use them. That is
+# why this is a RedirectMatch and not the DirectoryMatch block suggested in the
+# older htaccess-patch.txt. Do not paste that one in.
+RedirectMatch 404 "(?i)/\.(git|env|svn|hg|idea|vscode)(/|$)"
+
+# Project directories that should not be in a web root at all. These are a
+# stopgap for the same reason as above — delete the directories, then this
+# block becomes dead weight and can come out.
+RedirectMatch 404 "^/(src|scripts|server|node_modules|assets-originals)(/|$)"
+
+##################################
+# HSTS
+##################################
+# Tells browsers to refuse plain http for this domain. Deliberately starts at
+# 5 minutes: a long max-age cannot be withdrawn quickly. After a week of clean
+# https, raise it to:
+#   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+# Do NOT add `preload` unless every current and future subdomain is https-only.
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=300"
+</IfModule>
+
+##################################
+# BROWSER CACHING (mod_expires)
+##################################
+<IfModule mod_expires.c>
+ExpiresActive On
+
+# Default
+ExpiresDefault "access plus 1 month"
+
+# HTML - do not cache so SPA/content updates show immediately
+ExpiresByType text/html "access plus 0 seconds"
+
+# Data
+ExpiresByType application/json "access plus 0 seconds"
+ExpiresByType application/xml "access plus 0 seconds"
+ExpiresByType text/xml "access plus 0 seconds"
+
+# CSS / JS
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType text/javascript "access plus 1 year"
+
+# Images
+ExpiresByType image/jpg "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType image/x-icon "access plus 1 year"
+
+# Fonts
+ExpiresByType font/woff "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType application/font-woff "access plus 1 year"
+ExpiresByType application/font-woff2 "access plus 1 year"
+ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+ExpiresByType font/ttf "access plus 1 year"
+ExpiresByType font/otf "access plus 1 year"
+
+# Other
+ExpiresByType application/pdf "access plus 1 month"
+ExpiresByType video/mp4 "access plus 1 year"
+</IfModule>
+
+##################################
+# BROWSER CACHING (mod_headers fallback / Cache-Control)
+##################################
+<IfModule mod_headers.c>
+# Never cache HTML so the SPA shell always gets updated.
+# NOTE: this still applies after the new .html rewrite below — FilesMatch
+# tests the resolved filename, so /about -> /about.html is matched here and
+# correctly served no-cache.
+<FilesMatch "\.(html|htm)$">
+Header set Cache-Control "no-cache, no-store, must-revalidate"
+</FilesMatch>
+
+# Long-term cache for static, versioned/fingerprinted assets
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|otf|eot)$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# Do not cache JSON/XML data endpoints or the sitemap
+<FilesMatch "\.(json|xml)$">
+Header set Cache-Control "no-cache, no-store, must-revalidate"
+</FilesMatch>
+
+# Remove ETags in favor of Cache-Control/Expires
+Header unset ETag
+</IfModule>
+FileETag None
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# FORCE HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.miltafs.com/$1 [R=301,L]
+
+##################################
+# CANONICAL HOST: www
+##################################
+# The rule above only fires when HTTPS is off, so https://miltafs.com was
+# still serving the entire site a second time. Must stay here — above the
+# legacy redirects and well above the SPA fallback.
+RewriteCond %{HTTP_HOST} ^miltafs\.com$ [NC]
+RewriteRule ^(.*)$ https://www.miltafs.com/$1 [R=301,L]
+
+# CORE PAGES
+
+RewriteRule ^career-opportunities\.php$ /career [R=301,L]
+RewriteRule ^contact\.php$ /contact [R=301,L]
+RewriteRule ^about\.php$ /about [R=301,L]
+RewriteRule ^services\.php$ /services [R=301,L]
+RewriteRule ^faq\.php$ /services [R=301,L]
+#          ^^^^^^^^^  # <<< FIXED: dot was unescaped (^faq.php$ matched
+#          "faqXphp" too), and the old target /faqs is NOT a route on this
+#          site, so it 301'd into the SPA fallback and showed the home page.
+#          /services is the closest topical page — CONFIRM OR RETARGET.
+RewriteRule ^areas-we-serve\.php$ /areas-we-serve [R=301,L]
+RewriteRule ^our-team\.php$ /about [R=301,L]
+RewriteRule ^industries-we-serve\.php$ /services [R=301,L]
+
+##################################
+# JOBS
+##################################
+RewriteRule ^us-accountant-jobs\.php$ /career [R=301,L]
+RewriteRule ^us-tax-analyst-jobs\.php$ /career [R=301,L]
+RewriteRule ^business-development-executive-jobs\.php$ /career [R=301,L]
+RewriteRule ^apply-job\.php$ /career [R=301,L]
+
+##################################
+# SERVICE PAGES
+##################################
+RewriteRule ^accounting-data-entry-services\.php$ /us/services/outsourcing-accounting-data-entry-services-in-the-usa/ [R=301,L]
+RewriteRule ^expert-tax-planning-and-preparation-service\.php$ /us/services/tax-planning-and-preparation-services-usa/ [R=301,L]
+RewriteRule ^fractional-controller-services\.php$ /us/services/financial-controller-services-in-the-usa/ [R=301,L]
+RewriteRule ^accounting-virtual-assistant-service\.php$ /us/services/virtual-assistant-service-in-the-usa/ [R=301,L]
+RewriteRule ^outsourced-bookkeeping-services-usa\.php$ /us/services/bookkeeping-company-in-the-usa/ [R=301,L]
+RewriteRule ^best-digital-marketing-agency\.php$ /us/services/best-digital-marketing-agency-in-usa/ [R=301,L]
+RewriteRule ^best-cpa-service-for-small-businesses\.php$ /us/services/best-cpa-services-for-small-businesses-in-the-usa/ [R=301,L]
+RewriteRule ^virtual-assistant\.php$ /us/services/virtual-assistant-service-in-the-usa/ [R=301,L]
+RewriteRule ^best-bookkeeping-for-small-business\.php$ /us/services/bookkeeping-company-in-the-usa/ [R=301,L]
+
+##################################
+# BLOG LISTING
+##################################
+RewriteRule ^blogs\.php$ /blogs [R=301,L]
+
+##################################
+# BLOG ARTICLES
+##################################
+# Every target below used to be /blogs/<slug>. The React route is
+# /us/blogs/:slug — there is no /blogs/:slug route — so all six 301'd into
+# the SPA fallback and landed on the home page. All six posts still exist in
+# the database, so these now point at the real URLs.
+RewriteRule ^blogs/outsource-accounting-services\.php$ /us/blogs/outsourced-accounting-benefit-your-small-business-usa [R=301,L]
+RewriteRule ^blogs/how-to-find-a-good-cpa-for-small-business\.php$ /us/blogs/how-cpa-services-drive-small-business-financial-success [R=301,L]
+RewriteRule ^blogs/bookkeeping-trends-and-accounting-trends\.php$ /blogs [R=301,L]
+RewriteRule ^blogs/best-bookkeeping-software-small-business\.php$ /blogs [R=301,L]
+RewriteRule ^blogs/10-accounting-tips-for-small-business\.php$ /blogs [R=301,L]
+RewriteRule ^blogs/cpa-accounting-services\.php$ /blogs [R=301,L]
+RewriteRule ^blogs/benefits-of-bookkeeping-and-accounting$ /blogs [R=301,L]
+
+##################################
+# US BLOGS
+##################################
+RewriteRule ^us/blogs/how-to-fill-out-a-1040-form\.php$ /us/blogs/how-to-fill-out-a-1040-form [R=301,L]
+RewriteRule ^us/blogs/the-last-tax-deadlines-in-this-year\.php$ /us/blogs/the-last-tax-deadlines-in-this-year [R=301,L]
+RewriteRule ^us/blogs/quality-financial-management-in-health-services\.php$ /us/blogs/quality-financial-management-in-health-services [R=301,L]
+RewriteRule ^us/blogs/how-to-improve-client-satisfaction-in-2025\.php$ /us/blogs/how-to-improve-client-satisfaction-in-2025 [R=301,L]
+RewriteRule ^us/blogs/india-how-outsourcing-bookkeeping-services-to-usa-saves-money\.php$ /us/blogs/india-how-outsourcing-bookkeeping-services-to-usa-saves-money [R=301,L]
+RewriteRule ^us/blogs/how-our-digital-marketing-services-can-boost-your-business-growth\.php$ /us/blogs/how-our-digital-marketing-services-can-boost-your-business-growth [R=301,L]
+RewriteRule ^us/blogs/reason-for-using-indian-data-entry-services-in-the-usa\.php$ /us/blogs/reason-for-using-indian-data-entry-services-in-the-usa [R=301,L]
+
+# GSC soft 404: legacy .php post whose SLUG ALSO CHANGED.  # <<< ADDED 2026-08-12
+# A generic "strip .php" rule cannot fix this one — it would land on
+# /us/blogs/how-can-our-virtual-assistant-services-boost-your-business-growth,
+# which does not exist either. The explicit target is required.
+RewriteRule ^us/blogs/how-can-our-virtual-assistant-services-boost-your-business-growth\.php$ /us/blogs/how-virtual-assistant-services-can-help-your-business-grow [R=301,L]
+
+# GSC soft 404: "accountingservices" missing its hyphen.   # <<< ADDED 2026-08-12
+# This redirect has existed in the repo's vercel.json since before 2026-08-11
+# and has never once fired: this site runs on Apache, so vercel.json is inert.
+RewriteRule ^us/blogs/best-tools-for-the-accountingservices-industry/?$ /us/blogs/best-tools-for-the-accounting-services-industry [R=301,L]
+
+##################################
+# LEGAL
+##################################
+RewriteRule ^privacy-policy\.php$ /privacy-policy [R=301,L]
+RewriteRule ^terms-of-service\.php$ /terms-of-service [R=301,L]
+
+##################################
+# SOFT 404 — PATH-LEVEL FIXES                 # <<< ADDED 2026-08-12
+# KEEP DIRECTLY ABOVE THE PRERENDERED-PAGES BLOCK
+##################################
+# Both rules below are conditional on what the build actually produced, so
+# neither needs a hardcoded slug list and neither can strand a real page.
+
+# /uk/blogs/<slug> for a post that exists only in the US table. blogs_uk holds
+# two posts; anything else under /uk/blogs/ was a US post. Fires ONLY when the
+# UK build has no page for that slug and the US build does — so when a UK post
+# is added and rebuilt, the rule stops firing for it by itself.
+# $1 in the conditions is the capture from the RewriteRule beneath them.
+RewriteCond %{DOCUMENT_ROOT}/uk/blogs/$1.html !-f
+RewriteCond %{DOCUMENT_ROOT}/us/blogs/$1.html -f
+RewriteRule ^uk/blogs/([^/]+?)/?$ /us/blogs/$1 [R=301,L]
+
+# Trailing slash on a route that was built as a flat <name>.html file.
+# The !-d guard is what makes this safe: every slash-canonical URL on this site
+# (/us/services/<x>/ and 129 others) is a real directory served by DirectoryIndex
+# and is skipped here. Verified 2026-08-12 against all 130 slash URLs in the
+# built sitemap — zero of them lack a directory, so zero are affected.
+# Only fires when the directory does NOT exist and the flat file does.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/$ /$1 [R=301,L]
+
+##################################
+# PRERENDERED PAGES (KEEP DIRECTLY ABOVE THE SPA FALLBACK)
+##################################
+# `npm run build` writes static HTML for every route. Trailing-slash routes
+# land as directories and already work via DirectoryIndex. Routes with NO
+# trailing slash are written as <name>.html and need this rule — without it
+# they fall through to the SPA fallback below, which is why /about, /contact,
+# /blogs and ~80 other URLs currently return the HOME PAGE.
+#
+# There is deliberately NO `RewriteCond %{REQUEST_FILENAME} !-d` here.
+# /uk and /career are both pages AND parents of child routes, so dist/ holds
+# uk.html AND a uk/ directory. With `!-d` this rule would skip them and
+# mod_dir's DirectorySlash would 301 /uk -> /uk/ and /career -> /career/,
+# turning two canonical URLs into redirects. The `.html -f` test below is
+# already precise enough on its own.
+#
+# No loop risk: once rewritten to /about.html the `!-f` condition is false on
+# the next pass, so the rule cannot fire twice.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+RewriteRule ^(.*)$ /$1.html [L]
+
+##################################
+# REACT SPA ROUTING (KEEP LAST)
+##################################
+# Ignore existing files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Ignore API backend routes specifically so they aren't caught by the SPA React Router
+RewriteCond %{REQUEST_URI} !^/api/ [NC]
+
+# Redirect all remaining non-file/non-directory requests to index.html
+RewriteRule ^(.*)$ /index.html [QSA,L]
+
+</IfModule>
+
+# =============================================================================
+# VERIFY AFTER UPLOADING
+# =============================================================================
+# The four Search Console URLs — each should now 301, not 200:
+#
+#   curl -sI https://www.miltafs.com/us/blogs/best-tools-for-the-accountingservices-industry | head -2
+#   curl -sI https://www.miltafs.com/us/blogs/how-can-our-virtual-assistant-services-boost-your-business-growth.php | head -2
+#   curl -sI https://www.miltafs.com/uk/blogs/advantages-of-choosing-our-outsourcing-services-small-businesses | head -2
+#   curl -sI https://www.miltafs.com/us/blogs/boost-your-website-visibility-in-ai-results/ | head -2
+#
+# REGRESSION CHECKS — the trailing-slash rule is the one that could do damage:
+#
+#   curl -sI https://www.miltafs.com/us/services/bookkeeping-company-in-the-usa/ | head -1   # 200, NOT 301
+#   curl -sI https://www.miltafs.com/uk  | head -1    # 200, NOT 301
+#   curl -sI https://www.miltafs.com/uk/ | head -1    # 200
+#   curl -sI https://www.miltafs.com/    | head -1    # 200
+#   curl -sI https://www.miltafs.com/assets/          # bundles still load
+#
+# Stopgap block working:
+#   curl -sI https://www.miltafs.com/dist.zip     | head -1   # expect 403
+#   curl -sI https://www.miltafs.com/package.json | head -1   # expect 200 (json NOT blocked, by design)
+#   curl -s  https://www.miltafs.com/manifest.json | head -1  # must still return JSON
+#
+# Then:  node scripts/verify-deploy.mjs
+# Then:  Search Console -> Soft 404 report -> VALIDATE FIX (takes days, not hours)
+#
+# ROLLBACK:  cp public_html/.htaccess.bak-2026-08-12 public_html/.htaccess
+#
+# =============================================================================
+# STILL OUTSTANDING — NOT FIXED BY THIS FILE
+# =============================================================================
+# 1. URGENT, MEASURED 2026-08-12, unchanged since it was first raised 2026-08-05:
+#
+#      /dist.zip        200   198,313,907 bytes   <- downloadable by anyone
+#      /package.json    200
+#      /vite.config.js  200
+#      /src/App.jsx     200
+#      /scripts/prerender.mjs  200
+#
+#    The zip is a copy of the whole project directory: .env (BREVO_API_KEY,
+#    VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY), server/.env, and .git history.
+#    The deny block at the top of this file stops the download, but the file has
+#    been public for at least a week. Treat every credential in it as compromised:
+#      - Delete public_html/dist.zip.
+#      - Delete public_html/src, /server, /node_modules, /.git, /package.json,
+#        /package-lock.json, /vite.config.js, /scripts, /assets-originals.
+#        The web root should hold the CONTENTS of dist/ and nothing else.
+#      - ROTATE the Brevo API key first — it can send mail as you.
+#      - Use `npm run package` (writes deploy/site.zip, dist/ only, ~17 MB).
+#        Never upload a project-root zip again.
+#
+# 2. UPLOAD dist/sitemap.xml. The live sitemap is still the old hand-made
+#    215-URL file, and it lists
+#    /us/blogs/boost-your-website-visibility-in-ai-results/ WITH a trailing
+#    slash — that is where Google got the soft-404 URL. The built sitemap has
+#    237 URLs, 0 trailing-slash blog URLs, 0 non-www, 0 duplicates. Rule 4 above
+#    only cleans up what is already indexed; the sitemap is the source.
+#
+# 3. Real 404s are still not possible. Unknown URLs return the home page with
+#    200, so new soft 404s can appear at any time. 71 of 72 US posts now
+#    prerender (it was 6 of 72 when this was last deferred), so a blog-scoped
+#    rule is close to safe — but cash-vs-accrual-accounting-small-business is in
+#    the database and missing from the current dist/, and under such a rule a
+#    post in that state becomes a HARD 404. See htaccess-soft404-patch.txt for
+#    the precondition check to run first, and the rule to add once it passes.
+#
+# 4. vercel.json in the repo is dead config on this host. Anything maintained
+#    there in the belief that it is live is not live.
+# =============================================================================

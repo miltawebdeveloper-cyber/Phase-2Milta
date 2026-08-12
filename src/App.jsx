@@ -350,7 +350,7 @@ function ThemedApp() {
            <Route path="/us/services/virtual-assistant-service-in-massachusetts/" element={<VirtualAssistantMassachusetts />} />
            <Route path="/us/services/best-digital-marketing-agency-in-massachusetts/" element={<DigitalMarketingMassachusetts />} />
            <Route path="/us/services/outsourcing-accounting-data-entry-massachusetts/" element={<DataEntryMassachusetts />} />
-           <Route path="/us/services/services/financial-controller-services-in-massachusetts/" element={<FinancialControllerMassachusetts />} />
+           <Route path="/us/services/financial-controller-services-in-massachusetts/" element={<FinancialControllerMassachusetts />} />
 
           {/*New Jersey */}
            <Route path="/us/services/best-bookkeeping-services-in-newjersey/" element={<BookkeepingNewJersey />} />

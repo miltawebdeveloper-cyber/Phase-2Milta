@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 
 import { Box, Container, Typography, Chip, IconButton, Card } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getBlogs } from "../../api/blogs";
 
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -14,7 +14,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const EditorsPickCarousel = () => {
   const [picks, setPicks] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const load = async () => {
@@ -88,14 +87,19 @@ const EditorsPickCarousel = () => {
       >
         {picks.map((p) => (
           <SwiperSlide key={p.id}>
+            {/* An onClick handler renders no <a href>, so these editor's-pick
+                posts contributed no internal link. A real anchor does. */}
             <Card
-              onClick={() => navigate(`/us/blogs/${p.slug}`)}
+              component={Link}
+              to={`/us/blogs/${p.slug}`}
               sx={{
                 height: "100%",
                 p: 3,
                 cursor: "pointer",
                 display: "flex",
                 flexDirection: "column",
+                textDecoration: "none",
+                color: "inherit",
               }}
             >
               <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>

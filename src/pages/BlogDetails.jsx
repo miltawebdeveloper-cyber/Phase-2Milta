@@ -1,9 +1,9 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useParams, Link } from "react-router-dom";
 import { getBlogBySlug } from "../api/blogs";
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState, useMemo, lazy, Suspense } from "react";
 import useFullSEO from "../utils/useFullSEO";
-import { blogSEO } from "../utils/blogSEO";
+import { blogSEO, buildBlogSEO, demoteContentHeadings } from "../utils/blogSEO";
 
 import Navbar from "../components/Navbar";
 import ScrollToTop from "../components/ScrollToTop";
@@ -17,8 +17,14 @@ const BlogDetails = () => {
   const [latestPosts, setLatestPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Get manual SEO config
-  const seoConfig = blogSEO[slug] || null;
+  // Hand-written config if this post has one, otherwise derive it from the row.
+  // Only ~20 of 74 posts have an entry, and before the fallback existed the
+  // rest inherited the index.html shell and canonicalised to the home page.
+  // Memoised because useFullSEO keys its effect on the config object.
+  const seoConfig = useMemo(
+    () => blogSEO[slug] || buildBlogSEO(blog, { prefix: "/us/blogs/" }),
+    [slug, blog],
+  );
   useFullSEO(seoConfig); // ✅ always called
 
   useEffect(() => {
@@ -50,7 +56,10 @@ const BlogDetails = () => {
           <Grid container spacing={{ xs: 2, md: 5 }} sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "2fr 1fr" }, justifyContent: "center", width: "100%" }}>
             {/* LEFT CONTENT */}
             <Box>
-              <Typography variant="h3" sx={{ mt: 3, fontSize: { xs: "1.75rem", md: "2.5rem" }, color: "text.primary" }}>
+              {/* component="h1" keeps the h3 styling but makes the post title
+                  the page's actual heading. Body <h1>s are demoted below so
+                  there is exactly one per page. */}
+              <Typography variant="h3" component="h1" sx={{ mt: 3, fontSize: { xs: "1.75rem", md: "2.5rem" }, color: "text.primary" }}>
                 {blog.title}
               </Typography>
 
@@ -71,7 +80,7 @@ const BlogDetails = () => {
                   "& img": { maxWidth: "100%", borderRadius: "16px", my: 2 },
                   "& blockquote": { borderLeft: "4px solid", borderColor: "primary.main", pl: 2, my: 2, color: "text.secondary", fontStyle: "italic" },
                 }}
-                dangerouslySetInnerHTML={{ __html: blog.content }}
+                dangerouslySetInnerHTML={{ __html: demoteContentHeadings(blog.content) }}
               />
             </Box>
 

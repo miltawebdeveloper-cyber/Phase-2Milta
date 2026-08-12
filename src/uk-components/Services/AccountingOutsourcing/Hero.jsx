@@ -79,7 +79,7 @@ const AboutUs = () => {
               mx: "auto",
             }}
           >
-            We provide top-notch accounting, bookkeeping, and financial solutions for businesses across the USA.
+            End-to-end accounting outsourcing for UK businesses — bookkeeping, payroll and reporting run by a dedicated team.
             Trusted by over 100 clients worldwide.
           </Typography>
 

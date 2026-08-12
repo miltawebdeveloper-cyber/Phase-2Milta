@@ -22,7 +22,7 @@ function App() {
     keywords:
       "virtual assistant service, virtual assistant services for small business, virtual bookkeeping service, accounting virtual service, virtual assistant services in the uk, accounting virtual service in the uk",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/uk/virtual-assistant-services-in-the-uk/",
+    canonical: "https://www.miltafs.com/uk/virtual-assistant-services-in-the-uk",
     ogTitle: "Accounting Virtual Service in the UK",
     ogDescription: "Get dependable virtual accounting services in the UK. Our experienced online accountants provide efficient financial management and tailored solutions for small businesses.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",

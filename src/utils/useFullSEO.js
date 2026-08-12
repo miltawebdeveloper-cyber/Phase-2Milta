@@ -54,10 +54,11 @@ export default function useFullSEO(config = null) {
         href: config.canonical,
       });
 
-    // ── 3b. hreflang alternates ── driven by the US↔UK pair table. Only en-US
-    // and x-default are emitted: the en-GB annotation was removed by request, so
-    // a page in a pair no longer declares the UK side at all. Pages with no
-    // counterpart emit nothing.
+    // ── 3b. hreflang alternates ── driven by the US↔UK pair table. Every page
+    // in a pair emits the WHOLE cluster (en-US, en-GB, x-default), which is what
+    // makes each page self-referencing: the US page is named by its own en-US
+    // tag, the UK page by its own en-GB tag. Pages with no counterpart emit
+    // nothing.
     //
     // These are positioned relative to the canonical rather than via setTag's
     // append, because the set is variable-length: a page without a pair removes
@@ -78,12 +79,13 @@ export default function useFullSEO(config = null) {
       el.setAttribute("hreflang", hreflang);
       el.setAttribute("href", href);
       // .after() moves the node when it is already in the document, so the
-      // canonical → en-US → x-default order is re-established every run.
+      // canonical → en-US → en-GB → x-default order is re-established every run.
       if (anchor) anchor.after(el);
       else head.appendChild(el);
       anchor = el;
     };
     setAlternate("en-US");
+    setAlternate("en-GB");
     setAlternate("x-default");
 
     // ── 4. Robots ──

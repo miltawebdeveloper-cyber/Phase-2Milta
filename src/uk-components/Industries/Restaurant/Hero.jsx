@@ -80,7 +80,7 @@ const AboutUs = () => {
               mx: "auto",
             }}
           >
-            We provide top-notch accounting, bookkeeping, and financial solutions for businesses across the USA.
+            Accounting for UK restaurants and hospitality — daily takings reconciliation, payroll for shift staff and gross margin control.
             Trusted by over 100 clients worldwide.
           </Typography>
 

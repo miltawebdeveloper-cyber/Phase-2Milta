@@ -21,7 +21,7 @@ function App() {
     keywords:
       "payroll services for small business, payroll outsourcing, best payroll service for small business, global payroll service, best payroll service, payroll services for small business near me, payroll service providers, affordable payroll services for small business, payroll outsourcing companies, payroll service companies, business payroll services, payroll processing services, international payroll services",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/uk/payroll-services-for-small-business/",
+    canonical: "https://www.miltafs.com/uk/payroll-services-for-small-business",
     ogTitle: "Best Payroll Service For Small Business in the UK",
     ogDescription: "We provide fully managed payroll services for small business, SMEs, and growing organisations across the UK.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",

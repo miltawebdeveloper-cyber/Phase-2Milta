@@ -79,7 +79,7 @@ const AboutUs = () => {
               mx: "auto",
             }}
           >
-            We provide top-notch accounting, bookkeeping, and financial solutions for businesses across the USA.
+            Corporation tax and self assessment planning for UK businesses, prepared to HMRC deadlines and structured to keep your liability predictable.
             Trusted by over 100 clients worldwide.
           </Typography>
 

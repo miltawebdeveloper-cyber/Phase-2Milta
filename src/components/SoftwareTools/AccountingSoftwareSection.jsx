@@ -12,7 +12,8 @@ import {
 import { useTheme, alpha } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { useNavigate } from "react-router-dom";
+import { visuallyHidden } from "@mui/utils";
+import { Link } from "react-router-dom";
 
 const softwareCards = [
   {
@@ -57,7 +58,6 @@ const fadeUp = (delay = 0) => ({
 });
 
 const AccountingSoftwareSection = () => {
-  const navigate = useNavigate();
   const theme = useTheme();
   const primary = theme.palette.primary.main;
 
@@ -340,9 +340,17 @@ This page explains how we use each accounting tool, why they matter, and how our
                         boxShadow: `0 12px 26px ${alpha(primary, 0.42)}`,
                       },
                     }}
-                    onClick={() => navigate(item.url)}
+                    // Was onClick={() => navigate(item.url)} — a JS handler
+                    // renders no href, so all four software detail pages had
+                    // ZERO inbound links and were orphaned. A real anchor is
+                    // what gives them crawl paths and link equity.
+                    component={Link}
+                    to={item.url}
                   >
                     Read More
+                    <Box component="span" sx={visuallyHidden}>
+                      {` about ${item.title}`}
+                    </Box>
                   </Button>
                 </CardActions>
               </Card>

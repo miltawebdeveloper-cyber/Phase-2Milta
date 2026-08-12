@@ -20,7 +20,7 @@ function App() {
     keywords:
       "digital marketing agency, digital marketing services in the uk, digital marketing services uk, digital marketing agency in the uk, PPC services UK, SEO services UK, social media marketing UK",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/uk/best-digital-marketing-service-in-uk/",
+    canonical: "https://www.miltafs.com/uk/best-digital-marketing-service-in-uk",
      ogTitle: "Digital Marketing Agency in the UK | PPC, SEO, and More",
     ogDescription: "Best digital marketing agency in the UK. Boost your online presence, drive traffic, and increase sales with our expert PPC, SEO, social media, and content marketing services.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",

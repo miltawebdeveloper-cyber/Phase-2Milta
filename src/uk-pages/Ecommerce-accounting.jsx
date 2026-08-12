@@ -55,7 +55,7 @@ function App() {
     keywords:
       "ecommerce accounting services, accounting services for ecommerce, ecommerce bookkeeping services, shopify bookkeeping",
     author: "Milta Accounting",
-    canonical: "https://www.miltafs.com/uk/ecommerce-accounting-service/",
+    canonical: "https://www.miltafs.com/uk/ecommerce-accounting-service",
       ogTitle: "Ecommerce Accounting Services for UK Businesses",
     ogDescription: "At Milta, we provide end-to-end ecommerce accounting services and back-office services designed specifically for UK online sellers.",
     ogImage: "https://www.miltafs.com/images/miltafs-og.jpg",

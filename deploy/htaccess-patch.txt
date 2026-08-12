@@ -14,24 +14,45 @@ Verified against the live server on 2026-08-05:
   - No Strict-Transport-Security header on any response                                  (block 2 fixes this)
   - /assets -> 301 /assets/, so DirectorySlash is On                                     (block 3 depends on this)
 
-Re-verified 2026-08-07 — NONE of the blocks below had been applied, and the
-upload itself is wrong. What production is actually serving today:
-  - /dist.zip           -> 200, 195 MB, PUBLICLY DOWNLOADABLE       (block 0 — urgent)
-  - /src/App.jsx        -> 200   the project tree was extracted into the web root
+Re-verified 2026-08-11 (after the Semrush audit of 2026-08-10). The UPLOAD has
+improved since 2026-08-07 — dist/ now looks complete on the server — but NONE of
+the blocks below have been applied, so almost none of it is reachable:
+
+  - /dist.zip           -> 200   STILL PUBLICLY DOWNLOADABLE       (block 0 — urgent)
+  - /src/App.jsx        -> 200   project tree still in the web root
   - /package.json       -> 200
-  - Every page URL      -> byte-identical 175,739b copy of the home page,
-                           each with canonical -> https://www.miltafs.com/
-                           (/about, /contact, /blogs, /uk/about, /us/services/..., and
-                           made-up URLs all return the same document)
-  - /about.html         -> 200, correct page      so SOME of dist/ is uploaded...
-  - /contact.html       -> 200, the home page     ...but most of it is not
-  - /uk/                -> 403   empty `uk` directory, no index.html in it
+  - /vite.config.js     -> 200
+  - /.git/config        -> 403   (denied, but see block 0 — the zip contains .git anyway)
+
+  - /about.html         -> 200, correct page, 74,478b   \
+  - /contact.html       -> 200, correct page, 53,078b    |  the files ARE there now
+  - /blogs.html         -> 200, correct page, 88,734b    |
+  - /areas-we-serve.html-> 200, correct page, 132,741b  /
+  - /about              -> 200, but the HOME PAGE, 175,724b   <- block 3 missing
+  - /contact            -> 200, but the HOME PAGE
+  - /uk/about           -> 200, but the HOME PAGE
+  - /us/services/bookkeeping-company-in-the-usa/ -> 200, CORRECT (directory route,
+                           served by DirectoryIndex — needs no rule)
+
+  - https://miltafs.com/-> 200   bare host still serves a full duplicate (block 1)
+  - No Strict-Transport-Security header on any response                 (block 2)
+  - /uk/                -> 200   (the stale empty directory was fixed)
+  - /uk                 -> 301 -> /uk/   DirectorySlash still wins, so the UK
+                           home page's own canonical (/uk, no slash) is a redirect.
+                           Block 3 fixes this too — that is why it has no `!-d`.
   - /no-such-page-xyz   -> 200   nothing on the site can 404
 
-That combination is the whole reason only the home page is indexed: Google
-fetches every sitemap URL, receives the same document each time, and collapses
-the site into one page. Fix the upload (block 0 + a full dist/ upload) before
-attributing any indexing problem to tags, hreflang or metadata.
+So the shape of the problem has changed: it is no longer "the files are missing",
+it is "the files are there and one rewrite rule stands between them and their
+URLs". Every extensionless route still serves the home page, which is why Google
+sees one page. Apply block 3 and that resolves in a single edit.
+
+The live sitemap.xml is also still the old hand-made one (215 URLs, including two
+non-www URLs and a duplicate entry). `npm run build` writes the correct one into
+dist/ — upload it with the rest.
+
+The live robots.txt is also still the old Googlebot-only file; public/robots.txt
+in the repo replaces it with a wildcard group.
 
 
 -------------------------------------------------------------------------------
