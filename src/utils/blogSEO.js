@@ -97,7 +97,7 @@ export const blogSEO = {
     "description": "In this blog, we explore how our Digital Marketing Services can accelerate your business growth in the ever-evolving digital landscape. READ MORE…",
     "author": "Milta Accounting Services",
     "keywords": "Digital marketing services growth, what is digital marketing, benefits of digital marketing services, what is digital marketing tools, digital marketing agency in the us, digital marketing company in the us, best digital marketing agency in usa",
-    "canonical": "https://www.miltafs.com/us/blog/how-our-digital-marketing-services-can-boost-your-business-growth/",
+    "canonical": "https://www.miltafs.com/us/blogs/how-our-digital-marketing-services-can-boost-your-business-growth",
     "ogImage": "https://www.miltafs.com/images/miltafs-og.jpg",
     "schema": [
       {
@@ -331,7 +331,7 @@ export const blogSEO = {
     "description": "This guide will explore the different types of paid advertising campaigns available today, how they function, and how to partner with our guide.",
     "author": "Milta Accounting Services",
     "keywords": "different types of paid advertising campaigns, types of paid marketing campaigns, digital marketing agency in the USA, digital marketing services in USA",
-    "canonical": "https://www.miltafs.com/us/blog/different-types-of-paid-advertising-campaigns/",
+    "canonical": "https://www.miltafs.com/us/blogs/different-types-of-paid-advertising-campaigns",
     "ogImage": "https://www.miltafs.com/images/miltafs-og.jpg",
     "schema": [
       {
@@ -417,11 +417,11 @@ export const blogSEO = {
   },
 
   "how-to-improve-client-satisfaction-in-2025": {
-    "title": "How to Boost Your Website's Visibility in AI and SERP Tips",
-    "description": "Learn how to boost your website’s visibility with simple SEO and AI optimization tips to boost traffic, leads, and search rankings.",
+    "title": "How to Improve Client Satisfaction in 2025 in Our Top 9 Strategies",
+    "description": "In this article, How to Improve Client Satisfaction and Relationships in 2025, in our Top 9 Strategies, here are the best tips! Read More...",
     "author": "Milta Accounting Services",
-    "keywords": "how ai impacts search engine marketing visibility, how to boost your website's visibility",
-    "canonical": "https://www.miltafs.com/us/blogs/boost-your-website-visibility-in-ai-results",
+    "keywords": "how to improve client satisfaction, client satisfaction strategies, customer satisfaction tips 2025, client relationship management",
+    "canonical": "https://www.miltafs.com/us/blogs/how-to-improve-client-satisfaction-in-2025",
     "ogImage": "https://www.miltafs.com/images/miltafs-og.jpg",
     "schema": [
       {
@@ -489,7 +489,7 @@ export const blogSEO = {
     "description": "In this article, we've provided a complete guide on how to fill out a 1040 form for small and medium-sized businesses.",
     "author": "Milta Accounting Services",
     "keywords": "how to fill out a 1040 form, how to fill form 1040, how do you file a 1040 form, how do i fill out a 1040 form",
-    "canonical": "https://www.miltafs.com/us/services/how-to-fill-out-a-1040-form/",
+    "canonical": "https://www.miltafs.com/us/blogs/how-to-fill-out-a-1040-form",
     "ogImage": "https://www.miltafs.com/images/miltafs-og.jpg",
     "schema": [
       {

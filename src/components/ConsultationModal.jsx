@@ -66,7 +66,14 @@ export const ConsultationProvider = ({ children }) => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          // See the matching comment in ApplyForm.jsx: Framer Motion's inline
+          // transform creates its own stacking context, which without an
+          // explicit z-index here can paint over the close IconButton
+          // (zIndex: 2) in the corner where they overlap and swallow its
+          // clicks. Explicit + lower resolves the ambiguity outright.
           sx={{
+            position: "relative",
+            zIndex: 0,
             p: { xs: 2.5, sm: 3.5 },
             // Compact the shared ContactForm for the modal only
             "& .MuiStack-root > :not(style):not(style) + :not(style):not(style)": {

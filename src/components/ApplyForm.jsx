@@ -433,7 +433,13 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          sx={{ p: { xs: 3, sm: 5 } }}
+          // Framer Motion applies the animation as an inline `transform`, which
+          // creates its own stacking context. Without an explicit z-index here,
+          // that context's stacking order against the close IconButton's
+          // (zIndex: 2, above) is ambiguous rather than pinned, so this box can
+          // paint over the button in the corner where they overlap and silently
+          // swallow clicks meant for it. Explicit + lower resolves it outright.
+          sx={{ p: { xs: 3, sm: 5 }, position: "relative", zIndex: 0 }}
         >
           {formContent}
         </Box>
