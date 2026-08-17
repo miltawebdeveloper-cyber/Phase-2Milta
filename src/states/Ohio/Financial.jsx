@@ -39,7 +39,7 @@ export default function FinancialOhio() {
       seo={{
         title: "Transform Your Financial Strategy with Milta Top Controller in Ohio",
         description:
-          "Unlock growth with precision: Partner with Milta's Certified Financial Controllers in Ohio.",
+          "Partner with Milta's certified financial controllers in Ohio for precise reporting, clearer cash-flow visibility and compliance you can rely on.",
         keywords:
           "financial controller services, outsourced financial controller, accounting controller, certified financial controller",
         author: "Milta Accounting",

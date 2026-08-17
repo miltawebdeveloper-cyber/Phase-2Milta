@@ -39,7 +39,7 @@ export default function FinancialNewJersey() {
       seo={{
         title: "Milta – Expert Financial Controller Services in New Jersey",
         description:
-          "We offer outsourced financial controller services designed to streamline financial operations, improve reporting accuracy, and ensure compliance.",
+          "Outsourced financial controller services for New Jersey businesses: tighter reporting, a faster month-end close and confident regulatory compliance.",
         keywords:
           "financial controller services, outsourced financial controller, accounting controller, certified financial controller",
         author: "Milta Accounting",

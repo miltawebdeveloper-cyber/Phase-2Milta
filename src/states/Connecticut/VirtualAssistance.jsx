@@ -27,7 +27,7 @@ export default function VirtualAssistantConnecticut() {
       seo={{
         title: "Professional Virtual Assistants Service in Connecticut, USA",
         description:
-          "We understand the daily challenges that small business owners encounter—from juggling administrative responsibilities to managing finances.",
+          "Connecticut small businesses rely on Milta's virtual assistants for admin, scheduling and bookkeeping support, freeing owners to focus on growth.",
         keywords:
           "virtual assistants service in connecticut, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant ct",
         author: "Milta Accounting",

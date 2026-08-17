@@ -39,7 +39,7 @@ export default function FinancialSouthCarolina() {
       seo={{
         title: "Milta – Expert Financial Controller Services in South Carolina",
         description:
-          "We offer outsourced financial controller services designed to streamline financial operations, improve reporting accuracy, and ensure compliance.",
+          "Milta's outsourced controllers give South Carolina businesses accurate reporting, shorter close cycles and dependable compliance oversight.",
         keywords:
           "financial controller services, outsourced financial controller, accounting controller, certified financial controller",
         author: "Milta Accounting",

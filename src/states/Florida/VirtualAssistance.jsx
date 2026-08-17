@@ -38,9 +38,9 @@ export default function VirtualAssistantFlorida() {
       seo={{
         title: "Professional Virtual Assistants Service in Florida, USA",
         description:
-          "We understand the daily challenges that small business owners encounter—from juggling administrative responsibilities to managing finances.",
+          "Milta's Florida virtual assistants take over admin, inbox and bookkeeping tasks for small businesses, giving owners back hours in every week.",
         keywords:
-          "virtual assistants service in florida, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant ct",
+          "virtual assistants service in florida, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant fl",
         author: "Milta Accounting",
         canonical: "https://www.miltafs.com/us/services/virtual-assistant-service-in-florida/",
         schema: faqSchema,
