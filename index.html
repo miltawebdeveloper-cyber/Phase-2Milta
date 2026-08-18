@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" class="pre-boot">
 
 <head>
   <!-- Structural (must stay first) -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══ Theme bootstrap (must stay before any painted content) ═══
+       Every page is prerendered in light mode, because the prerenderer has no
+       localStorage to read. A visitor who has chosen dark mode therefore gets a
+       white page and a dark logo, and only sees their theme once React has
+       booted and ThemeContext has run — measured at ~1.5s on a cold load, of
+       which the last 200ms is the logo flipping to white on its own. That is the
+       "blinking logo" report.
+
+       Stamping the attribute here, synchronously, lets the rules below paint the
+       right theme on the FIRST frame. They are deliberately limited to the
+       surfaces a visitor actually notices before boot — page background, body
+       text, the header logo — rather than restating MUI's palette in CSS; the
+       real theme takes over the moment React mounts.
+
+       The key and the 'light' default must stay in step with
+       src/ThemeContext.jsx, which is the owner of both. -->
+  <script>
+    (function () {
+      var mode = 'light';
+      try { mode = localStorage.getItem('milta-theme') || 'light'; } catch (e) { /* private mode */ }
+      document.documentElement.setAttribute('data-theme', mode);
+    })();
+  </script>
+  <style>
+    /* Scoped to .pre-boot, which ThemeContext removes once React owns the DOM.
+       Without that gate these rules would keep fighting MUI after boot — and on
+       the logo they would invert an already-inverted image back to black. */
+    html.pre-boot[data-theme="dark"] body {
+      background-color: #0f1a10;
+      color: #e2f0e2;
+    }
+    html.pre-boot[data-theme="dark"] .site-logo {
+      filter: brightness(0) invert(1);
+    }
+  </style>
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

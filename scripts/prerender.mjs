@@ -252,6 +252,15 @@ function serialise() {
     .querySelectorAll('script[src*="googletagmanager.com"], script[src*="google-analytics.com"]')
     .forEach((el) => el.remove());
 
+  // The page being serialised has already booted, so ThemeContext has stripped
+  // the .pre-boot class that gates the theme rules in index.html. Putting it
+  // back is what makes those rules apply again for the next real visitor: the
+  // static payload has to describe a page that has NOT booted yet. data-theme
+  // goes back to the default for the same reason - this render had no
+  // localStorage, so light is the only honest value to ship.
+  document.documentElement.classList.add('pre-boot');
+  document.documentElement.setAttribute('data-theme', 'light');
+
   // Harvest the component CSS before touching anything: it lives only in the
   // CSSOM, so it has to be read as rules rather than as element text.
   const css = [];

@@ -183,7 +183,9 @@ const Navbar = () => {
               transition: 'filter 0.4s ease',
             }}
           >
-            <img src="/logo.svg" alt="Milta Logo" style={{ width: '100%', maxHeight: '100%' }} />
+            {/* site-logo is the hook the pre-boot theme rules in index.html use
+                to invert the logo before React has mounted. */}
+            <img src="/logo.svg" alt="Milta Logo" className="site-logo" style={{ width: '100%', maxHeight: '100%' }} />
           </Box>
 
           {/* Desktop nav pill group */}

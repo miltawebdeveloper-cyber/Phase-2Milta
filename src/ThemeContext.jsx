@@ -15,6 +15,11 @@ export const ThemeContextProvider = ({ children }) => {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', mode);
+    // Hands the theme back to MUI. Until this runs, the pre-boot rules in
+    // index.html are what paint the dark background and the inverted logo on a
+    // prerendered page; leaving the class on would let them keep overriding the
+    // real theme. See the theme bootstrap comment in index.html.
+    document.documentElement.classList.remove('pre-boot');
   }, [mode]);
 
   return (

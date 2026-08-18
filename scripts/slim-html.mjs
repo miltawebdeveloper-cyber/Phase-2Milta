@@ -208,7 +208,46 @@ export function minifyHead(html) {
   );
 
   const end = head.index + head[0].length;
-  return html.slice(0, head.index) + dropTextBetweenTags(compacted) + html.slice(end);
+  return html.slice(0, head.index) + dropTextBetweenTags(squashInlineCss(compacted)) + html.slice(end);
+}
+
+// The theme bootstrap in index.html ships an inline <style> to every page,
+// authored at a readable indent that is 459 bytes for six declarations. CSS
+// whitespace outside a string carries no meaning, so it is collapsed.
+//
+// Quoted strings are copied through untouched, and they are not an edge case
+// here: the bootstrap's own selector is [data-theme="dark"], while a
+// content: "  " somewhere else would have load-bearing spaces. So this scans
+// rather than pattern-matches - the same reason dropTextBetweenTags does.
+function squashInlineCss(head) {
+  return head.replace(/(<style>)([\s\S]*?)(<\/style>)/gi, (whole, open, css, close) => {
+    let out = '';
+    let i = 0;
+    while (i < css.length) {
+      const c = css[i];
+      if (c === '"' || c === "'") {
+        const end = css.indexOf(c, i + 1);
+        if (end === -1) return whole; // unterminated string: do not touch this sheet
+        out += css.slice(i, end + 1);
+        i = end + 1;
+      } else if (c === '/' && css[i + 1] === '*') {
+        const end = css.indexOf('*/', i + 2);
+        if (end === -1) return whole;
+        i = end + 2;
+      } else if (/\s/.test(c)) {
+        while (i < css.length && /\s/.test(css[i])) i++;
+        // A space between two selectors is a descendant combinator; one next to
+        // punctuation is only indentation.
+        if (out && !/[{};:,>~+\s]$/.test(out) && i < css.length && !/[{};:,>~+]/.test(css[i])) {
+          out += ' ';
+        }
+      } else {
+        out += c;
+        i++;
+      }
+    }
+    return open + out.replace(/;\}/g, '}').trim() + close;
+  });
 }
 
 // Drops the whitespace that sits BETWEEN elements, and only that.
