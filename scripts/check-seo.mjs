@@ -243,6 +243,53 @@ const record = (check, lines) => {
   record('every page with hreflang self-references', problems);
 }
 
+// ── "low text-HTML ratio" ────────────────────────────────────────────────────
+// Screaming Frog and Semrush both flag a page whose visible text is under 10%
+// of its HTML. On 2026-08-18 that was 36 of the 250 pages, and the cause was
+// almost entirely markup weight rather than missing copy: the home page carried
+// 61 KB of base64 images and 21 KB of generated class names around 11.9 KB of
+// text. scripts/slim-html.mjs and the assetsInlineLimit setting in
+// vite.config.js exist to keep that weight down; this asserts the result.
+//
+// Only self-canonical pages are judged. A page that points its canonical
+// somewhere else is not competing for anything, so its ratio says nothing — and
+// the UK stubs, which all canonicalise to the US home page, would otherwise
+// keep this permanently red for a reason that has nothing to do with markup.
+{
+  const MIN_RATIO = 0.1;
+  const problems = [];
+  let elsewhere = 0;
+  for (const f of htmlFiles) {
+    const raw = fs.readFileSync(f);
+    const html = raw.toString('utf8');
+    const canonical = (html.match(/<link rel="canonical" href="([^"]*)"/) || [])[1];
+    const self = `${ORIGIN}/${rel(f).replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '')}`;
+    const same = canonical && canonical.replace(/\/+$/, '') === self.replace(/\/+$/, '');
+    if (!same) {
+      elsewhere++;
+      continue;
+    }
+    const text = html
+      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<!--[\s\S]*?-->/g, ' ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const ratio = Buffer.byteLength(text) / raw.length;
+    if (ratio < MIN_RATIO) {
+      problems.push(
+        `${rel(f)}  ratio ${ratio.toFixed(3)}  ` +
+          `(${(Buffer.byteLength(text) / 1024).toFixed(1)} KB text in ` +
+          `${(raw.length / 1024).toFixed(1)} KB HTML)`,
+      );
+    }
+  }
+  problems.sort();
+  console.log(`     (${elsewhere} page(s) not judged: canonical points elsewhere)`);
+  record(`text-HTML ratio at or above ${MIN_RATIO}`, problems);
+}
+
 console.log();
 if (failures.length) {
   console.error(`${failures.length} check(s) failed.`);

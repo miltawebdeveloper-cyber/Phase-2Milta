@@ -31,6 +31,13 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import puppeteer from 'puppeteer-core';
 import { transform } from 'esbuild';
+import {
+  buildEmotionMap,
+  dedupeSvgIcons,
+  minifyHead,
+  renameEmotionClasses,
+  stripDeadSvgAttrs,
+} from './slim-html.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -532,6 +539,33 @@ async function main() {
       // readable version and say so, rather than failing the build.
       console.warn(`\n  ! CSS minify failed (${err.message}); shipping unminified.`);
     }
+    // Emotion's class names are the single biggest attribute cost in the
+    // payload, and this stylesheet is the only thing in the static build that
+    // resolves them, so both sides get shortened together before it is hashed.
+    // Anything a stylesheet already selects on, or that any page already puts in
+    // a class attribute, is off limits as a replacement name: reusing one would
+    // hand an element styles that were never meant for it.
+    //
+    // A stylesheet this script wrote on an earlier run is excluded: it already
+    // holds shortened names, and treating those as reserved would push every
+    // later build onto a longer prefix for no reason.
+    const reserved = new Set();
+    for (const name of fs.readdirSync(path.join(DIST, 'assets'))) {
+      if (!name.endsWith('.css') || name.startsWith(`${PRERENDER_CSS_NAME}-`)) continue;
+      const text = fs.readFileSync(path.join(DIST, 'assets', name), 'utf8');
+      for (const m of text.matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)) reserved.add(m[1]);
+    }
+    for (const file of written) {
+      for (const m of fs.readFileSync(file, 'utf8').matchAll(/ class="([^"]*)"/g)) {
+        for (const token of m[1].split(/\s+/)) if (token) reserved.add(token);
+      }
+    }
+    const emotion = buildEmotionMap(cssText, reserved);
+    cssText = emotion.css;
+    if (!emotion.map) {
+      console.warn('  ! emotion class rename skipped: no collision-free prefix available.');
+    }
+
     cssBytes = Buffer.byteLength(cssText);
     const hash = crypto.createHash('sha256').update(cssText).digest('hex').slice(0, 8);
     const cssHref = `/assets/${PRERENDER_CSS_NAME}-${hash}.css`;
@@ -548,12 +582,17 @@ async function main() {
       for (const m of text.matchAll(/\.(Mui[A-Za-z0-9-]+)/g)) styledClasses.add(m[1]);
     }
 
-    let strippedBytes = 0;
+    let beforeBytes = 0;
+    let afterBytes = 0;
     for (const file of written) {
       let html = injectStylesheet(fs.readFileSync(file, 'utf8'), cssHref);
-      const before = Buffer.byteLength(html);
+      beforeBytes += Buffer.byteLength(html);
       html = stripDeadMuiClasses(html, styledClasses);
-      strippedBytes += before - Buffer.byteLength(html);
+      html = dedupeSvgIcons(html);
+      html = stripDeadSvgAttrs(html);
+      html = renameEmotionClasses(html, emotion.map);
+      html = minifyHead(html);
+      afterBytes += Buffer.byteLength(html);
       fs.writeFileSync(file, html, 'utf8');
     }
     console.log(
@@ -562,8 +601,11 @@ async function main() {
         `-> ${cssHref}, linked from ${written.length} files`,
     );
     console.log(
-      `Dead Mui classes stripped: ${(strippedBytes / 1024).toFixed(1)} KB across ` +
-        `${written.length} files (${styledClasses.size} Mui classes kept as styled)`,
+      `Payload slimmed: ${(beforeBytes / 1024).toFixed(1)} KB -> ` +
+        `${(afterBytes / 1024).toFixed(1)} KB across ${written.length} files ` +
+        `(-${(100 - (100 * afterBytes) / beforeBytes).toFixed(1)}%; ` +
+        `${styledClasses.size} Mui classes kept as styled, ` +
+        `${emotion.map ? emotion.map.size : 0} emotion classes shortened)`,
     );
   }
 

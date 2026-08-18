@@ -38,6 +38,14 @@ function seoHeadOrder() {
 export default defineConfig({
   plugins: [react(), seoHeadOrder()],
   build: {
+    // Vite inlines any imported asset under 4 KB as a base64 data: URI. Sixteen
+    // of this site's images qualify, and the two carousels that use them
+    // (CertificationsSection, ToolsSection) are Swiper loops, which render every
+    // slide twice. The home page therefore shipped 61.3 KB of base64 inside its
+    // HTML - 39% of the whole document, repeated on every single request because
+    // markup is not cacheable the way an image file is. Emitting them as files
+    // costs a few more requests and takes that 39% off the page.
+    assetsInlineLimit: 0,
     rollupOptions: {
       output: {
         // Split large third-party libs into their own cacheable chunks so the
