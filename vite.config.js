@@ -50,10 +50,21 @@ export default defineConfig({
       output: {
         // Split large third-party libs into their own cacheable chunks so the
         // browser can download them in parallel and reuse them across deploys.
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'mui-vendor': ['@mui/material', '@mui/system', '@emotion/react', '@emotion/styled'],
-          'motion-vendor': ['framer-motion'],
+        //
+        // The function form exists for @mui/icons-material. Every icon is its
+        // own module, so a page importing thirty of them produced thirty
+        // separate chunks of 170-300 bytes each, every one of them a
+        // <link rel="modulepreload"> and a round trip. A state page was making
+        // 46 script requests for 1.9 MB; on a 150ms RTT the request count cost
+        // more than the bytes did. Collapsing the icons into one chunk trades
+        // that for a single fetch that every page reuses from cache.
+        manualChunks(id) {
+          if (id.includes('node_modules/@mui/icons-material')) return 'mui-icons';
+          if (/node_modules\/(react|react-dom|react-router-dom)\//.test(id)) return 'react-vendor';
+          if (/node_modules\/(@mui\/material|@mui\/system|@emotion\/react|@emotion\/styled)\//.test(id))
+            return 'mui-vendor';
+          if (id.includes('node_modules/framer-motion')) return 'motion-vendor';
+          return undefined;
         },
       },
     },

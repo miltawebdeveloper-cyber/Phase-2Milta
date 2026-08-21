@@ -199,6 +199,74 @@ const Intro = ({ intro }) => {
   );
 };
 
+/* ================= PROSE (titled body copy, no cards) ================= */
+// For a section that is genuinely prose: a heading and a few paragraphs, with
+// nothing to enumerate. Without this the only way to keep such copy was to fold
+// it into <Intro>, which cost it its heading, or to force it into cards it was
+// never written for.
+const Prose = ({ data }) => {
+  const theme = useTheme();
+  const primary = theme.palette.primary.main;
+  const bg = data.bg === "paper" ? "background.paper" : "background.default";
+
+  return (
+    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: bg }}>
+      <Container maxWidth={false} sx={{ maxWidth: "900px", mx: "auto", px: { xs: 3, md: 4 } }}>
+        <Box sx={{ mb: { xs: 4, md: 5 }, textAlign: "center" }}>
+          {data.overline && (
+            <motion.div {...fadeUp(0)}>
+              <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: "0.75rem", mb: 2, display: "block" }}>
+                {data.overline}
+              </Typography>
+            </motion.div>
+          )}
+          <motion.div {...fadeUp(0.1)}>
+            <Typography variant="h2" sx={{ fontSize: { xs: "2rem", md: "2.6rem" }, lineHeight: 1.2 }}>
+              {data.titleLead}{" "}
+              <Box component="span" sx={{ color: primary }}>{data.highlight}</Box>
+            </Typography>
+          </motion.div>
+        </Box>
+        <motion.div {...fadeUp(0.18)}>
+          {(data.paragraphs || []).map((p, i) => (
+            <Typography
+              key={i}
+              // Centred to match the heading above it. The measure is held at
+              // 760px rather than the container's 900 because centred text gets
+              // hard to track back to the next line much past that - the same
+              // width every other centred block in this file uses.
+              sx={{
+                color: "text.secondary",
+                fontSize: "1rem",
+                lineHeight: 1.85,
+                fontFamily: '"Outfit", sans-serif',
+                textAlign: "center",
+                maxWidth: 760,
+                mx: "auto",
+                mb: i === data.paragraphs.length - 1 ? 0 : 2.5,
+              }}
+            >
+              {p}
+            </Typography>
+          ))}
+        </motion.div>
+      </Container>
+    </Box>
+  );
+};
+
+/* Closing paragraph a section can sign off with, under its cards. */
+const SectionNote = ({ text }) =>
+  !text ? null : (
+    <motion.div {...fadeUp(0.1)}>
+      <Typography
+        sx={{ color: "text.secondary", fontSize: "1rem", lineHeight: 1.85, maxWidth: 860, mx: "auto", mt: { xs: 4, md: 6 }, textAlign: "center", fontFamily: '"Outfit", sans-serif' }}
+      >
+        {text}
+      </Typography>
+    </motion.div>
+  );
+
 /* ================= CHECKLIST (short-label cards) ================= */
 const Checklist = ({ data }) => {
   const theme = useTheme();
@@ -255,6 +323,8 @@ const Checklist = ({ data }) => {
             </Box>
           ))}
         </Box>
+
+        <SectionNote text={data.footnote} />
       </Container>
     </Box>
   );
@@ -342,6 +412,8 @@ const Solutions = ({ data }) => {
             );
           })}
         </Box>
+
+        <SectionNote text={data.footnote} />
       </Container>
     </Box>
   );
@@ -521,6 +593,8 @@ const CardGroup = ({ data }) => {
             );
           })}
         </Box>
+
+        <SectionNote text={data.footnote} />
       </Container>
     </Box>
   );
@@ -608,6 +682,13 @@ const Industries = ({ data }) => {
               <Box component="span" sx={{ color: primary }}>{data.highlight}</Box>
             </Typography>
           </motion.div>
+          {data.subtitle && (
+            <motion.div {...fadeUp(0.18)}>
+              <Typography sx={{ color: "text.secondary", fontSize: "1rem", lineHeight: 1.8, maxWidth: 760, mx: "auto", mt: 2, fontFamily: '"Outfit", sans-serif' }}>
+                {data.subtitle}
+              </Typography>
+            </motion.div>
+          )}
         </Box>
 
         <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 1.5 }}>
@@ -633,6 +714,8 @@ const Industries = ({ data }) => {
             </Box>
           ))}
         </Box>
+
+        <SectionNote text={data.footnote} />
       </Container>
     </Box>
   );
@@ -700,7 +783,7 @@ const FAQSection = ({ faqs }) => {
 };
 
 /* ================= LAYOUT ================= */
-export default function ServiceLayout({ seo, hero, intro, whyEssential, solutions, cardGroups, checklists, comparisonTable, advantages, industries, faqs }) {
+export default function ServiceLayout({ seo, hero, intro, prose, whyEssential, solutions, cardGroups, checklists, comparisonTable, advantages, industries, closing, faqs }) {
   useFullSEO(seo);
 
   return (
@@ -708,14 +791,43 @@ export default function ServiceLayout({ seo, hero, intro, whyEssential, solution
       <Navbar />
       <Hero hero={hero} />
       {intro && <Intro intro={intro} />}
+      {prose && <Prose data={prose} />}
       {whyEssential && <Checklist data={whyEssential} />}
       {solutions && <Solutions data={solutions} />}
-      {cardGroups && cardGroups.map((group, i) => <CardGroup key={i} data={group} />)}
+      {/* One ordered list, three kinds of section. A page whose copy alternates
+          between card blocks, plain prose (a mid-page call to action, a closing
+          pitch) and a comparison table can express that order here directly.
+          The shape of the entry picks the renderer: `rows` is a table,
+          `paragraphs` is prose, anything else is cards. The dedicated `prose`,
+          `comparisonTable` and `closing` props stay for the common case of one
+          of each in the default position. */}
+      {cardGroups &&
+        cardGroups.map((group, i) =>
+          group.rows ? (
+            <ComparisonTable key={i} data={group} />
+          ) : group.paragraphs ? (
+            <Prose key={i} data={group} />
+          ) : typeof group.items?.[0] === "string" ? (
+            // Plain bullets, the kind a document writes as a list of phrases
+            // rather than label-and-description pairs. Checklist renders those
+            // as short labelled cards; CardGroup would want a {title, desc}.
+            <Checklist key={i} data={group} />
+          ) : (
+            <CardGroup key={i} data={group} />
+          ),
+        )}
       {checklists && checklists.map((group, i) => <Checklist key={i} data={{ bg: i % 2 === 0 ? "default" : "paper", ...group }} />)}
       {comparisonTable && <ComparisonTable data={comparisonTable} />}
       {advantages && <Advantages data={advantages} />}
       {industries && <Industries data={industries} />}
+      {/* A page that signs off in its own words before the FAQs. The shared
+          <CTASection /> below still runs; this is the page's copy, not a
+          replacement for it. */}
+      {closing && closing.placement !== "afterFaqs" && <Prose data={closing} />}
       {faqs && faqs.length > 0 && <FAQSection faqs={faqs} />}
+      {/* Some pages sign off before the questions, some after them; the copy
+          decides, so `placement: "afterFaqs"` moves it down here. */}
+      {closing && closing.placement === "afterFaqs" && <Prose data={closing} />}
       <Suspense fallback={null}>
         <CTASection />
         <Footer />

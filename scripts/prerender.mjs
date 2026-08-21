@@ -332,11 +332,30 @@ async function renderRoute(page, port, route) {
   // paint is a MUI spinner with no content behind it. The content threshold is
   // deliberately low — a page that renders almost nothing is a finding to
   // report, not a reason to fail the build.
+  // Readiness has to mean "the ROUTE has rendered", not "something has".
+  //
+  // The old condition here was `root.innerText.length > 0`, which the Navbar
+  // satisfies the instant it mounts — before the lazy route component behind it
+  // does. If a poll landed in the gap after the Suspense spinner unmounted but
+  // before the page mounted, the route was serialised carrying nothing but nav
+  // chrome, scored under 25 words, and reported DEAD — so it was silently
+  // dropped from dist/ AND from sitemap.xml, with the build still exiting 0.
+  //
+  // Observed five times across the 2026-08-19 builds, on different routes each
+  // time (an industry page, then four blog posts); one of them serialised with
+  // the text still reading "Loading...".
+  //
+  // Every route in this app renders exactly one <h1> — verified across all 289
+  // rendered routes, none with h1=0 — so waiting for that is a reliable signal
+  // that the route itself is up, and it cannot be forged by the shared chrome.
+  // A route that never gets there now times out and is reported as a FAILURE,
+  // which fails the build, rather than vanishing quietly.
   await page.waitForFunction(
     () => {
       const root = document.querySelector('#root');
       if (!root || root.querySelector('.MuiCircularProgress-root')) return false;
-      return (root.innerText || '').trim().length > 0;
+      if (/^loading/i.test((root.innerText || '').trim())) return false;
+      return !!root.querySelector('h1');
     },
     { timeout: 45000, polling: 250 },
   );
@@ -439,6 +458,7 @@ async function main() {
   // insertion order, so the cascade within any single page is unchanged and
   // later routes only ever append rules the earlier ones did not use.
   const cssUnion = new Set();
+  const pageCss = [];
   const written = [];
   const queue = [...staticRoutes];
   const seen = new Set(queue.map(normalise));
@@ -491,11 +511,16 @@ async function main() {
         const { css, ...rest } = r;
         css.forEach((rule) => cssUnion.add(rule));
 
+        const outs = [];
         for (const out of outputPaths(route)) {
           fs.mkdirSync(path.dirname(out), { recursive: true });
           fs.writeFileSync(out, r.html, 'utf8');
           written.push(out);
+          outs.push(out);
         }
+        // Which rules THIS page needs, kept next to the files that will link
+        // them. The union above is the whole site; this is the slice.
+        pageCss.push({ files: outs, rules: css });
         results.push({ route, ...rest });
         process.stdout.write(
           `  ok  ${route}  (h1=${r.h1s} words=${r.words} links=${r.links.length})\n`,
@@ -538,7 +563,8 @@ async function main() {
     // flagged it as unminified CSS on every page that links it (the 2026-08-10
     // audit counted 54 unminified JS/CSS issues). esbuild is already present as
     // a Vite dependency, so minifying here costs nothing extra.
-    const rawCss = [...cssUnion].join('\n');
+    const ordered = [...cssUnion];
+    const rawCss = ordered.join('\n');
     const rawBytes = Buffer.byteLength(rawCss);
     let cssText = rawCss;
     try {
@@ -570,16 +596,63 @@ async function main() {
       }
     }
     const emotion = buildEmotionMap(cssText, reserved);
-    cssText = emotion.css;
     if (!emotion.map) {
       console.warn('  ! emotion class rename skipped: no collision-free prefix available.');
     }
 
-    cssBytes = Buffer.byteLength(cssText);
-    const hash = crypto.createHash('sha256').update(cssText).digest('hex').slice(0, 8);
-    const cssHref = `/assets/${PRERENDER_CSS_NAME}-${hash}.css`;
+    // One 595 KB stylesheet linked from every page was the site's worst
+    // render-blocking cost: nothing paints until it arrives. Measured on
+    // 2026-08-20 (Fast 3G, 4x CPU throttle) a state page reached first
+    // contentful paint at 11.3s, and only ~30% of those rules applied to it.
+    //
+    // So it ships as two sheets. Rules nearly every page needs -- the navbar,
+    // footer, typography and layout chrome, about 150 KB -- go into a common
+    // sheet downloaded once and cached for the whole site. The rest is written
+    // per page, and pages built from the same template produce byte-identical
+    // deltas that collapse to one shared file by content hash.
+    //
+    // Cascade order survives the split: rules keep their union order within
+    // each sheet and the common sheet is always linked first, so a page's own
+    // override still lands after the base rule it overrides.
+    const COMMON_SHARE = 0.95;
+    const useCount = new Map();
+    for (const pc of pageCss) {
+      for (const rule of new Set(pc.rules)) useCount.set(rule, (useCount.get(rule) || 0) + 1);
+    }
+    const commonCut = pageCss.length * COMMON_SHARE;
+    const isCommon = (rule) => (useCount.get(rule) || 0) >= commonCut;
+
     fs.mkdirSync(path.join(DIST, 'assets'), { recursive: true });
-    fs.writeFileSync(path.join(DIST, cssHref.replace(/^\//, '')), cssText, 'utf8');
+    const sheetsWritten = new Set();
+    const writeSheet = async (rules, name) => {
+      if (!rules.length) return null;
+      let text = rules.join('\n');
+      try {
+        text = (await transform(text, { loader: 'css', minify: true })).code;
+      } catch (err) {
+        console.warn(`\n  ! CSS minify failed (${err.message}); shipping unminified.`);
+      }
+      text = renameEmotionClasses(text, emotion.map);
+      const hash = crypto.createHash('sha256').update(text).digest('hex').slice(0, 8);
+      const href = `/assets/${name}-${hash}.css`;
+      if (!sheetsWritten.has(href)) {
+        fs.writeFileSync(path.join(DIST, href.replace(/^\//, '')), text, 'utf8');
+        sheetsWritten.add(href);
+        cssBytes += Buffer.byteLength(text);
+      }
+      return href;
+    };
+
+    const commonHref = await writeSheet(ordered.filter(isCommon), `${PRERENDER_CSS_NAME}-common`);
+    const sheetForFile = new Map();
+    for (const pc of pageCss) {
+      const own = new Set(pc.rules);
+      const href = await writeSheet(
+        ordered.filter((rule) => own.has(rule) && !isCommon(rule)),
+        PRERENDER_CSS_NAME,
+      );
+      for (const file of pc.files) sheetForFile.set(file, href);
+    }
 
     // Every class that any stylesheet in the build actually selects on. Read
     // from ALL of dist/assets — the emotion sheet above plus Vite's bundled
@@ -594,7 +667,12 @@ async function main() {
     let beforeBytes = 0;
     let afterBytes = 0;
     for (const file of written) {
-      let html = injectStylesheet(fs.readFileSync(file, 'utf8'), cssHref);
+      let html = fs.readFileSync(file, 'utf8');
+      // Common first, page second: injectStylesheet appends after the last
+      // stylesheet link, so this is also the order they load in.
+      if (commonHref) html = injectStylesheet(html, commonHref);
+      const pageHref = sheetForFile.get(file);
+      if (pageHref) html = injectStylesheet(html, pageHref);
       beforeBytes += Buffer.byteLength(html);
       html = stripDeadMuiClasses(html, styledClasses);
       html = dedupeSvgIcons(html);
@@ -605,9 +683,9 @@ async function main() {
       fs.writeFileSync(file, html, 'utf8');
     }
     console.log(
-      `\nComponent CSS: ${cssUnion.size} rules, ` +
-        `${(rawBytes / 1024).toFixed(1)} KB -> ${(cssBytes / 1024).toFixed(1)} KB minified ` +
-        `-> ${cssHref}, linked from ${written.length} files`,
+      `\nComponent CSS: ${cssUnion.size} rules, ${(rawBytes / 1024).toFixed(1)} KB -> ` +
+        `${sheetsWritten.size} sheet(s) totalling ${(cssBytes / 1024).toFixed(1)} KB ` +
+        `(1 common + ${sheetsWritten.size - 1} page), linked from ${written.length} files`,
     );
     console.log(
       `Payload slimmed: ${(beforeBytes / 1024).toFixed(1)} KB -> ` +

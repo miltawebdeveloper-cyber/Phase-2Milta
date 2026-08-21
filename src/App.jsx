@@ -53,6 +53,54 @@ const DataEntryConnecticut = lazyWithRetry(() => import('./states/Connecticut/Da
 const VirtualAssistantConnecticut = lazyWithRetry(() => import('./states/Connecticut/VirtualAssistance'));
 const CPAConnecticut = lazyWithRetry(() => import('./states/Connecticut/CPAfirms'));
 const DigitalMarketingConnecticut = lazyWithRetry(() => import('./states/Connecticut/DigitalMarketing'));
+const BookkeepingDelaware = lazyWithRetry(() => import('./states/Delaware/Bookkeeping'));
+const TaxDelaware = lazyWithRetry(() => import('./states/Delaware/Tax'));
+const VirtualAssistantDelaware = lazyWithRetry(() => import('./states/Delaware/VirtualAssistance'));
+const DataEntryDelaware = lazyWithRetry(() => import('./states/Delaware/DataEntry'));
+const DigitalMarketingDelaware = lazyWithRetry(() => import('./states/Delaware/DigitalMarketing'));
+const FinancialDelaware = lazyWithRetry(() => import('./states/Delaware/Financial'));
+const PayrollDelaware = lazyWithRetry(() => import('./states/Delaware/Payroll'));
+const CPADelaware = lazyWithRetry(() => import('./states/Delaware/CPAfirms'));
+const BookkeepingIndiana = lazyWithRetry(() => import('./states/Indiana/Bookkeeping'));
+const TaxIndiana = lazyWithRetry(() => import('./states/Indiana/Tax'));
+const CPAIndiana = lazyWithRetry(() => import('./states/Indiana/CPAfirms'));
+const VirtualAssistantIndiana = lazyWithRetry(() => import('./states/Indiana/VirtualAssistance'));
+const DigitalMarketingIndiana = lazyWithRetry(() => import('./states/Indiana/DigitalMarketing'));
+const DataEntryIndiana = lazyWithRetry(() => import('./states/Indiana/DataEntry'));
+const FinancialIndiana = lazyWithRetry(() => import('./states/Indiana/Financial'));
+const PayrollIndiana = lazyWithRetry(() => import('./states/Indiana/Payroll'));
+const BookkeepingMichigan = lazyWithRetry(() => import('./states/Michigan/Bookkeeping'));
+const CPAMichigan = lazyWithRetry(() => import('./states/Michigan/CPAfirms'));
+const BookkeepingNewHampshire = lazyWithRetry(() => import('./states/New Hampshire/Bookkeeping'));
+const TaxNewHampshire = lazyWithRetry(() => import('./states/New Hampshire/Tax'));
+const VirtualAssistantNewHampshire = lazyWithRetry(() => import('./states/New Hampshire/VirtualAssistance'));
+const DataEntryNewHampshire = lazyWithRetry(() => import('./states/New Hampshire/DataEntry'));
+const FinancialNewHampshire = lazyWithRetry(() => import('./states/New Hampshire/Financial'));
+const DigitalMarketingNewHampshire = lazyWithRetry(() => import('./states/New Hampshire/DigitalMarketing'));
+const CPANewHampshire = lazyWithRetry(() => import('./states/New Hampshire/CPAfirms'));
+const PayrollNewHampshire = lazyWithRetry(() => import('./states/New Hampshire/Payroll'));
+const PayrollMichigan = lazyWithRetry(() => import('./states/Michigan/Payroll'));
+const DataEntryMichigan = lazyWithRetry(() => import('./states/Michigan/DataEntry'));
+const FinancialMichigan = lazyWithRetry(() => import('./states/Michigan/Financial'));
+const DigitalMarketingMichigan = lazyWithRetry(() => import('./states/Michigan/DigitalMarketing'));
+const TaxMichigan = lazyWithRetry(() => import('./states/Michigan/Tax'));
+const VirtualAssistantMichigan = lazyWithRetry(() => import('./states/Michigan/VirtualAssistance'));
+const BookkeepingMaine = lazyWithRetry(() => import('./states/Maine/Bookkeeping'));
+const CPAMaine = lazyWithRetry(() => import('./states/Maine/CPAfirms'));
+const PayrollMaine = lazyWithRetry(() => import('./states/Maine/Payroll'));
+const TaxMaine = lazyWithRetry(() => import('./states/Maine/Tax'));
+const VirtualAssistantMaine = lazyWithRetry(() => import('./states/Maine/VirtualAssistance'));
+const DataEntryMaine = lazyWithRetry(() => import('./states/Maine/DataEntry'));
+const FinancialMaine = lazyWithRetry(() => import('./states/Maine/Financial'));
+const DigitalMarketingMaine = lazyWithRetry(() => import('./states/Maine/DigitalMarketing'));
+const BookkeepingKentucky = lazyWithRetry(() => import('./states/Kentucky/Bookkeeping'));
+const CPAKentucky = lazyWithRetry(() => import('./states/Kentucky/CPAfirms'));
+const PayrollKentucky = lazyWithRetry(() => import('./states/Kentucky/Payroll'));
+const TaxKentucky = lazyWithRetry(() => import('./states/Kentucky/Tax'));
+const VirtualAssistantKentucky = lazyWithRetry(() => import('./states/Kentucky/VirtualAssistance'));
+const DataEntryKentucky = lazyWithRetry(() => import('./states/Kentucky/DataEntry'));
+const FinancialKentucky = lazyWithRetry(() => import('./states/Kentucky/Financial'));
+const DigitalMarketingKentucky = lazyWithRetry(() => import('./states/Kentucky/DigitalMarketing'));
 const BookkeepingGeorgia = lazyWithRetry(() => import('./states/Gorgeia/Bookkeeping'));
 const TaxGeorgia = lazyWithRetry(() => import('./states/Gorgeia/Tax'));
 const PayrollGeorgia = lazyWithRetry(() => import('./states/Gorgeia/Payroll'));
@@ -330,6 +378,66 @@ function ThemedApp() {
           <Route path="/us/services/outsourcing-accounting-data-entry-connecticut/" element={<DataEntryConnecticut />} />
           <Route path="/us/services/financial-controller-services-in-connecticut/" element={<FinancialConnecticut />} />
           <Route path="/us/services/payroll-management-services-in-the-connecticut/" element={<PayrollConnecticut />} />
+
+          {/* Delaware */}
+          <Route path="/us/services/best-bookkeeping-services-in-delaware/" element={<BookkeepingDelaware />} />
+          <Route path="/us/services/tax-planning-and-preparation-service-in-delaware/" element={<TaxDelaware />} />
+          <Route path="/us/services/virtual-assistant-service-in-delaware/" element={<VirtualAssistantDelaware />} />
+          <Route path="/us/services/outsourcing-accounting-data-entry-delaware/" element={<DataEntryDelaware />} />
+          <Route path="/us/services/best-digital-marketing-agency-in-delaware" element={<DigitalMarketingDelaware />} />
+          <Route path="/us/services/financial-controller-services-in-delaware/" element={<FinancialDelaware />} />
+          <Route path="/us/services/payroll-management-services-in-the-delaware/" element={<PayrollDelaware />} />
+          <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-delaware/" element={<CPADelaware />} />
+
+          {/* Indiana */}
+          <Route path="/us/services/best-bookkeeping-services-in-indiana/" element={<BookkeepingIndiana />} />
+          <Route path="/us/services/tax-planning-and-preparation-service-in-indiana/" element={<TaxIndiana />} />
+          <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-indiana/" element={<CPAIndiana />} />
+          <Route path="/us/services/virtual-assistant-service-in-indiana/" element={<VirtualAssistantIndiana />} />
+          <Route path="/us/services/best-digital-marketing-agency-in-indiana" element={<DigitalMarketingIndiana />} />
+          <Route path="/us/services/outsourcing-accounting-data-entry-indiana/" element={<DataEntryIndiana />} />
+          <Route path="/us/services/financial-controller-services-in-indiana/" element={<FinancialIndiana />} />
+          <Route path="/us/services/payroll-management-services-in-the-indiana/" element={<PayrollIndiana />} />
+
+          {/* Michigan */}
+          <Route path="/us/services/best-bookkeeping-services-in-michigan/" element={<BookkeepingMichigan />} />
+          <Route path="/us/services/tax-planning-and-preparation-service-in-michigan/" element={<TaxMichigan />} />
+          <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-michigan/" element={<CPAMichigan />} />
+          <Route path="/us/services/payroll-management-services-in-the-michigan/" element={<PayrollMichigan />} />
+          <Route path="/us/services/outsourcing-accounting-data-entry-michigan/" element={<DataEntryMichigan />} />
+          <Route path="/us/services/financial-controller-services-in-michigan/" element={<FinancialMichigan />} />
+          <Route path="/us/services/best-digital-marketing-agency-in-michigan" element={<DigitalMarketingMichigan />} />
+
+          {/* New Hampshire */}
+          <Route path="/us/services/best-bookkeeping-services-in-newhampshire/" element={<BookkeepingNewHampshire />} />
+          <Route path="/us/services/tax-planning-and-preparation-service-in-newhampshire/" element={<TaxNewHampshire />} />
+          <Route path="/us/services/virtual-assistant-service-in-newhampshire/" element={<VirtualAssistantNewHampshire />} />
+          <Route path="/us/services/outsourcing-accounting-data-entry-newhampshire/" element={<DataEntryNewHampshire />} />
+          <Route path="/us/services/financial-controller-services-in-newhampshire/" element={<FinancialNewHampshire />} />
+          <Route path="/us/services/best-digital-marketing-agency-in-newhampshire" element={<DigitalMarketingNewHampshire />} />
+          <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-newhampshire/" element={<CPANewHampshire />} />
+          <Route path="/us/services/payroll-management-services-in-the-newhampshire/" element={<PayrollNewHampshire />} />
+          <Route path="/us/services/virtual-assistant-service-in-michigan/" element={<VirtualAssistantMichigan />} />
+
+          {/* Maine */}
+          <Route path="/us/services/best-bookkeeping-services-in-maine/" element={<BookkeepingMaine />} />
+          <Route path="/us/services/tax-planning-and-preparation-service-in-maine/" element={<TaxMaine />} />
+          <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-maine/" element={<CPAMaine />} />
+          <Route path="/us/services/payroll-management-services-in-the-maine/" element={<PayrollMaine />} />
+          <Route path="/us/services/virtual-assistant-service-in-maine/" element={<VirtualAssistantMaine />} />
+          <Route path="/us/services/outsourcing-accounting-data-entry-maine/" element={<DataEntryMaine />} />
+          <Route path="/us/services/financial-controller-services-in-maine/" element={<FinancialMaine />} />
+          <Route path="/us/services/best-digital-marketing-agency-in-maine" element={<DigitalMarketingMaine />} />
+
+          {/* Kentucky */}
+          <Route path="/us/services/best-bookkeeping-services-in-kentucky/" element={<BookkeepingKentucky />} />
+          <Route path="/us/services/tax-planning-and-preparation-service-in-kentucky/" element={<TaxKentucky />} />
+          <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-kentucky/" element={<CPAKentucky />} />
+          <Route path="/us/services/payroll-management-services-in-the-kentucky/" element={<PayrollKentucky />} />
+          <Route path="/us/services/virtual-assistant-service-in-kentucky/" element={<VirtualAssistantKentucky />} />
+          <Route path="/us/services/outsourcing-accounting-data-entry-kentucky/" element={<DataEntryKentucky />} />
+          <Route path="/us/services/financial-controller-services-in-kentucky/" element={<FinancialKentucky />} />
+          <Route path="/us/services/best-digital-marketing-agency-in-kentucky" element={<DigitalMarketingKentucky />} />
 
           {/* Georgia */}
           <Route path="/us/services/best-bookkeeping-services-in-georgia/" element={<BookkeepingGeorgia />} />

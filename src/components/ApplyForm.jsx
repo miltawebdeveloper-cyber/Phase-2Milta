@@ -91,7 +91,9 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
   const handleFile = (e) => {
     const file = e.target.files?.[0] || null;
     setResume(file);
-    setResumePreview(file ? URL.createObjectURL(file) : null);
+    setResumePreview(file && typeof URL !== "undefined" && typeof URL.createObjectURL === "function"
+      ? URL.createObjectURL(file)
+      : null);
   };
 
   const validate = () => {
@@ -148,6 +150,7 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
         severity: "warning",
         message: "Application submitted, but the email notification was skipped or failed.",
       });
+      onClose?.();
       return;
     }
 
@@ -156,6 +159,7 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
       severity: "success",
       message: "Application submitted successfully. We will contact you soon.",
     });
+    onClose?.();
   };
 
   const handleClose = () => {
@@ -164,6 +168,29 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
   };
 
   /* ── Shared header + form fields, reused by both variants ── */
+  const fieldSx = {
+    "& .MuiInputBase-root": {
+      minHeight: 56,
+      overflow: "hidden",
+    },
+    "& .MuiInputBase-input": {
+      fontSize: { xs: "0.96rem", sm: "1rem" },
+      overflowWrap: "anywhere",
+      whiteSpace: "normal",
+    },
+    "& .MuiInputLabel-root": {
+      fontSize: { xs: "0.92rem", sm: "0.96rem" },
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      maxWidth: "calc(100% - 24px)",
+    },
+    "& .MuiInputLabel-shrink": {
+      whiteSpace: "normal",
+      maxWidth: "100%",
+    },
+  };
+
   const formContent = (
     <>
       {/* Header */}
@@ -199,6 +226,7 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
               helperText={errors.firstName}
               fullWidth
               required
+              sx={fieldSx}
             />
             <TextField
               name="phone"
@@ -210,6 +238,7 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
               fullWidth
               required
               inputProps={{ inputMode: "numeric", maxLength: 10 }}
+              sx={fieldSx}
             />
           </Box>
 
@@ -224,6 +253,7 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
               helperText={errors.jobType}
               fullWidth
               required
+              sx={fieldSx}
             >
               {jobTypes.map((t) => (
                 <MenuItem key={t} value={t}>
@@ -241,6 +271,7 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
               helperText={errors.position}
               fullWidth
               required
+              sx={fieldSx}
             >
               {positions.map((p) => (
                 <MenuItem key={p} value={p}>
@@ -260,6 +291,7 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
               helperText={errors.email}
               fullWidth
               required
+              sx={fieldSx}
             />
             <TextField
               name="reference"
@@ -267,6 +299,7 @@ const ApplyForm = ({ variant = "dialog", open, onClose, id = "apply" }) => {
               value={values.reference}
               onChange={handleChange}
               fullWidth
+              sx={fieldSx}
             />
           </Box>
 

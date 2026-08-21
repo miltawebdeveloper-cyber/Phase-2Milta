@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: 'Which US states do you currently serve?',
-    a: 'We currently serve businesses in Florida, Georgia, New York, New Jersey, North Carolina, Connecticut, South Carolina, Maryland, Massachusetts, Ohio, Pennsylvania, and Virginia. Our remote service model also allows us to support businesses operating in additional states upon request.',
+    a: 'We currently serve businesses in Florida, Georgia, New York, New Jersey, North Carolina, Connecticut, Delaware, South Carolina, Maryland, Massachusetts, Ohio, Pennsylvania, and Virginia. Our remote service model also allows us to support businesses operating in additional states upon request.',
   },
   {
     q: 'How do you handle state-specific tax and compliance requirements?',

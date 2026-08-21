@@ -183,6 +183,94 @@ export const statesData = {
       { name: "Payroll Services in California", url: "/us/services/payroll-management-services-in-the-california/" },
     ],
   },
+  Delaware: {
+    description:
+      "We keep Delaware businesses organized with accurate bookkeeping, clean financial records, and reliable month-end reporting.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in Delaware", url: "/us/services/best-bookkeeping-services-in-delaware/" },
+      { name: "Tax Planning and Preparation in Delaware", url: "/us/services/tax-planning-and-preparation-service-in-delaware/" },
+      { name: "CPA Services for Delaware Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-delaware/" },
+      { name: "Virtual Assistant Services in Delaware", url: "/us/services/virtual-assistant-service-in-delaware/" },
+      { name: "Digital Marketing Services in Delaware", url: "/us/services/best-digital-marketing-agency-in-delaware" },
+      { name: "Data Entry & Management Services in Delaware", url: "/us/services/outsourcing-accounting-data-entry-delaware/" },
+      { name: "Financial Controller Services in Delaware", url: "/us/services/financial-controller-services-in-delaware/" },
+      { name: "Payroll Services in Delaware", url: "/us/services/payroll-management-services-in-the-delaware/" },
+    ],
+  },
+  Indiana: {
+    description:
+      "We help Indiana businesses stay financially organized with accurate bookkeeping, tax compliance, payroll, and reporting support.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in Indiana", url: "/us/services/best-bookkeeping-services-in-indiana/" },
+      { name: "Tax Planning and Preparation in Indiana", url: "/us/services/tax-planning-and-preparation-service-in-indiana/" },
+      { name: "CPA Services for Indiana Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-indiana/" },
+      { name: "Virtual Assistant Services in Indiana", url: "/us/services/virtual-assistant-service-in-indiana/" },
+      { name: "Digital Marketing Services in Indiana", url: "/us/services/best-digital-marketing-agency-in-indiana" },
+      { name: "Data Entry & Management Services in Indiana", url: "/us/services/outsourcing-accounting-data-entry-indiana/" },
+      { name: "Financial Controller Services in Indiana", url: "/us/services/financial-controller-services-in-indiana/" },
+      { name: "Payroll Services in Indiana", url: "/us/services/payroll-management-services-in-the-indiana/" },
+    ],
+  },
+  Michigan: {
+    description:
+      "We help Michigan businesses keep accurate books, clean financial records, and reliable month-end reporting they can plan from.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in Michigan", url: "/us/services/best-bookkeeping-services-in-michigan/" },
+      { name: "Tax Planning and Preparation in Michigan", url: "/us/services/tax-planning-and-preparation-service-in-michigan/" },
+      { name: "Virtual Assistant Services in Michigan", url: "/us/services/virtual-assistant-service-in-michigan/" },
+      { name: "CPA Services for Michigan Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-michigan/" },
+      { name: "Payroll Services in Michigan", url: "/us/services/payroll-management-services-in-the-michigan/" },
+      { name: "Data Entry & Management Services in Michigan", url: "/us/services/outsourcing-accounting-data-entry-michigan/" },
+      { name: "Financial Controller Services in Michigan", url: "/us/services/financial-controller-services-in-michigan/" },
+      { name: "Digital Marketing Services in Michigan", url: "/us/services/best-digital-marketing-agency-in-michigan" },
+    ],
+  },
+  NewHampshire: {
+    description:
+      "We support New Hampshire businesses with accurate bookkeeping, tax preparation, and year-round financial guidance.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in New Hampshire", url: "/us/services/best-bookkeeping-services-in-newhampshire/" },
+      { name: "Tax Planning and Preparation in New Hampshire", url: "/us/services/tax-planning-and-preparation-service-in-newhampshire/" },
+      { name: "Virtual Assistant Services in New Hampshire", url: "/us/services/virtual-assistant-service-in-newhampshire/" },
+      { name: "Data Entry & Management Services in New Hampshire", url: "/us/services/outsourcing-accounting-data-entry-newhampshire/" },
+      { name: "Financial Controller Services in New Hampshire", url: "/us/services/financial-controller-services-in-newhampshire/" },
+      { name: "Digital Marketing Services in New Hampshire", url: "/us/services/best-digital-marketing-agency-in-newhampshire" },
+      { name: "CPA Services for New Hampshire Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-newhampshire/" },
+      { name: "Payroll Services in New Hampshire", url: "/us/services/payroll-management-services-in-the-newhampshire/" },
+    ],
+  },
+  Maine: {
+    description:
+      "We help Maine businesses keep their books accurate and tax-ready, with bookkeeping support built around how the business actually runs.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in Maine", url: "/us/services/best-bookkeeping-services-in-maine/" },
+      { name: "Tax Planning and Preparation in Maine", url: "/us/services/tax-planning-and-preparation-service-in-maine/" },
+      { name: "CPA Services for Maine Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-maine/" },
+      { name: "Payroll Services in Maine", url: "/us/services/payroll-management-services-in-the-maine/" },
+      { name: "Virtual Assistant Services in Maine", url: "/us/services/virtual-assistant-service-in-maine/" },
+      { name: "Data Entry & Management Services in Maine", url: "/us/services/outsourcing-accounting-data-entry-maine/" },
+      { name: "Financial Controller Services in Maine", url: "/us/services/financial-controller-services-in-maine/" },
+      { name: "Digital Marketing Services in Maine", url: "/us/services/best-digital-marketing-agency-in-maine" },
+      // The other two Maine services are not listed yet: those page files
+      // still hold another state's copy and have no route, so linking them here
+      // would point visitors and crawlers at URLs that fall through to the SPA
+      // shell. Add each line as its page gets written.
+    ],
+  },
+  Kentucky: {
+    description:
+      "We help Kentucky businesses keep their financial records organized with accurate, reliable bookkeeping support.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in Kentucky", url: "/us/services/best-bookkeeping-services-in-kentucky/" },
+      { name: "Tax Planning and Preparation in Kentucky", url: "/us/services/tax-planning-and-preparation-service-in-kentucky/" },
+      { name: "CPA Services for Kentucky Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-kentucky/" },
+      { name: "Payroll Services in Kentucky", url: "/us/services/payroll-management-services-in-the-kentucky/" },
+      { name: "Virtual Assistant Services in Kentucky", url: "/us/services/virtual-assistant-service-in-kentucky/" },
+      { name: "Data Entry & Management Services in Kentucky", url: "/us/services/outsourcing-accounting-data-entry-kentucky/" },
+      { name: "Financial Controller Services in Kentucky", url: "/us/services/financial-controller-services-in-kentucky/" },
+      { name: "Digital Marketing Services in Kentucky", url: "/us/services/best-digital-marketing-agency-in-kentucky" },
+    ],
+  },
   Texas: {
     description:
       "Our Texas clients rely on us for accurate bookkeeping, tax compliance, and virtual accounting support.",
