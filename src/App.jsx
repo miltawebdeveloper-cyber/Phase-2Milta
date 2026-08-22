@@ -13,6 +13,7 @@ const CareerSub = lazyWithRetry(() => import('./pages/careersub'));
 const BookKeeping = lazyWithRetry(() => import('./pages/BookKeeping'));
 const TaxPlanning = lazyWithRetry(() => import('./pages/TaxPlanning'));
 const VirtualAssistance = lazyWithRetry(() => import('./pages/VirtualAssistance'));
+
 const CPAServices = lazyWithRetry(() => import('./pages/CPAServices'));
 const FinancialControllerServices = lazyWithRetry(() => import('./pages/FinancialControllerServices'));
 const DataEntryServices = lazyWithRetry(() => import('./pages/DataEntryServices'));
@@ -189,6 +190,22 @@ const DigitalMarketingVirginia = lazyWithRetry(() => import('./states/Virginia/D
 const DataEntryVirginia = lazyWithRetry(() => import('./states/Virginia/DataEntry'));
 const FinancialVirginia = lazyWithRetry(() => import('./states/Virginia/Financial'));
 const PayrollVirginia = lazyWithRetry(() => import('./states/Virginia/Payroll'));
+const BookkeepingWashington = lazyWithRetry(() => import('./states/Washington/Bookkeeping'));
+const TaxWashington = lazyWithRetry(() => import('./states/Washington/Tax'));
+const CPAWashington = lazyWithRetry(() => import('./states/Washington/CPAfirms'));
+const VirtualAssistantWashington = lazyWithRetry(() => import('./states/Washington/VirtualAssistance'));
+const DigitalMarketingWashington = lazyWithRetry(() => import('./states/Washington/DigitalMarketing'));
+const DataEntryWashington = lazyWithRetry(() => import('./states/Washington/DataEntry'));
+const FinancialWashington = lazyWithRetry(() => import('./states/Washington/Financial'));
+const PayrollWashington = lazyWithRetry(() => import('./states/Washington/Payroll'));
+const BookkeepingNevada = lazyWithRetry(() => import('./states/Nevada/Bookkeeping'));
+const TaxNevada = lazyWithRetry(() => import('./states/Nevada/Tax'));
+const CPANevada = lazyWithRetry(() => import('./states/Nevada/CPAfirms'));
+const VirtualAssistantNevada = lazyWithRetry(() => import('./states/Nevada/VirtualAssistance'));
+const DigitalMarketingNevada = lazyWithRetry(() => import('./states/Nevada/DigitalMarketing'));
+const DataEntryNevada = lazyWithRetry(() => import('./states/Nevada/DataEntry'));
+const FinancialNevada = lazyWithRetry(() => import('./states/Nevada/Financial'));
+const PayrollNevada = lazyWithRetry(() => import('./states/Nevada/Payroll'));
 import ScrollToTopOnNavigate from './components/ScrollToTopOnNavigate';
 const PrivacyPolicy = lazyWithRetry(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazyWithRetry(() => import('./pages/TermsofService'));
@@ -548,6 +565,26 @@ function ThemedApp() {
            <Route path="/us/services/outsourcing-accounting-data-entry-virginia/" element={<DataEntryVirginia />} />
            <Route path="/us/services/financial-controller-services-in-virginia/" element={<FinancialVirginia />} />
            <Route path="/us/services/payroll-management-services-in-the-virginia/" element={<PayrollVirginia />} />
+
+          {/* Washington */}
+           <Route path="/us/services/best-bookkeeping-services-in-washington/" element={<BookkeepingWashington />} />
+           <Route path="/us/services/tax-planning-and-preparation-service-in-washington/" element={<TaxWashington />} />
+           <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-washington/" element={<CPAWashington />} />
+           <Route path="/us/services/virtual-assistant-service-in-washington/" element={<VirtualAssistantWashington />} />
+           <Route path="/us/services/best-digital-marketing-agency-in-washington/" element={<DigitalMarketingWashington />} />
+           <Route path="/us/services/outsourcing-accounting-data-entry-washington/" element={<DataEntryWashington />} />
+           <Route path="/us/services/financial-controller-services-in-washington/" element={<FinancialWashington />} />
+           <Route path="/us/services/payroll-management-services-in-the-washington/" element={<PayrollWashington />} />
+
+          {/* Nevada */}
+           <Route path="/us/services/best-bookkeeping-services-in-nevada/" element={<BookkeepingNevada />} />
+           <Route path="/us/services/tax-planning-and-preparation-service-in-nevada/" element={<TaxNevada />} />
+           <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-nevada/" element={<CPANevada />} />
+           <Route path="/us/services/virtual-assistant-service-in-nevada/" element={<VirtualAssistantNevada />} />
+           <Route path="/us/services/best-digital-marketing-agency-in-nevada" element={<DigitalMarketingNevada />} />
+           <Route path="/us/services/outsourcing-accounting-data-entry-nevada/" element={<DataEntryNevada />} />
+           <Route path="/us/services/financial-controller-services-in-nevada/" element={<FinancialNevada />} />
+           <Route path="/us/services/payroll-management-services-in-the-nevada/" element={<PayrollNevada />} />
 
         </Routes>
         </Suspense>
