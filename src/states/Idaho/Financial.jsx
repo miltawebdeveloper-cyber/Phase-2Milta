@@ -62,37 +62,30 @@ const faqSchema = {
   })),
 };
 
-export default function FinancialDelaware() {
+export default function FinancialIdaho() {
   return (
     <ServiceLayout
       seo={{
-        title: "Outsourced financial controller services in Delaware | Milta",
+        title: "Outsourced financial controller services in Idaho ",
         description:
-          "Transform your financial operations with outsourced financial controller services in Delaware. Certified experts ready to elevate your business.",
+          "Transform your financial operations with outsourced financial controller services in Idaho. Certified experts ready to elevate your business",
         keywords:
-          "financial controller services, outsourced financial controller, accounting controller, certified financial controller",
+          "financial controller services, outsourced financial controller, accounting controller, certified financial controller.",
         author: "Milta Accounting",
-        canonical: "https://www.miltafs.com/us/services/financial-controller-services-in-delaware/",
+        canonical: "https://www.miltafs.com/us/services/financial-controller-services-in-idaho/",
         schema: faqSchema,
       }}
+      // No banner section was supplied for this page and the document does not
+      // contain one, so the hero is the document's own opening heading and its
+      // opening paragraph. Nothing here is invented; swap in approved banner
+      // copy if there is any.
       hero={{
-        titleLead: "Top-Rated Accounting Financial Controller Services in",
-        highlight: "Delaware",
-        subtitle:
-          "Strengthen financial control, improve reporting, and make smarter business decisions with expert controller support.",
-        ctaLabel: "Get Started",
-        breadcrumb: "Financial Controller Services in Delaware",
-      }}
-      intro={{
-        overline: "FINANCIAL CONTROLLER SERVICES",
         titleLead: "Elevate Your Financial Strategy with Expert Financial Controller Services in",
-        highlight: "Delaware",
-        paragraphs: [
-          "Unlock precision and compliance for your business with our certified financial controller team, offering specialized accounting controller services tailored to Delaware's dynamic market. From meticulous financial reporting to strategic analysis, our outsourced financial controller solutions ensure accuracy, streamline workflows, and align with regulatory standards.",
-          "Leverage our financial controller services to gain actionable insights, optimize resource allocation, and fuel sustainable growth. Whether you need ongoing support or project-based expertise, our seasoned professionals empower you to navigate complexities and make confident, data-driven decisions.",
-        ],
-        ctaLabel: "Get Started",
-        imageAlt: "Financial controller services in Delaware",
+        highlight: "Idaho",
+        subtitle:
+          "Unlock precision and compliance for your business with our certified financial controller team, offering specialized accounting controller services tailored to Idaho's dynamic market. From meticulous financial reporting to strategic analysis, our outsourced financial controller solutions ensure accuracy, streamline workflows, and align with regulatory standards.",
+        ctaLabel: "Book Your Free Consultation Today",
+        breadcrumb: "Financial Controller Services in Idaho",
       }}
       prose={{
         overline: "LIMITED TIME",
@@ -104,7 +97,7 @@ export default function FinancialDelaware() {
       cardGroups={[
         {
           overline: "WHAT IS A FINANCE CONTROLLER SERVICES?",
-          titleLead: "Certified Financial Controller Services in Delaware:",
+          titleLead: "Certified Financial Controller Services in Idaho:",
           highlight: "Optimize Your Financial Operations",
           paragraphs: [
             "Certified Financial Controller Services provide end-to-end oversight of your company's financial health, combining strategic analysis, compliance expertise, and operational efficiency. A certified financial controller (or accounting controller) serves as a senior leader, managing critical tasks like financial reporting, budgeting, and regulatory adherence while aligning processes with industry standards.",
@@ -171,13 +164,13 @@ export default function FinancialDelaware() {
           titleLead: "Miltafs Financial Controller Services: Comprehensive Financial Oversight and",
           highlight: "Strategic Leadership",
           paragraphs: [
-            "At Miltafs, we offer expert Financial Controller Services to small and medium-sized businesses in Delaware, USA. Our services cover a wide range of financial functions, providing you with the leadership and insights necessary to optimize your financial operations, enhance internal controls, and ensure regulatory compliance. Whether you're looking for day-to-day financial oversight or strategic guidance, Miltafs has the right solution for your business.",
+            "At Miltafs, we offer expert Financial Controller Services to small and medium-sized businesses in Idaho, USA. Our services cover a wide range of financial functions, providing you with the leadership and insights necessary to optimize your financial operations, enhance internal controls, and ensure regulatory compliance. Whether you're looking for day-to-day financial oversight or strategic guidance, Miltafs has the right solution for your business.",
           ],
         },
         {
           overline: "WHAT WE DO",
           titleLead: "Our Financial Controller Services in",
-          highlight: "Delaware",
+          highlight: "Idaho",
           bg: "paper",
           columns: 3,
           items: [

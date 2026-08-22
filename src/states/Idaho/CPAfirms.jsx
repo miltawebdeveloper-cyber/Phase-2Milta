@@ -34,38 +34,38 @@ const faqSchema = {
   })),
 };
 
-export default function CPADelaware() {
+export default function CPAIdaho() {
   return (
     <ServiceLayout
       seo={{
-        title: "Trusted CPA services for small business in Delaware | Milta",
+        title: "Trusted CPA services for small business in Idaho",
         description:
-          "Work with a trusted CPA firm offering the best CPA services for small businesses in Delaware. Accurate accounting & compliance — contact us today.",
+          "Work with a trusted CPA firm offering the best CPA services for small businesses in Idaho. Accurate accounting & compliance — contact us today",
         keywords:
-          "cpa services in Delaware, cpa firms near me, cpa firms in Delaware, accounting services for small business, cpa services for small businesses, best cpa service for small businesses in Delaware, certified public accountant near me",
+          "cpa services in Idaho, cpa firms near me, cpa firms in Idaho, accounting services for small business, cpa services for small businesses, best cpa service for small businesses in Idaho, certified public accountant near me.",
         author: "Milta Accounting",
         canonical:
-          "https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-the-delaware/",
+          "https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-the-idaho/",
         schema: faqSchema,
       }}
       hero={{
-        titleLead: "Professional CPA Services in Delaware for",
-        highlight: "Long-Term Business Success",
+        titleLead: "Professional CPA Services in Idaho for",
+        highlight: "Better Business Financial Decisions",
         subtitle:
-          "Receive trusted financial guidance and accounting expertise to help your business stay organized and financially prepared.",
-        ctaLabel: "Connect with Our CPA Experts Today.",
-        breadcrumb: "CPA Services in Delaware",
+          "Get reliable financial expertise, accounting support, and strategic guidance to help your business stay financially prepared.",
+        ctaLabel: "Talk to Our CPA Experts Today.",
+        breadcrumb: "CPA Services in Idaho",
       }}
       intro={{
-        overline: "CPA SERVICES IN DELAWARE",
-        titleLead: "Trusted CPA Firm in Delaware for",
+        overline: "CPA SERVICES IN IDAHO",
+        titleLead: "Trusted CPA Firm in Idaho for",
         highlight: "Your Business Needs",
         paragraphs: [
-          "Transform Your Business Finances with the Best CPA Services in Delaware.",
-          "We are a CPA Services in Delaware, a trusted CPA firm near me dedicated to providing expert financial solutions for individuals and small businesses. As one of the best CPA firms in Delaware, we specialize in accounting, tax preparation, and financial planning to keep your business on track. Our team of certified professionals offers CPA services for small businesses in Delaware, ensuring you confidently manage all your financial needs. Whether you're looking for a certified public accountant near me or comprehensive accounting services for small business, Milta is here to help you thrive.",
+          "Transform Your Business Finances with the Best CPA Services in Idaho.",
+          "We are a CPA Services in Idaho, a trusted CPA firm near me dedicated to providing expert financial solutions for individuals and small businesses. As one of the best CPA firms in Idaho, we specialize in accounting, tax preparation, and financial planning to keep your business on track. Our team of certified professionals offers CPA services for small businesses in Idaho, ensuring you confidently manage all your financial needs. Whether you're looking for a certified public accountant near me or comprehensive accounting services for small business, Milta is here to help you thrive.",
         ],
         ctaLabel: "Talk to a Certified CPA Today",
-        imageAlt: "CPA services in Delaware",
+        imageAlt: "CPA services in Idaho",
       }}
       prose={{
         overline: "HOW WE HELP",
@@ -73,8 +73,8 @@ export default function CPADelaware() {
         highlight: "Your Business?",
         bg: "paper",
         paragraphs: [
-          "At the core of every successful CPA firm in Delaware is the ability to maintain accurate financial records while offering strategic insights. However, managing clean books and performing in-depth financial analysis can be time-consuming. Milta simplifies these tasks, enabling CPA firms near me to concentrate on high-value financial strategies instead of routine bookkeeping.",
-          "By partnering with Milta, your firm gains access to a skilled team that provides reliable support for accounting services for small business. Our innovative approach, combining accounting expertise with technology, streamlines operations, reduces costs, and enhances accuracy. Outsourcing your CPA services in Delaware to Milta helps cut payroll and overhead expenses while improving overall efficiency.",
+          "At the core of every successful CPA firm in Idaho is the ability to maintain accurate financial records while offering strategic insights. However, managing clean books and performing in-depth financial analysis can be time-consuming. Milta simplifies these tasks, enabling CPA firms near me to concentrate on high-value financial strategies instead of routine bookkeeping.",
+          "By partnering with Milta, your firm gains access to a skilled team that provides reliable support for accounting services for small business. Our innovative approach, combining accounting expertise with technology, streamlines operations, reduces costs, and enhances accuracy. Outsourcing your CPA services in Idaho to Milta helps cut payroll and overhead expenses while improving overall efficiency.",
         ],
       }}
       cardGroups={[
@@ -83,8 +83,8 @@ export default function CPADelaware() {
           titleLead: "Why Outsource Your",
           highlight: "CPA Services?",
           paragraphs: [
-            "Many CPA firms in Delaware are leveraging outsourcing to optimize resources and save valuable time. Partnering with Milta ensures your firm can efficiently meet deadlines, manage large-scale financial projects, and handle backlogs with ease. Our experienced team helps you onboard and retain clients by delivering exceptional accounting services for small businesses under tight deadlines.",
-            "We take pride in assisting businesses in achieving financial stability and growth. Whether you're searching for CPA firms near me or need expert accounting support, Milta offers the best CPA service for small businesses in Delaware to help you succeed.",
+            "Many CPA firms in Idaho are leveraging outsourcing to optimize resources and save valuable time. Partnering with Milta ensures your firm can efficiently meet deadlines, manage large-scale financial projects, and handle backlogs with ease. Our experienced team helps you onboard and retain clients by delivering exceptional accounting services for small businesses under tight deadlines.",
+            "We take pride in assisting businesses in achieving financial stability and growth. Whether you're searching for CPA firms near me or need expert accounting support, Milta offers the best CPA service for small businesses in Idaho to help you succeed.",
           ],
         },
         {
@@ -116,42 +116,183 @@ export default function CPADelaware() {
             },
           ],
         },
+        // The document breaks "Our Core CPA Services" into six numbered
+        // subsections, each with its own lead-in and its own bullet list. They
+        // are kept as six sections below rather than collapsed into six cards,
+        // so every bullet stays a separate point exactly as written.
         {
           overline: "CORE SERVICES",
           titleLead: "Our Core CPA Services in",
-          highlight: "Delaware",
+          highlight: "Idaho",
+          paragraphs: [],
+        },
+        {
+          overline: "CORE SERVICE 1",
+          titleLead: "Accounting and Bookkeeping",
+          highlight: "Services",
+          subtitle:
+            "Any company depends on precise financial records for survival. Our comprehensive accounting services for small businesses are designed to ensure your financial data is always up-to-date and compliant:",
+          bg: "paper",
           columns: 3,
           items: [
             {
-              title: "1. Accounting and Bookkeeping Services",
-              desc: "Any company depends on precise financial records for survival. Our comprehensive accounting services for small businesses are designed to ensure your financial data is always up-to-date and compliant: Financial Statement Preparation — monthly, quarterly, and annual reports that provide clear insights into your business performance. General Ledger Maintenance — regular updates and reconciliations to ensure accuracy and consistency. Accounts Payable and Receivable Management — efficient tracking of incoming and outgoing payments to maintain healthy cash flow. Bank and Credit Card Reconciliations — regular reconciliations to identify discrepancies and prevent fraud. Payroll Processing and Compliance — accurate payroll management with full compliance to federal and state regulations.",
+              title: "Financial Statement Preparation",
+              desc: "Monthly, quarterly, and annual reports that provide clear insights into your business performance.",
             },
             {
-              title: "2. Tax Planning and Preparation",
-              desc: "Navigating the complexities of the U.S. tax system can be challenging. Milta offers expert tax planning and preparation services in Delaware to help minimize liabilities and ensure compliance: Corporate Tax Return Preparation — handling Forms 1120S, and 1065 with precision. Individual Tax Return Preparation — comprehensive preparation for Forms 1040 and 1041. Sales Tax and Payroll Tax Filings — ensuring accurate and timely filings to avoid penalties. Tax Compliance and Advisory Services — ongoing support to help you stay compliant with the latest tax regulations. IRS Representation and Audit Support — expert guidance during audits to protect your interests.",
+              title: "General Ledger Maintenance",
+              desc: "Regular updates and reconciliations to ensure accuracy and consistency.",
             },
             {
-              title: "3. Financial Consulting and Advisory Services",
-              desc: "Our strategic financial consulting services empower businesses to make informed decisions that drive growth and profitability: Budgeting and Financial Forecasting — proactive financial planning to meet business goals. Cash Flow Management — strategies to optimize liquidity and improve financial stability. Business Valuation and Financial Analysis — comprehensive assessments to understand your business's true value. Risk Management and Internal Controls — identifying potential risks and implementing robust control mechanisms. Mergers and Acquisitions Advisory — expert advice to navigate complex transactions and maximize value.",
+              title: "Accounts Payable and Receivable Management",
+              desc: "Efficient tracking of incoming and outgoing payments to maintain healthy cash flow.",
             },
             {
-              title: "4. Catch-Up Services",
-              desc: "For businesses facing backlogs or disorganized records, we offer specialized catch-up and clean-up accounting services to restore financial order: Review and Correction of Historical Records — identifying errors and making necessary adjustments. Reconciliation of Discrepancies — ensuring accuracy across all financial accounts. Updating Outdated Accounting Systems — transitioning to modern systems for improved efficiency.",
+              title: "Bank and Credit Card Reconciliations",
+              desc: "Regular reconciliations to identify discrepancies and prevent fraud.",
             },
             {
-              title: "5. Accounting Software Setup and Conversion",
-              desc: "Whether you're transitioning to new software or optimizing your current system, we provide comprehensive support: QuickBooks Setup and Training — customizing configurations and hands-on training for your team. Conversions to QuickBooks Online — seamless migration from desktop versions to cloud-based solutions. Cloud-Based Platform Migrations — moving to platforms like Xero for real-time financial management. Ongoing Support and Troubleshooting — continuous assistance to resolve technical issues promptly.",
+              title: "Payroll Processing and Compliance",
+              desc: "Accurate payroll management with full compliance to federal and state regulations.",
+            },
+          ],
+        },
+        {
+          overline: "CORE SERVICE 2",
+          titleLead: "Tax Planning and",
+          highlight: "Preparation",
+          subtitle:
+            "Navigating the complexities of the U.S. tax system can be challenging. Milta offers expert tax planning and preparation services in Idaho to help minimize liabilities and ensure compliance:",
+          columns: 3,
+          items: [
+            {
+              title: "Corporate Tax Return Preparation",
+              desc: "Handling Forms 1120S, and 1065 with precision.",
             },
             {
-              title: "6. Audit and Assurance Services",
-              desc: "Milta's audit and assurance services are designed to enhance transparency and stakeholder confidence: Internal Audits and Risk Assessments — identifying operational risks and recommending improvements. Financial Statement Audits, Reviews, and Compilations — ensuring the accuracy and reliability of your financial reports. Compliance Audits and Regulatory Reporting — helping businesses meet industry-specific regulatory requirements.",
+              title: "Individual Tax Return Preparation",
+              desc: "Comprehensive preparation for Forms 1040 and 1041.",
+            },
+            {
+              title: "Sales Tax and Payroll Tax Filings",
+              desc: "Ensuring accurate and timely filings to avoid penalties.",
+            },
+            {
+              title: "Tax Compliance and Advisory Services",
+              desc: "Ongoing support to help you stay compliant with the latest tax regulations.",
+            },
+            {
+              title: "IRS Representation and Audit Support",
+              desc: "Expert guidance during audits to protect your interests.",
+            },
+          ],
+        },
+        {
+          overline: "CORE SERVICE 3",
+          titleLead: "Financial Consulting and",
+          highlight: "Advisory Services",
+          subtitle:
+            "Our strategic financial consulting services empower businesses to make informed decisions that drive growth and profitability:",
+          bg: "paper",
+          columns: 3,
+          items: [
+            {
+              title: "Budgeting and Financial Forecasting",
+              desc: "Proactive financial planning to meet business goals.",
+            },
+            {
+              title: "Cash Flow Management",
+              desc: "Strategies to optimize liquidity and improve financial stability.",
+            },
+            {
+              title: "Business Valuation and Financial Analysis",
+              desc: "Comprehensive assessments to understand your business's true value.",
+            },
+            {
+              title: "Risk Management and Internal Controls",
+              desc: "Identifying potential risks and implementing robust control mechanisms.",
+            },
+            {
+              title: "Mergers and Acquisitions Advisory",
+              desc: "Expert advice to navigate complex transactions and maximize value.",
+            },
+          ],
+        },
+        {
+          overline: "CORE SERVICE 4",
+          titleLead: "Catch-Up",
+          highlight: "Services",
+          subtitle:
+            "For businesses facing backlogs or disorganized records, we offer specialized catch-up and clean-up accounting services to restore financial order",
+          columns: 3,
+          items: [
+            {
+              title: "Review and Correction of Historical Records",
+              desc: "Identifying errors and making necessary adjustments.",
+            },
+            {
+              title: "Reconciliation of Discrepancies",
+              desc: "Ensuring accuracy across all financial accounts.",
+            },
+            {
+              title: "Updating Outdated Accounting Systems",
+              desc: "Transitioning to modern systems for improved efficiency.",
+            },
+          ],
+        },
+        {
+          overline: "CORE SERVICE 5",
+          titleLead: "Accounting Software Setup",
+          highlight: "and Conversion",
+          subtitle:
+            "Whether you're transitioning to new software or optimizing your current system, we provide comprehensive support:",
+          bg: "paper",
+          columns: 2,
+          items: [
+            {
+              title: "QuickBooks Setup and Training",
+              desc: "customizing configurations and hands-on training for your team.",
+            },
+            {
+              title: "Conversions to QuickBooks Online",
+              desc: "Seamless migration from desktop versions to cloud-based solutions.",
+            },
+            {
+              title: "Cloud-Based Platform Migrations",
+              desc: "Moving to platforms like Xero for real-time financial management.",
+            },
+            {
+              title: "Ongoing Support and Troubleshooting",
+              desc: "Continuous assistance to resolve technical issues promptly.",
+            },
+          ],
+        },
+        {
+          overline: "CORE SERVICE 6",
+          titleLead: "Audit and Assurance",
+          highlight: "Services",
+          subtitle:
+            "Milta's audit and assurance services are designed to enhance transparency and stakeholder confidence:",
+          columns: 3,
+          items: [
+            {
+              title: "Internal Audits and Risk Assessments",
+              desc: "Identifying operational risks and recommending improvements.",
+            },
+            {
+              title: "Financial Statement Audits, Reviews, and Compilations",
+              desc: "Ensuring the accuracy and reliability of your financial reports.",
+            },
+            {
+              title: "Compliance Audits and Regulatory Reporting",
+              desc: "Helping businesses meet industry-specific regulatory requirements.",
             },
           ],
         },
         {
           overline: "WHY MILTA",
           titleLead: "Why Choose Milta for CPA Services in",
-          highlight: "Delaware?",
+          highlight: "Idaho?",
           bg: "paper",
           columns: 3,
           items: [
@@ -168,7 +309,7 @@ export default function CPADelaware() {
               desc: "By outsourcing your accounting functions to us, you can focus on growing your business and nurturing client relationships while we handle the financial complexities.",
             },
             {
-              title: "High-Quality CPA Services in Delaware",
+              title: "High-Quality CPA Services in Idaho",
               desc: "Our team of skilled accounting professionals is committed to excellence. With a client retention rate exceeding 95%, we ensure consistent, high-quality service customizing to your business needs.",
             },
             {
@@ -186,7 +327,7 @@ export default function CPADelaware() {
           titleLead: "Specialized CPA Services for",
           highlight: "Small Businesses",
           subtitle:
-            "At Milta, we understand the unique challenges faced by cpa small businesses in Delaware. Our specialized services are customizing to support growth, enhance operational efficiency, and ensure regulatory compliance:",
+            "At Milta, we understand the unique challenges faced by cpa small businesses in Idaho. Our specialized services are customizing to support growth, enhance operational efficiency, and ensure regulatory compliance:",
           columns: 3,
           items: [
             {
@@ -208,7 +349,7 @@ export default function CPADelaware() {
           titleLead: "How Milta Supports",
           highlight: "CPA Firms near me",
           subtitle:
-            "In addition to serving small businesses, we also partner with CPA firms in the Delaware, offering:",
+            "In addition to serving small businesses, we also partner with CPA firms in the Idaho, offering:",
           bg: "paper",
           columns: 3,
           items: [

@@ -1,10 +1,4 @@
 import React from "react";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import FactCheckIcon from "@mui/icons-material/FactCheck";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
-import BalanceIcon from "@mui/icons-material/Balance";
-import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import BarChartIcon from "@mui/icons-material/BarChart";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -52,38 +46,38 @@ const faqSchema = {
   })),
 };
 
-export default function DataEntryDelaware() {
+export default function DataEntryIdaho() {
   return (
     <ServiceLayout
       seo={{
-        title: "Accounting Data Entry Services in Delaware for Small Businesses",
+        title: "Accounting data entry services in Idaho",
         description:
-          "Accurate, affordable accounting data entry services in Delaware. General ledger, AP/AR, invoices, bank reconciliation, payroll, and QuickBooks data entry.",
+          "Partner with a leading data entry company in Idaho for accurate accounting data entry & data management services that cut costs.",
         keywords:
-          "data entry services in delaware, accounting data entry companies in delaware, data management services, outsourcing accounting data entry, quickbooks data entry",
+          "data entry companies, accounting data entry, data entry services, data management services.",
         author: "Milta Accounting",
-        canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-delaware/",
+        canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-idaho/",
         schema: faqSchema,
       }}
       hero={{
         titleLead: "Precision-Driven Data Management Services in",
-        highlight: "Delaware, USA",
+        highlight: "Idaho, USA",
         subtitle:
           "Our specialized solutions are designed to enhance accuracy, optimize workflows, and fuel growth for small businesses.",
         ctaLabel: "Book a free 30-minute Zoom consultation today.",
-        breadcrumb: "Data Entry Services in Delaware",
+        breadcrumb: "Data Entry Services in Idaho",
       }}
       intro={{
         overline: "OUR IDENTITY AND ACTIVITIES",
         titleLead: "Our Identity and",
         highlight: "Activities",
         paragraphs: [
-          "We are a trusted partner among Accounting Data Entry Companies in Delaware, delivering precise and efficient accounting data entry solutions. customized for small and medium-sized businesses across the U.S., we prioritize maximizing your time and resources. As a leader in data entry companies based in Delaware, our mission is to streamline your business operations with affordable, high-quality, and error-free data entry services.",
+          "We are a trusted partner among Accounting Data Entry Companies in Idaho, delivering precise and efficient accounting data entry solutions. customized for small and medium-sized businesses across the U.S., we prioritize maximizing your time and resources. As a leader in data entry companies based in Idaho, our mission is to streamline your business operations with affordable, high-quality, and error-free data entry services.",
           "With years of expertise in data management services, our dedicated team ensures your financial records are meticulously maintained, accurate, compliant, and always up-to-date. This empowers you to make confident, data-driven decisions for sustainable growth.",
-          "We specialize in a full spectrum of data entry services in Delaware, including data collection, reporting, reconciliation, and customized data management services. Designed for small businesses, our solutions combine precision and professionalism to handle your financial information securely, so you can focus on scaling your vision.",
+          "We specialize in a full spectrum of data entry services in Idaho, including data collection, reporting, reconciliation, and customized data management services. Designed for small businesses, our solutions combine precision and professionalism to handle your financial information securely, so you can focus on scaling your vision.",
         ],
         ctaLabel: "Book a free 30-minute Zoom consultation today.",
-        imageAlt: "Accounting data entry services in Delaware",
+        imageAlt: "Accounting data entry services in Idaho",
       }}
       cardGroups={[
         {
@@ -91,37 +85,31 @@ export default function DataEntryDelaware() {
           titleLead: "Our Efficient Accounting Data",
           highlight: "Entry Process",
           subtitle:
-            "At Milta, our proven workflow designed by Accounting Data Entry Companies in Delaware ensures your financial data is managed with unmatched precision and efficiency. Here's how we deliver excellence:",
+            "At Milta, our proven workflow designed by Accounting Data Entry Companies in Idaho ensures your financial data is managed with unmatched precision and efficiency. Here's how we deliver excellence:",
           bg: "paper",
           columns: 3,
           items: [
             {
-              icon: CloudUploadIcon,
               title: "Data Collection",
               desc: "We securely gather invoices, receipts, bank statements, payroll records, and other critical documents through encrypted digital channels. As trusted data entry companies, we prioritize confidentiality, safeguarding your sensitive information at every step.",
             },
             {
-              icon: FactCheckIcon,
               title: "Data Verification",
               desc: "Every document undergoes rigorous scrutiny to ensure accuracy and completeness. For instance, we cross-reference invoice details with purchase orders, leveraging accounting data entry expertise to eliminate discrepancies before processing.",
             },
             {
-              icon: AccountTreeIcon,
               title: "Chart of Accounts Creation",
               desc: "We build or refine a customized chart of accounts aligned with your business structure. This foundational step, part of our data management services, ensures seamless categorization of transactions for clarity and compliance.",
             },
             {
-              icon: BalanceIcon,
               title: "Double-Entry Accounting Check",
               desc: "Our team applies double-entry accounting principles to maintain balanced records, minimizing errors and financial mismatches. This meticulous approach defines our data entry services, ensuring reliability in every ledger entry.",
             },
             {
-              icon: CompareArrowsIcon,
               title: "Data Reconciliation",
-              desc: "We perform thorough reconciliation of bank statements and ledgers, identifying and resolving inconsistencies. This step underscores our commitment to accuracy, a hallmark of top data entry companies in Delaware.",
+              desc: "We perform thorough reconciliation of bank statements and ledgers, identifying and resolving inconsistencies. This step underscores our commitment to accuracy, a hallmark of top data entry companies in Idaho.",
             },
             {
-              icon: BarChartIcon,
               title: "Financial Reporting",
               desc: "Finally, we generate detailed reports (profit & loss statements, balance sheets, cash flow analyses) to provide actionable insights. These reports, backed by robust data management services, empower you to drive strategic decisions confidently.",
             },

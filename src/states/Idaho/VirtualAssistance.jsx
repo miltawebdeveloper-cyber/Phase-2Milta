@@ -1,8 +1,4 @@
 import React from "react";
-import SavingsIcon from "@mui/icons-material/Savings";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import TuneIcon from "@mui/icons-material/Tune";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -38,68 +34,93 @@ const faqSchema = {
   })),
 };
 
-export default function VirtualAssistantDelaware() {
+export default function VirtualAssistantIdaho() {
   return (
     <ServiceLayout
       seo={{
-        title: "Virtual assistant services in Delaware | Milta",
+        title: "Virtual assistant services in Idaho | Milta",
         description:
-          "Struggling with admin tasks? Get expert virtual assistant services in Delaware for bookkeeping, admin support & more — built for small business.",
+          "Struggling with admin tasks? Get expert virtual assistant services in Idaho for bookkeeping, admin support & more — built for small business.",
         keywords:
-          "virtual assistants service in Delaware, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant ny",
+          "virtual assistants service in Idaho, virtual assistant service, best virtual assistant companies, virtual assistant for small business, virtual bookkeeping service, virtual assistant Idaho",
         author: "Milta Accounting",
-        canonical: "https://www.miltafs.com/us/services/virtual-assistant-service-in-delaware/",
+        canonical:
+          "https://www.miltafs.com/us/services/virtual-assistant-service-in-idaho/",
         schema: faqSchema,
       }}
       hero={{
         titleLead: "Boost Your Business Efficiency with",
-        highlight: "Virtual Assistant Services in Delaware",
+        highlight: "Virtual Assistant Services in Idaho",
         subtitle:
-          "Looking for top-notch virtual assistant services in Delaware? Our virtual assistant for small businesses provides reliable, cost-effective solutions that free up your time and allow you to focus on what matters most. How Our Virtual Assistants Can Transform Your Business.",
+          "Looking for top-notch virtual assistant services in Idaho? Our virtual assistant for small businesses provides reliable, cost-effective solutions that free up your time and allow you to focus on what matters most. How Our Virtual Assistants Can Transform Your Business.",
         ctaLabel: "Book a Free Consultation Today!",
-        breadcrumb: "Virtual Assistant Services in Delaware",
+        breadcrumb: "Virtual Assistant Services in Idaho",
       }}
       intro={{
-        overline: "VIRTUAL ASSISTANTS IN DELAWARE",
+        overline: "VIRTUAL ASSISTANTS IN IDAHO",
         titleLead: "Unlock Rewarding Opportunities with Virtual Assistant Service in",
-        highlight: "Delaware",
+        highlight: "Idaho",
         paragraphs: [
-          "Pursuing a career in virtual assistant service in Delaware opens up flexible and rewarding opportunities. As businesses embrace remote work, virtual assistants for small businesses are crucial in enhancing efficiency and supporting growth.",
-          "At Milta, we recognize the challenges small business owners face with administrative tasks, finances, and daily operations. Our virtual assistant service in Delaware offers expert assistance to streamline workflows and boost productivity.",
+          "Pursuing a career in virtual assistant service in Idaho opens up flexible and rewarding opportunities. As businesses embrace remote work, virtual assistants for small businesses are crucial in enhancing efficiency and supporting growth.",
+          "At Milta, we recognize the challenges small business owners face with administrative tasks, finances, and daily operations. Our virtual assistant service in Idaho offers expert assistance to streamline workflows and boost productivity.",
           "Whether you're an entrepreneur or a growing business, our best virtual assistant companies deliver tailored solutions. From virtual bookkeeping services to specialized admin support, we are your trusted partner in achieving success with the best virtual assistant for small business support.",
         ],
         ctaLabel: "Book a Free Consultation Today!",
-        imageAlt: "Virtual assistant services in Delaware",
+        imageAlt: "Virtual assistant services in Idaho",
       }}
       cardGroups={[
+        // The document lists four numbered benefits, each with its own bullets.
+        // They are kept as four sections so every bullet stays a separate point
+        // rather than being run together inside one card.
         {
           overline: "BENEFITS",
           titleLead: "Benefits of Virtual Assistant Services in",
-          highlight: "Delaware",
-          subtitle: "Partnering with Milta offers a range of advantages for your business:",
+          highlight: "Idaho",
+          bg: "paper",
+          paragraphs: ["Partnering with Milta offers a range of advantages for your business:"],
+        },
+        {
+          overline: "BENEFIT 1",
+          titleLead: "Cost",
+          highlight: "Savings",
+          columns: 3,
+          items: [
+            "Save on recruitment, training, and employee benefits.",
+            "Pay only for the services or hours you need.",
+            "Reduce operational costs while maintaining quality with our virtual assistant service in Idaho.",
+          ],
+        },
+        {
+          overline: "BENEFIT 2",
+          titleLead: "Increased",
+          highlight: "Productivity",
+          bg: "paper",
+          columns: 3,
+          items: [
+            "Focus on your business's core operations while delegating repetitive tasks.",
+            "Gain access to experienced professionals skilled in various domains.",
+            "Improve turnaround times with efficient task handling from our virtual assistant for small business",
+          ],
+        },
+        {
+          overline: "BENEFIT 3",
+          titleLead: "Flexibility and",
+          highlight: "Scalability",
+          columns: 2,
+          items: [
+            "Adjust service levels to your business's changing needs.",
+            "Adapt tasks and procedures to meet your specific requirements with virtual assistant services in Idaho.",
+          ],
+        },
+        {
+          overline: "BENEFIT 4",
+          titleLead: "Expert",
+          highlight: "Support",
           bg: "paper",
           columns: 2,
           items: [
-            {
-              icon: SavingsIcon,
-              title: "Cost Savings",
-              desc: "Save on recruitment, training, and employee benefits. Pay only for the services or hours you need. Reduce operational costs while maintaining quality with our virtual assistant service in Delaware.",
-            },
-            {
-              icon: TrendingUpIcon,
-              title: "Increased Productivity",
-              desc: "Focus on your business's core operations while delegating repetitive tasks. Gain access to experienced professionals skilled in various domains. Improve turnaround times with efficient task handling from our virtual assistant for small business.",
-            },
-            {
-              icon: TuneIcon,
-              title: "Flexibility and Scalability",
-              desc: "Adjust service levels to your business's changing needs. Adapt tasks and procedures to meet your specific requirements with virtual assistant services in Delaware.",
-            },
-            {
-              icon: SupportAgentIcon,
-              title: "Expert Support",
-              desc: "Benefit from professionals proficient in accounting, bookkeeping, customer support, and more. Our team is trained in the latest tools and techniques, ensuring top-notch results with our best virtual assistant companies offering specialized support.",
-            },
+            "Benefit from professionals proficient in accounting, bookkeeping, customer support, and more.",
+            "Our team is trained in the latest tools and techniques, ensuring top-notch results with our best virtual assistant companies offering specialized support.",
           ],
         },
         {
@@ -114,19 +135,19 @@ export default function VirtualAssistantDelaware() {
         {
           overline: "WHAT WE DO",
           titleLead: "Our Virtual Assistant Services in",
-          highlight: "Delaware",
+          highlight: "Idaho",
           subtitle:
-            "At Milta, we offer a wide range of virtual assistant Delaware services designed to address the unique needs of small businesses.",
+            "At Milta, we offer a wide range of virtual assistant Idaho services designed to address the unique needs of small businesses.",
           bg: "paper",
           columns: 3,
           items: [
             {
-              title: "Real Estate Virtual Assistant Delaware",
-              desc: "Our Real Estate Virtual Assistant Services specialize in managing time-consuming tasks like property listings, client database updates, and virtual tours. We streamline showings, market research, and reporting, ensuring you stay competitive. With our virtual assistant service in Delaware, you can focus on building client relationships and closing deals, while we handle the administrative work. Let the best virtual assistant companies support your success!",
+              title: "Real Estate Virtual Assistant Idaho",
+              desc: "Our Real Estate Virtual Assistant Services specialize in managing time-consuming tasks like property listings, client database updates, and virtual tours. We streamline showings, market research, and reporting, ensuring you stay competitive. With our virtual assistant service in Idaho, you can focus on building client relationships and closing deals, while we handle the administrative work. Let the best virtual assistant companies support your success!",
             },
             {
               title: "Data Entry",
-              desc: "Our virtual assistants service in Delaware ensures accurate data entry services, for organized and easily accessible business records. Whether inputting large datasets into spreadsheets or business software, we maintain accuracy and consistency, improving workflow and minimizing errors.",
+              desc: "Our virtual assistants service in Idaho ensures accurate data entry services, for organized and easily accessible business records. Whether inputting large datasets into spreadsheets or business software, we maintain accuracy and consistency, improving workflow and minimizing errors.",
             },
             {
               title: "Event Planning",
@@ -142,7 +163,7 @@ export default function VirtualAssistantDelaware() {
             },
             {
               title: "Appointment Scheduling",
-              desc: "Never miss an important meeting with our appointment scheduling services. Our virtual assistants in Delaware manage your calendar, set up appointments, send reminders, and handle rescheduling across time zones.",
+              desc: "Never miss an important meeting with our appointment scheduling services. Our virtual assistants in Idaho manage your calendar, set up appointments, send reminders, and handle rescheduling across time zones.",
             },
             {
               title: "Accounting & Virtual Bookkeeping Service",
@@ -175,7 +196,7 @@ export default function VirtualAssistantDelaware() {
           titleLead: "Why Choose Milta for",
           highlight: "Virtual Assistant Services?",
           subtitle:
-            "We stand out as a trusted partner for small businesses looking for efficient and reliable virtual assistants Delaware. Here's why:",
+            "We stand out as a trusted partner for small businesses looking for efficient and reliable virtual assistants in Idaho. Here's why:",
           columns: 3,
           items: [
             {

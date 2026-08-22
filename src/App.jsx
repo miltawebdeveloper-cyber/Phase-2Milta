@@ -62,6 +62,14 @@ const DigitalMarketingDelaware = lazyWithRetry(() => import('./states/Delaware/D
 const FinancialDelaware = lazyWithRetry(() => import('./states/Delaware/Financial'));
 const PayrollDelaware = lazyWithRetry(() => import('./states/Delaware/Payroll'));
 const CPADelaware = lazyWithRetry(() => import('./states/Delaware/CPAfirms'));
+const BookkeepingIdaho = lazyWithRetry(() => import('./states/Idaho/Bookkeeping'));
+const TaxIdaho = lazyWithRetry(() => import('./states/Idaho/Tax'));
+const VirtualAssistantIdaho = lazyWithRetry(() => import('./states/Idaho/VirtualAssistance'));
+const DataEntryIdaho = lazyWithRetry(() => import('./states/Idaho/DataEntry'));
+const FinancialIdaho = lazyWithRetry(() => import('./states/Idaho/Financial'));
+const DigitalMarketingIdaho = lazyWithRetry(() => import('./states/Idaho/DigitalMarketing'));
+const CPAIdaho = lazyWithRetry(() => import('./states/Idaho/CPAfirms'));
+const PayrollIdaho = lazyWithRetry(() => import('./states/Idaho/Payroll'));
 const BookkeepingIndiana = lazyWithRetry(() => import('./states/Indiana/Bookkeeping'));
 const TaxIndiana = lazyWithRetry(() => import('./states/Indiana/Tax'));
 const CPAIndiana = lazyWithRetry(() => import('./states/Indiana/CPAfirms'));
@@ -405,6 +413,16 @@ function ThemedApp() {
           <Route path="/us/services/financial-controller-services-in-delaware/" element={<FinancialDelaware />} />
           <Route path="/us/services/payroll-management-services-in-the-delaware/" element={<PayrollDelaware />} />
           <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-delaware/" element={<CPADelaware />} />
+
+          {/* Idaho */}
+          <Route path="/us/services/best-bookkeeping-services-in-idaho/" element={<BookkeepingIdaho />} />
+          <Route path="/us/services/tax-planning-and-preparation-service-in-idaho/" element={<TaxIdaho />} />
+          <Route path="/us/services/virtual-assistant-service-in-idaho/" element={<VirtualAssistantIdaho />} />
+          <Route path="/us/services/outsourcing-accounting-data-entry-idaho/" element={<DataEntryIdaho />} />
+          <Route path="/us/services/financial-controller-services-in-idaho/" element={<FinancialIdaho />} />
+          <Route path="/us/services/best-digital-marketing-agency-in-idaho" element={<DigitalMarketingIdaho />} />
+          <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-idaho/" element={<CPAIdaho />} />
+          <Route path="/us/services/payroll-management-services-in-the-idaho/" element={<PayrollIdaho />} />
 
           {/* Indiana */}
           <Route path="/us/services/best-bookkeeping-services-in-indiana/" element={<BookkeepingIndiana />} />

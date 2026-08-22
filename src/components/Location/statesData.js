@@ -197,6 +197,20 @@ export const statesData = {
       { name: "Payroll Services in Delaware", url: "/us/services/payroll-management-services-in-the-delaware/" },
     ],
   },
+  Idaho: {
+    description:
+      "We help Idaho businesses keep accurate books, stay tax-compliant, and get clear financial reporting they can plan from.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in Idaho", url: "/us/services/best-bookkeeping-services-in-idaho/" },
+      { name: "Tax Planning and Preparation in Idaho", url: "/us/services/tax-planning-and-preparation-service-in-idaho/" },
+      { name: "Virtual Assistant Services in Idaho", url: "/us/services/virtual-assistant-service-in-idaho/" },
+      { name: "Data Entry & Management Services in Idaho", url: "/us/services/outsourcing-accounting-data-entry-idaho/" },
+      { name: "Financial Controller Services in Idaho", url: "/us/services/financial-controller-services-in-idaho/" },
+      { name: "Digital Marketing Services in Idaho", url: "/us/services/best-digital-marketing-agency-in-idaho" },
+      { name: "CPA Services for Small Businesses in Idaho", url: "/us/services/best-cpa-services-for-small-businesses-in-the-idaho/" },
+      { name: "Payroll Management Services in Idaho", url: "/us/services/payroll-management-services-in-the-idaho/" },
+    ],
+  },
   Indiana: {
     description:
       "We help Indiana businesses stay financially organized with accurate bookkeeping, tax compliance, payroll, and reporting support.",

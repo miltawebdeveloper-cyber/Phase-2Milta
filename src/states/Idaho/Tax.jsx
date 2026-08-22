@@ -1,8 +1,4 @@
 import React from "react";
-import PersonIcon from "@mui/icons-material/Person";
-import BusinessIcon from "@mui/icons-material/Business";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -11,8 +7,8 @@ const faqs = [
     a: "Absolutely. We specialize in individual and business tax returns, including complex filings for partnerships, corporations, and nonprofits.",
   },
   {
-    q: "What documents are required for tax preparation services in Delaware?",
-    a: `To ensure accurate and complete tax preparation service in Delaware, USA, you'll need to provide the following documents:
+    q: "What documents are required for tax preparation services in Idaho?",
+    a: `To ensure accurate and complete tax preparation service in Idaho, USA, you'll need to provide the following documents:
 
 Personal Information:
 - Social Security numbers and dates of birth for you, your spouse, and dependents
@@ -36,7 +32,7 @@ Income Information:
   },
   {
     q: "Can you help with state and city taxes?",
-    a: "Yes, we provide complete tax preparation services in Delaware for federal, state, and city taxes, ensuring compliance at all levels.",
+    a: "Yes, we provide complete tax preparation services in Idaho for federal, state, and city taxes, ensuring compliance at all levels.",
   },
   {
     q: "Is Miltafs service affordable?",
@@ -54,72 +50,68 @@ const faqSchema = {
   })),
 };
 
-export default function TaxDelaware() {
+export default function TaxIdaho() {
   return (
     <ServiceLayout
       seo={{
-        title: "Tax planning & preparation services in Delaware | Milta",
+        title: "Tax planning & preparation services in Idaho | Milta",
         description:
-          "Reliable tax preparation services in Delaware for federal, state & city filings — forms 1040, 1041, 1065, 1120, 1120s & 990. Contact us today.",
+          "Reliable tax preparation services in Idaho for federal, state & city filings — forms 1040, 1041, 1065, 1120, 1120s & 990. Contact us today.",
         keywords:
-          "tax services near me, tax preparation services in Delaware, accounting firm near me, tax planning and preparation, de tax preparation.",
+          "tax services near me, tax preparation services in Idaho, accounting firm near me, tax planning and preparation, Idaho tax preparation",
         author: "Milta Accounting",
-        canonical: "https://www.miltafs.com/us/services/tax-planning-and-preparation-service-in-delaware/",
+        canonical: "https://www.miltafs.com/us/services/tax-planning-and-preparation-service-in-idaho/",
         schema: faqSchema,
       }}
       hero={{
         titleLead: "Optimize Your Tax Filing with Trusted",
-        highlight: "Tax Preparation Services in Delaware!",
+        highlight: "Tax Preparation Services in Idaho!",
         subtitle:
           "Make your tax filing process seamless with reliable tax services near me. Whether you're filing federal, state, or city taxes, our expert team offers professional tax planning and preparation to ensure accuracy.",
         ctaLabel: "Get Started Today with a Free Consultation!",
-        breadcrumb: "Tax Services in Delaware",
+        breadcrumb: "Tax Services in Idaho",
       }}
       intro={{
-        overline: "TAX PLANNING IN DELAWARE",
+        overline: "TAX PLANNING IN IDAHO",
         titleLead: "Specializing in Business and Individual Tax Preparation Services in",
-        highlight: "Delaware, USA",
+        highlight: "Idaho, USA",
         paragraphs: [
           "As a business owner, your focus should be on growing your products, services, and operations, not on managing financial statements, balancing books, or keeping up with evolving tax regulations. While an accounting firm near me may have met your needs in the early stages, business growth introduces new financial complexities. From hiring employees to managing estimated taxes and optimizing cash flow, expert guidance is essential year-round.",
-          "At Milta, we provide professional tax preparation services in Delaware, offering proactive strategies to ensure compliance and maximize tax savings. If you're searching for tax services near me, partner with us for expert financial support not just during tax season, but throughout your business journey.",
+          "At Milta, we provide professional tax preparation services in Idaho, offering proactive strategies to ensure compliance and maximize tax savings. If you're searching for tax services near me, partner with us for expert financial support not just during tax season, but throughout your business journey.",
         ],
         ctaLabel: "Get Started Today with a Free Consultation!",
-        imageAlt: "Tax preparation services in Delaware",
+        imageAlt: "Tax preparation services in Idaho",
       }}
       prose={{
         overline: "STAY COMPLIANT",
         titleLead: "Stay Compliant with Expert Tax Preparation Services in",
-        highlight: "Delaware",
+        highlight: "Idaho",
         bg: "paper",
         paragraphs: [
           "Missing tax deadlines or filing errors can lead to costly penalties, negatively affecting your business's profitability. With strict deadlines enforced by the IRS, state, and local agencies for business tax filings, payroll, and sales tax compliance, accurate and timely reporting is essential.",
-          "At Milta, we provide reliable tax preparation services in Delaware, ensuring your business remains compliant and avoids unnecessary fines. If you're searching for tax services near me, our expert team handles all your tax obligations efficiently, so you can focus on growing your business while we take care of the complexities.",
+          "At Milta, we provide reliable tax preparation services in Idaho, ensuring your business remains compliant and avoids unnecessary fines. If you're searching for tax services near me, our expert team handles all your tax obligations efficiently, so you can focus on growing your business while we take care of the complexities.",
         ],
       }}
       solutions={{
         overline: "COMPREHENSIVE TAX SERVICES",
         titleLead: "Miltafs Comprehensive Tax Services: Expert Tax Preparation Services in",
-        highlight: "Delaware",
+        highlight: "Idaho",
         subtitle:
-          "The Milta accounting firm near me provides comprehensive tax preparation services in Delaware, serving individuals, businesses, estates, trusts, and nonprofits. Our team of experts ensures accurate tax preparation, thorough review, and seamless filing of tax returns at the federal, state, and city levels. Our Services Include:",
+          "The Milta accounting firm near me provides comprehensive tax preparation services in Idaho, serving individuals, businesses, estates, trusts, and nonprofits. Our team of experts ensures accurate tax preparation, thorough review, and seamless filing of tax returns at the federal, state, and city levels. Our Services Include:",
         items: [
           {
-            icon: PersonIcon,
-            title: "Individual Delaware Tax Preparation Service",
+            title: "Individual Idaho Tax Preparation Service",
             desc: "Customized solutions to maximize deductions and credits, ensuring compliance with IRS regulations.",
           },
           {
-            icon: BusinessIcon,
             title: "Business Tax Services Near me",
             desc: "Expertise in corporate tax planning and preparation, helping businesses minimize liabilities and optimize tax positions.",
           },
           {
-            icon: AccountBalanceIcon,
             title: "Estate and Trust Taxation",
             desc: "Specialized services to manage the complexities of estate and trust tax filings, ensuring fiduciary responsibilities are met.",
           },
           {
-            icon: VolunteerActivismIcon,
             title: "Nonprofit Tax Compliance",
             desc: "Assistance with maintaining tax-exempt status and compliance with federal and state reporting requirements.",
           },
@@ -131,9 +123,9 @@ export default function TaxDelaware() {
         {
           overline: "SERVICE 1",
           titleLead: "Tax Preparation Service in",
-          highlight: "Delaware",
+          highlight: "Idaho",
           subtitle:
-            "We handle every aspect of Delaware tax preparation, transforming complex financial data into accurate, compliant returns. Our goal is to minimize your tax liability and maximize refunds while ensuring full adherence to federal, state, and local regulations.",
+            "We handle every aspect of Idaho tax preparation, transforming complex financial data into accurate, compliant returns. Our goal is to minimize your tax liability and maximize refunds while ensuring full adherence to federal, state, and local regulations.",
           bg: "paper",
           columns: 2,
           items: [
@@ -154,15 +146,15 @@ export default function TaxDelaware() {
               desc: "We file returns for multi-owner businesses, including Form 8825 for rental real estate income, expenses, and depreciation.",
             },
             {
-              title: "State Delaware Tax Preparation — Income Tax",
-              desc: "Optimized filings for Delaware's progressive tax brackets, including credits like the Property Tax Credit.",
+              title: "State Idaho Tax Preparation — Income Tax",
+              desc: "Optimized filings for Idaho's progressive tax brackets, including credits like the Property Tax Credit.",
             },
             {
-              title: "State Delaware Tax Preparation — Sales Tax",
-              desc: "Compliance with Delaware's 6.35% sales tax rate, exemptions, and quarterly reporting for retailers.",
+              title: "State Idaho Tax Preparation — Sales Tax",
+              desc: "Compliance with Idaho's 6.35% sales tax rate, exemptions, and quarterly reporting for retailers.",
             },
             {
-              title: "State Delaware Tax Preparation — Property Tax",
+              title: "State Idaho Tax Preparation — Property Tax",
               desc: "Guidance on local assessments, appeals, and tax relief programs for homeowners and businesses.",
             },
             {
@@ -185,7 +177,7 @@ export default function TaxDelaware() {
             },
             {
               title: "Compliance Audit",
-              desc: "Ensure adherence to the latest IRS guidelines (e.g., R&D tax credit changes) and Delaware-specific rules.",
+              desc: "Ensure adherence to the latest IRS guidelines (e.g., R&D tax credit changes) and Idaho-specific rules.",
             },
             {
               title: "Optimization Scan",
@@ -232,7 +224,7 @@ export default function TaxDelaware() {
             },
             {
               title: "We E-File All Returns",
-              desc: "Federal (IRS), Delaware DRS, and municipal portals.",
+              desc: "Federal (IRS), Idaho DRS, and municipal portals.",
             },
             {
               title: "Specialized Filings",
@@ -312,8 +304,8 @@ export default function TaxDelaware() {
           bg: "default",
           items: [
             "Year-Round Support: Not just tax season we're here for quarterly estimated payments, IRS notices, or audit defense.",
-            "Delaware-Specific Knowledge: Deep familiarity with state tax incentives (e.g., film production credits, green energy rebates).",
-            "Proactive Compliance: We monitor law changes (e.g., Delaware Pass-Through Entity Tax updates) to keep you ahead.",
+            "Idaho-Specific Knowledge: Deep familiarity with state tax incentives (e.g., film production credits, green energy rebates).",
+            "Proactive Compliance: We monitor law changes to keep you ahead.",
             "Stress-Free Experience: We handle the paperwork, deadlines, and jargon you focus on growing your business.",
           ],
         },
@@ -324,7 +316,7 @@ export default function TaxDelaware() {
         highlight: "Your Taxes?",
         bg: "paper",
         paragraphs: [
-          "If you're looking for tax services near me, our tax preparation services in Delaware ensure accuracy and compliance every step of the way.",
+          "If you're looking for tax services near me, our tax preparation services in Idaho ensure accuracy and compliance every step of the way.",
           "Contact Us Today for a Free Consultation!",
         ],
       }}

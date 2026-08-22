@@ -9,36 +9,36 @@ import ArticleIcon from "@mui/icons-material/Article";
 import MailOutlineIcon from "@mui/icons-material/MailOutlined";
 import ServiceLayout from "../_ServiceLayout";
 
-export default function DigitalMarketingDelaware() {
+export default function DigitalMarketingIdaho() {
   return (
     <ServiceLayout
       seo={{
-        title: "Digital marketing agency in Delaware | SEO & PPC",
+        title: "Digital marketing agency in Idaho | SEO & PPC | Milta",
         description:
-          "Grow your brand with expert digital marketing services in Delaware — SEO, PPC, email & internet marketing built to drive real results. ",
+          "Grow your brand with expert digital marketing services in Idaho — SEO, PPC, email & internet marketing built to drive real results.",
         keywords:
-          "digital marketing agency, digital marketing services, digital marketing agency in Delaware, Delaware internet marketing, digital marketing services in Delaware.",
+          "digital marketing agency, digital marketing services, digital marketing agency in Idaho, Idaho internet marketing, digital marketing services in Idaho",
         author: "Milta Accounting",
-        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-delaware",
+        canonical: "https://www.miltafs.com/us/services/best-digital-marketing-agency-in-idaho",
       }}
       hero={{
-        titleLead: "Elevate Your Success with Delaware's Leading",
+        titleLead: "Elevate Your Success with Idaho's Leading",
         highlight: "Digital Marketing Agency",
         subtitle:
-          "Unlock Explosive Growth Using Cutting-Edge Digital Marketing Services in Delaware.",
+          "Unlock Explosive Growth Using Cutting-Edge Digital Marketing Services in Idaho.",
         ctaLabel: "Request a Proposal Today!",
-        breadcrumb: "Digital Marketing Agency in Delaware",
+        breadcrumb: "Digital Marketing Agency in Idaho",
       }}
       intro={{
         overline: "AI-DRIVEN MARKETING",
         titleLead: "AI-Driven Marketing & Advertising to Accelerate Your",
         highlight: "Business Growth",
         paragraphs: [
-          "Reaching your audience in Delaware's competitive markets is critical and achievable with the right partner. As a premier digital marketing agency in Delaware, Milta combines cutting-edge AI technology with proven Delaware internet marketing strategies to deliver results. We specialize in website development, search engine marketing (SEM), social media management, and targeted paid advertising campaigns designed to drive measurable growth.",
-          "Whether you're expanding your reach, scaling operations, or boosting revenue, our team crafts customized digital marketing services in Delaware tailored to your goals. From hyper-local SEO to data-driven ad campaigns, we ensure your message resonates with your audience, accelerates conversions, and propels long-term success.",
+          "Reaching your audience in Idaho's competitive markets is critical and achievable with the right partner. As a premier digital marketing agency in Idaho, Milta combines cutting-edge AI technology with proven Idaho internet marketing strategies to deliver results. We specialize in website development, search engine marketing (SEM), social media management, and targeted paid advertising campaigns designed to drive measurable growth.",
+          "Whether you're expanding your reach, scaling operations, or boosting revenue, our team crafts customized digital marketing services in Idaho tailored to your goals. From hyper-local SEO to data-driven ad campaigns, we ensure your message resonates with your audience, accelerates conversions, and propels long-term success.",
         ],
         ctaLabel: "Request a Proposal Today!",
-        imageAlt: "Digital marketing agency in Delaware",
+        imageAlt: "Digital marketing agency in Idaho",
       }}
       prose={{
         overline: "RIGHT TIME, RIGHT PLATFORM",
@@ -46,8 +46,8 @@ export default function DigitalMarketingDelaware() {
         highlight: "Right Time, Right Platform",
         bg: "paper",
         paragraphs: [
-          "As a premier digital marketing agency in Delaware, Milta empowers businesses of all sizes to elevate their online presence, attract high-quality leads, and drive scalable growth all while optimizing costs.",
-          "Whether you're a startup, a rapidly scaling company, or a multi-location enterprise, our customized digital marketing services in Delaware are designed to connect you with your ideal audience, breaking through geographic and time zone barriers.",
+          "As a premier digital marketing agency in Idaho, Milta empowers businesses of all sizes to elevate their online presence, attract high-quality leads, and drive scalable growth all while optimizing costs.",
+          "Whether you're a startup, a rapidly scaling company, or a multi-location enterprise, our customized digital marketing services in Idaho are designed to connect you with your ideal audience, breaking through geographic and time zone barriers.",
         ],
       }}
       whyEssential={{
@@ -57,17 +57,17 @@ export default function DigitalMarketingDelaware() {
         bg: "default",
         columns: 3,
         items: [
-          "AI-Driven Delaware Internet Marketing: Leverage predictive analytics and machine learning to target audiences precisely.",
-          "Hyper-Local Expertise: Strategies Customized to Delaware's dynamic market, from Manhattan to Long Island.",
+          "AI-Driven Idaho Internet Marketing: Leverage predictive analytics and machine learning to target audiences precisely.",
+          "Hyper-Local Expertise: Strategies Customized to Idaho's dynamic market, from Manhattan to Long Island.",
           "Maximized ROI: Trackable campaigns that prioritize conversions and cost efficiency.",
         ],
         footnote:
-          "At Milta, we don't just boost visibility, we deliver measurable results for businesses across Delaware. Let us help you strengthen your brand, accelerate growth, and dominate your industry.",
+          "At Milta, we don't just boost visibility, we deliver measurable results for businesses across Idaho. Let us help you strengthen your brand, accelerate growth, and dominate your industry.",
       }}
       solutions={{
         overline: "OUR SERVICES",
         titleLead: "Milta Digital Marketing Services in",
-        highlight: "Delaware",
+        highlight: "Idaho",
         subtitle:
           "Establish Your Brand as an Industry Leader and Drive Higher Profitability.",
         items: [
@@ -117,7 +117,7 @@ export default function DigitalMarketingDelaware() {
         {
           overline: "WHY CHOOSE MILTA",
           titleLead: "Why Choose Milta as Your Digital Marketing Service in",
-          highlight: "Delaware",
+          highlight: "Idaho",
           subtitle:
             "Accelerate Your Revenue Growth and Achieve Online Success. Selecting the right digital marketing partner is crucial for your business's success. Milta stands out as a trusted and reliable agency, offering a customized approach to meet your unique needs. Here's why Milta is the right choice:",
           bg: "paper",
@@ -125,11 +125,11 @@ export default function DigitalMarketingDelaware() {
           items: [
             {
               title: "Comprehensive Services",
-              desc: "Milta provides a full suite of digital marketing services in Delaware, including SEO, PPC, Social Media Marketing, Email Marketing, and Content Creation. Whether your goal is to increase website traffic, generate leads, or boost brand visibility, our team has the expertise to deliver results.",
+              desc: "Milta provides a full suite of digital marketing services in Idaho, including SEO, PPC, Social Media Marketing, Email Marketing, and Content Creation. Whether your goal is to increase website traffic, generate leads, or boost brand visibility, our team has the expertise to deliver results.",
             },
             {
               title: "Expert Team",
-              desc: "Our dedicated team of Delaware internet marketing professionals brings years of experience and knowledge to each project. We stay updated on the latest trends and tools to ensure your campaigns are optimized for success.",
+              desc: "Our dedicated team of Idaho internet marketing professionals brings years of experience and knowledge to each project. We stay updated on the latest trends and tools to ensure your campaigns are optimized for success.",
             },
             {
               title: "Best Strategies",
@@ -149,7 +149,7 @@ export default function DigitalMarketingDelaware() {
             },
           ],
           footnote:
-            "By choosing Milta as your digital marketing agency in Delaware, you're partnering with a team committed to your business's growth and success, with the best strategies and a proven track record of delivering results.",
+            "By choosing Milta as your digital marketing agency in Idaho, you're partnering with a team committed to your business's growth and success, with the best strategies and a proven track record of delivering results.",
         },
         {
           overline: "WHY DIGITAL MARKETING",

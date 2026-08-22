@@ -1,8 +1,4 @@
 import React from "react";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
-import PaymentsIcon from "@mui/icons-material/Payments";
-import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -16,7 +12,7 @@ const faqs = [
   },
   {
     q: "What types of bookkeeping services do you offer?",
-    a: "We provide a wide range of services, including bank and credit card reconciliation, accounts receivable and payable management, payroll processing, invoice generation, financial reporting, and tax preparation support. Our services are customized to meet the unique needs of small businesses in Delaware, USA.",
+    a: "We provide a wide range of services, including bank and credit card reconciliation, accounts receivable and payable management, payroll processing, invoice generation, financial reporting, and tax preparation support. Our services are customized to meet the unique needs of small businesses in Idaho, USA.",
   },
   {
     q: "How do your bookkeeping services benefit my small business?",
@@ -24,15 +20,15 @@ const faqs = [
   },
   {
     q: "Do you offer payroll and bookkeeping services together?",
-    a: "Yes, we provide comprehensive payroll and bookkeeping services in Delaware, USA, ensuring your employees are paid accurately and on time while keeping your financial records organized and up-to-date.",
+    a: "Yes, we provide comprehensive payroll and bookkeeping services in Idaho, USA, ensuring your employees are paid accurately and on time while keeping your financial records organized and up-to-date.",
   },
   {
     q: "How do I find the best bookkeeping services for small businesses near me?",
-    a: "Look for providers with experience, expertise, and a track record of serving small businesses bookkeeping service in Delaware, USA. Reviews, referrals, and transparency in pricing are also key indicators of a reliable service. We pride ourselves on being one of the best bookkeeping services for small businesses in Delaware, offering personalized support to our clients.",
+    a: "Look for providers with experience, expertise, and a track record of serving small businesses bookkeeping service in Idaho, USA. Reviews, referrals, and transparency in pricing are also key indicators of a reliable service. We pride ourselves on being one of the best bookkeeping services for small businesses in Idaho, offering personalized support to our clients.",
   },
   {
-    q: "Is my business too small to hire a bookkeeping company in Delaware?",
-    a: "No business is too small for bookkeeping services in Delaware. Accurate financial management is especially important for small businesses to monitor cash flow, prepare for taxes, and plan for growth. Our services are designed to be affordable and scalable to meet your needs.",
+    q: "Is my business too small to hire a bookkeeping company in Idaho?",
+    a: "No business is too small for bookkeeping services in Idaho. Accurate financial management is especially important for small businesses to monitor cash flow, prepare for taxes, and plan for growth. Our services are designed to be affordable and scalable to meet your needs.",
   },
   {
     q: "What industries do you work with?",
@@ -58,36 +54,36 @@ const faqSchema = {
   })),
 };
 
-export default function BookkeepingDelaware() {
+export default function BookkeepingIdaho() {
   return (
     <ServiceLayout
       seo={{
-        title: "Bookkeeping services for small business in Delaware | Milta",
+        title: "Bookkeeping services for small business in Idaho",
         description:
-          "Trusted bookkeeping services in Delaware to keep your finances accurate and organized. Contact our bookkeeping company for expert support today.",
+          "Trusted bookkeeping services in Idaho to keep your finances accurate and organized. Contact our bookkeeping company for expert support today.",
         keywords:
-          "bookkeeping services, bookkeeping services near me, bookkeeping services for small business, best bookkeeping for small business, bookkeeping company in Delaware, bookkeeping services in Delaware.bookkeeping services, bookkeeping services near me, bookkeeping services for small business, best bookkeeping for small business, bookkeeping company in Delaware, bookkeeping services in Delaware.",
+          "bookkeeping services, bookkeeping services near me, bookkeeping services for small business, best bookkeeping for small business, bookkeeping company in Idaho, bookkeeping services in Idaho.",
         author: "Milta Accounting",
-        canonical: "https://www.miltafs.com/us/services/best-bookkeeping-services-in-delaware/",
+        canonical: "https://www.miltafs.com/us/services/best-bookkeeping-services-in-idaho/",
         schema: faqSchema,
       }}
       hero={{
         titleLead: "Bookkeeping Services for Small Businesses in",
-        highlight: "Delaware, USA",
+        highlight: "Idaho, USA",
         subtitle:
-          "With over 15+ years of experience, our bookkeeping company in Delaware specializes in providing expert bookkeeping services for small businesses in Delaware and surrounding areas. Contact us today for trusted bookkeeping services in Delaware and let us handle your finances with care and expertise.",
-        breadcrumb: "Bookkeeping Services in Delaware",
+          "With over 15+ years of experience, our bookkeeping company in Idaho specializes in providing expert bookkeeping services for small businesses in Idaho and surrounding areas. Contact us today for trusted bookkeeping services in Idaho and let us handle your finances with care and expertise.",
+        breadcrumb: "Bookkeeping Services in Idaho",
       }}
       intro={{
-        overline: "BEST SOLUTION IN DELAWARE",
+        overline: "BEST SOLUTION IN IDAHO",
         titleLead: "The Best Bookkeeping Services for Small Businesses in",
-        highlight: "Delaware",
+        highlight: "Idaho",
         paragraphs: [
-          "As a leading bookkeeping company in Delaware, Milta ensures your financial records are organized, accurate, and easy to manage. Our skilled Delaware bookkeepers provide the best bookkeeping for small business, transforming complex financial data into clear insights to help you maintain control over your business's financial health.",
-          "From meticulous data entry to detailed financial reporting, our certified professionals handle every aspect of your accounting with precision. We take pride in offering trusted bookkeeping services in Delaware, making it easier for small and medium-sized businesses to streamline their processes and achieve financial clarity.",
+          "As a leading bookkeeping company in Idaho, Milta ensures your financial records are organized, accurate, and easy to manage. Our skilled Idaho bookkeepers provide the best bookkeeping for small business, transforming complex financial data into clear insights to help you maintain control over your business's financial health.",
+          "From meticulous data entry to detailed financial reporting, our certified professionals handle every aspect of your accounting with precision. We take pride in offering trusted bookkeeping services in Idaho, making it easier for small and medium-sized businesses to streamline their processes and achieve financial clarity.",
         ],
         ctaLabel: "To Arrange Your Free Initial Consultation, Contact Us Right Now!",
-        imageAlt: "Bookkeeping services in Delaware",
+        imageAlt: "Bookkeeping services in Idaho",
       }}
       prose={{
         overline: "TAILORED TO YOUR BUSINESS",
@@ -95,9 +91,9 @@ export default function BookkeepingDelaware() {
         highlight: "Business Needs",
         bg: "paper",
         paragraphs: [
-          "Milta, a trusted bookkeeping company in Delaware, offers customized and reliable bookkeeping services in Delaware tailored to meet your unique business needs. We prioritize clear communication and a seamless, collaborative approach to managing your finances efficiently.",
+          "Milta, a trusted bookkeeping company in Idaho, offers customized and reliable bookkeeping services in Idaho tailored to meet your unique business needs. We prioritize clear communication and a seamless, collaborative approach to managing your finances efficiently.",
           "With years of expertise, we help businesses uncover financial opportunities, such as last-minute tax deductions, while offering professional insights to support informed decision-making. Our dedicated team carefully analyzes your financial data, ensuring accuracy and compliance at every step.",
-          "Beyond monthly check-ins, we're available year-round to answer questions, offer expert advice, and assist with QuickBooks troubleshooting or in-person financial reviews. Our goal is to provide dependable bookkeeping services for small businesses in Delaware, helping you achieve long-term financial success.",
+          "Beyond monthly check-ins, we're available year-round to answer questions, offer expert advice, and assist with QuickBooks troubleshooting or in-person financial reviews. Our goal is to provide dependable bookkeeping services for small businesses in Idaho, helping you achieve long-term financial success.",
         ],
       }}
       whyEssential={{
@@ -109,7 +105,7 @@ export default function BookkeepingDelaware() {
         titleLead: "Bookkeeping Service — Why Does Every",
         highlight: "Business Need It?",
         subtitle:
-          "Bookkeeping is the process of documenting, organizing, and managing a business's financial transactions. It is essential for maintaining accurate financial records, ensuring compliance with tax and legal requirements, and providing valuable insights for informed decision-making. Whether you run a small or medium-sized business, bookkeeping services for small businesses in Delaware are vital because they:",
+          "Bookkeeping is the process of documenting, organizing, and managing a business's financial transactions. It is essential for maintaining accurate financial records, ensuring compliance with tax and legal requirements, and providing valuable insights for informed decision-making. Whether you run a small or medium-sized business, bookkeeping services for small businesses in Idaho are vital because they:",
         items: [
           "Tracks income and expenses effectively.",
           "Prepares you for tax season without last-minute stress.",
@@ -125,22 +121,18 @@ export default function BookkeepingDelaware() {
           "With numerous bookkeeping services near me available, Milta stands out for several reasons:",
         items: [
           {
-            icon: AccountBalanceIcon,
             title: "Customized Solutions for Small Business",
             desc: "Our services are specifically designed for best bookkeeping for small businesses. We understand the unique challenges you face, such as managing cash flow and staying compliant with tax regulations. Our team ensures your financial records are accurate, up-to-date, and ready for tax season, helping your business thrive with customized solutions.",
           },
           {
-            icon: PaymentsIcon,
             title: "Affordable, Professional Services",
-            desc: "At Milta, we offer high-quality bookkeeping services in Delaware at competitive prices. As the best bookkeeping for small businesses ourselves, we know budget constraints are a concern. Our transparent pricing ensures you only pay for the services you need, making professional bookkeeping accessible and cost-effective.",
+            desc: "At Milta, we offer high-quality bookkeeping services in Idaho at competitive prices. As the best bookkeeping for small businesses ourselves, we know budget constraints are a concern. Our transparent pricing ensures you only pay for the services you need, making professional bookkeeping accessible and cost-effective.",
           },
           {
-            icon: CurrencyExchangeIcon,
             title: "Comprehensive Bookkeeping Support",
             desc: "From payroll management and bookkeeping to tax preparation and financial reporting, we provide end-to-end solutions. Our experienced team works closely with you to keep your financial records organized and easily accessible whenever you need them.",
           },
           {
-            icon: VerifiedUserIcon,
             title: "Stay Compliant and Avoid Penalties",
             desc: "Tax laws are constantly changing, and staying compliant can be challenging. Milta's bookkeeping services ensure your business meets local, state, and federal tax requirements. By partnering with us, you can avoid costly penalties for incorrect filings or missed deadlines.",
           },

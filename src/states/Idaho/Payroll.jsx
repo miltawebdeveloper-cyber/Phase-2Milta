@@ -1,8 +1,4 @@
 import React from "react";
-import ScheduleIcon from "@mui/icons-material/Schedule";
-import PaymentsIcon from "@mui/icons-material/Payments";
-import InsightsIcon from "@mui/icons-material/Insights";
-import GavelIcon from "@mui/icons-material/Gavel";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -15,8 +11,8 @@ const faqs = [
     a: "Professional payroll management companies use advanced payroll management systems and experienced specialists to calculate wages, manage deductions, file payroll taxes, and follow current labor laws. Automated processes and regular audits help maintain accuracy and compliance.",
   },
   {
-    q: "Why should businesses outsource payroll management services in the Delaware?",
-    a: "Outsourcing payroll management services in the Delaware helps businesses save time, reduce compliance risks, minimize errors, and protect sensitive employee data. Payroll experts stay updated with changing tax laws and regulations, ensuring accurate filings and timely payments.",
+    q: "Why should businesses outsource payroll management services in Idaho?",
+    a: "Outsourcing payroll management services in the Idaho helps businesses save time, reduce compliance risks, minimize errors, and protect sensitive employee data. Payroll experts stay updated with changing tax laws and regulations, ensuring accurate filings and timely payments.",
   },
   {
     q: "Is payroll outsourcing suitable for small and growing businesses?",
@@ -34,38 +30,37 @@ const faqSchema = {
   })),
 };
 
-export default function PayrollDelaware() {
+export default function PayrollIdaho() {
   return (
     <ServiceLayout
       seo={{
-        title: "Payroll management services in Delaware | Milta",
+        title: "Payroll management services in Idaho | Milta",
         description:
-          "Simplify payroll with reliable payroll management services in Delaware. Affordable, compliant payroll solutions — contact us today.",
+          "Simplify payroll with reliable payroll management services in Idaho. Affordable, compliant payroll solutions — contact us today.",
         keywords:
-          "payroll management services in Delaware, payroll management system, payroll management company, payroll management services, payroll management",
+          "payroll management services in Idaho, payroll management system, payroll management company, payroll management services, payroll management",
         author: "Milta Accounting",
-        canonical:
-          "https://www.miltafs.com/us/services/payroll-management-services-in-the-delaware/",
+        canonical: "https://www.miltafs.com/us/services/payroll-management-services-in-the-idaho/",
         schema: faqSchema,
       }}
       hero={{
-        titleLead: "Streamline Payroll Processing with Trusted",
-        highlight: "Payroll Services in Delaware",
+        titleLead: "Reliable Payroll Services in Idaho for",
+        highlight: "Accurate and Timely Processing",
         subtitle:
-          "Reduce payroll-related workload and maintain accurate processing with professional payroll management support.",
+          "Simplify payroll administration with dependable support that helps reduce errors, save time, and maintain organized payroll records.",
         ctaLabel: "Get Your Free Payroll Consultation Today.",
-        breadcrumb: "Payroll Management Services in Delaware",
+        breadcrumb: "Payroll Management Services in Idaho",
       }}
       intro={{
         overline: "PAYROLL MANAGEMENT",
         titleLead: "Payroll Management Services in",
-        highlight: "Delaware",
+        highlight: "Idaho",
         paragraphs: [
-          "Managing payroll with precision is essential for every business, yet it remains one of the most regulation-intensive and time-consuming tasks. At Milta Accounting, we provide dependable Payroll Management Services in Delaware, enabling businesses to simplify payroll operations, minimize errors, and maintain full compliance with federal, state, and local payroll laws.",
+          "Managing payroll with precision is essential for every business, yet it remains one of the most regulation-intensive and time-consuming tasks. At Milta Accounting, we provide dependable Payroll Management Services in Idaho, enabling businesses to simplify payroll operations, minimize errors, and maintain full compliance with federal, state, and local payroll laws.",
           "As a trusted payroll management partner, we handle your entire payroll responsibility—accurately calculating employee wages, deductions, and tax obligations, and ensuring all payments and filings are completed on time, every time.",
         ],
-        ctaLabel: "Get Started Today",
-        imageAlt: "Payroll management services in Delaware",
+        ctaLabel: "Get Your Free Payroll Consultation Today.",
+        imageAlt: "Payroll management services in Idaho",
       }}
       prose={{
         overline: "END TO END",
@@ -76,80 +71,110 @@ export default function PayrollDelaware() {
           "Our payroll administration services are designed to deliver a technologically advanced and well-organized payroll management solution to companies of all sizes. We manage everything from timesheets to payroll tax filings, allowing you to focus on business growth instead of administrative burdens.",
         ],
       }}
-      whyEssential={{
-        overline: "WHAT WE HANDLE",
-        titleLead: "What We Handle for",
-        highlight: "Your Business",
-        bg: "default",
-        columns: 3,
-        items: [
-          "Employee timesheet management",
-          "Accurate calculation of wages and overtime",
-          "Payroll tax calculation, payment, and filing",
-          "Payslip generation and payroll reporting",
-          "Compliance with US payroll laws and labor regulations",
-        ],
-        footnote:
-          "With Milta Accounting, payroll is not just processed—it is professionally managed.",
-      }}
-      solutions={{
-        overline: "HOW IT WORKS",
-        titleLead: "How Our Payroll Management",
-        highlight: "System Works",
-        subtitle:
-          "Our advanced payroll management system ensures precision, transparency, and compliance at every stage.",
-        items: [
-          {
-            icon: ScheduleIcon,
-            title: "Time & Wage Calculation",
-            desc: "Working hours and hourly wages. Paid leave, vacation, and holidays. Overtime and non-exempt employee calculations. Gross pay estimation after deductions.",
-          },
-          {
-            icon: PaymentsIcon,
-            title: "Payroll Processing & Payments",
-            desc: "Direct deposits or paper checks. Automated payroll runs. On-time salary disbursement.",
-          },
-          {
-            icon: InsightsIcon,
-            title: "Payroll Reporting & Insights",
-            desc: "Labor cost analysis. Employee headcount tracking. Vacation and leave balances. Highest and lowest earning employees.",
-          },
-          {
-            icon: GavelIcon,
-            title: "Payroll Tax Processing & Deductions",
-            desc: "Federal, state, and local tax calculation. Automated tax payments to authorities. Voluntary deductions and wage garnishments.",
-          },
-        ],
-      }}
       cardGroups={[
+        {
+          overline: "WHAT WE HANDLE",
+          titleLead: "What We Handle for",
+          highlight: "Your Business",
+          columns: 3,
+          items: [
+            "Employee timesheet management",
+            "Accurate calculation of wages and overtime",
+            "Payroll tax calculation, payment, and filing",
+            "Payslip generation and payroll reporting",
+            "Compliance with US payroll laws and labor regulations",
+          ],
+          footnote:
+            "With Milta Accounting, payroll is not just processed—it is professionally managed.",
+        },
+        // The document breaks "How Our Payroll Management System Works" into
+        // four numbered stages, each with its own bullet list. They are kept as
+        // four sections below rather than four cards, so every bullet stays a
+        // separate point exactly as written.
+        {
+          overline: "HOW IT WORKS",
+          titleLead: "How Our Payroll Management",
+          highlight: "System Works",
+          bg: "paper",
+          paragraphs: [
+            "Our advanced payroll management system ensures precision, transparency, and compliance at every stage.",
+          ],
+        },
+        {
+          overline: "STAGE 1",
+          titleLead: "Time & Wage",
+          highlight: "Calculation",
+          columns: 4,
+          items: [
+            "Working hours and hourly wages",
+            "Paid leave, vacation, and holidays",
+            "Overtime and non-exempt employee calculations",
+            "Gross pay estimation after deductions",
+          ],
+        },
+        {
+          overline: "STAGE 2",
+          titleLead: "Payroll Processing",
+          highlight: "& Payments",
+          bg: "paper",
+          columns: 3,
+          items: [
+            "Direct deposits or paper checks",
+            "Automated payroll runs",
+            "On-time salary disbursement",
+          ],
+        },
+        {
+          overline: "STAGE 3",
+          titleLead: "Payroll Reporting",
+          highlight: "& Insights",
+          columns: 4,
+          items: [
+            "Labor cost analysis",
+            "Employee headcount tracking",
+            "Vacation and leave balances",
+            "Highest and lowest earning employees",
+          ],
+        },
+        {
+          overline: "STAGE 4",
+          titleLead: "Payroll Tax Processing",
+          highlight: "& Deductions",
+          bg: "paper",
+          columns: 3,
+          items: [
+            "Federal, state, and local tax calculation",
+            "Automated tax payments to authorities",
+            "Voluntary deductions and wage garnishments",
+          ],
+        },
         {
           overline: "WHY IT MATTERS",
           titleLead: "Why Payroll Management Is Essential for",
           highlight: "US Businesses",
           subtitle:
             "Effective payroll management has a direct impact on compliance, employee satisfaction, and business stability. Key Benefits of Professional Payroll Management:",
-          bg: "paper",
           columns: 3,
           items: [
             {
               title: "Employee Satisfaction",
-              desc: "Timely and error-free salary payments.",
+              desc: "Timely and error-free salary payments",
             },
             {
               title: "Time Efficiency",
-              desc: "Free internal teams from manual payroll tasks.",
+              desc: "Free internal teams from manual payroll tasks",
             },
             {
               title: "Data Security",
-              desc: "Protect confidential employee payroll data.",
+              desc: "Protect confidential employee payroll data",
             },
             {
               title: "Scalability",
-              desc: "Easily manage payroll as your workforce grows.",
+              desc: "Easily manage payroll as your workforce grows",
             },
             {
               title: "Money Savings",
-              desc: "Cut back on employment and internal payroll software costs.",
+              desc: "Cut back on employment and internal payroll software costs",
             },
           ],
           footnote:
@@ -160,24 +185,25 @@ export default function PayrollDelaware() {
           titleLead: "Why Choose Outsourced Payroll",
           highlight: "Management Services?",
           subtitle:
-            "As organizations scale, payroll operations become increasingly detailed and regulation-heavy—particularly in the United States, where payroll tax rules and labor laws evolve constantly. Managing payroll internally can quickly turn into an administrative burden. By outsourcing Payroll Management Services in the Delaware, businesses can reduce compliance exposure, eliminate operational strain, and ensure payroll is handled correctly from start to finish. Key Benefits of Outsourcing Payroll:",
+            "As organizations scale, payroll operations become increasingly detailed and regulation-heavy—particularly in the United States, where payroll tax rules and labor laws evolve constantly. Managing payroll internally can quickly turn into an administrative burden. By outsourcing Payroll Management Services in the Idaho, businesses can reduce compliance exposure, eliminate operational strain, and ensure payroll is handled correctly from start to finish. Key Benefits of Outsourcing Payroll:",
+          bg: "paper",
           columns: 2,
           items: [
             {
               title: "More Time for Growth",
-              desc: "Free your leadership and internal teams from manual payroll work and redirect efforts toward business expansion.",
+              desc: "Free your leadership and internal teams from manual payroll work and redirect efforts toward business expansion",
             },
             {
               title: "Regulatory Confidence",
-              desc: "Payroll specialists stay current with federal, state, and local payroll regulations.",
+              desc: "Payroll specialists stay current with federal, state, and local payroll regulations",
             },
             {
               title: "Higher Accuracy",
-              desc: "Professionally managed payroll reduces errors, adjustments, and employee disputes.",
+              desc: "Professionally managed payroll reduces errors, adjustments, and employee disputes",
             },
             {
               title: "Enhanced Data Protection",
-              desc: "Secure payroll platforms safeguard sensitive employee information.",
+              desc: "Secure payroll platforms safeguard sensitive employee information",
             },
           ],
           footnote:
@@ -188,29 +214,13 @@ export default function PayrollDelaware() {
           titleLead: "Is Payroll Outsourcing the Right Fit",
           highlight: "for Your Business?",
           subtitle: "Outsourcing payroll management services makes sense for businesses that:",
-          bg: "paper",
           columns: 3,
           items: [
-            {
-              title: "Payroll Takes Too Long",
-              desc: "Spend significant time managing payroll processes internally.",
-            },
-            {
-              title: "Compliance Concerns",
-              desc: "Are concerned about compliance with US payroll and tax laws.",
-            },
-            {
-              title: "Rapid Growth",
-              desc: "Are you experiencing rapid employee or location growth?",
-            },
-            {
-              title: "No Payroll Specialists",
-              desc: "Do not have dedicated payroll or HR specialists.",
-            },
-            {
-              title: "Security & Access Control",
-              desc: "Need stronger data security and access controls.",
-            },
+            "Spend significant time managing payroll processes internally",
+            "Are concerned about compliance with US payroll and tax laws",
+            "Are you experiencing rapid employee or location growth?",
+            "Do not have dedicated payroll or HR specialists",
+            "Need stronger data security and access controls",
           ],
           footnote:
             "If these challenges sound familiar, working with an experienced payroll management company can significantly improve efficiency and reduce risk.",
@@ -219,23 +229,24 @@ export default function PayrollDelaware() {
           overline: "KEY ADVANTAGES",
           titleLead: "Key Advantages of Outsourced",
           highlight: "Payroll Management",
+          bg: "paper",
           columns: 2,
           items: [
             {
               title: "Lower Operating Costs",
-              desc: "Eliminate the need for payroll software licenses, ongoing training, and in-house payroll staff.",
+              desc: "Eliminate the need for payroll software licenses, ongoing training, and in-house payroll staff",
             },
             {
               title: "Professional Expertise",
-              desc: "Payroll is handled by specialists with deep knowledge of tax codes and labor requirements.",
+              desc: "Payroll is handled by specialists with deep knowledge of tax codes and labor requirements",
             },
             {
               title: "Improved Team Productivity",
-              desc: "Internal resources can focus on core business functions instead of payroll administration.",
+              desc: "Internal resources can focus on core business functions instead of payroll administration",
             },
             {
               title: "Reduced Compliance Risk",
-              desc: "Accurate tax calculations, filings, and remittances help prevent penalties and fines.",
+              desc: "Accurate tax calculations, filings, and remittances help prevent penalties and fines",
             },
           ],
         },
@@ -245,17 +256,16 @@ export default function PayrollDelaware() {
           highlight: "Payroll Management",
           subtitle:
             "Effective payroll management requires more than basic processing. Key elements include:",
-          bg: "paper",
           columns: 4,
           items: [
-            { title: "Clear Wage Structures", desc: "Clear and consistent wage structures across roles." },
-            { title: "Defined Schedules", desc: "Well-defined payroll schedules and cut-off dates." },
-            { title: "Correct Classification", desc: "Proper classification of exempt and non-exempt employees." },
-            { title: "Overtime & Leave", desc: "Precise overtime and leave calculations." },
-            { title: "Integrated Systems", desc: "Integrated payroll and accounting systems." },
-            { title: "Multiple Payment Methods", desc: "Multiple payment methods for employee convenience." },
-            { title: "Time & Attendance Tracking", desc: "Reliable time and attendance tracking tools." },
-            { title: "Test Before Rollout", desc: "Testing new payroll systems before full rollout." },
+            "Clear and consistent wage structures across roles",
+            "Well-defined payroll schedules and cut-off dates",
+            "Proper classification of exempt and non-exempt employees",
+            "Precise overtime and leave calculations",
+            "Integrated payroll and accounting systems",
+            "Multiple payment methods for employee convenience",
+            "Reliable time and attendance tracking tools",
+            "Testing new payroll systems before full rollout",
           ],
           footnote:
             "To achieve error-free payroll, modern, technology-enabled payroll systems and ERP integrations are essential.",
@@ -266,13 +276,14 @@ export default function PayrollDelaware() {
           highlight: "& Compliance",
           subtitle:
             "Protecting payroll data is critical. Our payroll management system is built with strong security and compliance controls, including:",
+          bg: "paper",
           columns: 3,
           items: [
-            { title: "Access Controls", desc: "Role-based access and authentication controls." },
-            { title: "Password Protocols", desc: "Routine password updates and security protocols." },
-            { title: "Fraud Prevention", desc: "Identity protection and fraud prevention tools." },
-            { title: "System Monitoring", desc: "Continuous system monitoring." },
-            { title: "Privacy Practices", desc: "Organization-wide privacy and data protection practices." },
+            "Role-based access and authentication controls",
+            "Routine password updates and security protocols",
+            "Identity protection and fraud prevention tools",
+            "Continuous system monitoring",
+            "Organization-wide privacy and data protection practices",
           ],
           footnote:
             "Your payroll information is handled with the highest level of confidentiality, ensuring it remains secure, accurate, and compliant at all times.",
@@ -282,9 +293,8 @@ export default function PayrollDelaware() {
           titleLead: "Payroll Management Services by",
           highlight: "Milta Accounting",
           subtitle:
-            "Milta Accounting is a leading payroll management company offering comprehensive Payroll Management Services in the Delaware and globally. Our Payroll Solutions Include:",
-          bg: "paper",
-          columns: 2,
+            "Milta Accounting is a leading payroll management company offering comprehensive Payroll Management Services in the Idaho and globally. Our Payroll Solutions Include:",
+          columns: 4,
           items: [
             {
               title: "End-to-End Payroll Processing",
@@ -304,7 +314,7 @@ export default function PayrollDelaware() {
             },
             {
               title: "Multi-Country Payroll Support",
-              desc: "Payroll services for the Delaware, UK, Canada, Australia, and India.",
+              desc: "Payroll services for the Idaho, UK, Canada, Australia, and India.",
             },
             {
               title: "Employee Benefits & Deductions",
@@ -320,17 +330,18 @@ export default function PayrollDelaware() {
             },
           ],
         },
-        {
-          overline: "PARTNER WITH US",
-          titleLead: "Partner with a Trusted Payroll",
-          highlight: "Management Company",
-          paragraphs: [
-            "Outsourcing your payroll to Milta Accounting means accuracy, compliance, and peace of mind. With our payroll management services in the Delaware, businesses can streamline payroll processes, minimize risk, and maintain error-free operations.",
-            "With our expertise, advanced payroll management system, and dedicated payroll professionals, your payroll is handled efficiently—so you can focus on growing your business, not managing payroll complexities.",
-            "Get started today with reliable Payroll Management Services in the Delaware.",
-          ],
-        },
       ]}
+      closing={{
+        overline: "PARTNER WITH US",
+        titleLead: "Partner with a Trusted Payroll",
+        highlight: "Management Company",
+        bg: "paper",
+        paragraphs: [
+          "Outsourcing your payroll to Milta Accounting means accuracy, compliance, and peace of mind. With our payroll management services in the Idaho, businesses can streamline payroll processes, minimize risk, and maintain error-free operations.",
+          "With our expertise, advanced payroll management system, and dedicated payroll professionals, your payroll is handled efficiently—so you can focus on growing your business, not managing payroll complexities.",
+          "Get started today with reliable Payroll Management Services in the Idaho.",
+        ],
+      }}
       faqs={faqs}
     />
   );
