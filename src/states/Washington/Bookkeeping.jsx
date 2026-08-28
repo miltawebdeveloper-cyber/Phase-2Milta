@@ -16,11 +16,11 @@ const faqs = [
   },
   {
     q: "What types of bookkeeping services do you offer?",
-    a: "We provide a wide range of services, including bank and credit card reconciliation, accounts receivable and payable management, payroll processing, invoice generation, financial reporting, and tax preparation support. Our services are customized  to meet the unique needs of small businesses in the Washington USA.",
+    a: "We provide a wide range of services, including bank and credit card reconciliation, accounts receivable and payable management, payroll processing, invoice generation, financial reporting, and tax preparation support. Our services are customized to meet the unique needs of small businesses in the Washington USA.",
   },
   {
     q: "How do your bookkeeping services benefit my small business?",
-    a: "Our services streamline your financial operations, prevent errors, and help you save time. You’ll gain clear insights into your financial health and ensure compliance with legal requirements, which is crucial for making strategic decisions and achieving business growth.",
+    a: "Our services streamline your financial operations, prevent errors, and help you save time. You'll gain clear insights into your financial health and ensure compliance with legal requirements, which is crucial for making strategic decisions and achieving business growth.",
   },
   {
     q: "Do you offer payroll and bookkeeping services together?",
@@ -43,8 +43,8 @@ const faqs = [
     a: "To keep your financial information safe, we employ secure systems and adhere to industry best practices. Your information is handled with maximum confidentiality and care.",
   },
   {
-    q: "How can I get started with your bookkeeping services in usa?",
-    a: "Contact us today to schedule a consultation. Whether you’re searching for bookkeeping services near me or need help managing your payroll, our team is ready to support your small business.",
+    q: "How can I get started with your bookkeeping services in USA?",
+    a: "Contact us today to schedule a consultation. Whether you're searching for bookkeeping services near me or need help managing your payroll, our team is ready to support your small business.",
   },
 ];
 
@@ -76,38 +76,41 @@ export default function BookkeepingWashington() {
         titleLead: "Bookkeeping Services for Small Businesses in",
         highlight: "Washington, USA",
         subtitle:
-          "With over 15+ years of experience, our bookkeeping company in Washington specializes in providing expert bookkeeping services for small businesses in Washington and surrounding areas\nContact us today for trusted bookkeeping services in Washington and let us handle your finances with care and expertise.",
+          "With over 15+ years of experience, our bookkeeping company in Washington specializes in providing expert bookkeeping services for small businesses in Washington and surrounding areas. Contact us today for trusted bookkeeping services in Washington and let us handle your finances with care and expertise.",
         breadcrumb: "Bookkeeping Services in Washington",
       }}
       intro={{
-        overline: "BEST SOLUTION IN WASHINGTON",
+        overline: "",
         titleLead: "The Best Bookkeeping Services for Small Businesses in",
         highlight: "Washington",
         paragraphs: [
-          "As a leading bookkeeping company in Washington, Milta ensures your financial records are organized, accurate, and easy to manage. Our skilled Washington bookkeepers provide the best bookkeeping for small business, transforming complex financial data into clear insights to help you maintain control over your business’s financial health.",
+          "As a leading bookkeeping company in Washington, Milta ensures your financial records are organized, accurate, and easy to manage. Our skilled Washington bookkeepers provide the best bookkeeping for small business, transforming complex financial data into clear insights to help you maintain control over your business's financial health.",
           "From meticulous data entry to detailed financial reporting, our certified professionals handle every aspect of your accounting with precision. We take pride in offering trusted bookkeeping services in Washington, making it easier for small and medium-sized businesses to streamline their processes and achieve financial clarity.",
         ],
         ctaLabel: "To Arrange Your Free Initial Consultation, Contact Us Right Now!",
         imageAlt: "Bookkeeping services in Washington",
       }}
       prose={{
-        overline: "TAILORED TO YOUR BUSINESS",
+        overline: "",
         titleLead: "Top-Notch Bookkeeping Services for Your",
         highlight: "Business Needs",
         bg: "paper",
         paragraphs: [
           "Milta, a trusted bookkeeping company in Washington, offers customized and reliable bookkeeping services in Washington tailored to meet your unique business needs. We prioritize clear communication and a seamless, collaborative approach to managing your finances efficiently.",
           "With years of expertise, we help businesses uncover financial opportunities, such as last-minute tax deductions, while offering professional insights to support informed decision-making. Our dedicated team carefully analyzes your financial data, ensuring accuracy and compliance at every step.",
-          "Beyond monthly check-ins, we’re available year-round to answer questions, offer expert advice, and assist with QuickBooks troubleshooting or in-person financial reviews. Our goal is to provide dependable bookkeeping services for small businesses in Washington, helping you achieve long-term financial success.",
+          "Beyond monthly check-ins, we're available year-round to answer questions, offer expert advice, and assist with QuickBooks troubleshooting or in-person financial reviews. Our goal is to provide dependable bookkeeping services for small businesses in Washington, helping you achieve long-term financial success.",
         ],
       }}
       whyEssential={{
-        overline: "WHY IT MATTERS",
+        overline: "",
+        // Prose above runs on paper, so this drops back to default. Solutions
+        // below is also default but carries its own dotted backdrop, which is
+        // what keeps the two bands reading as separate sections.
         bg: "default",
-        titleLead: "Bookkeeping Service — Why Does Every",
+        titleLead: "Bookkeeping Service Why Does Every",
         highlight: "Business Need It?",
         subtitle:
-          "Bookkeeping is the process of documenting, organizing, and managing a business’s financial transactions. It is essential for maintaining accurate financial records, ensuring compliance with tax and legal requirements, and providing valuable insights for informed decision-making. Whether you run a small or medium-sized business, bookkeeping services for small businesses in Washington are vital because they:",
+          "Bookkeeping is the process of documenting, organizing, and managing a business's financial transactions. It is essential for maintaining accurate financial records, ensuring compliance with tax and legal requirements, and providing valuable insights for informed decision-making. Whether you run a small or medium-sized business, bookkeeping services for small businesses in Washington are vital because they:",
         items: [
           "Tracks income and expenses effectively.",
           "Prepares you for tax season without last-minute stress.",
@@ -116,7 +119,7 @@ export default function BookkeepingWashington() {
         ],
       }}
       solutions={{
-        overline: "WHY MILTA",
+        overline: "",
         titleLead: "Why Choose Milta for",
         highlight: "Bookkeeping Services?",
         subtitle:
@@ -124,7 +127,7 @@ export default function BookkeepingWashington() {
         items: [
           {
             icon: AccountBalanceIcon,
-            title: "Customized  Solutions for Small Business",
+            title: "Customized Solutions for Small Business",
             desc: "Our services are specifically designed for best bookkeeping for small businesses. We understand the unique challenges you face, such as managing cash flow and staying compliant with tax regulations. Our team ensures your financial records are accurate, up-to-date, and ready for tax season, helping your business thrive with customized solutions.",
           },
           {
@@ -140,7 +143,7 @@ export default function BookkeepingWashington() {
           {
             icon: VerifiedUserIcon,
             title: "Stay Compliant and Avoid Penalties",
-            desc: "Tax laws are constantly changing, and staying compliant can be challenging. Milta’s bookkeeping services ensure your business meets local, state, and federal tax requirements. By partnering with us, you can avoid costly penalties for incorrect filings or missed deadlines.",
+            desc: "Tax laws are constantly changing, and staying compliant can be challenging. Milta's bookkeeping services ensure your business meets local, state, and federal tax requirements. By partnering with us, you can avoid costly penalties for incorrect filings or missed deadlines.",
           },
         ],
         footnote:
@@ -148,11 +151,11 @@ export default function BookkeepingWashington() {
       }}
       cardGroups={[
         {
-          overline: "END-TO-END SOLUTIONS",
+          overline: "",
           titleLead: "Comprehensive Bookkeeping and Financial Solutions",
           highlight: "Customized to Your Needs",
           subtitle:
-            "At Miltafs, we provide a full suite of bookkeeping services designed to meet the unique needs of the best bookkeeping for small business. From organizing your financial records to preparing for year-end tax filings, we’ve got you covered every step of the way.",
+            "At Miltafs, we provide a full suite of bookkeeping services designed to meet the unique needs of the best bookkeeping for small business. From organizing your financial records to preparing for year-end tax filings, we've got you covered every step of the way.",
           bg: "paper",
           columns: 2,
           items: [
@@ -166,7 +169,7 @@ export default function BookkeepingWashington() {
             },
             {
               title: "Invoice Generation and Payment Tracking",
-              desc: "Invoicing can be time-consuming, but it’s essential for maintaining a steady cash flow. We handle invoice creation, ensure timely payment recording, and follow up on overdue payments. Our streamlined process guarantees that your income is tracked accurately and efficiently.",
+              desc: "Invoicing can be time-consuming, but it's essential for maintaining a steady cash flow. We handle invoice creation, ensure timely payment recording, and follow up on overdue payments. Our streamlined process guarantees that your income is tracked accurately and efficiently.",
             },
             {
               title: "Chart of Accounts and Accounting System Setup",
@@ -178,11 +181,11 @@ export default function BookkeepingWashington() {
             },
             {
               title: "Customized Financial Reporting (Weekly, Monthly, Yearly)",
-              desc: "Regular financial reports are key to understanding your business’s performance. We provide weekly, monthly, and yearly reports customized   to your needs, offering insights into revenue, expenses, profits, and other vital metrics. These reports empower you to make informed decisions and drive growth.",
+              desc: "Regular financial reports are key to understanding your business's performance. We provide weekly, monthly, and yearly reports customized to your needs, offering insights into revenue, expenses, profits, and other vital metrics. These reports empower you to make informed decisions and drive growth.",
             },
             {
               title: "Small Business Accounting, Non-Profit Bookkeeping, and Financial Clean-Up",
-              desc: "Whether you’re a small business or a non-profit, we specialize in managing your unique financial needs. We also offer financial clean-up services to reorganize and streamline your financial records, helping you regain control of your finances.",
+              desc: "Whether you're a small business or a non-profit, we specialize in managing your unique financial needs. We also offer financial clean-up services to reorganize and streamline your financial records, helping you regain control of your finances.",
             },
             {
               title: "CPA Collaboration for Year-End Tax Preparation",
@@ -190,15 +193,15 @@ export default function BookkeepingWashington() {
             },
           ],
           footnote:
-            "At Miltafs, we’re committed to delivering reliable, end-to-end bookkeeping solutions that support your business’s growth and success.",
+            "At Miltafs, we're committed to delivering reliable, end-to-end bookkeeping solutions that support your business's growth and success.",
         },
       ]}
       industries={{
-        overline: "WHO WE SERVE",
+        overline: "",
         titleLead: "Industries We Serve for",
         highlight: "Bookkeeping Services",
         subtitle:
-          "At Miltafs, we cater to a wide range of industries, providing specialized bookkeeping services customized  to their unique needs. Our expertise includes:",
+          "At Miltafs, we cater to a wide range of industries, providing specialized bookkeeping services customized to their unique needs. Our expertise includes:",
         items: [
           "Healthcare",
           "Education",

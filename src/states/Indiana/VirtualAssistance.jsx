@@ -87,9 +87,9 @@ export default function VirtualAssistantIndiana() {
           overline: "CALL TO ACTION",
           titleLead: "Focus on Growth, Leave the",
           highlight: "Rest to Us!",
+          ctaLabel: "Get Started Today",
           paragraphs: [
-            "Affordable and reliable Virtual Assistant Services for small businesses, offering customized support in bookkeeping, accounting virtual service, and administrative tasks.",
-            "Get Started Today.",
+            "Affordable and reliable Virtual Assistant Services for small businesses, offering customized support in bookkeeping, accounting virtual service, and administrative tasks.",
           ],
         },
         {
@@ -146,6 +146,7 @@ export default function VirtualAssistantIndiana() {
           overline: "TRANSFORM YOUR BUSINESS",
           titleLead: "Transform Your Business with Milta",
           highlight: "Virtual Assistant Services",
+          ctaLabel: "Contact Us Today",
           paragraphs: [
             "Investing in virtual assistant services is an investment in your business’s growth and efficiency. Let Milta take care of your daily responsibilities so you can concentrate on growing your company.",
             "Take the first step toward a more productive and stress-free business journey. Contact us today to explore our comprehensive range of virtual assistant services tailored for small businesses.",

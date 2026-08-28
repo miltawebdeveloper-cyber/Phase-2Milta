@@ -1,8 +1,4 @@
 import React from "react";
-import SavingsIcon from "@mui/icons-material/Savings";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import TuneIcon from "@mui/icons-material/Tune";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -55,12 +51,12 @@ export default function VirtualAssistantDelaware() {
         titleLead: "Boost Your Business Efficiency with",
         highlight: "Virtual Assistant Services in Delaware",
         subtitle:
-          "Looking for top-notch virtual assistant services in Delaware? Our virtual assistant for small businesses provides reliable, cost-effective solutions that free up your time and allow you to focus on what matters most. How Our Virtual Assistants Can Transform Your Business.",
-        ctaLabel: "Book a Free Consultation Today!",
+          "Looking for top-notch virtual assistant services in Delaware? Our virtual assistant for small businesses provides reliable, cost-effective solutions that free up your time and allow you to focus on what matters most. ",
+        ctaLabel: "How Our Virtual Assistants Can Transform Your Business",
         breadcrumb: "Virtual Assistant Services in Delaware",
       }}
       intro={{
-        overline: "VIRTUAL ASSISTANTS IN DELAWARE",
+        overline: "",
         titleLead: "Unlock Rewarding Opportunities with Virtual Assistant Service in",
         highlight: "Delaware",
         paragraphs: [
@@ -73,7 +69,7 @@ export default function VirtualAssistantDelaware() {
       }}
       cardGroups={[
         {
-          overline: "BENEFITS",
+          overline: "",
           titleLead: "Benefits of Virtual Assistant Services in",
           highlight: "Delaware",
           subtitle: "Partnering with Milta offers a range of advantages for your business:",
@@ -81,47 +77,57 @@ export default function VirtualAssistantDelaware() {
           columns: 2,
           items: [
             {
-              icon: SavingsIcon,
               title: "Cost Savings",
-              desc: "Save on recruitment, training, and employee benefits. Pay only for the services or hours you need. Reduce operational costs while maintaining quality with our virtual assistant service in Delaware.",
+              bullets: [
+                "Save on recruitment, training, and employee benefits.",
+                "Pay only for the services or hours you need.",
+                "Reduce operational costs while maintaining quality with our virtual assistant service in Delaware.",
+              ],
             },
             {
-              icon: TrendingUpIcon,
               title: "Increased Productivity",
-              desc: "Focus on your business's core operations while delegating repetitive tasks. Gain access to experienced professionals skilled in various domains. Improve turnaround times with efficient task handling from our virtual assistant for small business.",
+              bullets: [
+                "Focus on your business's core operations while delegating repetitive tasks.",
+                "Gain access to experienced professionals skilled in various domains.",
+                "Improve turnaround times with efficient task handling from our virtual assistant for small business",
+              ],
             },
             {
-              icon: TuneIcon,
               title: "Flexibility and Scalability",
-              desc: "Adjust service levels to your business's changing needs. Adapt tasks and procedures to meet your specific requirements with virtual assistant services in Delaware.",
+              bullets: [
+                "Adjust service levels to your business's changing needs.",
+                "Adapt tasks and procedures to meet your specific requirements with virtual assistant services in Delaware.",
+              ],
             },
             {
-              icon: SupportAgentIcon,
               title: "Expert Support",
-              desc: "Benefit from professionals proficient in accounting, bookkeeping, customer support, and more. Our team is trained in the latest tools and techniques, ensuring top-notch results with our best virtual assistant companies offering specialized support.",
+              bullets: [
+                "Benefit from professionals proficient in accounting, bookkeeping, customer support, and more.",
+                "Our team is trained in the latest tools and techniques, ensuring top-notch results with our best virtual assistant companies offering specialized support.",
+              ],
             },
           ],
         },
         {
-          overline: "CALL TO ACTION",
+          overline: "",
           titleLead: "Focus on Growth, Leave the",
           highlight: "Rest to Us!",
+          ctaLabel: "Get Started Today.",
           paragraphs: [
             "Affordable and reliable Virtual Assistant Services for small businesses, offering customized support in bookkeeping, accounting virtual service, and administrative tasks.",
-            "Get Started Today.",
           ],
         },
         {
-          overline: "WHAT WE DO",
+          overline: "",
           titleLead: "Our Virtual Assistant Services in",
           highlight: "Delaware",
           subtitle:
-            "At Milta, we offer a wide range of virtual assistant Delaware services designed to address the unique needs of small businesses.",
+            "At Milta, we offer a wide range of virtual assistant FL services designed to address the unique needs of small businesses.",
           bg: "paper",
           columns: 3,
           items: [
             {
-              title: "Real Estate Virtual Assistant Delaware",
+              title: "Real Estate Virtual Assistant ny",
               desc: "Our Real Estate Virtual Assistant Services specialize in managing time-consuming tasks like property listings, client database updates, and virtual tours. We streamline showings, market research, and reporting, ensuring you stay competitive. With our virtual assistant service in Delaware, you can focus on building client relationships and closing deals, while we handle the administrative work. Let the best virtual assistant companies support your success!",
             },
             {
@@ -142,7 +148,7 @@ export default function VirtualAssistantDelaware() {
             },
             {
               title: "Appointment Scheduling",
-              desc: "Never miss an important meeting with our appointment scheduling services. Our virtual assistants in Delaware manage your calendar, set up appointments, send reminders, and handle rescheduling across time zones.",
+              desc: "Never miss an important meeting with our appointment scheduling services. Our virtual assistants in NY manage your calendar, set up appointments, send reminders, and handle rescheduling across time zones.",
             },
             {
               title: "Accounting & Virtual Bookkeeping Service",
@@ -171,11 +177,11 @@ export default function VirtualAssistantDelaware() {
           ],
         },
         {
-          overline: "WHY MILTA",
+          overline: "",
           titleLead: "Why Choose Milta for",
           highlight: "Virtual Assistant Services?",
           subtitle:
-            "We stand out as a trusted partner for small businesses looking for efficient and reliable virtual assistants Delaware. Here's why:",
+            "We stand out as a trusted partner for small businesses looking for efficient and reliable virtual assistants FL. Here's why:",
           columns: 3,
           items: [
             {
@@ -201,7 +207,7 @@ export default function VirtualAssistantDelaware() {
           ],
         },
         {
-          overline: "GETTING STARTED",
+          overline: "",
           titleLead: "How to",
           highlight: "Get Started",
           subtitle: "Getting started with Milta's virtual assistant services is simple:",
@@ -227,9 +233,10 @@ export default function VirtualAssistantDelaware() {
           ],
         },
         {
-          overline: "TRANSFORM YOUR BUSINESS",
+          overline: "",
           titleLead: "Transform Your Business with Milta",
           highlight: "Virtual Assistant Services",
+          ctaLabel: "Contact Us Today",
           paragraphs: [
             "Investing in virtual assistant services is an investment in your business's growth and efficiency. Let Milta take care of your daily responsibilities so you can concentrate on growing your company.",
             "Take the first step toward a more productive and stress-free business journey. Contact us today to explore our comprehensive range of virtual assistant services tailored for small businesses.",

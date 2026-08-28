@@ -43,7 +43,7 @@ const faqs = [
     a: "To keep your financial information safe, we employ secure systems and adhere to industry best practices. Your information is handled with maximum confidentiality and care.",
   },
   {
-    q: "How can I get started with your bookkeeping services in usa?",
+    q: "How can I get started with your bookkeeping services in USA?",
     a: "Contact us today to schedule a consultation. Whether you're searching for bookkeeping services near me or need help managing your payroll, our team is ready to support your small business.",
   },
 ];
@@ -79,7 +79,7 @@ export default function BookkeepingMichigan() {
         breadcrumb: "Bookkeeping Services in Michigan",
       }}
       intro={{
-        overline: "BEST SOLUTION IN MICHIGAN",
+        overline: "",
         titleLead: "The Best Bookkeeping Services for Small Businesses in",
         highlight: "Michigan",
         paragraphs: [
@@ -90,7 +90,7 @@ export default function BookkeepingMichigan() {
         imageAlt: "Bookkeeping services in Michigan",
       }}
       prose={{
-        overline: "TAILORED TO YOUR BUSINESS",
+        overline: "",
         titleLead: "Top-Notch Bookkeeping Services for Your",
         highlight: "Business Needs",
         bg: "paper",
@@ -101,10 +101,10 @@ export default function BookkeepingMichigan() {
         ],
       }}
       whyEssential={{
-        overline: "WHY IT MATTERS",
-        titleLead: "Bookkeeping Service — Why Does Every",
-        highlight: "Business Need It?",
+        overline: "",
         bg: "default",
+        titleLead: "Bookkeeping Service Why Does Every",
+        highlight: "Business Need It?",
         subtitle:
           "Bookkeeping is the process of documenting, organizing, and managing a business's financial transactions. It is essential for maintaining accurate financial records, ensuring compliance with tax and legal requirements, and providing valuable insights for informed decision-making. Whether you run a small or medium-sized business, bookkeeping services for small businesses in Michigan are vital because they:",
         items: [
@@ -115,7 +115,7 @@ export default function BookkeepingMichigan() {
         ],
       }}
       solutions={{
-        overline: "WHY MILTA",
+        overline: "",
         titleLead: "Why Choose Milta for",
         highlight: "Bookkeeping Services?",
         subtitle:
@@ -147,7 +147,7 @@ export default function BookkeepingMichigan() {
       }}
       cardGroups={[
         {
-          overline: "END-TO-END SOLUTIONS",
+          overline: "",
           titleLead: "Comprehensive Bookkeeping and Financial Solutions",
           highlight: "Customized to Your Needs",
           subtitle:
@@ -193,7 +193,7 @@ export default function BookkeepingMichigan() {
         },
       ]}
       industries={{
-        overline: "WHO WE SERVE",
+        overline: "",
         titleLead: "Industries We Serve for",
         highlight: "Bookkeeping Services",
         subtitle:

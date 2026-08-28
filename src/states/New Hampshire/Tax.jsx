@@ -1,4 +1,8 @@
 import React from "react";
+import PersonIcon from "@mui/icons-material/Person";
+import BusinessIcon from "@mui/icons-material/Business";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -8,7 +12,7 @@ const faqs = [
   },
   {
     q: "What documents are required for tax preparation services in New Hampshire?",
-    a: `To ensure accurate and complete tax preparation service in New Hampshire, USA, you'll need to provide the following documents:
+    a: `To ensure accurate and complete tax preparation service in New Hampshire USA, you'll need to provide the following documents:
 
 Personal Information:
 - Social Security numbers and dates of birth for you, your spouse, and dependents
@@ -64,15 +68,15 @@ export default function TaxNewHampshire() {
         schema: faqSchema,
       }}
       hero={{
-        titleLead: "Optimize Your Tax Filing with Trusted",
-        highlight: "Tax Preparation Services in New Hampshire!",
+        titleLead: "Optimize Your Tax Filing with Trusted Tax Preparation Services in",
+        highlight: "New Hampshire!",
         subtitle:
           "Make your tax filing process seamless with reliable tax services near me. Whether you're filing federal, state, or city taxes, our expert team offers professional tax planning and preparation to ensure accuracy.",
         ctaLabel: "Get Started Today with a Free Consultation!",
         breadcrumb: "Tax Services in New Hampshire",
       }}
       intro={{
-        overline: "TAX PLANNING IN NEW HAMPSHIRE",
+        overline: "",
         titleLead: "Specializing in Business and Individual Tax Preparation Services in",
         highlight: "New Hampshire, USA",
         paragraphs: [
@@ -83,7 +87,7 @@ export default function TaxNewHampshire() {
         imageAlt: "Tax preparation services in New Hampshire",
       }}
       prose={{
-        overline: "STAY COMPLIANT",
+        overline: "",
         titleLead: "Stay Compliant with Expert Tax Preparation Services in",
         highlight: "New Hampshire",
         bg: "paper",
@@ -93,25 +97,29 @@ export default function TaxNewHampshire() {
         ],
       }}
       solutions={{
-        overline: "COMPREHENSIVE TAX SERVICES",
+        overline: "",
         titleLead: "Miltafs Comprehensive Tax Services: Expert Tax Preparation Services in",
         highlight: "New Hampshire",
         subtitle:
           "The Milta accounting firm near me provides comprehensive tax preparation services in New Hampshire, serving individuals, businesses, estates, trusts, and nonprofits. Our team of experts ensures accurate tax preparation, thorough review, and seamless filing of tax returns at the federal, state, and city levels. Our Services Include:",
         items: [
           {
-            title: "Individual New Hampshire Tax Preparation Service",
+            icon: PersonIcon,
+            title: "Individual NY Tax Preparation Service",
             desc: "Customized solutions to maximize deductions and credits, ensuring compliance with IRS regulations.",
           },
           {
+            icon: BusinessIcon,
             title: "Business Tax Services Near me",
             desc: "Expertise in corporate tax planning and preparation, helping businesses minimize liabilities and optimize tax positions.",
           },
           {
+            icon: AccountBalanceIcon,
             title: "Estate and Trust Taxation",
             desc: "Specialized services to manage the complexities of estate and trust tax filings, ensuring fiduciary responsibilities are met.",
           },
           {
+            icon: VolunteerActivismIcon,
             title: "Nonprofit Tax Compliance",
             desc: "Assistance with maintaining tax-exempt status and compliance with federal and state reporting requirements.",
           },
@@ -121,21 +129,31 @@ export default function TaxNewHampshire() {
       }}
       cardGroups={[
         {
-          overline: "SERVICE 1",
-          titleLead: "Tax Preparation Service in",
+          overline: "",
+          titleLead: "1. Tax Preparation Service in",
           highlight: "New Hampshire",
-          subtitle:
-            "We handle every aspect of New Hampshire tax preparation, transforming complex financial data into accurate, compliant returns. Our goal is to minimize your tax liability and maximize refunds while ensuring full adherence to federal, state, and local regulations.",
+          bg: "paper",
+          paragraphs: [
+            "We handle every aspect of NY tax preparation, transforming complex financial data into accurate, compliant returns. Our goal is to minimize your tax liability and maximize refunds while ensuring full adherence to federal, state, and local regulations.",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Federal Tax",
+          highlight: "Preparation",
           bg: "paper",
           columns: 2,
           items: [
             {
-              title: "Federal Tax Preparation — Form 1040 (Individual Returns)",
+              title: "Form 1040 (Individual Returns)",
               desc: "We meticulously apply every eligible deduction (e.g., student loan interest, charitable contributions) and credit (e.g., Child Tax Credit, Earned Income Tax Credit) to reduce your taxable income and boost refunds.",
             },
             {
               title: "Form 1120 & 1120S (Corporate Returns)",
-              desc: "C Corporations (Form 1120): We navigate complex corporate income tax rules, including depreciation schedules and shareholder dividends. S Corporations (Form 1120S): We ensure proper allocation of profits/losses to shareholders and compliance with pass-through entity requirements.",
+              bullets: [
+                "C Corporations (Form 1120): We navigate complex corporate income tax rules, including depreciation schedules and shareholder dividends.",
+                "S Corporations (Form 1120S): We ensure proper allocation of profits/losses to shareholders and compliance with pass-through entity requirements.",
+              ],
             },
             {
               title: "Form 1041 (Estates & Trusts)",
@@ -145,30 +163,56 @@ export default function TaxNewHampshire() {
               title: "Form 1065 (Partnerships)",
               desc: "We file returns for multi-owner businesses, including Form 8825 for rental real estate income, expenses, and depreciation.",
             },
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "State NY Tax Preparation",
+          highlight: "(New Hampshire Focus)",
+          bg: "paper",
+          columns: 3,
+          items: [
             {
-              title: "State New Hampshire Tax Preparation — Income Tax",
+              title: "Income Tax",
               desc: "Optimized filings for New Hampshire's progressive tax brackets, including credits like the Property Tax Credit.",
             },
             {
-              title: "State New Hampshire Tax Preparation — Sales Tax",
+              title: "Sales Tax",
               desc: "Compliance with New Hampshire's 6.35% sales tax rate, exemptions, and quarterly reporting for retailers.",
             },
             {
-              title: "State New Hampshire Tax Preparation — Property Tax",
+              title: "Property Tax",
               desc: "Guidance on local assessments, appeals, and tax relief programs for homeowners and businesses.",
-            },
-            {
-              title: "Local Tax Expertise",
-              desc: "We decode municipal tax codes for cities like Hartford, New Haven, and Stamford, addressing nuances such as business personal property taxes, and local surcharges or gross receipts taxes.",
             },
           ],
         },
         {
-          overline: "SERVICE 2",
-          titleLead: "Tax Review &",
-          highlight: "Finalization",
+          overline: "",
+          titleLead: "Local Tax",
+          highlight: "Expertise",
           subtitle:
-            "Before filing, we conduct a rigorous two-step quality assurance process to safeguard against errors and audits.",
+            "We decode municipal tax codes for cities like Hartford, New Haven, and Stamford, addressing nuances such as:",
+          bg: "paper",
+          columns: 2,
+          items: [
+            "Business personal property taxes.",
+            "Local surcharges or gross receipts taxes.",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "2. Tax Review &",
+          highlight: "Finalization",
+          bg: "default",
+          paragraphs: [
+            "Before filing, we conduct a rigorous two-step quality assurance process to safeguard against errors and audits:",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Tax Review",
+          highlight: "Process",
+          bg: "default",
           columns: 3,
           items: [
             {
@@ -183,28 +227,35 @@ export default function TaxNewHampshire() {
               title: "Optimization Scan",
               desc: "Identify missed opportunities (e.g., home office deductions, retirement contributions).",
             },
-            {
-              title: "Secure Approvals",
-              desc: "Secure digital signatures and approvals via encrypted platforms.",
-            },
-            {
-              title: "Audit-Ready Documentation",
-              desc: "Compile audit-ready documentation (e.g., receipts, and mileage logs) for your records.",
-            },
-            {
-              title: "Guaranteed On-Time Filing",
-              desc: "We meet deadlines to avoid late penalties (e.g., a 5% monthly penalty for late federal returns).",
-            },
           ],
         },
         {
-          overline: "SERVICE 3",
-          titleLead: "Tax E-Filing",
-          highlight: "Service",
-          subtitle:
-            "We streamline submissions with IRS-authorized e-filing software, ensuring speed, security, and accuracy.",
-          bg: "paper",
+          overline: "",
+          titleLead: "Finalization &",
+          highlight: "Submission",
+          bg: "default",
           columns: 3,
+          items: [
+            "Secure digital signatures and approvals via encrypted platforms.",
+            "Compile audit-ready documentation (e.g., receipts, and mileage logs) for your records.",
+            "Guaranteed On-Time Filing: We meet deadlines to avoid late penalties (e.g., a 5% monthly penalty for late federal returns).",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "3. Tax E-Filing",
+          highlight: "Service",
+          bg: "paper",
+          paragraphs: [
+            "We streamline submissions with IRS-authorized e-filing software, ensuring speed, security, and accuracy:",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Benefits of",
+          highlight: "E-Filing",
+          bg: "paper",
+          columns: 2,
           items: [
             {
               title: "24-Hour IRS Acknowledgement",
@@ -222,22 +273,26 @@ export default function TaxNewHampshire() {
               title: "Military-Grade Encryption",
               desc: "Protect sensitive data (e.g., SSNs, bank details) during transmission.",
             },
-            {
-              title: "We E-File All Returns",
-              desc: "Federal (IRS), New Hampshire DRS, and municipal portals.",
-            },
-            {
-              title: "Specialized Filings",
-              desc: "Amendments (Form 1040-X), extensions (Form 4868), and payment plans.",
-            },
           ],
         },
         {
-          overline: "SERVICE 4",
-          titleLead: "Tax Forms We",
+          overline: "",
+          titleLead: "We E-File",
+          highlight: "All Returns",
+          bg: "paper",
+          columns: 2,
+          items: [
+            "Federal (IRS), New Hampshire DRS, and municipal portals.",
+            "Specialized filings: Amendments (Form 1040-X), extensions (Form 4868), and payment plans.",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "4. Tax Forms We",
           highlight: "Specialize In",
           subtitle:
-            "Beyond basic returns, we expertly handle niche filings to cover all your needs.",
+            "Beyond basic returns, we expertly handle niche filings to cover all your needs:",
+          bg: "default",
           columns: 2,
           items: [
             {
@@ -246,7 +301,10 @@ export default function TaxNewHampshire() {
             },
             {
               title: "Form 1099 Series",
-              desc: "1099-NEC: Contractor payments. 1099-INT/DIV: Interest, dividends, and stock transactions.",
+              bullets: [
+                "1099-NEC: Contractor payments.",
+                "1099-INT/DIV: Interest, dividends, and stock transactions.",
+              ],
             },
             {
               title: "Schedule C (Self-Employed)",
@@ -259,7 +317,7 @@ export default function TaxNewHampshire() {
           ],
         },
         {
-          overline: "KEY FEDERAL TAX FORMS",
+          overline: "",
           titleLead: "Understanding Key",
           highlight: "Federal Tax Forms",
           bg: "paper",
@@ -267,57 +325,75 @@ export default function TaxNewHampshire() {
           items: [
             {
               title: "Form 1040",
-              desc: "Used by individuals to report income and claim deductions/credits. Includes detailed sections for wages, investments, and deductions.",
+              bullets: [
+                "Used by individuals to report income and claim deductions/credits.",
+                "Includes detailed sections for wages, investments, and deductions.",
+              ],
             },
             {
               title: "Form 1041",
-              desc: "Filed for estates and trusts, reporting income distributed to beneficiaries. Ensures compliance with fiduciary tax obligations.",
+              bullets: [
+                "Filed for estates and trusts, reporting income distributed to beneficiaries.",
+                "Ensures compliance with fiduciary tax obligations.",
+              ],
             },
             {
               title: "Form 1065",
-              desc: "Partnership tax returns, detailing profits, losses, and credits. Partners receive a Schedule K-1 for individual filings.",
+              bullets: [
+                "Partnership tax returns, detailing profits, losses, and credits.",
+                "Partners receive a Schedule K-1 for individual filings.",
+              ],
             },
             {
               title: "Form 990",
-              desc: "Non-Profit Organization returns, required to maintain tax-exempt status. Transparency in reporting revenue, expenses, and program activities.",
+              bullets: [
+                "Non-Profit Organization returns, required to maintain tax-exempt status.",
+                "Transparency in reporting revenue, expenses, and program activities.",
+              ],
             },
             {
               title: "Form 1120",
-              desc: "C Corporation returns, detailing corporate income, expenses, and tax liabilities.",
+              bullets: [
+                "C Corporation returns, detailing corporate income, expenses, and tax liabilities.",
+              ],
             },
             {
               title: "Form 1120S",
-              desc: "For S Corporations, reflecting income passed through to shareholders.",
+              bullets: [
+                "For S Corporations, reflecting income passed through to shareholders.",
+              ],
             },
             {
               title: "Form 1099",
-              desc: "Used to report miscellaneous income for contractors, freelancers, and other non-employee payments.",
+              bullets: [
+                "Used to report miscellaneous income for contractors, freelancers, and other non-employee payments.",
+              ],
             },
           ],
         },
       ]}
       checklists={[
         {
-          overline: "WHY PARTNER WITH US",
+          overline: "",
           titleLead: "Why Partner",
           highlight: "With Us?",
           bg: "default",
           items: [
             "Year-Round Support: Not just tax season we're here for quarterly estimated payments, IRS notices, or audit defense.",
             "New Hampshire-Specific Knowledge: Deep familiarity with state tax incentives (e.g., film production credits, green energy rebates).",
-            "Proactive Compliance: We monitor law changes to keep you ahead.",
+            "Proactive Compliance: We monitor law changes (e.g., NY Pass-Through Entity Tax updates) to keep you ahead.",
             "Stress-Free Experience: We handle the paperwork, deadlines, and jargon you focus on growing your business.",
           ],
         },
       ]}
       closing={{
-        overline: "CALL TO ACTION",
+        overline: "",
         titleLead: "Ready to Simplify",
         highlight: "Your Taxes?",
+        ctaLabel: "Contact Us Today for a Free Consultation!",
         bg: "paper",
         paragraphs: [
           "If you're looking for tax services near me, our tax preparation services in New Hampshire ensure accuracy and compliance every step of the way.",
-          "Contact Us Today for a Free Consultation!",
         ],
       }}
       faqs={faqs}

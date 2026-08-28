@@ -327,4 +327,74 @@ export const statesData = {
       { name: "Payroll Services in Nevada", url: "/us/services/payroll-management-services-in-the-nevada/" },
     ],
   },
+  Salem: {
+    description:
+      "We help Salem-based businesses manage bookkeeping, payroll, tax preparation, and financial reporting with accuracy and compliance.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in Salem", url: "/us/services/best-bookkeeping-services-in-salem/" },
+      { name: "Tax Planning and Preparation in Salem", url: "/us/services/tax-planning-and-preparation-service-in-salem/" },
+      { name: "CPA Services for Salem Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-salem/" },
+      { name: "Virtual Assistant Services in Salem", url: "/us/services/virtual-assistant-service-in-salem/" },
+      { name: "Digital Marketing Services in Salem", url: "/us/services/best-digital-marketing-agency-in-salem" },
+      { name: "Data Entry & Management Services in Salem", url: "/us/services/outsourcing-accounting-data-entry-salem/" },
+      { name: "Financial Controller Services in Salem", url: "/us/services/financial-controller-services-in-salem/" },
+      { name: "Payroll Services in Salem", url: "/us/services/payroll-management-services-in-the-salem/" },
+    ],
+  },
+  Utah: {
+    description:
+      "We help Utah-based businesses manage bookkeeping, payroll, tax preparation, and financial reporting with accuracy and compliance.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in Utah", url: "/us/services/best-bookkeeping-services-in-utah/" },
+      { name: "Tax Planning and Preparation in Utah", url: "/us/services/tax-planning-and-preparation-service-in-utah/" },
+      { name: "CPA Services for Utah Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-utah/" },
+      { name: "Virtual Assistant Services in Utah", url: "/us/services/virtual-assistant-service-in-utah/" },
+      { name: "Digital Marketing Services in Utah", url: "/us/services/best-digital-marketing-agency-in-utah" },
+      { name: "Data Entry & Management Services in Utah", url: "/us/services/outsourcing-accounting-data-entry-utah/" },
+      { name: "Financial Controller Services in Utah", url: "/us/services/financial-controller-services-in-utah/" },
+      { name: "Payroll Services in Utah", url: "/us/services/payroll-management-services-in-the-utah/" },
+    ],
+  },
+  Wyoming: {
+    description:
+      "We help Wyoming-based businesses manage bookkeeping, payroll, tax preparation, and financial reporting with accuracy and compliance.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in Wyoming", url: "/us/services/best-bookkeeping-services-in-wyoming/" },
+      { name: "Tax Planning and Preparation in Wyoming", url: "/us/services/tax-planning-and-preparation-service-in-wyoming/" },
+      { name: "CPA Services for Wyoming Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-wyoming/" },
+      { name: "Virtual Assistant Services in Wyoming", url: "/us/services/virtual-assistant-service-in-wyoming/" },
+      { name: "Digital Marketing Services in Wyoming", url: "/us/services/best-digital-marketing-agency-in-wyoming" },
+      { name: "Data Entry & Management Services in Wyoming", url: "/us/services/outsourcing-accounting-data-entry-wyoming/" },
+      { name: "Financial Controller Services in Wyoming", url: "/us/services/financial-controller-services-in-wyoming/" },
+      { name: "Payroll Services in Wyoming", url: "/us/services/payroll-management-services-in-the-wyoming/" },
+    ],
+  },
+  NewMexico: {
+    description:
+      "We help New Mexico-based businesses manage bookkeeping, payroll, tax preparation, and financial reporting with accuracy and compliance.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in New Mexico", url: "/us/services/best-bookkeeping-services-in-newmexico/" },
+      { name: "Tax Planning and Preparation in New Mexico", url: "/us/services/tax-planning-and-preparation-service-in-newmexico/" },
+      { name: "CPA Services for New Mexico Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-newmexico/" },
+      { name: "Virtual Assistant Services in New Mexico", url: "/us/services/virtual-assistant-service-in-newmexico/" },
+      { name: "Digital Marketing Services in New Mexico", url: "/us/services/best-digital-marketing-agency-in-newmexico" },
+      { name: "Data Entry & Management Services in New Mexico", url: "/us/services/outsourcing-accounting-data-entry-newmexico/" },
+      { name: "Financial Controller Services in New Mexico", url: "/us/services/financial-controller-services-in-newmexico/" },
+      { name: "Payroll Services in New Mexico", url: "/us/services/payroll-management-services-in-the-newmexico/" },
+    ],
+  },
+  Montana: {
+    description:
+      "We help Montana-based businesses manage bookkeeping, payroll, tax preparation, and financial reporting with accuracy and compliance.",
+    services: [
+      { name: "Bookkeeping Services for Small Businesses in Montana", url: "/us/services/best-bookkeeping-services-in-montana/" },
+      { name: "Tax Planning and Preparation in Montana", url: "/us/services/tax-planning-and-preparation-service-in-montana/" },
+      { name: "CPA Services for Montana Small Businesses", url: "/us/services/best-cpa-services-for-small-businesses-in-the-montana/" },
+      { name: "Virtual Assistant Services in Montana", url: "/us/services/virtual-assistant-service-in-montana/" },
+      { name: "Digital Marketing Services in Montana", url: "/us/services/best-digital-marketing-agency-in-montana/" },
+      { name: "Data Entry & Management Services in Montana", url: "/us/services/outsourcing-accounting-data-entry-montana/" },
+      { name: "Financial Controller Services in Montana", url: "/us/services/financial-controller-services-in-montana/" },
+      { name: "Payroll Services in Montana", url: "/us/services/payroll-management-services-in-the-montana/" },
+    ],
+  },
 };

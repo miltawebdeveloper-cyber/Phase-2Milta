@@ -42,11 +42,12 @@ export default function BookkeepingKentucky() {
       hero={{
         titleLead: "Bookkeeping Services for Small Businesses in",
         highlight: "Kentucky, USA",
-        subtitle: "With over 15+ years of experience, our bookkeeping company in Kentucky specializes in providing expert bookkeeping services for small businesses in Kentucky and surrounding areas. Contact us today for trusted bookkeeping services in Kentucky and let us handle your finances with care and expertise.",
+        subtitle:
+          "With over 15+ years of experience, our bookkeeping company in Kentucky specializes in providing expert bookkeeping services for small businesses in Kentucky and surrounding areas. Contact us today for trusted bookkeeping services in Kentucky and let us handle your finances with care and expertise.",
         breadcrumb: "Bookkeeping Services in Kentucky",
       }}
       intro={{
-        overline: "BEST SOLUTION IN KENTUCKY",
+        overline: "",
         titleLead: "The Best Bookkeeping Services for Small Businesses in",
         highlight: "Kentucky",
         paragraphs: [
@@ -54,10 +55,10 @@ export default function BookkeepingKentucky() {
           "From meticulous data entry to detailed financial reporting, our certified professionals handle every aspect of your accounting with precision. We take pride in offering trusted bookkeeping services in Kentucky, making it easier for small and medium-sized businesses to streamline their processes and achieve financial clarity.",
         ],
         ctaLabel: "To Arrange Your Free Initial Consultation, Contact Us Right Now!",
-        imageAlt: "Bookkeeping services for small businesses in Kentucky",
+        imageAlt: "Bookkeeping services in Kentucky",
       }}
       prose={{
-        overline: "TAILORED TO YOUR BUSINESS",
+        overline: "",
         titleLead: "Top-Notch Bookkeeping Services for Your",
         highlight: "Business Needs",
         bg: "paper",
@@ -68,51 +69,120 @@ export default function BookkeepingKentucky() {
         ],
       }}
       whyEssential={{
-        overline: "WHY IT MATTERS",
-        titleLead: "Bookkeeping Service Why Does Every Business Need",
-        highlight: "It?",
-        subtitle: "Bookkeeping is the process of documenting, organizing, and managing a business’s financial transactions. It is essential for maintaining accurate financial records, ensuring compliance with tax and legal requirements, and providing valuable insights for informed decision-making. Whether you run a small or medium-sized business, bookkeeping services for small businesses in Kentucky are vital because they:",
-        items: ["Tracks income and expenses effectively.", "Prepares you for tax season without last-minute stress.", "Provides insights into financial performance for strategic planning.", "Ensures compliance with financial and tax obligations."],
+        overline: "",
+        bg: "default",
+        titleLead: "Bookkeeping Service Why Does Every",
+        highlight: "Business Need It?",
+        subtitle:
+          "Bookkeeping is the process of documenting, organizing, and managing a business’s financial transactions. It is essential for maintaining accurate financial records, ensuring compliance with tax and legal requirements, and providing valuable insights for informed decision-making. Whether you run a small or medium-sized business, bookkeeping services for small businesses in Kentucky are vital because they:",
+        items: [
+          "Tracks income and expenses effectively.",
+          "Prepares you for tax season without last-minute stress.",
+          "Provides insights into financial performance for strategic planning.",
+          "Ensures compliance with financial and tax obligations.",
+        ],
       }}
       solutions={{
-        overline: "WHY MILTA",
+        overline: "",
         titleLead: "Why Choose Milta for",
         highlight: "Bookkeeping Services?",
-        subtitle: "With numerous bookkeeping services near me available, Milta stands out for several reasons:",
+        subtitle:
+          "With numerous bookkeeping services near me available, Milta stands out for several reasons:",
         items: [
-          { icon: AccountBalanceIcon, title: "Customized Solutions for Small Business", desc: "Our services are specifically designed for best bookkeeping for small businesses. We understand the unique challenges you face, such as managing cash flow and staying compliant with tax regulations. Our team ensures your financial records are accurate, up-to-date, and ready for tax season, helping your business thrive with customized solutions." },
-          { icon: PaymentsIcon, title: "Affordable, Professional Services", desc: "At Milta, we offer high-quality bookkeeping services in Kentucky at competitive prices. As the best bookkeeping for small businesses ourselves, we know budget constraints are a concern. Our transparent pricing ensures you only pay for the services you need, making professional bookkeeping accessible and cost-effective." },
-          { icon: CurrencyExchangeIcon, title: "Comprehensive Bookkeeping Support", desc: "From payroll management and bookkeeping to tax preparation and financial reporting, we provide end-to-end solutions. Our experienced team works closely with you to keep your financial records organized and easily accessible whenever you need them." },
-          { icon: VerifiedUserIcon, title: "Stay Compliant and Avoid Penalties", desc: "Tax laws are constantly changing, and staying compliant can be challenging. Milta’s bookkeeping services ensure your business meets local, state, and federal tax requirements. By partnering with us, you can avoid costly penalties for incorrect filings or missed deadlines." },
+          {
+            icon: AccountBalanceIcon,
+            title: "Customized Solutions for Small Business",
+            desc: "Our services are specifically designed for best bookkeeping for small businesses. We understand the unique challenges you face, such as managing cash flow and staying compliant with tax regulations. Our team ensures your financial records are accurate, up-to-date, and ready for tax season, helping your business thrive with customized solutions.",
+          },
+          {
+            icon: PaymentsIcon,
+            title: "Affordable, Professional Services",
+            desc: "At Milta, we offer high-quality bookkeeping services in Kentucky at competitive prices. As the best bookkeeping for small businesses ourselves, we know budget constraints are a concern. Our transparent pricing ensures you only pay for the services you need, making professional bookkeeping accessible and cost-effective.",
+          },
+          {
+            icon: CurrencyExchangeIcon,
+            title: "Comprehensive Bookkeeping Support",
+            desc: "From payroll management and bookkeeping to tax preparation and financial reporting, we provide end-to-end solutions. Our experienced team works closely with you to keep your financial records organized and easily accessible whenever you need them.",
+          },
+          {
+            icon: VerifiedUserIcon,
+            title: "Stay Compliant and Avoid Penalties",
+            desc: "Tax laws are constantly changing, and staying compliant can be challenging. Milta's bookkeeping services ensure your business meets local, state, and federal tax requirements. By partnering with us, you can avoid costly penalties for incorrect filings or missed deadlines.",
+          },
         ],
-        footnote: "Choose Milta for reliable, affordable, and customized bookkeeping services near me, that help your business grow while staying compliant and financially organized. Allow us to handle the numbers so you can focus on accomplishing your business objectives!",
+        footnote:
+          "Choose Milta for reliable, affordable, and customized bookkeeping services near me, that help your business grow while staying compliant and financially organized. Allow us to handle the numbers so you can focus on accomplishing your business objectives!",
       }}
-      cardGroups={[{
-        overline: "END-TO-END SOLUTIONS",
-        titleLead: "Comprehensive Bookkeeping and Financial Solutions",
-        highlight: "Customized to Your Needs",
-        subtitle: "At Miltafs, we provide a full suite of bookkeeping services designed to meet the unique needs of the best bookkeeping for small business. From organizing your financial records to preparing for year-end tax filings, we’ve got you covered every step of the way.",
-        bg: "paper",
-        columns: 2,
-        items: [
-          { title: "1. Bank and Credit Card Reconciliation", desc: "Ensuring your financial records match your bank and credit card statements is crucial. Our team meticulously reconciles every transaction, eliminating discrepancies and safeguarding against errors or fraud. Regular reconciliation also helps identify unnecessary charges or mistakes, keeping your accounts accurate and secure." },
-          { title: "2. Management of Cash Flow, Receivables (AR), and Accounts Payable (AP)", desc: "Effective cash flow management is vital for the sustainability of your business. We track and document your cash inflows and outflows, manage AR to monitor outstanding payments, and handle AP to ensure vendor bills are paid on time. This gives you a clear, real-time view of your financial health." },
-          { title: "3. Invoice Generation and Payment Tracking", desc: "Invoicing can be time-consuming, but it’s essential for maintaining a steady cash flow. We handle invoice creation, ensure timely payment recording, and follow up on overdue payments. Our streamlined process guarantees that your income is tracked accurately and efficiently." },
-          { title: "4. Chart of Accounts and Accounting System Setup", desc: "A well-structured chart of accounts is the foundation of sound financial management. We work with you to create a customized chart of accounts that categorizes transactions clearly. Additionally, we maintain an organized accounting system, ensuring all documents are easily accessible when needed." },
-          { title: "5. Payroll Processing, Tax Compliance, and Employee Benefits Management", desc: "Payroll is a critical function that requires precision and compliance. We manage payroll calculations, tax withholdings, and employee benefits, ensuring your team is paid accurately and on time while adhering to all tax regulations." },
-          { title: "6. Customized Financial Reporting (Weekly, Monthly, Yearly)", desc: "Regular financial reports are key to understanding your business’s performance. We provide weekly, monthly, and yearly reports customized to your needs, offering insights into revenue, expenses, profits, and other vital metrics. These reports empower you to make informed decisions and drive growth." },
-          { title: "7. Small Business Accounting, Non-Profit Bookkeeping, and Financial Clean-Up", desc: "Whether you’re a small business or a non-profit, we specialize in managing your unique financial needs. We also offer financial clean-up services to reorganize and streamline your financial records, helping you regain control of your finances." },
-          { title: "8. CPA Collaboration for Year-End Tax Preparation", desc: "We work closely with certified public accountants (CPAs) to ensure your year-end tax filings are accurate and timely. By preparing and organizing your financial records, we simplify the process for your CPA, allowing you to focus on running your business." },
-        ],
-        footnote: "At Miltafs, we’re committed to delivering reliable, end-to-end bookkeeping solutions that support your business’s growth and success.",
-      }]}
+      cardGroups={[
+        {
+          overline: "",
+          titleLead: "Comprehensive Bookkeeping and Financial Solutions",
+          highlight: "Customized to Your Needs",
+          subtitle:
+            "At Miltafs, we provide a full suite of bookkeeping services designed to meet the unique needs of the best bookkeeping for small business. From organizing your financial records to preparing for year-end tax filings, we've got you covered every step of the way.",
+          bg: "paper",
+          columns: 2,
+          items: [
+            {
+              title: "Bank and Credit Card Reconciliation",
+              desc: "Ensuring your financial records match your bank and credit card statements is crucial. Our team meticulously reconciles every transaction, eliminating discrepancies and safeguarding against errors or fraud. Regular reconciliation also helps identify unnecessary charges or mistakes, keeping your accounts accurate and secure.",
+            },
+            {
+              title: "Management of Cash Flow, Receivables (AR), and Accounts Payable (AP)",
+              desc: "Effective cash flow management is vital for the sustainability of your business. We track and document your cash inflows and outflows, manage AR to monitor outstanding payments, and handle AP to ensure vendor bills are paid on time. This gives you a clear, real-time view of your financial health.",
+            },
+            {
+              title: "Invoice Generation and Payment Tracking",
+              desc: "Invoicing can be time-consuming, but it's essential for maintaining a steady cash flow. We handle invoice creation, ensure timely payment recording, and follow up on overdue payments. Our streamlined process guarantees that your income is tracked accurately and efficiently.",
+            },
+            {
+              title: "Chart of Accounts and Accounting System Setup",
+              desc: "A well-structured chart of accounts is the foundation of sound financial management. We work with you to create a customized chart of accounts that categorizes transactions clearly. Additionally, we maintain an organized accounting system, ensuring all documents are easily accessible when needed.",
+            },
+            {
+              title: "Payroll Processing, Tax Compliance, and Employee Benefits Management",
+              desc: "Payroll is a critical function that requires precision and compliance. We manage payroll calculations, tax withholdings, and employee benefits, ensuring your team is paid accurately and on time while adhering to all tax regulations.",
+            },
+            {
+              title: "Customized Financial Reporting (Weekly, Monthly, Yearly)",
+              desc: "Regular financial reports are key to understanding your business's performance. We provide weekly, monthly, and yearly reports customized to your needs, offering insights into revenue, expenses, profits, and other vital metrics. These reports empower you to make informed decisions and drive growth.",
+            },
+            {
+              title: "Small Business Accounting, Non-Profit Bookkeeping, and Financial Clean-Up",
+              desc: "Whether you're a small business or a non-profit, we specialize in managing your unique financial needs. We also offer financial clean-up services to reorganize and streamline your financial records, helping you regain control of your finances.",
+            },
+            {
+              title: "CPA Collaboration for Year-End Tax Preparation",
+              desc: "We work closely with certified public accountants (CPAs) to ensure your year-end tax filings are accurate and timely. By preparing and organizing your financial records, we simplify the process for your CPA, allowing you to focus on running your business.",
+            },
+          ],
+          footnote:
+            "At Miltafs, we're committed to delivering reliable, end-to-end bookkeeping solutions that support your business's growth and success.",
+        },
+      ]}
       industries={{
-        overline: "WHO WE SERVE",
+        overline: "",
         titleLead: "Industries We Serve for",
         highlight: "Bookkeeping Services",
-        subtitle: "At Miltafs, we cater to a wide range of industries, providing specialized bookkeeping services customized to their unique needs. Our expertise includes:",
-        items: ["Healthcare", "Education", "Travel and Tourism", "Transportation", "Telecommunication", "Food and Beverage", "Finance and Insurance", "Entertainment Industry", "Hospital Industry", "Information Technology (IT)", "Online/Ecommerce", "CPA Industry", "Marketing and Advertising"],
-        footnote: "No matter your industry, Milta is here to help you grace your finances, stay compliant, and achieve your business goals. Let us handle the statistics while you concentrate on what you do best!",
+        subtitle:
+          "At Miltafs, we cater to a wide range of industries, providing specialized bookkeeping services customized to their unique needs. Our expertise includes:",
+        items: [
+          "Healthcare",
+          "Education",
+          "Travel and Tourism",
+          "Transportation",
+          "Telecommunication",
+          "Food and Beverage",
+          "Finance and Insurance",
+          "Entertainment Industry",
+          "Hospital Industry",
+          "Information Technology (IT)",
+          "Online/Ecommerce",
+          "CPA Industry",
+          "Marketing and Advertising",
+        ],
+        footnote:
+          "No matter your industry, Milta is here to help you grace your finances, stay compliant, and achieve your business goals. Let us handle the statistics while you concentrate on what you do best!",
       }}
       faqs={faqs}
     />

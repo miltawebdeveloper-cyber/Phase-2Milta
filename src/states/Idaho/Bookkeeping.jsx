@@ -58,7 +58,7 @@ export default function BookkeepingIdaho() {
   return (
     <ServiceLayout
       seo={{
-        title: "Bookkeeping services for small business in Idaho",
+        title: "Bookkeeping services for small business in Idaho | Milta",
         description:
           "Trusted bookkeeping services in Idaho to keep your finances accurate and organized. Contact our bookkeeping company for expert support today.",
         keywords:

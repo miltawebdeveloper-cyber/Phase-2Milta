@@ -1,13 +1,38 @@
 import React from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import BuildIcon from "@mui/icons-material/Build";
-import LinkIcon from "@mui/icons-material/Link";
-import DevicesIcon from "@mui/icons-material/Devices";
-import ShareIcon from "@mui/icons-material/Share";
-import AdsClickIcon from "@mui/icons-material/AdsClick";
-import ArticleIcon from "@mui/icons-material/Article";
-import MailOutlineIcon from "@mui/icons-material/MailOutlined";
 import ServiceLayout from "../_ServiceLayout";
+
+const faqs = [
+  {
+    q: "How can AI-powered marketing help my business?",
+    a: "AI-driven solutions help optimize campaigns, target the right audience, and maximize ROI with data-driven insights.",
+  },
+  {
+    q: "What digital marketing services do you offer?",
+    a: "We offer SEO, Technical SEO, Link Building, Web Design, Social Media Marketing, PPC, Content Marketing, and Email Marketing.",
+  },
+  {
+    q: "Can your services increase my revenue?",
+    a: "Yes. Our strategies are tailored to your business goals and focus on driving measurable growth.",
+  },
+  {
+    q: "Do you work with small businesses?",
+    a: "Absolutely. We support businesses of all sizes, from startups to multi-location companies.",
+  },
+  {
+    q: "How do I get started with Milta?",
+    a: "Request a proposal or contact us for a consultation to discuss your business goals and needs.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 export default function DigitalMarketingMichigan() {
   return (
@@ -25,12 +50,12 @@ export default function DigitalMarketingMichigan() {
         titleLead: "Elevate Your Success with Michigan's Leading",
         highlight: "Digital Marketing Agency",
         subtitle:
-          "Unlock Explosive Growth Using Cutting-Edge Digital Marketing Services in Michigan.",
+          "Unlock Explosive Growth Using Cutting-Edge Digital Marketing Services in Michigan",
         ctaLabel: "Request a Proposal Today!",
         breadcrumb: "Digital Marketing Agency in Michigan",
       }}
       intro={{
-        overline: "AI-DRIVEN MARKETING",
+        overline: "",
         titleLead: "AI-Driven Marketing & Advertising to Accelerate Your",
         highlight: "Business Growth",
         paragraphs: [
@@ -41,7 +66,7 @@ export default function DigitalMarketingMichigan() {
         imageAlt: "Digital marketing agency in Michigan",
       }}
       prose={{
-        overline: "RIGHT TIME, RIGHT PLATFORM",
+        overline: "",
         titleLead: "Engage Your Audience with Precision",
         highlight: "Right Time, Right Platform",
         bg: "paper",
@@ -51,7 +76,7 @@ export default function DigitalMarketingMichigan() {
         ],
       }}
       whyEssential={{
-        overline: "WHY PARTNER WITH MILTA",
+        overline: "",
         titleLead: "Why Partner",
         highlight: "with Milta?",
         bg: "default",
@@ -64,63 +89,56 @@ export default function DigitalMarketingMichigan() {
         footnote:
           "At Milta, we don't just boost visibility, we deliver measurable results for businesses across Michigan. Let us help you strengthen your brand, accelerate growth, and dominate your industry.",
       }}
-      solutions={{
-        overline: "OUR SERVICES",
-        titleLead: "Milta Digital Marketing Services in",
-        highlight: "Michigan",
-        subtitle:
-          "Establish Your Brand as an Industry Leader and Drive Higher Profitability.",
-        items: [
-          {
-            icon: SearchIcon,
-            title: "Search Engine Optimization (SEO)",
-            desc: "We can assist you in achieving greater organic ranks and more exposure in search results through careful keyword research and ethical SEO techniques. Our agency conducts thorough keyword research, implements on-page and off-page optimization, and tracks your results with Google Search Console. These efforts allow us to attract high-quality leads and traffic, ultimately enhancing your conversions.",
-          },
-          {
-            icon: BuildIcon,
-            title: "Technical SEO Service",
-            desc: "Lay a strong online foundation with precise technical SEO and digital marketing services. Our technical SEO specialists run crawl error reports, check HTTPS status codes, optimize site speed, audit redirects, and eliminate duplicate content. By doing so, we improve your website's crawlability and indexability. We also add structured data markup to your site and facilitate site migration based on your needs.",
-          },
-          {
-            icon: LinkIcon,
-            title: "Link Building Service",
-            desc: "Generate a consistent flow of traffic from high-authority websites and enhance consumer trust. Our organization leverages sponsorships, sponsored ads, and partnerships to present your content to key audiences. We employ strategic guest blogging, publish unique, engaging content, distribute data-driven infographics, and enhance your social media engagement, thereby building quality backlinks that drive more sales.",
-          },
-          {
-            icon: DevicesIcon,
-            title: "Web Design & Development Services",
-            desc: "Milta creates custom, mobile-ready, and SEO-optimized websites that help you meet your business objectives and support your digital marketing initiatives. We design a visual hierarchy to highlight important site elements and encourage visitors to take action. Our web design experts use clear calls-to-action (CTAs), avoid carousels and rotating sliders, simplify form fields, and tailor content for your target audience.",
-          },
-          {
-            icon: ShareIcon,
-            title: "Social Media Marketing",
-            desc: "Ready to grow your presence on social media? We develop campaigns that engage and expand your audience. Our agency identifies your goals, conducts competitor benchmarking, and analyzes your customers' online behavior. Using data and analytics, we craft custom strategies for social media brand management and paid advertising for your business.",
-          },
-          {
-            icon: AdsClickIcon,
-            title: "Pay-Per-Click (PPC) Management",
-            desc: "Reach Your Customers with Precision Using Data-Driven PPC Campaigns. Our AdWords-certified PPC specialists ensure your campaigns are expertly managed. For every keyword, we create customized ad copy, adjust bidding tactics, maximize device targeting, and monitor return on investment. By leveraging seasonal trends, we effectively promote your products, driving high-quality leads and maximizing traffic.",
-          },
-          {
-            icon: ArticleIcon,
-            title: "Content Marketing Service",
-            desc: "The content on your website is vital: it's the backbone of your SEO and the reason many visitors come to your site. Trust Milta for your content creation, and we'll deliver precision writing. Our content specialists stay informed about the latest news and market trends to ensure compliance with Google standards. We craft compelling headlines, use high-performing keywords, incorporate relevant imagery, and structure your posts for easy reading.",
-          },
-          {
-            icon: MailOutlineIcon,
-            title: "Email Marketing Service",
-            desc: "How many promotional emails do you delete each day? Choose Milta and let's make your email marketing campaigns stand out. We design personalized email newsletters that keep your messages out of spam folders and encourage your customers to take action. Our team builds your subscriber list, tests email campaigns before sending, employs impactful language, and creates curiosity gaps in your emails.",
-          },
-        ],
-      }}
       cardGroups={[
         {
-          overline: "WHY CHOOSE MILTA",
+          overline: "",
+          titleLead: "Milta Digital Marketing Services in",
+          highlight: "Michigan",
+          subtitle:
+            "Establish Your Brand as an Industry Leader and Drive Higher Profitability",
+          bg: "paper",
+          columns: 2,
+          items: [
+            {
+              title: "Search Engine Optimization (SEO)",
+              desc: "We can assist you in achieving greater organic ranks and more exposure in search results through careful keyword research and ethical SEO techniques. Our agency conducts thorough keyword research, implements on-page and off-page optimization, and tracks your results with Google Search Console. These efforts allow us to attract high-quality leads and traffic, ultimately enhancing your conversions.",
+            },
+            {
+              title: "Technical SEO Service",
+              desc: "Lay a strong online foundation with precise technical SEO and digital marketing services. Our technical SEO specialists run crawl error reports, check HTTPS status codes, optimize site speed, audit redirects, and eliminate duplicate content. By doing so, we improve your website's crawlability and indexability. We also add structured data markup to your site and facilitate site migration based on your needs.",
+            },
+            {
+              title: "Link Building Service",
+              desc: "Generate a consistent flow of traffic from high-authority websites and enhance consumer trust. Our organization leverages sponsorships, sponsored ads, and partnerships to present your content to key audiences. We employ strategic guest blogging, publish unique, engaging content, distribute data-driven infographics, and enhance your social media engagement, thereby building quality backlinks that drive more sales.",
+            },
+            {
+              title: "Web Design & Development Services",
+              desc: "Milta creates custom, mobile-ready, and SEO-optimized websites that help you meet your business objectives and support your digital marketing initiatives. We design a visual hierarchy to highlight important site elements and encourage visitors to take action. Our web design experts use clear calls-to-action (CTAs), avoid carousels and rotating sliders, simplify form fields, and tailor content for your target audience.",
+            },
+            {
+              title: "Social Media Marketing",
+              desc: "Ready to grow your presence on social media? We develop campaigns that engage and expand your audience. Our agency identifies your goals, conducts competitor benchmarking, and analyzes your customers' online behavior. Using data and analytics, we craft custom strategies for social media brand management and paid advertising for your business.",
+            },
+            {
+              title: "Pay-Per-Click (PPC) Management",
+              desc: "Reach Your Customers with Precision Using Data-Driven PPC Campaigns. Our AdWords-certified PPC specialists ensure your campaigns are expertly managed. For every keyword, we create customized ad copy, adjust bidding tactics, maximize device targeting, and monitor return on investment. By leveraging seasonal trends, we effectively promote your products, driving high-quality leads and maximizing traffic.",
+            },
+            {
+              title: "Content Marketing Service",
+              desc: "The content on your website is vital: it's the backbone of your SEO and the reason many visitors come to your site. Trust Milta for your content creation, and we'll deliver precision writing. Our content specialists stay informed about the latest news and market trends to ensure compliance with Google standards. We craft compelling headlines, use high-performing keywords, incorporate relevant imagery, and structure your posts for easy reading.",
+            },
+            {
+              title: "Email Marketing Service",
+              desc: "How many promotional emails do you delete each day? Choose Milta and let's make your email marketing campaigns stand out. We design personalized email newsletters that keep your messages out of spam folders and encourage your customers to take action. Our team builds your subscriber list, tests email campaigns before sending, employs impactful language, and creates curiosity gaps in your emails.",
+            },
+          ],
+        },
+        {
+          overline: "",
           titleLead: "Why Choose Milta as Your Digital Marketing Service in",
           highlight: "Michigan",
           subtitle:
             "Accelerate Your Revenue Growth and Achieve Online Success. Selecting the right digital marketing partner is crucial for your business's success. Milta stands out as a trusted and reliable agency, offering a customized approach to meet your unique needs. Here's why Milta is the right choice:",
-          bg: "paper",
           columns: 3,
           items: [
             {
@@ -152,11 +170,12 @@ export default function DigitalMarketingMichigan() {
             "By choosing Milta as your digital marketing agency in Michigan, you're partnering with a team committed to your business's growth and success, with the best strategies and a proven track record of delivering results.",
         },
         {
-          overline: "WHY DIGITAL MARKETING",
+          overline: "",
           titleLead: "Why Select Milta as Your Partner in",
           highlight: "Digital Marketing",
           subtitle:
             "In today's competitive market, maintaining a strong online presence is crucial for every business. Digital marketing services offer a powerful means to engage more clients and enhance your brand visibility. Here's why you should consider these services:",
+          bg: "paper",
           columns: 3,
           items: [
             {
@@ -182,6 +201,7 @@ export default function DigitalMarketingMichigan() {
           ],
         },
       ]}
+      faqs={faqs}
     />
   );
 }

@@ -3163,6 +3163,44 @@ export const blogSEOUk = {
       }
     ]
   },
+  
+  "labor-cost-tracking-for-contractors": {
+    "title": "Labor Cost Tracking for Contractors: The 7% Payroll Leak",
+    "description": "Inaccurate manual timesheets can cost contractors up to 7% of gross payroll a year. See where that leak starts and how better tracking closes it.",
+    "author": "Milta Accounting Services",
+    "keywords": "labor cost tracking for contractors, contractor payroll, construction labor tracking, employee timesheet accuracy, construction payroll management, job costing labor, field workforce management, payroll leak prevention",
+    "canonical": "https://www.miltafs.com/us/blogs/labor-cost-tracking-for-contractors",
+    "ogImage": "https://www.miltafs.com/images/miltafs-og.jpg",
+    "schema": [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Why 7% of Contractor Payroll Disappears Into Untracked Labor Hours",
+        "description": "Inaccurate manual timesheets can cost contractors up to 7% of gross payroll a year. See where that leak starts and how better tracking closes it.",
+        "image": "https://www.miltafs.com/images/miltafs-og.jpg",
+        "author": {
+          "@type": "Organization",
+          "name": "Milta Accounting Services",
+          "url": "https://www.miltafs.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Milta Accounting Services",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.miltafs.com/logo.svg"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.miltafs.com/us/blogs/labor-cost-tracking-for-contractors"
+        },
+        "url": "https://www.miltafs.com/us/blogs/labor-cost-tracking-for-contractors",
+        "datePublished": "2026-08-28",
+        "dateModified": "2026-08-28"
+      }
+    ]
+  }, 
 };
 
 const ORIGIN = "https://www.miltafs.com";

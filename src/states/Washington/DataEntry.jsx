@@ -1,16 +1,10 @@
 import React from "react";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import FactCheckIcon from "@mui/icons-material/FactCheck";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
-import BalanceIcon from "@mui/icons-material/Balance";
-import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import BarChartIcon from "@mui/icons-material/BarChart";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
   {
     q: "What is accounting data entry?",
-    a: "Accounting data entry involves recording financial transactions into organized systems for accurate reporting and analysis. It’s essential for maintaining up-to-date financial records.",
+    a: "Accounting data entry involves recording financial transactions into organized systems for accurate reporting and analysis. It's essential for maintaining up-to-date financial records.",
   },
   {
     q: "Why should I outsource accounting data entry?",
@@ -70,66 +64,60 @@ export default function DataEntryWashington() {
         titleLead: "Precision-Driven Data Management Services in",
         highlight: "Washington, USA",
         subtitle:
-          "Our specialized solutions are designed to enhance accuracy, optimize workflows, and fuel growth for small businesses..",
+          "Our specialized solutions are designed to enhance accuracy, optimize workflows, and fuel growth for small businesses.",
         ctaLabel: "Book a free 30-minute Zoom consultation today.",
         breadcrumb: "Data Entry Services in Washington",
       }}
       intro={{
-        overline: "OUR IDENTITY AND ACTIVITIES",
+        overline: "",
         titleLead: "Our Identity and",
         highlight: "Activities",
         paragraphs: [
-          "We are a trusted partner among Accounting Data Entry Companies in Washington, delivering precise and efficient accounting data entry solutions. customized  for small and medium-sized businesses across the U.S., we prioritize maximizing your time and resources. As a leader in data entry companies based in Washington, our mission is to streamline your business operations with affordable, high-quality, and error-free data entry services.",
+          "We are a trusted partner among Accounting Data Entry Companies in Washington, delivering precise and efficient accounting data entry solutions. customized for small and medium-sized businesses across the U.S., we prioritize maximizing your time and resources. As a leader in data entry companies based in Washington, our mission is to streamline your business operations with affordable, high-quality, and error-free data entry services.",
           "With years of expertise in data management services, our dedicated team ensures your financial records are meticulously maintained, accurate, compliant, and always up-to-date. This empowers you to make confident, data-driven decisions for sustainable growth.",
-          "We specialize in a full spectrum of data entry services in Washington, including data collection, reporting, reconciliation, and customized  data management services. Designed for small businesses, our solutions combine precision and professionalism to handle your financial information securely, so you can focus on scaling your vision.",
+          "We specialize in a full spectrum of data entry services in Washington, including data collection, reporting, reconciliation, and customized data management services. Designed for small businesses, our solutions combine precision and professionalism to handle your financial information securely, so you can focus on scaling your vision.",
         ],
         ctaLabel: "Book a free 30-minute Zoom consultation today.",
         imageAlt: "Accounting data entry services in Washington",
       }}
       cardGroups={[
         {
-          overline: "OUR PROCESS",
+          overline: "",
           titleLead: "Our Efficient Accounting Data",
           highlight: "Entry Process",
           subtitle:
-            "At Milta, our proven workflow  designed by Accounting Data Entry Companies in Washington  ensures your financial data is managed with unmatched precision and efficiency. Here’s how we deliver excellence:",
+            "At Milta, our proven workflow designed by Accounting Data Entry Companies in Washington ensures your financial data is managed with unmatched precision and efficiency. Here's how we deliver excellence:",
           bg: "paper",
           columns: 3,
           items: [
             {
-              icon: CloudUploadIcon,
-              title: "1. Data Collection",
+              title: "Data Collection",
               desc: "We securely gather invoices, receipts, bank statements, payroll records, and other critical documents through encrypted digital channels. As trusted data entry companies, we prioritize confidentiality, safeguarding your sensitive information at every step.",
             },
             {
-              icon: FactCheckIcon,
-              title: "2. Data Verification",
+              title: "Data Verification",
               desc: "Every document undergoes rigorous scrutiny to ensure accuracy and completeness. For instance, we cross-reference invoice details with purchase orders, leveraging accounting data entry expertise to eliminate discrepancies before processing.",
             },
             {
-              icon: AccountTreeIcon,
-              title: "3. Chart of Accounts Creation",
-              desc: "We build or refine a customized  chart of accounts aligned with your business structure. This foundational step, part of our data management services, ensures seamless categorization of transactions for clarity and compliance.",
+              title: "Chart of Accounts Creation",
+              desc: "We build or refine a customized chart of accounts aligned with your business structure. This foundational step, part of our data management services, ensures seamless categorization of transactions for clarity and compliance.",
             },
             {
-              icon: BalanceIcon,
-              title: "4. Double-Entry Accounting Check",
+              title: "Double-Entry Accounting Check",
               desc: "Our team applies double-entry accounting principles to maintain balanced records, minimizing errors and financial mismatches. This meticulous approach defines our data entry services, ensuring reliability in every ledger entry.",
             },
             {
-              icon: CompareArrowsIcon,
-              title: "5. Data Reconciliation",
+              title: "Data Reconciliation",
               desc: "We perform thorough reconciliation of bank statements and ledgers, identifying and resolving inconsistencies. This step underscores our commitment to accuracy, a hallmark of top data entry companies in Washington.",
             },
             {
-              icon: BarChartIcon,
-              title: "6. Financial Reporting",
+              title: "Financial Reporting",
               desc: "Finally, we generate detailed reports (profit & loss statements, balance sheets, cash flow analyses) to provide actionable insights. These reports, backed by robust data management services, empower you to drive strategic decisions confidently.",
             },
           ],
         },
         {
-          overline: "WHAT WE DO",
+          overline: "",
           titleLead: "Our Data Entry Services in",
           highlight: "USA",
           subtitle:
@@ -137,55 +125,56 @@ export default function DataEntryWashington() {
           columns: 3,
           items: [
             {
-              title: "1. General Ledger Entry",
+              title: "General Ledger Entry",
               desc: "We maintain an accurate and thorough general ledger by methodically documenting all of your financial activities.",
             },
             {
-              title: "2. Accounts Payable and Receivable Data Entry",
+              title: "Accounts Payable and Receivable Data Entry",
               desc: "We manage your billing and payments accurately, streamlining cash flow and improving vendor relationships.",
             },
             {
-              title: "3. Invoice Data Entry",
+              title: "Invoice Data Entry",
               desc: "Efficient processing of invoices for timely payments and organized record-keeping.",
             },
             {
-              title: "4. Bank Reconciliation",
+              title: "Bank Reconciliation",
               desc: "We reconcile bank statements with your accounting records to eliminate discrepancies and ensure consistency.",
             },
             {
-              title: "5. Payroll Data Entry",
+              title: "Payroll Data Entry",
               desc: "From salaries to deductions, we ensure your payroll records are precise and compliant.",
             },
             {
-              title: "6. Expense Report Data Management Service",
+              title: "Expense Report Data Management Service",
               desc: "For efficient planning and payment, arrange and evaluate business spending.",
             },
             {
-              title: "7. Financial Statement Preparation",
+              title: "Financial Statement Preparation",
               desc: "Prepare accurate financial reports, including balance sheets and profit and loss statements, for better decision-making.",
             },
             {
-              title: "8. Custom Data Entry Services",
+              title: "Custom Data Entry Services",
               desc: "Our flexible solutions cater to your unique business requirements, providing personalized data management services support.",
             },
             {
-              title: "9. QuickBooks Data Entry",
+              title: "QuickBooks Data Entry",
               desc: "We specialize in QuickBooks integration, managing everything from invoice entry to report generation. By leveraging QuickBooks, we help you maintain accurate and accessible financial records. Example: A construction company using QuickBooks saved 20 hours per month by outsourcing its data entry needs to us.",
             },
           ],
         },
       ]}
+      faqs={faqs}
       closing={{
         placement: "afterFaqs",
-        overline: "GET IN TOUCH",
-        titleLead: "Ready to Transform Your Financial",
-        highlight: "Data Management Services?",
+        overline: "",
+        titleLead: "Ready to transform your financial data",
+        highlight: "management services?",
+        ctaLabel: "Contact us today",
         bg: "paper",
         paragraphs: [
           "Contact us today for reliable and professional accounting data entry services!",
         ],
       }}
-      faqs={faqs}
     />
   );
 }

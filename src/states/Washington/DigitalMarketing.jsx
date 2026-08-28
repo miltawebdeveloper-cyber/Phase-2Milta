@@ -1,30 +1,26 @@
 import React from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import BuildIcon from "@mui/icons-material/Build";
-import LinkIcon from "@mui/icons-material/Link";
-import DevicesIcon from "@mui/icons-material/Devices";
-import ShareIcon from "@mui/icons-material/Share";
-import AdsClickIcon from "@mui/icons-material/AdsClick";
-import ArticleIcon from "@mui/icons-material/Article";
-import MailOutlineIcon from "@mui/icons-material/MailOutlined";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
   {
-    q: "How can digital marketing help my Washington business?",
-    a: "Digital marketing helps increase visibility, attract quality leads, improve conversions, and drive sustainable business growth using data-driven strategies.",
-  },
-  {
-    q: "Do you work with small and large businesses?",
-    a: "Yes. We support startups, growing businesses, and enterprise-level companies across Washington.",
+    q: "How can AI-powered marketing help my business?",
+    a: "AI-driven solutions help optimize campaigns, target the right audience, and maximize ROI with data-driven insights.",
   },
   {
     q: "What digital marketing services do you offer?",
-    a: "We provide comprehensive services including SEO, PPC management, social media marketing, email marketing, web design and development, technical SEO, and content marketing.",
+    a: "We offer SEO, Technical SEO, Link Building, Web Design, Social Media Marketing, PPC, Content Marketing, and Email Marketing.",
   },
   {
-    q: "How do you track campaign performance?",
-    a: "We utilize advanced analytics tools like Google Analytics and Google Search Console to monitor key metrics, measure ROI, and continuously optimize campaign performance.",
+    q: "Can your services increase my revenue?",
+    a: "Yes. Our strategies are tailored to your business goals and focus on driving measurable growth.",
+  },
+  {
+    q: "Do you work with small businesses?",
+    a: "Absolutely. We support businesses of all sizes, from startups to multi-location companies.",
+  },
+  {
+    q: "How do I get started with Milta?",
+    a: "Request a proposal or contact us for a consultation to discuss your business goals and needs.",
   },
 ];
 
@@ -53,7 +49,7 @@ export default function DigitalMarketingWashington() {
         schema: faqSchema,
       }}
       hero={{
-        titleLead: "Elevate Your Success with Washington’s Leading",
+        titleLead: "Elevate Your Success with Washington's Leading",
         highlight: "Digital Marketing Agency",
         subtitle:
           "Unlock Explosive Growth Using Cutting-Edge Digital Marketing Services in Washington",
@@ -61,99 +57,90 @@ export default function DigitalMarketingWashington() {
         breadcrumb: "Digital Marketing Agency in Washington",
       }}
       intro={{
-        overline: "AI-DRIVEN MARKETING",
+        overline: "",
         titleLead: "AI-Driven Marketing & Advertising to Accelerate Your",
         highlight: "Business Growth",
         paragraphs: [
-          "Reaching your audience in Washington’s competitive markets is critical and achievable with the right partner. As a premier digital marketing agency in Washington, Milta combines cutting-edge AI technology with proven Washington internet marketing strategies to deliver results. We specialize in website development, search engine marketing (SEM), social media management, and targeted paid advertising campaigns designed to drive measurable growth.",
-          "Whether you’re expanding your reach, scaling operations, or boosting revenue, our team crafts customized digital marketing services in Washington tailored to your goals. From hyper-local SEO to data-driven ad campaigns, we ensure your message resonates with your audience, accelerates conversions, and propels long-term success.",
+          "Reaching your audience in Washington's competitive markets is critical and achievable with the right partner. As a premier digital marketing agency in Washington, Milta combines cutting-edge AI technology with proven Washington internet marketing strategies to deliver results. We specialize in website development, search engine marketing (SEM), social media management, and targeted paid advertising campaigns designed to drive measurable growth.",
+          "Whether you're expanding your reach, scaling operations, or boosting revenue, our team crafts customized digital marketing services in Washington tailored to your goals. From hyper-local SEO to data-driven ad campaigns, we ensure your message resonates with your audience, accelerates conversions, and propels long-term success.",
         ],
         ctaLabel: "Request a Proposal Today!",
-        imageAlt: "Digital marketing services in Washington",
+        imageAlt: "Digital marketing agency in Washington",
       }}
       prose={{
-        overline: "AUDIENCE ENGAGEMENT",
-        titleLead: "Engage Your Audience with Precision —",
+        overline: "",
+        titleLead: "Engage Your Audience with Precision",
         highlight: "Right Time, Right Platform",
         bg: "paper",
         paragraphs: [
           "As a premier digital marketing agency in Washington, Milta empowers businesses of all sizes to elevate their online presence, attract high-quality leads, and drive scalable growth all while optimizing costs.",
-          "Whether you’re a startup, a rapidly scaling company, or a multi-location enterprise, our customized digital marketing services in Washington are designed to connect you with your ideal audience, breaking through geographic and time zone barriers.",
+          "Whether you're a startup, a rapidly scaling company, or a multi-location enterprise, our customized digital marketing services in Washington are designed to connect you with your ideal audience, breaking through geographic and time zone barriers.",
         ],
       }}
-      checklists={[
-        {
-          overline: "WHY PARTNER",
-          titleLead: "Why Partner",
-          highlight: "with Milta?",
-          bg: "default",
-          items: [
-            "AI-Driven Washington Internet Marketing: Leverage predictive analytics and machine learning to target audiences precisely.",
-            "Hyper-Local Expertise: Strategies Customized to Washington’s dynamic market, from Seattle to Spokane.",
-            "Maximized ROI: Trackable campaigns that prioritize conversions and cost efficiency.",
-          ],
-          footnote:
-            "At Milta, we don’t just boost visibility, we deliver measurable results for businesses across Washington. Let us help you strengthen your brand, accelerate growth, and dominate your industry.",
-        },
-      ]}
+      whyEssential={{
+        overline: "",
+        titleLead: "Why Partner",
+        highlight: "with Milta?",
+        bg: "default",
+        columns: 3,
+        items: [
+          "AI-Driven Washington Internet Marketing: Leverage predictive analytics and machine learning to target audiences precisely.",
+          "Hyper-Local Expertise: Strategies Customized to Washington's dynamic market, from Manhattan to Long Island.",
+          "Maximized ROI: Trackable campaigns that prioritize conversions and cost efficiency.",
+        ],
+        footnote:
+          "At Milta, we don't just boost visibility, we deliver measurable results for businesses across Washington. Let us help you strengthen your brand, accelerate growth, and dominate your industry.",
+      }}
       cardGroups={[
         {
-          overline: "OUR SERVICES",
+          overline: "",
           titleLead: "Milta Digital Marketing Services in",
           highlight: "Washington",
           subtitle:
             "Establish Your Brand as an Industry Leader and Drive Higher Profitability",
           bg: "paper",
-          columns: 3,
+          columns: 2,
           items: [
             {
-              icon: SearchIcon,
               title: "Search Engine Optimization (SEO)",
               desc: "We can assist you in achieving greater organic ranks and more exposure in search results through careful keyword research and ethical SEO techniques. Our agency conducts thorough keyword research, implements on-page and off-page optimization, and tracks your results with Google Search Console. These efforts allow us to attract high-quality leads and traffic, ultimately enhancing your conversions.",
             },
             {
-              icon: BuildIcon,
               title: "Technical SEO Service",
               desc: "Lay a strong online foundation with precise technical SEO and digital marketing services. Our technical SEO specialists run crawl error reports, check HTTPS status codes, optimize site speed, audit redirects, and eliminate duplicate content. By doing so, we improve your website's crawlability and indexability. We also add structured data markup to your site and facilitate site migration based on your needs.",
             },
             {
-              icon: LinkIcon,
               title: "Link Building Service",
               desc: "Generate a consistent flow of traffic from high-authority websites and enhance consumer trust. Our organization leverages sponsorships, sponsored ads, and partnerships to present your content to key audiences. We employ strategic guest blogging, publish unique, engaging content, distribute data-driven infographics, and enhance your social media engagement, thereby building quality backlinks that drive more sales.",
             },
             {
-              icon: DevicesIcon,
               title: "Web Design & Development Services",
               desc: "Milta creates custom, mobile-ready, and SEO-optimized websites that help you meet your business objectives and support your digital marketing initiatives. We design a visual hierarchy to highlight important site elements and encourage visitors to take action. Our web design experts use clear calls-to-action (CTAs), avoid carousels and rotating sliders, simplify form fields, and tailor content for your target audience.",
             },
             {
-              icon: ShareIcon,
               title: "Social Media Marketing",
               desc: "Ready to grow your presence on social media? We develop campaigns that engage and expand your audience. Our agency identifies your goals, conducts competitor benchmarking, and analyzes your customers' online behavior. Using data and analytics, we craft custom strategies for social media brand management and paid advertising for your business.",
             },
             {
-              icon: AdsClickIcon,
               title: "Pay-Per-Click (PPC) Management",
               desc: "Reach Your Customers with Precision Using Data-Driven PPC Campaigns. Our AdWords-certified PPC specialists ensure your campaigns are expertly managed. For every keyword, we create customized ad copy, adjust bidding tactics, maximize device targeting, and monitor return on investment. By leveraging seasonal trends, we effectively promote your products, driving high-quality leads and maximizing traffic.",
             },
             {
-              icon: ArticleIcon,
               title: "Content Marketing Service",
-              desc: "The content on your website is vital: it’s the backbone of your SEO and the reason many visitors come to your site. Trust Milta for your content creation, and we’ll deliver precision writing. Our content specialists stay informed about the latest news and market trends to ensure compliance with Google standards. We craft compelling headlines, use high-performing keywords, incorporate relevant imagery, and structure your posts for easy reading.",
+              desc: "The content on your website is vital: it's the backbone of your SEO and the reason many visitors come to your site. Trust Milta for your content creation, and we'll deliver precision writing. Our content specialists stay informed about the latest news and market trends to ensure compliance with Google standards. We craft compelling headlines, use high-performing keywords, incorporate relevant imagery, and structure your posts for easy reading.",
             },
             {
-              icon: MailOutlineIcon,
               title: "Email Marketing Service",
-              desc: "How many promotional emails do you delete each day? Choose Milta and let’s make your email marketing campaigns stand out. We design personalized email newsletters that keep your messages out of spam folders and encourage your customers to take action. Our team builds your subscriber list, tests email campaigns before sending, employs impactful language, and creates curiosity gaps in your emails.",
+              desc: "How many promotional emails do you delete each day? Choose Milta and let's make your email marketing campaigns stand out. We design personalized email newsletters that keep your messages out of spam folders and encourage your customers to take action. Our team builds your subscriber list, tests email campaigns before sending, employs impactful language, and creates curiosity gaps in your emails.",
             },
           ],
         },
         {
-          overline: "WHY CHOOSE MILTA",
+          overline: "",
           titleLead: "Why Choose Milta as Your Digital Marketing Service in",
           highlight: "Washington",
           subtitle:
-            "Accelerate Your Revenue Growth and Achieve Online Success. Selecting the right digital marketing partner is crucial for your business's success. Milta stands out as a trusted and reliable agency, offering a customized approach to meet your unique needs. Here’s why Milta is the right choice:",
+            "Accelerate Your Revenue Growth and Achieve Online Success. Selecting the right digital marketing partner is crucial for your business's success. Milta stands out as a trusted and reliable agency, offering a customized approach to meet your unique needs. Here's why Milta is the right choice:",
           columns: 3,
           items: [
             {
@@ -174,20 +161,22 @@ export default function DigitalMarketingWashington() {
             },
             {
               title: "Proven Track Record",
-              desc: "Our portfolio of satisfied clients reflects our success. From small businesses to large enterprises, we’ve helped brands enhance their online presence, attract more customers, and achieve sustainable growth.",
+              desc: "Our portfolio of satisfied clients reflects our success. From small businesses to large enterprises, we've helped brands enhance their online presence, attract more customers, and achieve sustainable growth.",
             },
             {
               title: "Commitment to Results",
-              desc: "At Milta, your success is our priority. We are dedicated to delivering measurable results and helping your business reach its digital marketing goals, focusing on increasing traffic, generating leads, and driving revenue. By choosing Milta as your digital marketing agency in Washington, you're partnering with a team committed to your business's growth and success, with the best strategies and a proven track record of delivering results.",
+              desc: "At Milta, your success is our priority. We are dedicated to delivering measurable results and helping your business reach its digital marketing goals, focusing on increasing traffic, generating leads, and driving revenue.",
             },
           ],
+          footnote:
+            "By choosing Milta as your digital marketing agency in Washington, you're partnering with a team committed to your business's growth and success, with the best strategies and a proven track record of delivering results.",
         },
         {
-          overline: "MARKETING VALUE",
+          overline: "",
           titleLead: "Why Select Milta as Your Partner in",
           highlight: "Digital Marketing",
           subtitle:
-            "In today’s competitive market, maintaining a strong online presence is crucial for every business. Digital marketing services offer a powerful means to engage more clients and enhance your brand visibility. Here’s why you should consider these services:",
+            "In today's competitive market, maintaining a strong online presence is crucial for every business. Digital marketing services offer a powerful means to engage more clients and enhance your brand visibility. Here's why you should consider these services:",
           bg: "paper",
           columns: 3,
           items: [
@@ -197,7 +186,7 @@ export default function DigitalMarketingWashington() {
             },
             {
               title: "Cost-Effective",
-              desc: "Compared to traditional marketing, digital marketing yields better results at a lower cost. Whether you’re a small business or an established enterprise, you can tailor your marketing budget while still achieving excellent returns on investment (ROI).",
+              desc: "Compared to traditional marketing, digital marketing yields better results at a lower cost. Whether you're a small business or an established enterprise, you can tailor your marketing budget while still achieving excellent returns on investment (ROI).",
             },
             {
               title: "Engage More Clients",

@@ -1,4 +1,8 @@
 import React from "react";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -12,7 +16,7 @@ const faqs = [
   },
   {
     q: "What types of bookkeeping services do you offer?",
-    a: "We provide a wide range of services, including bank and credit card reconciliation, accounts receivable and payable management, payroll processing, invoice generation, financial reporting, and tax preparation support. Our services are customized to meet the unique needs of small businesses in New Hampshire, USA.",
+    a: "We provide a wide range of services, including bank and credit card reconciliation, accounts receivable and payable management, payroll processing, invoice generation, financial reporting, and tax preparation support. Our services are customized to meet the unique needs of small businesses in the New Hampshire USA.",
   },
   {
     q: "How do your bookkeeping services benefit my small business?",
@@ -20,11 +24,11 @@ const faqs = [
   },
   {
     q: "Do you offer payroll and bookkeeping services together?",
-    a: "Yes, we provide comprehensive payroll and bookkeeping services in New Hampshire, USA, ensuring your employees are paid accurately and on time while keeping your financial records organized and up-to-date.",
+    a: "Yes, we provide comprehensive payroll and bookkeeping services in New Hampshire usa, ensuring your employees are paid accurately and on time while keeping your financial records organized and up-to-date.",
   },
   {
     q: "How do I find the best bookkeeping services for small businesses near me?",
-    a: "Look for providers with experience, expertise, and a track record of serving small businesses bookkeeping service in New Hampshire, USA. Reviews, referrals, and transparency in pricing are also key indicators of a reliable service. We pride ourselves on being one of the best bookkeeping services for small businesses in New Hampshire, offering personalized support to our clients.",
+    a: "Look for providers with experience, expertise, and a track record of serving small businesses bookkeeping service in the New Hampshire USA. Reviews, referrals, and transparency in pricing are also key indicators of a reliable service. We pride ourselves on being one of the best bookkeeping services for small businesses in New Hampshire, offering personalized support to our clients.",
   },
   {
     q: "Is my business too small to hire a bookkeeping company in New Hampshire?",
@@ -75,7 +79,7 @@ export default function BookkeepingNewHampshire() {
         breadcrumb: "Bookkeeping Services in New Hampshire",
       }}
       intro={{
-        overline: "BEST SOLUTION IN NEW HAMPSHIRE",
+        overline: "",
         titleLead: "The Best Bookkeeping Services for Small Businesses in",
         highlight: "New Hampshire",
         paragraphs: [
@@ -86,7 +90,7 @@ export default function BookkeepingNewHampshire() {
         imageAlt: "Bookkeeping services in New Hampshire",
       }}
       prose={{
-        overline: "TAILORED TO YOUR BUSINESS",
+        overline: "",
         titleLead: "Top-Notch Bookkeeping Services for Your",
         highlight: "Business Needs",
         bg: "paper",
@@ -97,12 +101,9 @@ export default function BookkeepingNewHampshire() {
         ],
       }}
       whyEssential={{
-        overline: "WHY IT MATTERS",
-        // Prose above runs on paper, so this drops back to default. Solutions
-        // below is also default but carries its own dotted backdrop, which is
-        // what keeps the two bands reading as separate sections.
+        overline: "",
         bg: "default",
-        titleLead: "Bookkeeping Service — Why Does Every",
+        titleLead: "Bookkeeping Service Why Does Every",
         highlight: "Business Need It?",
         subtitle:
           "Bookkeeping is the process of documenting, organizing, and managing a business's financial transactions. It is essential for maintaining accurate financial records, ensuring compliance with tax and legal requirements, and providing valuable insights for informed decision-making. Whether you run a small or medium-sized business, bookkeeping services for small businesses in New Hampshire are vital because they:",
@@ -114,25 +115,29 @@ export default function BookkeepingNewHampshire() {
         ],
       }}
       solutions={{
-        overline: "WHY MILTA",
+        overline: "",
         titleLead: "Why Choose Milta for",
         highlight: "Bookkeeping Services?",
         subtitle:
           "With numerous bookkeeping services near me available, Milta stands out for several reasons:",
         items: [
           {
+            icon: AccountBalanceIcon,
             title: "Customized Solutions for Small Business",
             desc: "Our services are specifically designed for best bookkeeping for small businesses. We understand the unique challenges you face, such as managing cash flow and staying compliant with tax regulations. Our team ensures your financial records are accurate, up-to-date, and ready for tax season, helping your business thrive with customized solutions.",
           },
           {
+            icon: PaymentsIcon,
             title: "Affordable, Professional Services",
             desc: "At Milta, we offer high-quality bookkeeping services in New Hampshire at competitive prices. As the best bookkeeping for small businesses ourselves, we know budget constraints are a concern. Our transparent pricing ensures you only pay for the services you need, making professional bookkeeping accessible and cost-effective.",
           },
           {
+            icon: CurrencyExchangeIcon,
             title: "Comprehensive Bookkeeping Support",
             desc: "From payroll management and bookkeeping to tax preparation and financial reporting, we provide end-to-end solutions. Our experienced team works closely with you to keep your financial records organized and easily accessible whenever you need them.",
           },
           {
+            icon: VerifiedUserIcon,
             title: "Stay Compliant and Avoid Penalties",
             desc: "Tax laws are constantly changing, and staying compliant can be challenging. Milta's bookkeeping services ensure your business meets local, state, and federal tax requirements. By partnering with us, you can avoid costly penalties for incorrect filings or missed deadlines.",
           },
@@ -142,7 +147,7 @@ export default function BookkeepingNewHampshire() {
       }}
       cardGroups={[
         {
-          overline: "END-TO-END SOLUTIONS",
+          overline: "",
           titleLead: "Comprehensive Bookkeeping and Financial Solutions",
           highlight: "Customized to Your Needs",
           subtitle:
@@ -188,7 +193,7 @@ export default function BookkeepingNewHampshire() {
         },
       ]}
       industries={{
-        overline: "WHO WE SERVE",
+        overline: "",
         titleLead: "Industries We Serve for",
         highlight: "Bookkeeping Services",
         subtitle:

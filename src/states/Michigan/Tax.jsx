@@ -68,15 +68,15 @@ export default function TaxMichigan() {
         schema: faqSchema,
       }}
       hero={{
-        titleLead: "Optimize Your Tax Filing with Trusted",
-        highlight: "Tax Preparation Services in Michigan!",
+        titleLead: "Optimize Your Tax Filing with Trusted Tax Preparation Services in",
+        highlight: "Michigan!",
         subtitle:
           "Make your tax filing process seamless with reliable tax services near me. Whether you're filing federal, state, or city taxes, our expert team offers professional tax planning and preparation to ensure accuracy.",
         ctaLabel: "Get Started Today with a Free Consultation!",
         breadcrumb: "Tax Services in Michigan",
       }}
       intro={{
-        overline: "TAX PLANNING IN MICHIGAN",
+        overline: "",
         titleLead: "Specializing in Business and Individual Tax Preparation Services in",
         highlight: "Michigan, USA",
         paragraphs: [
@@ -87,7 +87,7 @@ export default function TaxMichigan() {
         imageAlt: "Tax preparation services in Michigan",
       }}
       prose={{
-        overline: "STAY COMPLIANT",
+        overline: "",
         titleLead: "Stay Compliant with Expert Tax Preparation Services in",
         highlight: "Michigan",
         bg: "paper",
@@ -97,7 +97,7 @@ export default function TaxMichigan() {
         ],
       }}
       solutions={{
-        overline: "COMPREHENSIVE TAX SERVICES",
+        overline: "",
         titleLead: "Miltafs Comprehensive Tax Services: Expert Tax Preparation Services in",
         highlight: "Michigan",
         subtitle:
@@ -105,7 +105,7 @@ export default function TaxMichigan() {
         items: [
           {
             icon: PersonIcon,
-            title: "Individual Michigan tax preparation Service",
+            title: "Individual NY Tax Preparation Service",
             desc: "Customized solutions to maximize deductions and credits, ensuring compliance with IRS regulations.",
           },
           {
@@ -127,20 +127,18 @@ export default function TaxMichigan() {
         footnote:
           "At Milta, we are committed to providing personalized tax strategies that align with your financial goals. Our proactive approach ensures that you remain compliant with ever-changing tax laws while optimizing your tax outcomes.",
       }}
-      // The four numbered services each carry their own sub-headings in the
-      // source document, so each one opens as prose and its sub-headings follow
-      // as their own card sections. That keeps the page's heading hierarchy the
-      // same shape as the document rather than flattening it into card titles.
       cardGroups={[
         {
-          overline: "SERVICE 1",
+          overline: "",
           titleLead: "1. Tax Preparation Service in",
           highlight: "Michigan",
+          bg: "paper",
           paragraphs: [
-            "We handle every aspect of Michigan tax preparation, transforming complex financial data into accurate, compliant returns. Our goal is to minimize your tax liability and maximize refunds while ensuring full adherence to federal, state, and local regulations.",
+            "We handle every aspect of NY tax preparation, transforming complex financial data into accurate, compliant returns. Our goal is to minimize your tax liability and maximize refunds while ensuring full adherence to federal, state, and local regulations.",
           ],
         },
         {
+          overline: "",
           titleLead: "Federal Tax",
           highlight: "Preparation",
           bg: "paper",
@@ -152,7 +150,10 @@ export default function TaxMichigan() {
             },
             {
               title: "Form 1120 & 1120S (Corporate Returns)",
-              desc: "C Corporations (Form 1120): We navigate complex corporate income tax rules, including depreciation schedules and shareholder dividends. S Corporations (Form 1120S): We ensure proper allocation of profits/losses to shareholders and compliance with pass-through entity requirements.",
+              bullets: [
+                "C Corporations (Form 1120): We navigate complex corporate income tax rules, including depreciation schedules and shareholder dividends.",
+                "S Corporations (Form 1120S): We ensure proper allocation of profits/losses to shareholders and compliance with pass-through entity requirements.",
+              ],
             },
             {
               title: "Form 1041 (Estates & Trusts)",
@@ -165,8 +166,10 @@ export default function TaxMichigan() {
           ],
         },
         {
-          titleLead: "State Michigan tax preparation",
+          overline: "",
+          titleLead: "State NY Tax Preparation",
           highlight: "(Michigan Focus)",
+          bg: "paper",
           columns: 3,
           items: [
             {
@@ -184,6 +187,7 @@ export default function TaxMichigan() {
           ],
         },
         {
+          overline: "",
           titleLead: "Local Tax",
           highlight: "Expertise",
           subtitle:
@@ -191,22 +195,24 @@ export default function TaxMichigan() {
           bg: "paper",
           columns: 2,
           items: [
-            { title: "Business personal property taxes.", desc: "" },
-            { title: "Local surcharges or gross receipts taxes.", desc: "" },
+            "Business personal property taxes.",
+            "Local surcharges or gross receipts taxes.",
           ],
         },
         {
-          overline: "SERVICE 2",
+          overline: "",
           titleLead: "2. Tax Review &",
           highlight: "Finalization",
+          bg: "default",
           paragraphs: [
             "Before filing, we conduct a rigorous two-step quality assurance process to safeguard against errors and audits:",
           ],
         },
         {
+          overline: "",
           titleLead: "Tax Review",
           highlight: "Process",
-          bg: "paper",
+          bg: "default",
           columns: 3,
           items: [
             {
@@ -224,26 +230,19 @@ export default function TaxMichigan() {
           ],
         },
         {
+          overline: "",
           titleLead: "Finalization &",
           highlight: "Submission",
+          bg: "default",
           columns: 3,
           items: [
-            {
-              title: "Secure digital signatures and approvals via encrypted platforms.",
-              desc: "",
-            },
-            {
-              title: "Compile audit-ready documentation (e.g., receipts, and mileage logs) for your records.",
-              desc: "",
-            },
-            {
-              title: "Guaranteed On-Time Filing",
-              desc: "We meet deadlines to avoid late penalties (e.g., a 5% monthly penalty for late federal returns).",
-            },
+            "Secure digital signatures and approvals via encrypted platforms.",
+            "Compile audit-ready documentation (e.g., receipts, and mileage logs) for your records.",
+            "Guaranteed On-Time Filing: We meet deadlines to avoid late penalties (e.g., a 5% monthly penalty for late federal returns).",
           ],
         },
         {
-          overline: "SERVICE 3",
+          overline: "",
           titleLead: "3. Tax E-Filing",
           highlight: "Service",
           bg: "paper",
@@ -252,8 +251,10 @@ export default function TaxMichigan() {
           ],
         },
         {
+          overline: "",
           titleLead: "Benefits of",
           highlight: "E-Filing",
+          bg: "paper",
           columns: 2,
           items: [
             {
@@ -275,23 +276,23 @@ export default function TaxMichigan() {
           ],
         },
         {
+          overline: "",
           titleLead: "We E-File",
           highlight: "All Returns",
           bg: "paper",
           columns: 2,
           items: [
-            { title: "Federal (IRS), Michigan DRS, and municipal portals.", desc: "" },
-            {
-              title: "Specialized filings",
-              desc: "Amendments (Form 1040-X), extensions (Form 4868), and payment plans.",
-            },
+            "Federal (IRS), Michigan DRS, and municipal portals.",
+            "Specialized filings: Amendments (Form 1040-X), extensions (Form 4868), and payment plans.",
           ],
         },
         {
-          overline: "SERVICE 4",
+          overline: "",
           titleLead: "4. Tax Forms We",
           highlight: "Specialize In",
-          subtitle: "Beyond basic returns, we expertly handle niche filings to cover all your needs:",
+          subtitle:
+            "Beyond basic returns, we expertly handle niche filings to cover all your needs:",
+          bg: "default",
           columns: 2,
           items: [
             {
@@ -300,7 +301,10 @@ export default function TaxMichigan() {
             },
             {
               title: "Form 1099 Series",
-              desc: "1099-NEC: Contractor payments. 1099-INT/DIV: Interest, dividends, and stock transactions.",
+              bullets: [
+                "1099-NEC: Contractor payments.",
+                "1099-INT/DIV: Interest, dividends, and stock transactions.",
+              ],
             },
             {
               title: "Schedule C (Self-Employed)",
@@ -313,7 +317,7 @@ export default function TaxMichigan() {
           ],
         },
         {
-          overline: "KEY FEDERAL TAX FORMS",
+          overline: "",
           titleLead: "Understanding Key",
           highlight: "Federal Tax Forms",
           bg: "paper",
@@ -321,57 +325,75 @@ export default function TaxMichigan() {
           items: [
             {
               title: "Form 1040",
-              desc: "Used by individuals to report income and claim deductions/credits. Includes detailed sections for wages, investments, and deductions.",
+              bullets: [
+                "Used by individuals to report income and claim deductions/credits.",
+                "Includes detailed sections for wages, investments, and deductions.",
+              ],
             },
             {
               title: "Form 1041",
-              desc: "Filed for estates and trusts, reporting income distributed to beneficiaries. Ensures compliance with fiduciary tax obligations.",
+              bullets: [
+                "Filed for estates and trusts, reporting income distributed to beneficiaries.",
+                "Ensures compliance with fiduciary tax obligations.",
+              ],
             },
             {
               title: "Form 1065",
-              desc: "Partnership tax returns, detailing profits, losses, and credits. Partners receive a Schedule K-1 for individual filings.",
+              bullets: [
+                "Partnership tax returns, detailing profits, losses, and credits.",
+                "Partners receive a Schedule K-1 for individual filings.",
+              ],
             },
             {
               title: "Form 990",
-              desc: "Non-Profit Organization returns, required to maintain tax-exempt status. Transparency in reporting revenue, expenses, and program activities.",
+              bullets: [
+                "Non-Profit Organization returns, required to maintain tax-exempt status.",
+                "Transparency in reporting revenue, expenses, and program activities.",
+              ],
             },
             {
               title: "Form 1120",
-              desc: "C Corporation returns, detailing corporate income, expenses, and tax liabilities.",
+              bullets: [
+                "C Corporation returns, detailing corporate income, expenses, and tax liabilities.",
+              ],
             },
             {
               title: "Form 1120S",
-              desc: "For S Corporations, reflecting income passed through to shareholders.",
+              bullets: [
+                "For S Corporations, reflecting income passed through to shareholders.",
+              ],
             },
             {
               title: "Form 1099",
-              desc: "Used to report miscellaneous income for contractors, freelancers, and other non-employee payments.",
+              bullets: [
+                "Used to report miscellaneous income for contractors, freelancers, and other non-employee payments.",
+              ],
             },
           ],
         },
       ]}
       checklists={[
         {
-          overline: "WHY PARTNER WITH US",
+          overline: "",
           titleLead: "Why Partner",
           highlight: "With Us?",
           bg: "default",
           items: [
             "Year-Round Support: Not just tax season we're here for quarterly estimated payments, IRS notices, or audit defense.",
             "Michigan-Specific Knowledge: Deep familiarity with state tax incentives (e.g., film production credits, green energy rebates).",
-            "Proactive Compliance: We monitor law changes to keep you ahead.",
+            "Proactive Compliance: We monitor law changes (e.g., NY Pass-Through Entity Tax updates) to keep you ahead.",
             "Stress-Free Experience: We handle the paperwork, deadlines, and jargon you focus on growing your business.",
           ],
         },
       ]}
       closing={{
-        overline: "CALL TO ACTION",
+        overline: "",
         titleLead: "Ready to Simplify",
         highlight: "Your Taxes?",
+        ctaLabel: "Contact Us Today for a Free Consultation!",
         bg: "paper",
         paragraphs: [
           "If you're looking for tax services near me, our tax preparation services in Michigan ensure accuracy and compliance every step of the way.",
-          "Contact Us Today for a Free Consultation!",
         ],
       }}
       faqs={faqs}

@@ -50,7 +50,7 @@ export default function DataEntryIdaho() {
   return (
     <ServiceLayout
       seo={{
-        title: "Accounting data entry services in Idaho",
+        title: "Accounting data entry services in Idaho | Milta",
         description:
           "Partner with a leading data entry company in Idaho for accurate accounting data entry & data management services that cut costs.",
         keywords:
@@ -68,7 +68,7 @@ export default function DataEntryIdaho() {
         breadcrumb: "Data Entry Services in Idaho",
       }}
       intro={{
-        overline: "OUR IDENTITY AND ACTIVITIES",
+        overline: "",
         titleLead: "Our Identity and",
         highlight: "Activities",
         paragraphs: [
@@ -81,7 +81,7 @@ export default function DataEntryIdaho() {
       }}
       cardGroups={[
         {
-          overline: "OUR PROCESS",
+          overline: "",
           titleLead: "Our Efficient Accounting Data",
           highlight: "Entry Process",
           subtitle:
@@ -116,7 +116,7 @@ export default function DataEntryIdaho() {
           ],
         },
         {
-          overline: "WHAT WE DO",
+          overline: "",
           titleLead: "Our Data Entry Services in",
           highlight: "USA",
           subtitle:
@@ -162,18 +162,18 @@ export default function DataEntryIdaho() {
           ],
         },
       ]}
+      faqs={faqs}
       closing={{
-        // The copy signs off after the questions, not before them.
         placement: "afterFaqs",
-        overline: "GET IN TOUCH",
-        titleLead: "Ready to Transform Your Financial",
-        highlight: "Data Management Services?",
+        overline: "",
+        titleLead: "Ready to transform your financial data",
+        highlight: "management services?",
+        ctaLabel: "Contact us today",
         bg: "paper",
         paragraphs: [
           "Contact us today for reliable and professional accounting data entry services!",
         ],
       }}
-      faqs={faqs}
     />
   );
 }

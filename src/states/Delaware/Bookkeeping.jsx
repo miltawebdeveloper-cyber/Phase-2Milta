@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "What types of bookkeeping services do you offer?",
-    a: "We provide a wide range of services, including bank and credit card reconciliation, accounts receivable and payable management, payroll processing, invoice generation, financial reporting, and tax preparation support. Our services are customized to meet the unique needs of small businesses in Delaware, USA.",
+    a: "We provide a wide range of services, including bank and credit card reconciliation, accounts receivable and payable management, payroll processing, invoice generation, financial reporting, and tax preparation support. Our services are customized to meet the unique needs of small businesses in the Delaware USA.",
   },
   {
     q: "How do your bookkeeping services benefit my small business?",
@@ -24,11 +24,11 @@ const faqs = [
   },
   {
     q: "Do you offer payroll and bookkeeping services together?",
-    a: "Yes, we provide comprehensive payroll and bookkeeping services in Delaware, USA, ensuring your employees are paid accurately and on time while keeping your financial records organized and up-to-date.",
+    a: "Yes, we provide comprehensive payroll and bookkeeping services in Delaware usa, ensuring your employees are paid accurately and on time while keeping your financial records organized and up-to-date.",
   },
   {
     q: "How do I find the best bookkeeping services for small businesses near me?",
-    a: "Look for providers with experience, expertise, and a track record of serving small businesses bookkeeping service in Delaware, USA. Reviews, referrals, and transparency in pricing are also key indicators of a reliable service. We pride ourselves on being one of the best bookkeeping services for small businesses in Delaware, offering personalized support to our clients.",
+    a: "Look for providers with experience, expertise, and a track record of serving small businesses bookkeeping service in the Delaware USA. Reviews, referrals, and transparency in pricing are also key indicators of a reliable service. We pride ourselves on being one of the best bookkeeping services for small businesses in Delaware, offering personalized support to our clients.",
   },
   {
     q: "Is my business too small to hire a bookkeeping company in Delaware?",
@@ -79,7 +79,7 @@ export default function BookkeepingDelaware() {
         breadcrumb: "Bookkeeping Services in Delaware",
       }}
       intro={{
-        overline: "BEST SOLUTION IN DELAWARE",
+        overline: "",
         titleLead: "The Best Bookkeeping Services for Small Businesses in",
         highlight: "Delaware",
         paragraphs: [
@@ -90,7 +90,7 @@ export default function BookkeepingDelaware() {
         imageAlt: "Bookkeeping services in Delaware",
       }}
       prose={{
-        overline: "TAILORED TO YOUR BUSINESS",
+        overline: "",
         titleLead: "Top-Notch Bookkeeping Services for Your",
         highlight: "Business Needs",
         bg: "paper",
@@ -101,12 +101,12 @@ export default function BookkeepingDelaware() {
         ],
       }}
       whyEssential={{
-        overline: "WHY IT MATTERS",
+        overline: "",
         // Prose above runs on paper, so this drops back to default. Solutions
         // below is also default but carries its own dotted backdrop, which is
         // what keeps the two bands reading as separate sections.
         bg: "default",
-        titleLead: "Bookkeeping Service — Why Does Every",
+        titleLead: "Bookkeeping Service Why Does Every",
         highlight: "Business Need It?",
         subtitle:
           "Bookkeeping is the process of documenting, organizing, and managing a business's financial transactions. It is essential for maintaining accurate financial records, ensuring compliance with tax and legal requirements, and providing valuable insights for informed decision-making. Whether you run a small or medium-sized business, bookkeeping services for small businesses in Delaware are vital because they:",
@@ -118,7 +118,7 @@ export default function BookkeepingDelaware() {
         ],
       }}
       solutions={{
-        overline: "WHY MILTA",
+        overline: "",
         titleLead: "Why Choose Milta for",
         highlight: "Bookkeeping Services?",
         subtitle:
@@ -150,7 +150,7 @@ export default function BookkeepingDelaware() {
       }}
       cardGroups={[
         {
-          overline: "END-TO-END SOLUTIONS",
+          overline: "",
           titleLead: "Comprehensive Bookkeeping and Financial Solutions",
           highlight: "Customized to Your Needs",
           subtitle:
@@ -196,7 +196,7 @@ export default function BookkeepingDelaware() {
         },
       ]}
       industries={{
-        overline: "WHO WE SERVE",
+        overline: "",
         titleLead: "Industries We Serve for",
         highlight: "Bookkeeping Services",
         subtitle:

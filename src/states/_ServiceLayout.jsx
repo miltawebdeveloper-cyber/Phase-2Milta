@@ -250,6 +250,17 @@ const Prose = ({ data }) => {
             </Typography>
           ))}
         </motion.div>
+        {/* A section that asks the reader to act needs something to act on.
+            Without this a "Contact Us Today" or "Book Your Free Consultation"
+            block rendered as nothing but centred text — the instruction was
+            there, the button was not. */}
+        {data.ctaLabel && (
+          <Box sx={{ mt: { xs: 4, md: 5 }, textAlign: "center" }}>
+            <motion.div {...fadeUp(0.26)}>
+              <ConsultationButton label={data.ctaLabel} />
+            </motion.div>
+          </Box>
+        )}
       </Container>
     </Box>
   );
@@ -279,11 +290,17 @@ const Checklist = ({ data }) => {
     <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: bg }}>
       <Container maxWidth={false} sx={{ maxWidth: "1200px", mx: "auto", px: { xs: 3, md: 4 } }}>
         <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: "center" }}>
-          <motion.div {...fadeUp(0)}>
-            <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: "0.75rem", mb: 2, display: "block" }}>
-              {data.overline || "WHY IT MATTERS"}
-            </Typography>
-          </motion.div>
+          {/* An omitted overline still gets the stock label, which several
+              Bookkeeping pages rely on. `overline: ""` is the way to say the
+              section wants its heading alone, with no label above it — so the
+              two cases have to stay distinguishable (?? not ||). */}
+          {(data.overline ?? "WHY IT MATTERS") !== "" && (
+            <motion.div {...fadeUp(0)}>
+              <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: primary, fontSize: "0.75rem", mb: 2, display: "block" }}>
+                {data.overline ?? "WHY IT MATTERS"}
+              </Typography>
+            </motion.div>
+          )}
           <motion.div {...fadeUp(0.1)}>
             <Typography variant="h2" sx={{ fontSize: { xs: "2rem", md: "2.8rem" }, lineHeight: 1.2 }}>
               {data.titleLead}{" "}
@@ -405,9 +422,56 @@ const Solutions = ({ data }) => {
                 <Typography className="card-title" sx={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontWeight: 800, fontSize: "0.95rem", color: "text.primary", mb: 1, lineHeight: 1.35, transition: "color 0.28s ease" }}>
                   {svc.title}
                 </Typography>
-                <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: "0.84rem", lineHeight: 1.72, color: "text.secondary", pr: 2 }}>
-                  {svc.desc}
-                </Typography>
+                {svc.desc && (
+                  <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: "0.84rem", lineHeight: 1.72, color: "text.secondary", pr: 2 }}>
+                    {svc.desc}
+                  </Typography>
+                )}
+                {/* Same contract as CardGroup: a source document that gives a
+                    card several separate points keeps them as a list instead of
+                    running them into one sentence. */}
+                {svc.bullets?.length > 0 && (
+                  <Box
+                    component="ul"
+                    sx={{
+                      listStyle: "none",
+                      m: 0,
+                      mt: svc.desc ? 1.25 : 0,
+                      p: 0,
+                      pr: 2,
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 0.7,
+                    }}
+                  >
+                    {svc.bullets.map((b) => (
+                      <Box
+                        component="li"
+                        key={b}
+                        sx={{
+                          position: "relative",
+                          pl: 1.9,
+                          fontFamily: '"Outfit", sans-serif',
+                          fontSize: "0.84rem",
+                          lineHeight: 1.72,
+                          color: "text.secondary",
+                          "&::before": {
+                            content: '""',
+                            position: "absolute",
+                            left: 0,
+                            top: "0.6em",
+                            width: 5,
+                            height: 5,
+                            borderRadius: "50%",
+                            bgcolor: primary,
+                          },
+                        }}
+                      >
+                        {b}
+                      </Box>
+                    ))}
+                  </Box>
+                )}
               </Box>
             );
           })}
@@ -586,9 +650,56 @@ const CardGroup = ({ data }) => {
                     {item.title}
                   </Typography>
                 </Box>
-                <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: "0.9rem", lineHeight: 1.75, color: "text.secondary" }}>
-                  {item.desc}
-                </Typography>
+                {item.desc && (
+                  <Typography sx={{ fontFamily: '"Outfit", sans-serif', fontSize: "0.9rem", lineHeight: 1.75, color: "text.secondary" }}>
+                    {item.desc}
+                  </Typography>
+                )}
+                {/* Source documents often give a card several separate points
+                    rather than one sentence. Running them together loses the
+                    list, so `bullets` renders them as one. A card may use
+                    `desc`, `bullets`, or a lead-in `desc` followed by both. */}
+                {item.bullets?.length > 0 && (
+                  <Box
+                    component="ul"
+                    sx={{
+                      listStyle: "none",
+                      m: 0,
+                      mt: item.desc ? 1.25 : 0,
+                      p: 0,
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 0.75,
+                    }}
+                  >
+                    {item.bullets.map((b) => (
+                      <Box
+                        component="li"
+                        key={b}
+                        sx={{
+                          position: "relative",
+                          pl: 2,
+                          fontFamily: '"Outfit", sans-serif',
+                          fontSize: "0.9rem",
+                          lineHeight: 1.75,
+                          color: "text.secondary",
+                          "&::before": {
+                            content: '""',
+                            position: "absolute",
+                            left: 0,
+                            top: "0.62em",
+                            width: 6,
+                            height: 6,
+                            borderRadius: "50%",
+                            bgcolor: primary,
+                          },
+                        }}
+                      >
+                        {b}
+                      </Box>
+                    ))}
+                  </Box>
+                )}
               </Box>
             );
           })}

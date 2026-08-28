@@ -1,14 +1,4 @@
 import React from "react";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import AssessmentIcon from "@mui/icons-material/Assessment";
-import PolicyIcon from "@mui/icons-material/Policy";
-import PaymentIcon from "@mui/icons-material/Payment";
-import InsertChartIcon from "@mui/icons-material/InsertChart";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import GavelIcon from "@mui/icons-material/Gavel";
-import PieChartIcon from "@mui/icons-material/PieChart";
-import ForumIcon from "@mui/icons-material/Forum";
-import FactCheckIcon from "@mui/icons-material/FactCheck";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -37,8 +27,8 @@ const faqs = [
     a: "Miltafs customizes its services to match your business size, industry, and specific financial goals, ensuring personalized solutions that meet your needs.",
   },
   {
-    q: "What’s the difference between a Financial Controller and a CFO?",
-    a: "A Financial Controller focuses on accounting and financial management, while a CFO develops long-term financial strategies and oversees the company’s overall financial health.",
+    q: "What's the difference between a Financial Controller and a CFO?",
+    a: "A Financial Controller focuses on accounting and financial management, while a CFO develops long-term financial strategies and oversees the company's overall financial health.",
   },
   {
     q: "Can a Financial Controller help with audits?",
@@ -65,7 +55,7 @@ const faqs = [
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
+  mainEntity: faqs.slice(0, 8).map((f) => ({
     "@type": "Question",
     name: f.q,
     acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -80,151 +70,193 @@ export default function FinancialWashington() {
         description:
           "Transform your financial operations with outsourced financial controller services in Washington. Certified experts ready to elevate your business.",
         keywords:
-          "financial controller services, outsourced financial controller, accounting controller, certified financial controller.",
+          "financial controller services, outsourced financial controller, accounting controller, certified financial controller",
         author: "Milta Accounting",
-        canonical:
-          "https://www.miltafs.com/us/services/financial-controller-services-in-washington/",
+        canonical: "https://www.miltafs.com/us/services/financial-controller-services-in-washington/",
         schema: faqSchema,
       }}
       hero={{
-        titleLead: "Elevate Your Financial Strategy with Expert",
-        highlight: "Financial Controller Services in Washington",
+        titleLead: "Take Control of Your Business Finances with",
+        highlight: "Controller Services in Washington",
         subtitle:
-          "Unlock precision and compliance for your business with our certified financial controller team, offering specialized accounting controller services tailored to Washington’s dynamic market. From meticulous financial reporting to strategic analysis, our outsourced financial controller solutions ensure accuracy, streamline workflows, and align with regulatory standards.",
-        ctaLabel: "Book Your Free Consultation Today",
-        breadcrumb: "Financial Controller in Washington",
+          "Gain expert support for financial reporting, cash flow management, forecasting, and strategic financial planning.",
+        ctaLabel: "Schedule Your Free Consultation Today.",
+        breadcrumb: "Financial Controller Services in Washington",
       }}
       intro={{
-        overline: "CERTIFIED FINANCIAL CONTROLLER",
-        titleLead: "Certified Financial Controller Services in Washington:",
-        highlight: "Optimize Your Financial Operations",
+        overline: "",
+        titleLead: "Elevate Your Financial Strategy with Expert Financial Controller Services in",
+        highlight: "Washington",
         paragraphs: [
-          "Certified Financial Controller Services provide end-to-end oversight of your company’s financial health, combining strategic analysis, compliance expertise, and operational efficiency. A certified financial controller (or accounting controller) serves as a senior leader, managing critical tasks like financial reporting, budgeting, and regulatory adherence while aligning processes with industry standards.",
-          "For small and medium-sized businesses (SMBs), these financial controller services offer a cost-effective alternative to hiring a full-time CFO. By partnering with an outsourced financial controller, SMBs gain access to high-level expertise, from daily accounting controller responsibilities like payroll and bookkeeping to advanced financial forecasting and cash flow optimization.",
+          "Unlock precision and compliance for your business with our certified financial controller team, offering specialized accounting controller services tailored to Washington's dynamic market. From meticulous financial reporting to strategic analysis, our outsourced financial controller solutions ensure accuracy, streamline workflows, and align with regulatory standards.",
+          "Leverage our financial controller services to gain actionable insights, optimize resource allocation, and fuel sustainable growth. Whether you need ongoing support or project-based expertise, our seasoned professionals empower you to navigate complexities and make confident, data-driven decisions.",
         ],
-        ctaLabel: "💼 Book Your Free Consultation Today – Limited Time Only!",
-        imageAlt: "Financial Controller Services in Washington",
-      }}
-      comparisonTable={{
-        overline: "LEADERSHIP COMPARISON",
-        titleLead: "Controller vs. CFO:",
-        highlight: "Different Roles, Unique Value",
-        subtitle:
-          "What are Financial Controller Services? Financial Controller Services are specialized solutions designed to manage and optimize a company’s financial health through expert oversight, compliance, and strategic planning. A certified financial controller (or accounting controller) acts as a senior finance leader, ensuring that financial processes are streamlined, compliant with regulations, and aligned with accounting standards like GAAP or IFRS.",
-        headers: ["Capabilities", "Controller", "CFO"],
-        rows: [
-          { label: "Accounting Function Oversight", marks: [true, true] },
-          { label: "Regulatory Compliance (GAAP, etc.)", marks: [true, true] },
-          { label: "ERP Implementation", marks: [true, true] },
-          { label: "Management Accounting", marks: [true, true] },
-          { label: "Accounting Internal Controls", marks: [true, true] },
-          { label: "Closing Entries (Financial Close)", marks: [true, true] },
-          { label: "Budgeting & Forecasting Support", marks: [true, true] },
-          { label: "Cash Flow Management", marks: [true, true] },
-          { label: "Financial Reporting & Analysis", marks: [true, true] },
-          { label: "Financial Statement Preparation/Review", marks: [true, true] },
-          { label: "Team Management, Hiring & Training", marks: [true, true] },
-          { label: "Long-Term Business & Financial Strategy", marks: [false, true] },
-          { label: "Fundraising & Investor Relations", marks: [false, true] },
-          { label: "Investment Advisory", marks: [false, true] },
-        ],
+        ctaLabel: "Schedule Your Free Consultation Today.",
+        imageAlt: "Financial controller services in Washington",
       }}
       prose={{
-        overline: "MAKING THE RIGHT CHOICE",
-        titleLead: "When to Choose a Controller vs.",
-        highlight: "a CFO",
+        overline: "",
+        titleLead: "Book Your Free Consultation Today –",
+        highlight: "Limited Time Only!",
+        ctaLabel: "Book Your Free Consultation Today",
         bg: "paper",
-        paragraphs: [
-          "When to Choose a Controller: A Controller is the ideal choice when your business requires hands-on management of day-to-day financial operations. They specialize in accurate financial reporting, compliance, financial closing processes, and maintaining internal controls. The Miltafs Controller offers these essential services, providing reliable financial oversight at a cost-effective rate for small and medium-sized businesses (SMBs).",
-          "When to Choose a CFO: A CFO, on the other hand, is best suited for businesses that need high-level strategic financial leadership. This includes long-term business planning, financial strategy, fundraising, and managing investor relations. As your business grows and faces more complex financial challenges, a CFO plays a crucial role in navigating growth, securing funding, and making investment decisions.",
-        ],
+        paragraphs: ["Act Fast! Offer expires in 48 hours."],
       }}
-      solutions={{
-        overline: "SERVICES",
-        titleLead: "Miltafs Financial Controller Services:",
-        highlight: "Comprehensive Financial Oversight",
-        subtitle:
-          "At Miltafs, we offer expert Financial Controller Services to small and medium-sized businesses in Washington, USA. Our services cover a wide range of financial functions, providing you with the leadership and insights necessary to optimize your financial operations, enhance internal controls, and ensure regulatory compliance. Whether you're looking for day-to-day financial oversight or strategic guidance, Miltafs has the right solution for your business.",
-        items: [
-          {
-            icon: AssessmentIcon,
-            title: "1. Reporting from Management",
-            desc: "We provide accurate, timely financial reporting, ensuring that key stakeholders have the insights they need to make informed decisions.",
-          },
-          {
-            icon: AccountBalanceIcon,
-            title: "2. Oversight and Evaluation of Transaction Processing",
-            desc: "Our team closely monitors transaction processes, ensuring accuracy and efficiency in your financial operations.",
-          },
-          {
-            icon: PolicyIcon,
-            title: "3. Assessment of Internal Control Mechanisms",
-            desc: "We assess your current internal control mechanisms, identifying gaps and providing recommendations for improvements to safeguard your financial integrity.",
-          },
-          {
-            icon: FactCheckIcon,
-            title: "4. Procedures and Policy Direction and Conformity",
-            desc: "We ensure that your business adheres to established procedures and policies, maintaining consistency and regulatory compliance.",
-          },
-          {
-            icon: PaymentIcon,
-            title: "5. Timely Payment Management",
-            desc: "We oversee the timely payment of all liabilities, ensuring that your business meets deadlines and avoids penalties.",
-          },
-          {
-            icon: InsertChartIcon,
-            title: "6. Reports that Are Requested",
-            desc: "Our team prepares reports on demand, addressing specific business needs and delivering financial data quickly and efficiently.",
-          },
-          {
-            icon: CalendarMonthIcon,
-            title: "7. Monthly Review and Reporting",
-            desc: "We conduct regular reviews and provide detailed monthly financial reports to ensure that your business stays on track with its goals.",
-          },
-          {
-            icon: GavelIcon,
-            title: "8. Adherence to Federal and State Regulations",
-            desc: "We ensure your business complies with both federal and state financial regulations, mitigating the risk of non-compliance penalties.",
-          },
-          {
-            icon: PieChartIcon,
-            title: "9. Fractional Controller Services",
-            desc: "For businesses that don’t require a full-time controller, we offer fractional controller services, giving you access to top-tier financial expertise without the full-time commitment.",
-          },
-          {
-            icon: ForumIcon,
-            title: "10. Vendor and Employee Communication Assistance",
-            desc: "Our team facilitates clear and effective communication between vendors, employees, and other stakeholders, ensuring smooth operations and financial transparency.",
-          },
-          {
-            icon: FactCheckIcon,
-            title: "11. Audit Assistance",
-            desc: "We provide support during audits, helping you prepare documents, review financials, and ensure full compliance with auditing standards.",
-          },
-        ],
-      }}
-      checklists={[
-        {
-          overline: "TARGET AUDIENCE",
-          titleLead: "Who Can Benefit",
-          highlight: "from Our Services?",
-          subtitle:
-            "Strengthening Businesses of All Sizes with Expert Financial Guidance",
-          bg: "default",
-          items: [
-            "Startups: Build a solid financial foundation with expert advice to ensure long-term success.",
-            "Small Businesses: Simplify your financial processes, allowing you to concentrate on business growth and expansion.",
-            "Medium-Sized Enterprises: Enhance financial management with professional insights, all while avoiding the cost of full-time financial staff.",
-          ],
-        },
-      ]}
       cardGroups={[
         {
-          overline: "WHY MILTAFS",
-          titleLead: "Why Choose Miltafs for",
-          highlight: "Financial Controller Services?",
-          subtitle:
-            "Your Trusted Partner for Effortless Financial Management and Growth.",
+          overline: "",
+          titleLead: "What is a Finance Controller",
+          highlight: "Services?",
+          paragraphs: [
+            "Certified Financial Controller Services in Washington: Optimize Your Financial Operations",
+            "Certified Financial Controller Services provide end-to-end oversight of your company's financial health, combining strategic analysis, compliance expertise, and operational efficiency. A certified financial controller (or accounting controller) serves as a senior leader, managing critical tasks like financial reporting, budgeting, and regulatory adherence while aligning processes with industry standards.",
+            "For small and medium-sized businesses (SMBs), these financial controller services offer a cost-effective alternative to hiring a full-time CFO. By partnering with an outsourced financial controller, SMBs gain access to high-level expertise, from daily accounting controller responsibilities like payroll and bookkeeping to advanced financial forecasting and cash flow optimization.",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Controller vs. CFO: Different Roles,",
+          highlight: "Unique Value",
+          bg: "paper",
+          paragraphs: ["Understanding the Right Leadership for Your Business"],
+        },
+        {
+          overline: "",
+          titleLead: "What are Financial Controller",
+          highlight: "Services?",
+          paragraphs: [
+            "Financial Controller Services are specialized solutions designed to manage and optimize a company's financial health through expert oversight, compliance, and strategic planning.",
+            "A certified financial controller (or accounting controller) acts as a senior finance leader, ensuring that financial processes are streamlined, compliant with regulations, and aligned with accounting standards like GAAP or IFRS.",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Capabilities",
+          highlight: "",
+          bg: "paper",
+          headers: ["Capabilities", "Controller", "CFO"],
+          rows: [
+            { label: "Accounting Function Oversight", marks: [true, true] },
+            { label: "Regulatory Compliance (GAAP, etc.)", marks: [true, true] },
+            { label: "ERP Implementation", marks: [true, true] },
+            { label: "Management Accounting", marks: [true, true] },
+            { label: "Accounting Internal Controls", marks: [true, true] },
+            { label: "Closing Entries (Financial Close)", marks: [true, true] },
+            { label: "Budgeting & Forecasting Support", marks: [true, true] },
+            { label: "Cash Flow Management", marks: [true, true] },
+            { label: "Financial Reporting & Analysis", marks: [true, true] },
+            { label: "Financial Statement Preparation/Review", marks: [true, true] },
+            { label: "Team Management, Hiring & Training", marks: [true, true] },
+            { label: "Long-Term Business & Financial Strategy", marks: [false, true] },
+            { label: "Fundraising & Investor Relations", marks: [false, true] },
+            { label: "Investment Advisory", marks: [false, true] },
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "When to Choose a",
+          highlight: "Controller",
+          paragraphs: [
+            "A Controller is the ideal choice when your business requires hands-on management of day-to-day financial operations. They specialize in accurate financial reporting, compliance, financial closing processes, and maintaining internal controls. The Miltafs Controller offers these essential services, providing reliable financial oversight at a cost-effective rate for small and medium-sized businesses (SMBs).",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "When to Choose a",
+          highlight: "CFO",
+          bg: "paper",
+          paragraphs: [
+            "A CFO, on the other hand, is best suited for businesses that need high-level strategic financial leadership. This includes long-term business planning, financial strategy, fundraising, and managing investor relations. As your business grows and faces more complex financial challenges, a CFO plays a crucial role in navigating growth, securing funding, and making investment decisions.",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Miltafs Financial Controller",
+          highlight: "Services",
+          paragraphs: [
+            "Comprehensive Financial Oversight and Strategic Leadership",
+            "At Miltafs, we offer expert Financial Controller Services to small and medium-sized businesses in Washington, USA. Our services cover a wide range of financial functions, providing you with the leadership and insights necessary to optimize your financial operations, enhance internal controls, and ensure regulatory compliance. Whether you're looking for day-to-day financial oversight or strategic guidance, Miltafs has the right solution for your business.",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Our Financial Controller Services in",
+          highlight: "Washington",
+          bg: "paper",
+          columns: 3,
+          items: [
+            {
+              title: "Reporting from Management",
+              desc: "We provide accurate, timely financial reporting, ensuring that key stakeholders have the insights they need to make informed decisions.",
+            },
+            {
+              title: "Oversight and Evaluation of Transaction Processing",
+              desc: "Our team closely monitors transaction processes, ensuring accuracy and efficiency in your financial operations.",
+            },
+            {
+              title: "Assessment of Internal Control Mechanisms",
+              desc: "We assess your current internal control mechanisms, identifying gaps and providing recommendations for improvements to safeguard your financial integrity.",
+            },
+            {
+              title: "Procedures and Policy Direction and Conformity",
+              desc: "We ensure that your business adheres to established procedures and policies, maintaining consistency and regulatory compliance.",
+            },
+            {
+              title: "Timely Payment Management",
+              desc: "We oversee the timely payment of all liabilities, ensuring that your business meets deadlines and avoids penalties.",
+            },
+            {
+              title: "Reports that Are Requested",
+              desc: "Our team prepares reports on demand, addressing specific business needs and delivering financial data quickly and efficiently.",
+            },
+            {
+              title: "Monthly Review and Reporting",
+              desc: "We conduct regular reviews and provide detailed monthly financial reports to ensure that your business stays on track with its goals.",
+            },
+            {
+              title: "Adherence to Federal and State Regulations",
+              desc: "We ensure your business complies with both federal and state financial regulations, mitigating the risk of non-compliance penalties.",
+            },
+            {
+              title: "Fractional Controller Services",
+              desc: "For businesses that don't require a full-time controller, we offer fractional controller services, giving you access to top-tier financial expertise without the full-time commitment.",
+            },
+            {
+              title: "Vendor and Employee Communication Assistance",
+              desc: "Our team facilitates clear and effective communication between vendors, employees, and other stakeholders, ensuring smooth operations and financial transparency.",
+            },
+            {
+              title: "Audit Assistance",
+              desc: "We provide support during audits, helping you prepare documents, review financials, and ensure full compliance with auditing standards.",
+            },
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Who Can Benefit from",
+          highlight: "Our Services?",
+          subtitle: "Strengthening Businesses of All Sizes with Expert Financial Guidance",
+          columns: 3,
+          items: [
+            {
+              title: "Startups",
+              desc: "Build a solid financial foundation with expert advice to ensure long-term success.",
+            },
+            {
+              title: "Small Businesses",
+              desc: "Simplify your financial processes, allowing you to concentrate on business growth and expansion.",
+            },
+            {
+              title: "Medium-Sized Enterprises",
+              desc: "Enhance financial management with professional insights, all while avoiding the cost of full-time financial staff.",
+            },
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Why Choose Miltafs for Financial",
+          highlight: "Controller Services?",
+          subtitle: "Your Trusted Partner for Effortless Financial Management and Growth.",
           bg: "paper",
           columns: 2,
           items: [
@@ -238,7 +270,7 @@ export default function FinancialWashington() {
             },
             {
               title: "Customized Solutions",
-              desc: "We tailor our services to your business’s specific needs, providing the right level of financial oversight.",
+              desc: "We tailor our services to your business's specific needs, providing the right level of financial oversight.",
             },
             {
               title: "Focus on Compliance and Accuracy",

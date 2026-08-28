@@ -1,8 +1,4 @@
 import React from "react";
-import SavingsIcon from "@mui/icons-material/Savings";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import TuneIcon from "@mui/icons-material/Tune";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -55,12 +51,12 @@ export default function VirtualAssistantMichigan() {
         titleLead: "Boost Your Business Efficiency with",
         highlight: "Virtual Assistant Services in Michigan",
         subtitle:
-          "Looking for top-notch virtual assistant services in Michigan? Our virtual assistant for small businesses provides reliable, cost-effective solutions that free up your time and allow you to focus on what matters most. How Our Virtual Assistants Can Transform Your Business.",
-        ctaLabel: "Book a Free Consultation Today!",
+          "Looking for top-notch virtual assistant services in Michigan? Our virtual assistant for small businesses provides reliable, cost-effective solutions that free up your time and allow you to focus on what matters most. ",
+        ctaLabel: "How Our Virtual Assistants Can Transform Your Business",
         breadcrumb: "Virtual Assistant Services in Michigan",
       }}
       intro={{
-        overline: "VIRTUAL ASSISTANTS IN MICHIGAN",
+        overline: "",
         titleLead: "Unlock Rewarding Opportunities with Virtual Assistant Service in",
         highlight: "Michigan",
         paragraphs: [
@@ -73,7 +69,7 @@ export default function VirtualAssistantMichigan() {
       }}
       cardGroups={[
         {
-          overline: "BENEFITS",
+          overline: "",
           titleLead: "Benefits of Virtual Assistant Services in",
           highlight: "Michigan",
           subtitle: "Partnering with Milta offers a range of advantages for your business:",
@@ -81,47 +77,57 @@ export default function VirtualAssistantMichigan() {
           columns: 2,
           items: [
             {
-              icon: SavingsIcon,
-              title: "1. Cost Savings",
-              desc: "Save on recruitment, training, and employee benefits. Pay only for the services or hours you need. Reduce operational costs while maintaining quality with our virtual assistant service in Michigan.",
+              title: "Cost Savings",
+              bullets: [
+                "Save on recruitment, training, and employee benefits.",
+                "Pay only for the services or hours you need.",
+                "Reduce operational costs while maintaining quality with our virtual assistant service in Michigan.",
+              ],
             },
             {
-              icon: TrendingUpIcon,
-              title: "2. Increased Productivity",
-              desc: "Focus on your business's core operations while delegating repetitive tasks. Gain access to experienced professionals skilled in various domains. Improve turnaround times with efficient task handling from our virtual assistant for small business.",
+              title: "Increased Productivity",
+              bullets: [
+                "Focus on your business's core operations while delegating repetitive tasks.",
+                "Gain access to experienced professionals skilled in various domains.",
+                "Improve turnaround times with efficient task handling from our virtual assistant for small business",
+              ],
             },
             {
-              icon: TuneIcon,
-              title: "3. Flexibility and Scalability",
-              desc: "Adjust service levels to your business's changing needs. Adapt tasks and procedures to meet your specific requirements with virtual assistant services in Michigan.",
+              title: "Flexibility and Scalability",
+              bullets: [
+                "Adjust service levels to your business's changing needs.",
+                "Adapt tasks and procedures to meet your specific requirements with virtual assistant services in Michigan.",
+              ],
             },
             {
-              icon: SupportAgentIcon,
-              title: "4. Expert Support",
-              desc: "Benefit from professionals proficient in accounting, bookkeeping, customer support, and more. Our team is trained in the latest tools and techniques, ensuring top-notch results with our best virtual assistant companies offering specialized support.",
+              title: "Expert Support",
+              bullets: [
+                "Benefit from professionals proficient in accounting, bookkeeping, customer support, and more.",
+                "Our team is trained in the latest tools and techniques, ensuring top-notch results with our best virtual assistant companies offering specialized support.",
+              ],
             },
           ],
         },
         {
-          overline: "CALL TO ACTION",
+          overline: "",
           titleLead: "Focus on Growth, Leave the",
           highlight: "Rest to Us!",
+          ctaLabel: "Get Started Today.",
           paragraphs: [
             "Affordable and reliable Virtual Assistant Services for small businesses, offering customized support in bookkeeping, accounting virtual service, and administrative tasks.",
-            "Get Started Today.",
           ],
         },
         {
-          overline: "WHAT WE DO",
+          overline: "",
           titleLead: "Our Virtual Assistant Services in",
           highlight: "Michigan",
           subtitle:
-            "At Milta, we offer a wide range of virtual assistant Michigan services designed to address the unique needs of small businesses.",
+            "At Milta, we offer a wide range of virtual assistant FL services designed to address the unique needs of small businesses.",
           bg: "paper",
           columns: 3,
           items: [
             {
-              title: "Real Estate Virtual Assistant Michigan",
+              title: "Real Estate Virtual Assistant ny",
               desc: "Our Real Estate Virtual Assistant Services specialize in managing time-consuming tasks like property listings, client database updates, and virtual tours. We streamline showings, market research, and reporting, ensuring you stay competitive. With our virtual assistant service in Michigan, you can focus on building client relationships and closing deals, while we handle the administrative work. Let the best virtual assistant companies support your success!",
             },
             {
@@ -142,7 +148,7 @@ export default function VirtualAssistantMichigan() {
             },
             {
               title: "Appointment Scheduling",
-              desc: "Never miss an important meeting with our appointment scheduling services. Our virtual assistants in Michigan manage your calendar, set up appointments, send reminders, and handle rescheduling across time zones.",
+              desc: "Never miss an important meeting with our appointment scheduling services. Our virtual assistants in NY manage your calendar, set up appointments, send reminders, and handle rescheduling across time zones.",
             },
             {
               title: "Accounting & Virtual Bookkeeping Service",
@@ -171,11 +177,11 @@ export default function VirtualAssistantMichigan() {
           ],
         },
         {
-          overline: "WHY MILTA",
+          overline: "",
           titleLead: "Why Choose Milta for",
           highlight: "Virtual Assistant Services?",
           subtitle:
-            "We stand out as a trusted partner for small businesses looking for efficient and reliable virtual assistants in Michigan. Here's why:",
+            "We stand out as a trusted partner for small businesses looking for efficient and reliable virtual assistants FL. Here's why:",
           columns: 3,
           items: [
             {
@@ -201,7 +207,7 @@ export default function VirtualAssistantMichigan() {
           ],
         },
         {
-          overline: "GETTING STARTED",
+          overline: "",
           titleLead: "How to",
           highlight: "Get Started",
           subtitle: "Getting started with Milta's virtual assistant services is simple:",
@@ -227,9 +233,10 @@ export default function VirtualAssistantMichigan() {
           ],
         },
         {
-          overline: "TRANSFORM YOUR BUSINESS",
+          overline: "",
           titleLead: "Transform Your Business with Milta",
           highlight: "Virtual Assistant Services",
+          ctaLabel: "Contact Us Today",
           paragraphs: [
             "Investing in virtual assistant services is an investment in your business's growth and efficiency. Let Milta take care of your daily responsibilities so you can concentrate on growing your company.",
             "Take the first step toward a more productive and stress-free business journey. Contact us today to explore our comprehensive range of virtual assistant services tailored for small businesses.",

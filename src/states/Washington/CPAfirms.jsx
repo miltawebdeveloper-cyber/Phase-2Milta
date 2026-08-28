@@ -42,10 +42,10 @@ export default function CPAWashington() {
         description:
           "Work with a trusted CPA firm offering the best CPA services for small businesses in Washington. Accurate accounting & compliance — contact us today.",
         keywords:
-          "cpa services in Washington, cpa firms near me, cpa firms in Washington, accounting services for small business, cpa services for small businesses, best cpa service for small businesses in Washington, certified public accountant near me.",
+          "cpa services in Washington, cpa firms near me, cpa firms in Washington, accounting services for small business, cpa services for small businesses, best cpa service for small businesses in Washington, certified public accountant near me",
         author: "Milta Accounting",
         canonical:
-          "https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-washington/",
+          "https://www.miltafs.com/us/services/best-cpa-services-for-small-businesses-in-the-washington/",
         schema: faqSchema,
       }}
       hero={{
@@ -57,18 +57,18 @@ export default function CPAWashington() {
         breadcrumb: "CPA Services in Washington",
       }}
       intro={{
-        overline: "CPA SERVICES IN WASHINGTON",
+        overline: "",
         titleLead: "Trusted CPA Firm in Washington for",
         highlight: "Your Business Needs",
         paragraphs: [
-          "Transform Your Business Finances with the Best CPA Services in Washington.",
+          "Transform Your Business Finances with the Best CPA Services in Washington",
           "We are a CPA Services in Washington, a trusted CPA firm near me dedicated to providing expert financial solutions for individuals and small businesses. As one of the best CPA firms in Washington, we specialize in accounting, tax preparation, and financial planning to keep your business on track. Our team of certified professionals offers CPA services for small businesses in Washington, ensuring you confidently manage all your financial needs. Whether you're looking for a certified public accountant near me or comprehensive accounting services for small business, Milta is here to help you thrive.",
         ],
-        ctaLabel: "Talk to a Certified CPA Today",
+        ctaLabel: "Schedule Your Free Consultation Today.",
         imageAlt: "CPA services in Washington",
       }}
       prose={{
-        overline: "HOW WE HELP",
+        overline: "",
         titleLead: "How Can We Support",
         highlight: "Your Business?",
         bg: "paper",
@@ -79,7 +79,7 @@ export default function CPAWashington() {
       }}
       cardGroups={[
         {
-          overline: "WHY OUTSOURCE",
+          overline: "",
           titleLead: "Why Outsource Your",
           highlight: "CPA Services?",
           paragraphs: [
@@ -88,9 +88,9 @@ export default function CPAWashington() {
           ],
         },
         {
-          overline: "WHAT'S INCLUDED",
+          overline: "",
           titleLead: "Our CPA Services for Small",
-          highlight: "Business Include",
+          highlight: "Business Include:",
           bg: "paper",
           columns: 3,
           items: [
@@ -117,39 +117,76 @@ export default function CPAWashington() {
           ],
         },
         {
-          overline: "CORE SERVICES",
+          overline: "",
           titleLead: "Our Core CPA Services in",
           highlight: "Washington",
-          columns: 3,
+          columns: 2,
           items: [
             {
-              title: "1. Accounting and Bookkeeping Services",
-              desc: "Any company depends on precise financial records for survival. Our comprehensive accounting services for small businesses are designed to ensure your financial data is always up-to-date and compliant: Financial Statement Preparation, General Ledger Maintenance, Accounts Payable and Receivable Management, Bank and Credit Card Reconciliations, Payroll Processing and Compliance.",
+              title: "Accounting and Bookkeeping Services",
+              desc: "Any company depends on precise financial records for survival. Our comprehensive accounting services for small businesses are designed to ensure your financial data is always up-to-date and compliant:",
+              bullets: [
+                "Financial Statement Preparation: Monthly, quarterly, and annual reports that provide clear insights into your business performance.",
+                "General Ledger Maintenance: Regular updates and reconciliations to ensure accuracy and consistency.",
+                "Accounts Payable and Receivable Management: Efficient tracking of incoming and outgoing payments to maintain healthy cash flow.",
+                "Bank and Credit Card Reconciliations: Regular reconciliations to identify discrepancies and prevent fraud.",
+                "Payroll Processing and Compliance: Accurate payroll management with full compliance to federal and state regulations.",
+              ],
             },
             {
-              title: "2. Tax Planning and Preparation",
-              desc: "Navigating the complexities of the U.S. tax system can be challenging. Milta offers expert tax planning and preparation services in Washington to help minimize liabilities and ensure compliance: Corporate Tax Return Preparation (Forms 1120S, 1065), Individual Tax Return Preparation (Forms 1040, 1041), Sales Tax and Payroll Tax Filings, Tax Compliance and Advisory Services, IRS Representation and Audit Support.",
+              title: "Tax Planning and Preparation",
+              desc: "Navigating the complexities of the U.S. tax system can be challenging. Milta offers expert tax planning and preparation services in Washington to help minimize liabilities and ensure compliance:",
+              bullets: [
+                "Corporate Tax Return Preparation: Handling Forms 1120S, and 1065 with precision.",
+                "Individual Tax Return Preparation: Comprehensive preparation for Forms 1040 and 1041.",
+                "Sales Tax and Payroll Tax Filings: Ensuring accurate and timely filings to avoid penalties.",
+                "Tax Compliance and Advisory Services: Ongoing support to help you stay compliant with the latest tax regulations.",
+                "IRS Representation and Audit Support: Expert guidance during audits to protect your interests.",
+              ],
             },
             {
-              title: "3. Financial Consulting and Advisory Services",
-              desc: "Our strategic financial consulting services empower businesses to make informed decisions that drive growth and profitability: Budgeting and Financial Forecasting, Cash Flow Management, Business Valuation and Financial Analysis, Risk Management and Internal Controls, Mergers and Acquisitions Advisory.",
+              title: "Financial Consulting and Advisory Services",
+              desc: "Our strategic financial consulting services empower businesses to make informed decisions that drive growth and profitability:",
+              bullets: [
+                "Budgeting and Financial Forecasting: Proactive financial planning to meet business goals.",
+                "Cash Flow Management: Strategies to optimize liquidity and improve financial stability.",
+                "Business Valuation and Financial Analysis: Comprehensive assessments to understand your business's true value.",
+                "Risk Management and Internal Controls: Identifying potential risks and implementing robust control mechanisms.",
+                "Mergers and Acquisitions Advisory: Expert advice to navigate complex transactions and maximize value.",
+              ],
             },
             {
-              title: "4. Catch-Up Services",
-              desc: "For businesses facing backlogs or disorganized records, we offer specialized catch-up and clean-up accounting services to restore financial order: Review and Correction of Historical Records, Reconciliation of Discrepancies, Updating Outdated Accounting Systems.",
+              title: "Catch-Up Services",
+              desc: "For businesses facing backlogs or disorganized records, we offer specialized catch-up and clean-up accounting services to restore financial order",
+              bullets: [
+                "Review and Correction of Historical Records: Identifying errors and making necessary adjustments.",
+                "Reconciliation of Discrepancies: Ensuring accuracy across all financial accounts.",
+                "Updating Outdated Accounting Systems: Transitioning to modern systems for improved efficiency.",
+              ],
             },
             {
-              title: "5. Accounting Software Setup and Conversion",
-              desc: "Whether you're transitioning to new software or optimizing your current system, we provide comprehensive support: QuickBooks Setup and Training, Conversions to QuickBooks Online, Cloud-Based Platform Migrations (Xero), Ongoing Support and Troubleshooting.",
+              title: "Accounting Software Setup and Conversion",
+              desc: "Whether you're transitioning to new software or optimizing your current system, we provide comprehensive support:",
+              bullets: [
+                "QuickBooks Setup and Training: customizing configurations and hands-on training for your team.",
+                "Conversions to QuickBooks Online: Seamless migration from desktop versions to cloud-based solutions.",
+                "Cloud-Based Platform Migrations: Moving to platforms like Xero for real-time financial management.",
+                "Ongoing Support and Troubleshooting: Continuous assistance to resolve technical issues promptly.",
+              ],
             },
             {
-              title: "6. Audit and Assurance Services",
-              desc: "Milta’s audit and assurance services are designed to enhance transparency and stakeholder confidence: Internal Audits and Risk Assessments, Financial Statement Audits, Reviews, and Compilations, Compliance Audits and Regulatory Reporting.",
+              title: "Audit and Assurance Services",
+              desc: "Milta's audit and assurance services are designed to enhance transparency and stakeholder confidence:",
+              bullets: [
+                "Internal Audits and Risk Assessments: Identifying operational risks and recommending improvements.",
+                "Financial Statement Audits, Reviews, and Compilations: Ensuring the accuracy and reliability of your financial reports.",
+                "Compliance Audits and Regulatory Reporting: Helping businesses meet industry-specific regulatory requirements.",
+              ],
             },
           ],
         },
         {
-          overline: "WHY CHOOSE MILTA",
+          overline: "",
           titleLead: "Why Choose Milta for CPA Services in",
           highlight: "Washington?",
           bg: "paper",
@@ -182,7 +219,7 @@ export default function CPAWashington() {
           ],
         },
         {
-          overline: "SPECIALIZED SUPPORT",
+          overline: "",
           titleLead: "Specialized CPA Services for",
           highlight: "Small Businesses",
           subtitle:
@@ -204,11 +241,11 @@ export default function CPAWashington() {
           ],
         },
         {
-          overline: "CPA FIRM PARTNERSHIPS",
+          overline: "",
           titleLead: "How Milta Supports",
-          highlight: "CPA Firms Near Me",
+          highlight: "CPA Firms near me",
           subtitle:
-            "In addition to serving small businesses, we also partner with CPA firms in Washington, offering:",
+            "In addition to serving small businesses, we also partner with CPA firms in the Washington, offering:",
           bg: "paper",
           columns: 3,
           items: [

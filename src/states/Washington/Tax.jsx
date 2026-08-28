@@ -69,36 +69,36 @@ export default function TaxWashington() {
         schema: faqSchema,
       }}
       hero={{
-        titleLead: "Optimize Your Tax Filing with Trusted",
-        highlight: "Tax Preparation Services in Washington!",
+        titleLead: "Optimize Your Tax Filing with Trusted Tax Preparation Services in",
+        highlight: "Washington!",
         subtitle:
-          "Make your tax filing process seamless with reliable tax services near me. Whether you’re filing federal, state, or city taxes, our expert team offers professional tax planning and preparation to ensure accuracy.",
+          "Make your tax filing process seamless with reliable tax services near me. Whether you're filing federal, state, or city taxes, our expert team offers professional tax planning and preparation to ensure accuracy.",
         ctaLabel: "Get Started Today with a Free Consultation!",
         breadcrumb: "Tax Services in Washington",
       }}
       intro={{
-        overline: "TAX PLANNING IN WASHINGTON",
+        overline: "",
         titleLead: "Specializing in Business and Individual Tax Preparation Services in",
         highlight: "Washington, USA",
         paragraphs: [
           "As a business owner, your focus should be on growing your products, services, and operations, not on managing financial statements, balancing books, or keeping up with evolving tax regulations. While an accounting firm near me may have met your needs in the early stages, business growth introduces new financial complexities. From hiring employees to managing estimated taxes and optimizing cash flow, expert guidance is essential year-round.",
-          "At Milta, we provide professional tax preparation services in Washington, offering proactive strategies to ensure compliance and maximize tax savings. If you’re searching for tax services near me, partner with us for expert financial support not just during tax season, but throughout your business journey.",
+          "At Milta, we provide professional tax preparation services in Washington, offering proactive strategies to ensure compliance and maximize tax savings. If you're searching for tax services near me, partner with us for expert financial support not just during tax season, but throughout your business journey.",
         ],
         ctaLabel: "Get Started Today with a Free Consultation!",
         imageAlt: "Tax preparation services in Washington",
       }}
       prose={{
-        overline: "STAY COMPLIANT",
+        overline: "",
         titleLead: "Stay Compliant with Expert Tax Preparation Services in",
         highlight: "Washington",
         bg: "paper",
         paragraphs: [
-          "Missing tax deadlines or filing errors can lead to costly penalties, negatively affecting your business’s profitability. With strict deadlines enforced by the IRS, state, and local agencies for business tax filings, payroll, and sales tax compliance, accurate and timely reporting is essential.",
+          "Missing tax deadlines or filing errors can lead to costly penalties, negatively affecting your business's profitability. With strict deadlines enforced by the IRS, state, and local agencies for business tax filings, payroll, and sales tax compliance, accurate and timely reporting is essential.",
           "At Milta, we provide reliable tax preparation services in Washington, ensuring your business remains compliant and avoids unnecessary fines. If you're searching for tax services near me, our expert team handles all your tax obligations efficiently, so you can focus on growing your business while we take care of the complexities.",
         ],
       }}
       solutions={{
-        overline: "COMPREHENSIVE TAX SERVICES",
+        overline: "",
         titleLead: "Miltafs Comprehensive Tax Services: Expert Tax Preparation Services in",
         highlight: "Washington",
         subtitle:
@@ -106,7 +106,7 @@ export default function TaxWashington() {
         items: [
           {
             icon: PersonIcon,
-            title: "Individual Washington tax preparation Service",
+            title: "Individual NY Tax Preparation Service",
             desc: "Customized solutions to maximize deductions and credits, ensuring compliance with IRS regulations.",
           },
           {
@@ -130,11 +130,18 @@ export default function TaxWashington() {
       }}
       cardGroups={[
         {
-          overline: "SECTION 1.1",
-          titleLead: "1. Tax Preparation Service in Washington —",
-          highlight: "Federal Tax Preparation",
-          subtitle:
-            "We handle every aspect of Washington tax preparation, transforming complex financial data into accurate, compliant returns. Our goal is to minimize your tax liability and maximize refunds while ensuring full adherence to federal, state, and local regulations.",
+          overline: "",
+          titleLead: "1. Tax Preparation Service in",
+          highlight: "Washington",
+          bg: "paper",
+          paragraphs: [
+            "We handle every aspect of NY tax preparation, transforming complex financial data into accurate, compliant returns. Our goal is to minimize your tax liability and maximize refunds while ensuring full adherence to federal, state, and local regulations.",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Federal Tax",
+          highlight: "Preparation",
           bg: "paper",
           columns: 2,
           items: [
@@ -143,16 +150,15 @@ export default function TaxWashington() {
               desc: "We meticulously apply every eligible deduction (e.g., student loan interest, charitable contributions) and credit (e.g., Child Tax Credit, Earned Income Tax Credit) to reduce your taxable income and boost refunds.",
             },
             {
-              title: "Form 1120 — C Corporations",
-              desc: "We navigate complex corporate income tax rules, including depreciation schedules and shareholder dividends.",
-            },
-            {
-              title: "Form 1120S — S Corporations",
-              desc: "We ensure proper allocation of profits/losses to shareholders and compliance with pass-through entity requirements.",
+              title: "Form 1120 & 1120S (Corporate Returns)",
+              bullets: [
+                "C Corporations (Form 1120): We navigate complex corporate income tax rules, including depreciation schedules and shareholder dividends.",
+                "S Corporations (Form 1120S): We ensure proper allocation of profits/losses to shareholders and compliance with pass-through entity requirements.",
+              ],
             },
             {
               title: "Form 1041 (Estates & Trusts)",
-              desc: "We manage fiduciary tax obligations, income distributions, and deductions to protect beneficiaries’ interests.",
+              desc: "We manage fiduciary tax obligations, income distributions, and deductions to protect beneficiaries' interests.",
             },
             {
               title: "Form 1065 (Partnerships)",
@@ -161,11 +167,10 @@ export default function TaxWashington() {
           ],
         },
         {
-          overline: "SECTION 1.2",
-          titleLead: "State Washington Tax Preparation",
+          overline: "",
+          titleLead: "State NY Tax Preparation",
           highlight: "(Washington Focus)",
-          subtitle:
-            "State-level tax preparation tailored specifically to Washington state regulations and compliance guidelines.",
+          bg: "paper",
           columns: 3,
           items: [
             {
@@ -183,34 +188,32 @@ export default function TaxWashington() {
           ],
         },
         {
-          overline: "SECTION 1.3",
+          overline: "",
           titleLead: "Local Tax",
           highlight: "Expertise",
           subtitle:
-            "We decode municipal tax codes for cities like Hartford, New Haven, and Stamford.",
+            "We decode municipal tax codes for cities like Hartford, New Haven, and Stamford, addressing nuances such as:",
           bg: "paper",
-          columns: 3,
+          columns: 2,
           items: [
-            {
-              title: "Municipal Tax Codes Decoding",
-              desc: "Navigating specific municipal tax guidelines, regulations, and reporting requirements for local cities.",
-            },
-            {
-              title: "Business Personal Property Taxes",
-              desc: "Assessing, reporting, and filing business personal property taxes accurately across municipal jurisdictions.",
-            },
-            {
-              title: "Local Surcharges & Gross Receipts Taxes",
-              desc: "Handling calculations, filings, and compliance for local surcharges and gross receipts taxes.",
-            },
+            "Business personal property taxes.",
+            "Local surcharges or gross receipts taxes.",
           ],
         },
         {
-          overline: "SECTION 2",
+          overline: "",
           titleLead: "2. Tax Review &",
           highlight: "Finalization",
-          subtitle:
+          bg: "default",
+          paragraphs: [
             "Before filing, we conduct a rigorous two-step quality assurance process to safeguard against errors and audits:",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Tax Review",
+          highlight: "Process",
+          bg: "default",
           columns: 3,
           items: [
             {
@@ -225,28 +228,35 @@ export default function TaxWashington() {
               title: "Optimization Scan",
               desc: "Identify missed opportunities (e.g., home office deductions, retirement contributions).",
             },
-            {
-              title: "Secure Approvals",
-              desc: "Secure digital signatures and approvals via encrypted platforms.",
-            },
-            {
-              title: "Audit-Ready Documentation",
-              desc: "Compile audit-ready documentation (e.g., receipts, and mileage logs) for your records.",
-            },
-            {
-              title: "Guaranteed On-Time Filing",
-              desc: "We meet deadlines to avoid late penalties (e.g., a 5% monthly penalty for late federal returns).",
-            },
           ],
         },
         {
-          overline: "SECTION 3",
+          overline: "",
+          titleLead: "Finalization &",
+          highlight: "Submission",
+          bg: "default",
+          columns: 3,
+          items: [
+            "Secure digital signatures and approvals via encrypted platforms.",
+            "Compile audit-ready documentation (e.g., receipts, and mileage logs) for your records.",
+            "Guaranteed On-Time Filing: We meet deadlines to avoid late penalties (e.g., a 5% monthly penalty for late federal returns).",
+          ],
+        },
+        {
+          overline: "",
           titleLead: "3. Tax E-Filing",
           highlight: "Service",
-          subtitle:
-            "We streamline submissions with IRS-authorized e-filing software, ensuring speed, security, and accuracy:",
           bg: "paper",
-          columns: 3,
+          paragraphs: [
+            "We streamline submissions with IRS-authorized e-filing software, ensuring speed, security, and accuracy:",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Benefits of",
+          highlight: "E-Filing",
+          bg: "paper",
+          columns: 2,
           items: [
             {
               title: "24-Hour IRS Acknowledgement",
@@ -264,22 +274,26 @@ export default function TaxWashington() {
               title: "Military-Grade Encryption",
               desc: "Protect sensitive data (e.g., SSNs, bank details) during transmission.",
             },
-            {
-              title: "We E-File All Returns",
-              desc: "Federal (IRS), Washington DRS, and municipal portals.",
-            },
-            {
-              title: "Specialized Filings",
-              desc: "Amendments (Form 1040-X), extensions (Form 4868), and payment plans.",
-            },
           ],
         },
         {
-          overline: "SECTION 4",
+          overline: "",
+          titleLead: "We E-File",
+          highlight: "All Returns",
+          bg: "paper",
+          columns: 2,
+          items: [
+            "Federal (IRS), Washington DRS, and municipal portals.",
+            "Specialized filings: Amendments (Form 1040-X), extensions (Form 4868), and payment plans.",
+          ],
+        },
+        {
+          overline: "",
           titleLead: "4. Tax Forms We",
           highlight: "Specialize In",
           subtitle:
             "Beyond basic returns, we expertly handle niche filings to cover all your needs:",
+          bg: "default",
           columns: 2,
           items: [
             {
@@ -288,7 +302,10 @@ export default function TaxWashington() {
             },
             {
               title: "Form 1099 Series",
-              desc: "1099-NEC: Contractor payments. 1099-INT/DIV: Interest, dividends, and stock transactions.",
+              bullets: [
+                "1099-NEC: Contractor payments.",
+                "1099-INT/DIV: Interest, dividends, and stock transactions.",
+              ],
             },
             {
               title: "Schedule C (Self-Employed)",
@@ -301,7 +318,7 @@ export default function TaxWashington() {
           ],
         },
         {
-          overline: "KEY FEDERAL TAX FORMS",
+          overline: "",
           titleLead: "Understanding Key",
           highlight: "Federal Tax Forms",
           bg: "paper",
@@ -309,57 +326,75 @@ export default function TaxWashington() {
           items: [
             {
               title: "Form 1040",
-              desc: "Used by individuals to report income and claim deductions/credits. Includes detailed sections for wages, investments, and deductions.",
+              bullets: [
+                "Used by individuals to report income and claim deductions/credits.",
+                "Includes detailed sections for wages, investments, and deductions.",
+              ],
             },
             {
               title: "Form 1041",
-              desc: "Filed for estates and trusts, reporting income distributed to beneficiaries. Ensures compliance with fiduciary tax obligations.",
+              bullets: [
+                "Filed for estates and trusts, reporting income distributed to beneficiaries.",
+                "Ensures compliance with fiduciary tax obligations.",
+              ],
             },
             {
               title: "Form 1065",
-              desc: "Partnership tax returns, detailing profits, losses, and credits. Partners receive a Schedule K-1 for individual filings.",
+              bullets: [
+                "Partnership tax returns, detailing profits, losses, and credits.",
+                "Partners receive a Schedule K-1 for individual filings.",
+              ],
             },
             {
               title: "Form 990",
-              desc: "Non-Profit Organization returns, required to maintain tax-exempt status. Transparency in reporting revenue, expenses, and program activities.",
+              bullets: [
+                "Non-Profit Organization returns, required to maintain tax-exempt status.",
+                "Transparency in reporting revenue, expenses, and program activities.",
+              ],
             },
             {
               title: "Form 1120",
-              desc: "C Corporation returns, detailing corporate income, expenses, and tax liabilities.",
+              bullets: [
+                "C Corporation returns, detailing corporate income, expenses, and tax liabilities.",
+              ],
             },
             {
               title: "Form 1120S",
-              desc: "For S Corporations, reflecting income passed through to shareholders.",
+              bullets: [
+                "For S Corporations, reflecting income passed through to shareholders.",
+              ],
             },
             {
               title: "Form 1099",
-              desc: "Used to report miscellaneous income for contractors, freelancers, and other non-employee payments.",
+              bullets: [
+                "Used to report miscellaneous income for contractors, freelancers, and other non-employee payments.",
+              ],
             },
           ],
         },
       ]}
       checklists={[
         {
-          overline: "WHY PARTNER WITH US",
+          overline: "",
           titleLead: "Why Partner",
           highlight: "With Us?",
           bg: "default",
           items: [
-            "Year-Round Support: Not just tax season we’re here for quarterly estimated payments, IRS notices, or audit defense.",
+            "Year-Round Support: Not just tax season we're here for quarterly estimated payments, IRS notices, or audit defense.",
             "Washington-Specific Knowledge: Deep familiarity with state tax incentives (e.g., film production credits, green energy rebates).",
-            "Proactive Compliance: We monitor law changes to keep you ahead.",
+            "Proactive Compliance: We monitor law changes (e.g., NY Pass-Through Entity Tax updates) to keep you ahead.",
             "Stress-Free Experience: We handle the paperwork, deadlines, and jargon you focus on growing your business.",
           ],
         },
       ]}
       closing={{
-        overline: "CALL TO ACTION",
+        overline: "",
         titleLead: "Ready to Simplify",
         highlight: "Your Taxes?",
+        ctaLabel: "Contact Us Today for a Free Consultation!",
         bg: "paper",
         paragraphs: [
           "If you're looking for tax services near me, our tax preparation services in Washington ensure accuracy and compliance every step of the way.",
-          "Contact Us Today for a Free Consultation!",
         ],
       }}
       faqs={faqs}

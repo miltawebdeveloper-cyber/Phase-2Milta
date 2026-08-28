@@ -1,8 +1,4 @@
 import React from "react";
-import SavingsIcon from "@mui/icons-material/Savings";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import TuneIcon from "@mui/icons-material/Tune";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -56,12 +52,12 @@ export default function VirtualAssistantWashington() {
         titleLead: "Boost Your Business Efficiency with",
         highlight: "Virtual Assistant Services in Washington",
         subtitle:
-          "Looking for top-notch virtual assistant services in Washington? Our virtual assistant for small businesses provides reliable, cost-effective solutions that free up your time and allow you to focus on what matters most. How Our Virtual Assistants Can Transform Your Business.",
-        ctaLabel: "Book a Free Consultation Today!",
+          "Looking for top-notch virtual assistant services in Washington? Our virtual assistant for small businesses provides reliable, cost-effective solutions that free up your time and allow you to focus on what matters most. ",
+        ctaLabel: "How Our Virtual Assistants Can Transform Your Business",
         breadcrumb: "Virtual Assistant Services in Washington",
       }}
       intro={{
-        overline: "VIRTUAL ASSISTANTS IN WASHINGTON",
+        overline: "",
         titleLead: "Unlock Rewarding Opportunities with Virtual Assistant Service in",
         highlight: "Washington",
         paragraphs: [
@@ -74,56 +70,65 @@ export default function VirtualAssistantWashington() {
       }}
       cardGroups={[
         {
-          overline: "BENEFITS",
+          overline: "",
           titleLead: "Benefits of Virtual Assistant Services in",
           highlight: "Washington",
-          subtitle:
-            "Partnering with Milta offers a range of advantages for your business:",
+          subtitle: "Partnering with Milta offers a range of advantages for your business:",
           bg: "paper",
           columns: 2,
           items: [
             {
-              icon: SavingsIcon,
-              title: "1. Cost Savings",
-              desc: "Save on recruitment, training, and employee benefits. Pay only for the services or hours you need. Reduce operational costs while maintaining quality with our virtual assistant service in Washington.",
+              title: "Cost Savings",
+              bullets: [
+                "Save on recruitment, training, and employee benefits.",
+                "Pay only for the services or hours you need.",
+                "Reduce operational costs while maintaining quality with our virtual assistant service in Washington.",
+              ],
             },
             {
-              icon: TrendingUpIcon,
-              title: "2. Increased Productivity",
-              desc: "Focus on your business’s core operations while delegating repetitive tasks. Gain access to experienced professionals skilled in various domains. Improve turnaround times with efficient task handling from our virtual assistant for small business.",
+              title: "Increased Productivity",
+              bullets: [
+                "Focus on your business's core operations while delegating repetitive tasks.",
+                "Gain access to experienced professionals skilled in various domains.",
+                "Improve turnaround times with efficient task handling from our virtual assistant for small business",
+              ],
             },
             {
-              icon: TuneIcon,
-              title: "3. Flexibility and Scalability",
-              desc: "Adjust service levels to your business’s changing needs. Adapt tasks and procedures to meet your specific requirements with virtual assistant services in Washington.",
+              title: "Flexibility and Scalability",
+              bullets: [
+                "Adjust service levels to your business's changing needs.",
+                "Adapt tasks and procedures to meet your specific requirements with virtual assistant services in Washington.",
+              ],
             },
             {
-              icon: SupportAgentIcon,
-              title: "4. Expert Support",
-              desc: "Benefit from professionals proficient in accounting, bookkeeping, customer support, and more. Our team is trained in the latest tools and techniques, ensuring top-notch results with our best virtual assistant companies offering specialized support.",
+              title: "Expert Support",
+              bullets: [
+                "Benefit from professionals proficient in accounting, bookkeeping, customer support, and more.",
+                "Our team is trained in the latest tools and techniques, ensuring top-notch results with our best virtual assistant companies offering specialized support.",
+              ],
             },
           ],
         },
         {
-          overline: "CALL TO ACTION",
+          overline: "",
           titleLead: "Focus on Growth, Leave the",
           highlight: "Rest to Us!",
+          ctaLabel: "Get Started Today.",
           paragraphs: [
             "Affordable and reliable Virtual Assistant Services for small businesses, offering customized support in bookkeeping, accounting virtual service, and administrative tasks.",
-            "Get Started Today.",
           ],
         },
         {
-          overline: "WHAT WE DO",
+          overline: "",
           titleLead: "Our Virtual Assistant Services in",
           highlight: "Washington",
           subtitle:
-            "At Milta, we offer a wide range of virtual assistant WA services designed to address the unique needs of small businesses.",
+            "At Milta, we offer a wide range of virtual assistant FL services designed to address the unique needs of small businesses.",
           bg: "paper",
           columns: 3,
           items: [
             {
-              title: "Real Estate Virtual Assistant Washington",
+              title: "Real Estate Virtual Assistant ny",
               desc: "Our Real Estate Virtual Assistant Services specialize in managing time-consuming tasks like property listings, client database updates, and virtual tours. We streamline showings, market research, and reporting, ensuring you stay competitive. With our virtual assistant service in Washington, you can focus on building client relationships and closing deals, while we handle the administrative work. Let the best virtual assistant companies support your success!",
             },
             {
@@ -144,7 +149,7 @@ export default function VirtualAssistantWashington() {
             },
             {
               title: "Appointment Scheduling",
-              desc: "Never miss an important meeting with our appointment scheduling services. Our virtual assistants in Washington manage your calendar, set up appointments, send reminders, and handle rescheduling across time zones.",
+              desc: "Never miss an important meeting with our appointment scheduling services. Our virtual assistants in NY manage your calendar, set up appointments, send reminders, and handle rescheduling across time zones.",
             },
             {
               title: "Accounting & Virtual Bookkeeping Service",
@@ -173,68 +178,68 @@ export default function VirtualAssistantWashington() {
           ],
         },
         {
-          overline: "WHY MILTA",
+          overline: "",
           titleLead: "Why Choose Milta for",
           highlight: "Virtual Assistant Services?",
           subtitle:
-            "We stand out as a trusted partner for small businesses looking for efficient and reliable virtual assistants in Washington. Here’s why:",
+            "We stand out as a trusted partner for small businesses looking for efficient and reliable virtual assistants FL. Here's why:",
           columns: 3,
           items: [
             {
-              title: "1. Customized Solutions",
+              title: "Customized Solutions",
               desc: "We recognize that every business has unique needs. Our services are designed to meet your objectives and produce quantifiable outcomes.",
             },
             {
-              title: "2. Expert Team",
-              desc: "Our virtual assistants are skilled, knowledgeable, and dedicated to providing top-notch support. Whether you need help with accounting virtual service, customer service, or administrative work, we’ve got you covered.",
+              title: "Expert Team",
+              desc: "Our virtual assistants are skilled, knowledgeable, and dedicated to providing top-notch support. Whether you need help with accounting virtual service, customer service, or administrative work, we've got you covered.",
             },
             {
-              title: "3. Advanced Technology",
+              title: "Advanced Technology",
               desc: "We leverage cutting-edge tools and software to ensure seamless service delivery, including bookkeeping platforms, project management tools, and communication channels.",
             },
             {
-              title: "4. Commitment to Confidentiality",
+              title: "Commitment to Confidentiality",
               desc: "Your business information is safe with us. We follow strict data security protocols to maintain confidentiality and trust.",
             },
             {
-              title: "5. Scalability",
+              title: "Scalability",
               desc: "Our services adjust to your growing needs as your company expands, guaranteeing assistance and consistency at every turn.",
             },
           ],
         },
         {
-          overline: "GETTING STARTED",
+          overline: "",
           titleLead: "How to",
           highlight: "Get Started",
-          subtitle:
-            "Getting started with Milta’s virtual assistant services is simple:",
+          subtitle: "Getting started with Milta's virtual assistant services is simple:",
           bg: "paper",
           columns: 2,
           items: [
             {
-              title: "1. Consultation",
+              title: "Consultation",
               desc: "Contact us to discuss your business requirements and expectations.",
             },
             {
-              title: "2. Selection",
-              desc: "Choose from our range of services and identify the tasks you’d like to delegate.",
+              title: "Selection",
+              desc: "Choose from our range of services and identify the tasks you'd like to delegate.",
             },
             {
-              title: "3. Onboarding",
+              title: "Onboarding",
               desc: "Meet your dedicated virtual assistant and set up workflows.",
             },
             {
-              title: "4. Execution",
+              title: "Execution",
               desc: "Sit back and focus on your business while we handle the rest.",
             },
           ],
         },
         {
-          overline: "TRANSFORM YOUR BUSINESS",
+          overline: "",
           titleLead: "Transform Your Business with Milta",
           highlight: "Virtual Assistant Services",
+          ctaLabel: "Contact Us Today",
           paragraphs: [
-            "Investing in virtual assistant services is an investment in your business’s growth and efficiency. Let Milta take care of your daily responsibilities so you can concentrate on growing your company.",
+            "Investing in virtual assistant services is an investment in your business's growth and efficiency. Let Milta take care of your daily responsibilities so you can concentrate on growing your company.",
             "Take the first step toward a more productive and stress-free business journey. Contact us today to explore our comprehensive range of virtual assistant services tailored for small businesses.",
           ],
         },

@@ -52,12 +52,12 @@ export default function VirtualAssistantNewHampshire() {
         titleLead: "Boost Your Business Efficiency with",
         highlight: "Virtual Assistant Services in New Hampshire",
         subtitle:
-          "Looking for top-notch virtual assistant services in New Hampshire? Our virtual assistant for small businesses provides reliable, cost-effective solutions that free up your time and allow you to focus on what matters most. How Our Virtual Assistants Can Transform Your Business.",
-        ctaLabel: "Book a Free Consultation Today!",
+          "Looking for top-notch virtual assistant services in New Hampshire? Our virtual assistant for small businesses provides reliable, cost-effective solutions that free up your time and allow you to focus on what matters most. ",
+        ctaLabel: "How Our Virtual Assistants Can Transform Your Business",
         breadcrumb: "Virtual Assistant Services in New Hampshire",
       }}
       intro={{
-        overline: "VIRTUAL ASSISTANTS IN NEW HAMPSHIRE",
+        overline: "",
         titleLead: "Unlock Rewarding Opportunities with Virtual Assistant Service in",
         highlight: "New Hampshire",
         paragraphs: [
@@ -69,80 +69,66 @@ export default function VirtualAssistantNewHampshire() {
         imageAlt: "Virtual assistant services in New Hampshire",
       }}
       cardGroups={[
-        // The document lists four numbered benefits, each with its own bullets.
-        // They are kept as four sections so every bullet stays a separate point
-        // rather than being run together inside one card.
         {
-          overline: "BENEFITS",
+          overline: "",
           titleLead: "Benefits of Virtual Assistant Services in",
           highlight: "New Hampshire",
-          bg: "paper",
-          paragraphs: ["Partnering with Milta offers a range of advantages for your business:"],
-        },
-        {
-          overline: "BENEFIT 1",
-          titleLead: "Cost",
-          highlight: "Savings",
-          columns: 3,
-          items: [
-            "Save on recruitment, training, and employee benefits.",
-            "Pay only for the services or hours you need.",
-            "Reduce operational costs while maintaining quality with our virtual assistant service in New Hampshire.",
-          ],
-        },
-        {
-          overline: "BENEFIT 2",
-          titleLead: "Increased",
-          highlight: "Productivity",
-          bg: "paper",
-          columns: 3,
-          items: [
-            "Focus on your business's core operations while delegating repetitive tasks.",
-            "Gain access to experienced professionals skilled in various domains.",
-            "Improve turnaround times with efficient task handling from our virtual assistant for small business",
-          ],
-        },
-        {
-          overline: "BENEFIT 3",
-          titleLead: "Flexibility and",
-          highlight: "Scalability",
-          columns: 2,
-          items: [
-            "Adjust service levels to your business's changing needs.",
-            "Adapt tasks and procedures to meet your specific requirements with virtual assistant services in New Hampshire.",
-          ],
-        },
-        {
-          overline: "BENEFIT 4",
-          titleLead: "Expert",
-          highlight: "Support",
+          subtitle: "Partnering with Milta offers a range of advantages for your business:",
           bg: "paper",
           columns: 2,
           items: [
-            "Benefit from professionals proficient in accounting, bookkeeping, customer support, and more.",
-            "Our team is trained in the latest tools and techniques, ensuring top-notch results with our best virtual assistant companies offering specialized support.",
+            {
+              title: "Cost Savings",
+              bullets: [
+                "Save on recruitment, training, and employee benefits.",
+                "Pay only for the services or hours you need.",
+                "Reduce operational costs while maintaining quality with our virtual assistant service in New Hampshire.",
+              ],
+            },
+            {
+              title: "Increased Productivity",
+              bullets: [
+                "Focus on your business's core operations while delegating repetitive tasks.",
+                "Gain access to experienced professionals skilled in various domains.",
+                "Improve turnaround times with efficient task handling from our virtual assistant for small business",
+              ],
+            },
+            {
+              title: "Flexibility and Scalability",
+              bullets: [
+                "Adjust service levels to your business's changing needs.",
+                "Adapt tasks and procedures to meet your specific requirements with virtual assistant services in New Hampshire.",
+              ],
+            },
+            {
+              title: "Expert Support",
+              bullets: [
+                "Benefit from professionals proficient in accounting, bookkeeping, customer support, and more.",
+                "Our team is trained in the latest tools and techniques, ensuring top-notch results with our best virtual assistant companies offering specialized support.",
+              ],
+            },
           ],
         },
         {
-          overline: "CALL TO ACTION",
+          overline: "",
           titleLead: "Focus on Growth, Leave the",
           highlight: "Rest to Us!",
+          ctaLabel: "Get Started Today.",
           paragraphs: [
             "Affordable and reliable Virtual Assistant Services for small businesses, offering customized support in bookkeeping, accounting virtual service, and administrative tasks.",
-            "Get Started Today.",
           ],
         },
         {
-          overline: "WHAT WE DO",
+          overline: "",
           titleLead: "Our Virtual Assistant Services in",
           highlight: "New Hampshire",
           subtitle:
-            "At Milta, we offer a wide range of virtual assistant New Hampshire services designed to address the unique needs of small businesses.",
+            "At Milta, we offer a wide range of virtual assistant FL services designed to address the unique needs of small businesses.",
           bg: "paper",
           columns: 3,
           items: [
             {
-              title: "Real Estate Virtual Assistant New Hampshire",
+              title: "Real Estate Virtual Assistant ny",
               desc: "Our Real Estate Virtual Assistant Services specialize in managing time-consuming tasks like property listings, client database updates, and virtual tours. We streamline showings, market research, and reporting, ensuring you stay competitive. With our virtual assistant service in New Hampshire, you can focus on building client relationships and closing deals, while we handle the administrative work. Let the best virtual assistant companies support your success!",
             },
             {
@@ -163,7 +149,7 @@ export default function VirtualAssistantNewHampshire() {
             },
             {
               title: "Appointment Scheduling",
-              desc: "Never miss an important meeting with our appointment scheduling services. Our virtual assistants in New Hampshire manage your calendar, set up appointments, send reminders, and handle rescheduling across time zones.",
+              desc: "Never miss an important meeting with our appointment scheduling services. Our virtual assistants in NY manage your calendar, set up appointments, send reminders, and handle rescheduling across time zones.",
             },
             {
               title: "Accounting & Virtual Bookkeeping Service",
@@ -192,11 +178,11 @@ export default function VirtualAssistantNewHampshire() {
           ],
         },
         {
-          overline: "WHY MILTA",
+          overline: "",
           titleLead: "Why Choose Milta for",
           highlight: "Virtual Assistant Services?",
           subtitle:
-            "We stand out as a trusted partner for small businesses looking for efficient and reliable virtual assistants in New Hampshire. Here's why:",
+            "We stand out as a trusted partner for small businesses looking for efficient and reliable virtual assistants FL. Here's why:",
           columns: 3,
           items: [
             {
@@ -222,7 +208,7 @@ export default function VirtualAssistantNewHampshire() {
           ],
         },
         {
-          overline: "GETTING STARTED",
+          overline: "",
           titleLead: "How to",
           highlight: "Get Started",
           subtitle: "Getting started with Milta's virtual assistant services is simple:",
@@ -248,9 +234,10 @@ export default function VirtualAssistantNewHampshire() {
           ],
         },
         {
-          overline: "TRANSFORM YOUR BUSINESS",
+          overline: "",
           titleLead: "Transform Your Business with Milta",
           highlight: "Virtual Assistant Services",
+          ctaLabel: "Contact Us Today",
           paragraphs: [
             "Investing in virtual assistant services is an investment in your business's growth and efficiency. Let Milta take care of your daily responsibilities so you can concentrate on growing your company.",
             "Take the first step toward a more productive and stress-free business journey. Contact us today to explore our comprehensive range of virtual assistant services tailored for small businesses.",

@@ -68,7 +68,7 @@ export default function DataEntryMaine() {
         breadcrumb: "Data Entry Services in Maine",
       }}
       intro={{
-        overline: "OUR IDENTITY AND ACTIVITIES",
+        overline: "",
         titleLead: "Our Identity and",
         highlight: "Activities",
         paragraphs: [
@@ -79,12 +79,9 @@ export default function DataEntryMaine() {
         ctaLabel: "Book a free 30-minute Zoom consultation today.",
         imageAlt: "Accounting data entry services in Maine",
       }}
-      // Both lists below are numbered in the source document, so the cards carry
-      // no icons: the layout's own 1..n badges then supply exactly the numbering
-      // the document uses, rather than duplicating it in the titles.
       cardGroups={[
         {
-          overline: "OUR PROCESS",
+          overline: "",
           titleLead: "Our Efficient Accounting Data",
           highlight: "Entry Process",
           subtitle:
@@ -119,7 +116,7 @@ export default function DataEntryMaine() {
           ],
         },
         {
-          overline: "WHAT WE DO",
+          overline: "",
           titleLead: "Our Data Entry Services in",
           highlight: "USA",
           subtitle:
@@ -165,18 +162,18 @@ export default function DataEntryMaine() {
           ],
         },
       ]}
+      faqs={faqs}
       closing={{
-        // The document signs off after the questions, not before them.
         placement: "afterFaqs",
-        overline: "GET IN TOUCH",
-        titleLead: "Ready to Transform Your Financial",
-        highlight: "Data Management Services?",
+        overline: "",
+        titleLead: "Ready to transform your financial data",
+        highlight: "management services?",
+        ctaLabel: "Contact us today",
         bg: "paper",
         paragraphs: [
           "Contact us today for reliable and professional accounting data entry services!",
         ],
       }}
-      faqs={faqs}
     />
   );
 }

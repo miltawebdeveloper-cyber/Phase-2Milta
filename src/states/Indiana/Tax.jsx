@@ -7,11 +7,11 @@ import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
   {
-    q: "1. Can Miltafs prepare both personal and company tax returns?",
+    q: "Can Miltafs prepare both personal and company tax returns?",
     a: "Absolutely. We specialize in individual and business tax returns, including complex filings for partnerships, corporations, and nonprofits.",
   },
   {
-    q: "2. What documents are required for tax preparation services in Indiana?",
+    q: "What documents are required for tax preparation services in Indiana?",
     a: `To ensure accurate and complete tax preparation service in Indiana USA, you'll need to provide the following documents:
 
 Personal Information:
@@ -35,11 +35,11 @@ Income Information:
 - Miscellaneous income (jury duty, gambling winnings, Medical Savings Accounts, scholarships, etc.)`,
   },
   {
-    q: "3. Can you help with state and city taxes?",
+    q: "Can you help with state and city taxes?",
     a: "Yes, we provide complete tax preparation services in Indiana for federal, state, and city taxes, ensuring compliance at all levels.",
   },
   {
-    q: "4. Is Miltafs service affordable?",
+    q: "Is Miltafs service affordable?",
     a: "Yes, we provide competitive pricing while maintaining high quality. We aim to deliver exceptional value to each client.",
   },
 ];
@@ -47,10 +47,10 @@ Income Information:
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
+  mainEntity: faqs.map((f) => ({
     "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
   })),
 };
 
@@ -66,14 +66,15 @@ export default function TaxIndiana() {
         schema: faqSchema,
       }}
       hero={{
-        titleLead: "Optimize Your Tax Filing with Trusted",
-        highlight: "Tax Preparation Services in Indiana!",
-        subtitle: "Make your tax filing process seamless with reliable tax services near me. Whether you're filing federal, state, or city taxes, our expert team offers professional tax planning and preparation to ensure accuracy.",
+        titleLead: "Optimize Your Tax Filing with Trusted Tax Preparation Services in",
+        highlight: "Indiana!",
+        subtitle:
+          "Make your tax filing process seamless with reliable tax services near me. Whether you're filing federal, state, or city taxes, our expert team offers professional tax planning and preparation to ensure accuracy.",
         ctaLabel: "Get Started Today with a Free Consultation!",
         breadcrumb: "Tax Services in Indiana",
       }}
       intro={{
-        overline: "TAX PLANNING IN INDIANA",
+        overline: "",
         titleLead: "Specializing in Business and Individual Tax Preparation Services in",
         highlight: "Indiana, USA",
         paragraphs: [
@@ -84,7 +85,7 @@ export default function TaxIndiana() {
         imageAlt: "Tax preparation services in Indiana",
       }}
       prose={{
-        overline: "STAY COMPLIANT",
+        overline: "",
         titleLead: "Stay Compliant with Expert Tax Preparation Services in",
         highlight: "Indiana",
         bg: "paper",
@@ -94,116 +95,303 @@ export default function TaxIndiana() {
         ],
       }}
       solutions={{
-        overline: "COMPREHENSIVE TAX SERVICES",
+        overline: "",
         titleLead: "Miltafs Comprehensive Tax Services: Expert Tax Preparation Services in",
         highlight: "Indiana",
-        subtitle: "The Milta accounting firm near me provides comprehensive tax preparation services in Indiana, serving individuals, businesses, estates, trusts, and nonprofits. Our team of experts ensures accurate tax preparation, thorough review, and seamless filing of tax returns at the federal, state, and city levels. Our Services Include:",
+        subtitle:
+          "The Milta accounting firm near me provides comprehensive tax preparation services in Indiana, serving individuals, businesses, estates, trusts, and nonprofits. Our team of experts ensures accurate tax preparation, thorough review, and seamless filing of tax returns at the federal, state, and city levels. Our Services Include:",
         items: [
-          { icon: PersonIcon, title: "Individual NY Tax Preparation Service", desc: "Customized solutions to maximize deductions and credits, ensuring compliance with IRS regulations." },
-          { icon: BusinessIcon, title: "Business Tax Services Near me", desc: "Expertise in corporate tax planning and preparation, helping businesses minimize liabilities and optimize tax positions." },
-          { icon: AccountBalanceIcon, title: "Estate and Trust Taxation", desc: "Specialized services to manage the complexities of estate and trust tax filings, ensuring fiduciary responsibilities are met." },
-          { icon: VolunteerActivismIcon, title: "Nonprofit Tax Compliance", desc: "Assistance with maintaining tax-exempt status and compliance with federal and state reporting requirements." },
+          {
+            icon: PersonIcon,
+            title: "Individual NY Tax Preparation Service",
+            desc: "Customized solutions to maximize deductions and credits, ensuring compliance with IRS regulations.",
+          },
+          {
+            icon: BusinessIcon,
+            title: "Business Tax Services Near me",
+            desc: "Expertise in corporate tax planning and preparation, helping businesses minimize liabilities and optimize tax positions.",
+          },
+          {
+            icon: AccountBalanceIcon,
+            title: "Estate and Trust Taxation",
+            desc: "Specialized services to manage the complexities of estate and trust tax filings, ensuring fiduciary responsibilities are met.",
+          },
+          {
+            icon: VolunteerActivismIcon,
+            title: "Nonprofit Tax Compliance",
+            desc: "Assistance with maintaining tax-exempt status and compliance with federal and state reporting requirements.",
+          },
         ],
-        footnote: "At Milta, we are committed to providing personalized tax strategies that align with your financial goals. Our proactive approach ensures that you remain compliant with ever-changing tax laws while optimizing your tax outcomes.",
+        footnote:
+          "At Milta, we are committed to providing personalized tax strategies that align with your financial goals. Our proactive approach ensures that you remain compliant with ever-changing tax laws while optimizing your tax outcomes.",
       }}
       cardGroups={[
         {
-          overline: "SERVICE 1",
+          overline: "",
           titleLead: "1. Tax Preparation Service in",
           highlight: "Indiana",
-          subtitle: "We handle every aspect of NY tax preparation, transforming complex financial data into accurate, compliant returns. Our goal is to minimize your tax liability and maximize refunds while ensuring full adherence to federal, state, and local regulations.",
           bg: "paper",
-          columns: 2,
-          items: [
-            { title: "Federal Tax Preparation", desc: "Form 1040 (Individual Returns): We meticulously apply every eligible deduction (e.g., student loan interest, charitable contributions) and credit (e.g., Child Tax Credit, Earned Income Tax Credit) to reduce your taxable income and boost refunds." },
-            { title: "Form 1120 & 1120S (Corporate Returns)", desc: "C Corporations (Form 1120): We navigate complex corporate income tax rules, including depreciation schedules and shareholder dividends. S Corporations (Form 1120S): We ensure proper allocation of profits/losses to shareholders and compliance with pass-through entity requirements." },
-            { title: "Form 1041 (Estates & Trusts)", desc: "We manage fiduciary tax obligations, income distributions, and deductions to protect beneficiaries' interests." },
-            { title: "Form 1065 (Partnerships)", desc: "We file returns for multi-owner businesses, including Form 8825 for rental real estate income, expenses, and depreciation." },
-            { title: "State NY Tax Preparation (Indiana Focus)", desc: "Income Tax: Optimized filings for Indiana's progressive tax brackets, including credits like the Property Tax Credit. Sales Tax: Compliance with Indiana's 6.35% sales tax rate, exemptions, and quarterly reporting for retailers. Property Tax: Guidance on local assessments, appeals, and tax relief programs for homeowners and businesses." },
-            { title: "Local Tax Expertise", desc: "We decode municipal tax codes for cities like Hartford, New Haven, and Stamford, addressing nuances such as business personal property taxes, and local surcharges or gross receipts taxes." },
+          paragraphs: [
+            "We handle every aspect of NY tax preparation, transforming complex financial data into accurate, compliant returns. Our goal is to minimize your tax liability and maximize refunds while ensuring full adherence to federal, state, and local regulations.",
           ],
         },
         {
-          overline: "SERVICE 2",
+          overline: "",
+          titleLead: "Federal Tax",
+          highlight: "Preparation",
+          bg: "paper",
+          columns: 2,
+          items: [
+            {
+              title: "Form 1040 (Individual Returns)",
+              desc: "We meticulously apply every eligible deduction (e.g., student loan interest, charitable contributions) and credit (e.g., Child Tax Credit, Earned Income Tax Credit) to reduce your taxable income and boost refunds.",
+            },
+            {
+              title: "Form 1120 & 1120S (Corporate Returns)",
+              bullets: [
+                "C Corporations (Form 1120): We navigate complex corporate income tax rules, including depreciation schedules and shareholder dividends.",
+                "S Corporations (Form 1120S): We ensure proper allocation of profits/losses to shareholders and compliance with pass-through entity requirements.",
+              ],
+            },
+            {
+              title: "Form 1041 (Estates & Trusts)",
+              desc: "We manage fiduciary tax obligations, income distributions, and deductions to protect beneficiaries' interests.",
+            },
+            {
+              title: "Form 1065 (Partnerships)",
+              desc: "We file returns for multi-owner businesses, including Form 8825 for rental real estate income, expenses, and depreciation.",
+            },
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "State NY Tax Preparation",
+          highlight: "(Indiana Focus)",
+          bg: "paper",
+          columns: 3,
+          items: [
+            {
+              title: "Income Tax",
+              desc: "Optimized filings for Indiana's progressive tax brackets, including credits like the Property Tax Credit.",
+            },
+            {
+              title: "Sales Tax",
+              desc: "Compliance with Indiana's 6.35% sales tax rate, exemptions, and quarterly reporting for retailers.",
+            },
+            {
+              title: "Property Tax",
+              desc: "Guidance on local assessments, appeals, and tax relief programs for homeowners and businesses.",
+            },
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Local Tax",
+          highlight: "Expertise",
+          subtitle:
+            "We decode municipal tax codes for cities like Hartford, New Haven, and Stamford, addressing nuances such as:",
+          bg: "paper",
+          columns: 2,
+          items: [
+            "Business personal property taxes.",
+            "Local surcharges or gross receipts taxes.",
+          ],
+        },
+        {
+          overline: "",
           titleLead: "2. Tax Review &",
           highlight: "Finalization",
-          subtitle: "Before filing, we conduct a rigorous two-step quality assurance process to safeguard against errors and audits: Tax Review Process",
-          columns: 3,
-          items: [
-            { title: "Accuracy Check", desc: "Cross-verify income, deductions, and credits against W-2s, 1099s, and financial statements." },
-            { title: "Compliance Audit", desc: "Ensure adherence to the latest IRS guidelines (e.g., R&D tax credit changes) and Indiana-specific rules." },
-            { title: "Optimization Scan", desc: "Identify missed opportunities (e.g., home office deductions, retirement contributions)." },
-            { title: "Finalization & Submission", desc: "Secure digital signatures and approvals via encrypted platforms. Compile audit-ready documentation (e.g., receipts, and mileage logs) for your records." },
-            { title: "Guaranteed On-Time Filing", desc: "We meet deadlines to avoid late penalties (e.g., a 5% monthly penalty for late federal returns)." },
+          bg: "default",
+          paragraphs: [
+            "Before filing, we conduct a rigorous two-step quality assurance process to safeguard against errors and audits:",
           ],
         },
         {
-          overline: "SERVICE 3",
+          overline: "",
+          titleLead: "Tax Review",
+          highlight: "Process",
+          bg: "default",
+          columns: 3,
+          items: [
+            {
+              title: "Accuracy Check",
+              desc: "Cross-verify income, deductions, and credits against W-2s, 1099s, and financial statements.",
+            },
+            {
+              title: "Compliance Audit",
+              desc: "Ensure adherence to the latest IRS guidelines (e.g., R&D tax credit changes) and Indiana-specific rules.",
+            },
+            {
+              title: "Optimization Scan",
+              desc: "Identify missed opportunities (e.g., home office deductions, retirement contributions).",
+            },
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Finalization &",
+          highlight: "Submission",
+          bg: "default",
+          columns: 3,
+          items: [
+            "Secure digital signatures and approvals via encrypted platforms.",
+            "Compile audit-ready documentation (e.g., receipts, and mileage logs) for your records.",
+            "Guaranteed On-Time Filing: We meet deadlines to avoid late penalties (e.g., a 5% monthly penalty for late federal returns).",
+          ],
+        },
+        {
+          overline: "",
           titleLead: "3. Tax E-Filing",
           highlight: "Service",
-          subtitle: "We streamline submissions with IRS-authorized e-filing software, ensuring speed, security, and accuracy: Benefits of E-Filing",
           bg: "paper",
-          columns: 3,
-          items: [
-            { title: "24-Hour IRS Acknowledgement", desc: "Instant confirmation that your return was received." },
-            { title: "Faster Refunds", desc: "Direct deposit refunds in as little as 10 days (vs. 6+ weeks for paper filing)." },
-            { title: "Reduced Errors", desc: "Automated checks flag mismatched SSNs, math errors, or missing fields." },
-            { title: "Military-Grade Encryption", desc: "Protect sensitive data (e.g., SSNs, bank details) during transmission." },
-            { title: "We E-File All Returns", desc: "Federal (IRS), Indiana DRS, and municipal portals." },
-            { title: "Specialized Filings", desc: "Amendments (Form 1040-X), extensions (Form 4868), and payment plans." },
+          paragraphs: [
+            "We streamline submissions with IRS-authorized e-filing software, ensuring speed, security, and accuracy:",
           ],
         },
         {
-          overline: "SERVICE 4",
-          titleLead: "4. Tax Forms We",
-          highlight: "Specialize In",
-          subtitle: "Beyond basic returns, we expertly handle niche filings to cover all your needs:",
+          overline: "",
+          titleLead: "Benefits of",
+          highlight: "E-Filing",
+          bg: "paper",
           columns: 2,
           items: [
-            { title: "Form 990 (Non-Profits)", desc: "Maintain tax-exempt status with detailed reporting on revenue, grants, and executive compensation." },
-            { title: "Form 1099 Series", desc: "1099-NEC: Contractor payments. 1099-INT/DIV: Interest, dividends, and stock transactions." },
-            { title: "Schedule C (Self-Employed)", desc: "Deduct home office, utilities, and business mileage." },
-            { title: "Form 8825 (Real Estate)", desc: "Report rental income, expenses, and depreciation for investment properties." },
+            {
+              title: "24-Hour IRS Acknowledgement",
+              desc: "Instant confirmation that your return was received.",
+            },
+            {
+              title: "Faster Refunds",
+              desc: "Direct deposit refunds in as little as 10 days (vs. 6+ weeks for paper filing).",
+            },
+            {
+              title: "Reduced Errors",
+              desc: "Automated checks flag mismatched SSNs, math errors, or missing fields.",
+            },
+            {
+              title: "Military-Grade Encryption",
+              desc: "Protect sensitive data (e.g., SSNs, bank details) during transmission.",
+            },
           ],
         },
         {
-          overline: "KEY FEDERAL TAX FORMS",
+          overline: "",
+          titleLead: "We E-File",
+          highlight: "All Returns",
+          bg: "paper",
+          columns: 2,
+          items: [
+            "Federal (IRS), Indiana DRS, and municipal portals.",
+            "Specialized filings: Amendments (Form 1040-X), extensions (Form 4868), and payment plans.",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "4. Tax Forms We",
+          highlight: "Specialize In",
+          subtitle:
+            "Beyond basic returns, we expertly handle niche filings to cover all your needs:",
+          bg: "default",
+          columns: 2,
+          items: [
+            {
+              title: "Form 990 (Non-Profits)",
+              desc: "Maintain tax-exempt status with detailed reporting on revenue, grants, and executive compensation.",
+            },
+            {
+              title: "Form 1099 Series",
+              bullets: [
+                "1099-NEC: Contractor payments.",
+                "1099-INT/DIV: Interest, dividends, and stock transactions.",
+              ],
+            },
+            {
+              title: "Schedule C (Self-Employed)",
+              desc: "Deduct home office, utilities, and business mileage.",
+            },
+            {
+              title: "Form 8825 (Real Estate)",
+              desc: "Report rental income, expenses, and depreciation for investment properties.",
+            },
+          ],
+        },
+        {
+          overline: "",
           titleLead: "Understanding Key",
           highlight: "Federal Tax Forms",
           bg: "paper",
           columns: 3,
           items: [
-            { title: "Form 1040", desc: "Used by individuals to report income and claim deductions/credits. Includes detailed sections for wages, investments, and deductions." },
-            { title: "Form 1041", desc: "Filed for estates and trusts, reporting income distributed to beneficiaries. Ensures compliance with fiduciary tax obligations." },
-            { title: "Form 1065", desc: "Partnership tax returns, detailing profits, losses, and credits. Partners receive a Schedule K-1 for individual filings." },
-            { title: "Form 990", desc: "Non-Profit Organization returns, required to maintain tax-exempt status. Transparency in reporting revenue, expenses, and program activities." },
-            { title: "Form 1120", desc: "C Corporation returns, detailing corporate income, expenses, and tax liabilities." },
-            { title: "Form 1120S", desc: "For S Corporations, reflecting income passed through to shareholders." },
-            { title: "Form 1099", desc: "Used to report miscellaneous income for contractors, freelancers, and other non-employee payments." },
+            {
+              title: "Form 1040",
+              bullets: [
+                "Used by individuals to report income and claim deductions/credits.",
+                "Includes detailed sections for wages, investments, and deductions.",
+              ],
+            },
+            {
+              title: "Form 1041",
+              bullets: [
+                "Filed for estates and trusts, reporting income distributed to beneficiaries.",
+                "Ensures compliance with fiduciary tax obligations.",
+              ],
+            },
+            {
+              title: "Form 1065",
+              bullets: [
+                "Partnership tax returns, detailing profits, losses, and credits.",
+                "Partners receive a Schedule K-1 for individual filings.",
+              ],
+            },
+            {
+              title: "Form 990",
+              bullets: [
+                "Non-Profit Organization returns, required to maintain tax-exempt status.",
+                "Transparency in reporting revenue, expenses, and program activities.",
+              ],
+            },
+            {
+              title: "Form 1120",
+              bullets: [
+                "C Corporation returns, detailing corporate income, expenses, and tax liabilities.",
+              ],
+            },
+            {
+              title: "Form 1120S",
+              bullets: [
+                "For S Corporations, reflecting income passed through to shareholders.",
+              ],
+            },
+            {
+              title: "Form 1099",
+              bullets: [
+                "Used to report miscellaneous income for contractors, freelancers, and other non-employee payments.",
+              ],
+            },
           ],
         },
       ]}
-      checklists={[{
-        overline: "WHY PARTNER WITH US",
-        titleLead: "Why Partner",
-        highlight: "With Us?",
-        bg: "default",
-        items: [
-          "Year-Round Support: Not just tax season we're here for quarterly estimated payments, IRS notices, or audit defense.",
-          "Indiana-Specific Knowledge: Deep familiarity with state tax incentives (e.g., film production credits, green energy rebates).",
-          "Proactive Compliance: We monitor law changes (e.g., NY Pass-Through Entity Tax updates) to keep you ahead.",
-          "Stress-Free Experience: We handle the paperwork, deadlines, and jargon you focus on growing your business.",
-        ],
-      }]}
+      checklists={[
+        {
+          overline: "",
+          titleLead: "Why Partner",
+          highlight: "With Us?",
+          bg: "default",
+          items: [
+            "Year-Round Support: Not just tax season we're here for quarterly estimated payments, IRS notices, or audit defense.",
+            "Indiana-Specific Knowledge: Deep familiarity with state tax incentives (e.g., film production credits, green energy rebates).",
+            "Proactive Compliance: We monitor law changes (e.g., NY Pass-Through Entity Tax updates) to keep you ahead.",
+            "Stress-Free Experience: We handle the paperwork, deadlines, and jargon you focus on growing your business.",
+          ],
+        },
+      ]}
       closing={{
-        overline: "CALL TO ACTION",
+        overline: "",
         titleLead: "Ready to Simplify",
         highlight: "Your Taxes?",
+        ctaLabel: "Contact Us Today for a Free Consultation!",
         bg: "paper",
         paragraphs: [
           "If you're looking for tax services near me, our tax preparation services in Indiana ensure accuracy and compliance every step of the way.",
-          "CTA: Contact Us Today for a Free Consultation!",
-          "FAQs About Miltafs tax preparation services in Indiana",
         ],
       }}
       faqs={faqs}

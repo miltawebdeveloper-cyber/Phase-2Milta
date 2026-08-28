@@ -214,6 +214,46 @@ const DigitalMarketingNevada = lazyWithRetry(() => import('./states/Nevada/Digit
 const DataEntryNevada = lazyWithRetry(() => import('./states/Nevada/DataEntry'));
 const FinancialNevada = lazyWithRetry(() => import('./states/Nevada/Financial'));
 const PayrollNevada = lazyWithRetry(() => import('./states/Nevada/Payroll'));
+const BookkeepingSalem = lazyWithRetry(() => import('./states/Salem/Bookkeeping'));
+const TaxSalem = lazyWithRetry(() => import('./states/Salem/Tax'));
+const CPASalem = lazyWithRetry(() => import('./states/Salem/CPAfirms'));
+const VirtualAssistantSalem = lazyWithRetry(() => import('./states/Salem/VirtualAssistance'));
+const DigitalMarketingSalem = lazyWithRetry(() => import('./states/Salem/DigitalMarketing'));
+const DataEntrySalem = lazyWithRetry(() => import('./states/Salem/DataEntry'));
+const FinancialSalem = lazyWithRetry(() => import('./states/Salem/Financial'));
+const PayrollSalem = lazyWithRetry(() => import('./states/Salem/Payroll'));
+const BookkeepingUtah = lazyWithRetry(() => import('./states/Utah/Bookkeeping'));
+const TaxUtah = lazyWithRetry(() => import('./states/Utah/Tax'));
+const CPAUtah = lazyWithRetry(() => import('./states/Utah/CPAfirms'));
+const VirtualAssistantUtah = lazyWithRetry(() => import('./states/Utah/VirtualAssistance'));
+const DigitalMarketingUtah = lazyWithRetry(() => import('./states/Utah/DigitalMarketing'));
+const DataEntryUtah = lazyWithRetry(() => import('./states/Utah/DataEntry'));
+const FinancialUtah = lazyWithRetry(() => import('./states/Utah/Financial'));
+const PayrollUtah = lazyWithRetry(() => import('./states/Utah/Payroll'));
+const BookkeepingWyoming = lazyWithRetry(() => import('./states/Wyoming/Bookkeeping'));
+const TaxWyoming = lazyWithRetry(() => import('./states/Wyoming/Tax'));
+const CPAWyoming = lazyWithRetry(() => import('./states/Wyoming/CPAfirms'));
+const VirtualAssistantWyoming = lazyWithRetry(() => import('./states/Wyoming/VirtualAssistance'));
+const DigitalMarketingWyoming = lazyWithRetry(() => import('./states/Wyoming/DigitalMarketing'));
+const DataEntryWyoming = lazyWithRetry(() => import('./states/Wyoming/DataEntry'));
+const FinancialWyoming = lazyWithRetry(() => import('./states/Wyoming/Financial'));
+const PayrollWyoming = lazyWithRetry(() => import('./states/Wyoming/Payroll'));
+const BookkeepingNewMexico = lazyWithRetry(() => import('./states/NewMexico/Bookkeeping'));
+const TaxNewMexico = lazyWithRetry(() => import('./states/NewMexico/Tax'));
+const CPANewMexico = lazyWithRetry(() => import('./states/NewMexico/CPAfirms'));
+const VirtualAssistantNewMexico = lazyWithRetry(() => import('./states/NewMexico/VirtualAssistance'));
+const DigitalMarketingNewMexico = lazyWithRetry(() => import('./states/NewMexico/DigitalMarketing'));
+const DataEntryNewMexico = lazyWithRetry(() => import('./states/NewMexico/DataEntry'));
+const FinancialNewMexico = lazyWithRetry(() => import('./states/NewMexico/Financial'));
+const PayrollNewMexico = lazyWithRetry(() => import('./states/NewMexico/Payroll'));
+const BookkeepingMontana = lazyWithRetry(() => import('./states/Montana/Bookkeeping'));
+const TaxMontana = lazyWithRetry(() => import('./states/Montana/Tax'));
+const CPAMontana = lazyWithRetry(() => import('./states/Montana/CPAfirms'));
+const VirtualAssistantMontana = lazyWithRetry(() => import('./states/Montana/VirtualAssistance'));
+const DigitalMarketingMontana = lazyWithRetry(() => import('./states/Montana/DigitalMarketing'));
+const DataEntryMontana = lazyWithRetry(() => import('./states/Montana/DataEntry'));
+const FinancialMontana = lazyWithRetry(() => import('./states/Montana/Financial'));
+const PayrollMontana = lazyWithRetry(() => import('./states/Montana/Payroll'));
 import ScrollToTopOnNavigate from './components/ScrollToTopOnNavigate';
 const PrivacyPolicy = lazyWithRetry(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazyWithRetry(() => import('./pages/TermsofService'));
@@ -603,6 +643,56 @@ function ThemedApp() {
            <Route path="/us/services/outsourcing-accounting-data-entry-nevada/" element={<DataEntryNevada />} />
            <Route path="/us/services/financial-controller-services-in-nevada/" element={<FinancialNevada />} />
            <Route path="/us/services/payroll-management-services-in-the-nevada/" element={<PayrollNevada />} />
+
+          {/* Salem */}
+           <Route path="/us/services/best-bookkeeping-services-in-salem/" element={<BookkeepingSalem />} />
+           <Route path="/us/services/tax-planning-and-preparation-service-in-salem/" element={<TaxSalem />} />
+           <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-salem/" element={<CPASalem />} />
+           <Route path="/us/services/virtual-assistant-service-in-salem/" element={<VirtualAssistantSalem />} />
+           <Route path="/us/services/best-digital-marketing-agency-in-salem" element={<DigitalMarketingSalem />} />
+           <Route path="/us/services/outsourcing-accounting-data-entry-salem/" element={<DataEntrySalem />} />
+           <Route path="/us/services/financial-controller-services-in-salem/" element={<FinancialSalem />} />
+           <Route path="/us/services/payroll-management-services-in-the-salem/" element={<PayrollSalem />} />
+
+          {/* Utah */}
+           <Route path="/us/services/best-bookkeeping-services-in-utah/" element={<BookkeepingUtah />} />
+           <Route path="/us/services/tax-planning-and-preparation-service-in-utah/" element={<TaxUtah />} />
+           <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-utah/" element={<CPAUtah />} />
+           <Route path="/us/services/virtual-assistant-service-in-utah/" element={<VirtualAssistantUtah />} />
+           <Route path="/us/services/best-digital-marketing-agency-in-utah" element={<DigitalMarketingUtah />} />
+           <Route path="/us/services/outsourcing-accounting-data-entry-utah/" element={<DataEntryUtah />} />
+           <Route path="/us/services/financial-controller-services-in-utah/" element={<FinancialUtah />} />
+           <Route path="/us/services/payroll-management-services-in-the-utah/" element={<PayrollUtah />} />
+
+          {/* Wyoming */}
+           <Route path="/us/services/best-bookkeeping-services-in-wyoming/" element={<BookkeepingWyoming />} />
+           <Route path="/us/services/tax-planning-and-preparation-service-in-wyoming/" element={<TaxWyoming />} />
+           <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-wyoming/" element={<CPAWyoming />} />
+           <Route path="/us/services/virtual-assistant-service-in-wyoming/" element={<VirtualAssistantWyoming />} />
+           <Route path="/us/services/best-digital-marketing-agency-in-wyoming" element={<DigitalMarketingWyoming />} />
+           <Route path="/us/services/outsourcing-accounting-data-entry-wyoming/" element={<DataEntryWyoming />} />
+           <Route path="/us/services/financial-controller-services-in-wyoming/" element={<FinancialWyoming />} />
+           <Route path="/us/services/payroll-management-services-in-the-wyoming/" element={<PayrollWyoming />} />
+
+          {/* New Mexico */}
+           <Route path="/us/services/best-bookkeeping-services-in-newmexico/" element={<BookkeepingNewMexico />} />
+           <Route path="/us/services/tax-planning-and-preparation-service-in-newmexico/" element={<TaxNewMexico />} />
+           <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-newmexico/" element={<CPANewMexico />} />
+           <Route path="/us/services/virtual-assistant-service-in-newmexico/" element={<VirtualAssistantNewMexico />} />
+           <Route path="/us/services/best-digital-marketing-agency-in-newmexico" element={<DigitalMarketingNewMexico />} />
+           <Route path="/us/services/outsourcing-accounting-data-entry-newmexico/" element={<DataEntryNewMexico />} />
+           <Route path="/us/services/financial-controller-services-in-newmexico/" element={<FinancialNewMexico />} />
+           <Route path="/us/services/payroll-management-services-in-the-newmexico/" element={<PayrollNewMexico />} />
+
+          {/* Montana */}
+           <Route path="/us/services/best-bookkeeping-services-in-montana/" element={<BookkeepingMontana />} />
+           <Route path="/us/services/tax-planning-and-preparation-service-in-montana/" element={<TaxMontana />} />
+           <Route path="/us/services/best-cpa-services-for-small-businesses-in-the-montana/" element={<CPAMontana />} />
+           <Route path="/us/services/virtual-assistant-service-in-montana/" element={<VirtualAssistantMontana />} />
+           <Route path="/us/services/best-digital-marketing-agency-in-montana/" element={<DigitalMarketingMontana />} />
+           <Route path="/us/services/outsourcing-accounting-data-entry-montana/" element={<DataEntryMontana />} />
+           <Route path="/us/services/financial-controller-services-in-montana/" element={<FinancialMontana />} />
+           <Route path="/us/services/payroll-management-services-in-the-montana/" element={<PayrollMontana />} />
 
         </Routes>
         </Suspense>

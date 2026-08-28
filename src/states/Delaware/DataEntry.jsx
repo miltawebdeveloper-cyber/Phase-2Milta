@@ -1,10 +1,4 @@
 import React from "react";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import FactCheckIcon from "@mui/icons-material/FactCheck";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
-import BalanceIcon from "@mui/icons-material/Balance";
-import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import BarChartIcon from "@mui/icons-material/BarChart";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -56,11 +50,11 @@ export default function DataEntryDelaware() {
   return (
     <ServiceLayout
       seo={{
-        title: "Accounting Data Entry Services in Delaware for Small Businesses",
+        title: "Leading Accounting Data Entry Companies in Delaware",
         description:
-          "Accurate, affordable accounting data entry services in Delaware. General ledger, AP/AR, invoices, bank reconciliation, payroll, and QuickBooks data entry.",
+          "Partner with trusted data entry companies in Delaware for expert accounting data entry services to boost efficiency and reduce costs.",
         keywords:
-          "data entry services in delaware, accounting data entry companies in delaware, data management services, outsourcing accounting data entry, quickbooks data entry",
+          "data entry companies, accounting data entry, data entry services, data management services.",
         author: "Milta Accounting",
         canonical: "https://www.miltafs.com/us/services/outsourcing-accounting-data-entry-delaware/",
         schema: faqSchema,
@@ -74,7 +68,7 @@ export default function DataEntryDelaware() {
         breadcrumb: "Data Entry Services in Delaware",
       }}
       intro={{
-        overline: "OUR IDENTITY AND ACTIVITIES",
+        overline: "",
         titleLead: "Our Identity and",
         highlight: "Activities",
         paragraphs: [
@@ -87,7 +81,7 @@ export default function DataEntryDelaware() {
       }}
       cardGroups={[
         {
-          overline: "OUR PROCESS",
+          overline: "",
           titleLead: "Our Efficient Accounting Data",
           highlight: "Entry Process",
           subtitle:
@@ -96,39 +90,33 @@ export default function DataEntryDelaware() {
           columns: 3,
           items: [
             {
-              icon: CloudUploadIcon,
               title: "Data Collection",
               desc: "We securely gather invoices, receipts, bank statements, payroll records, and other critical documents through encrypted digital channels. As trusted data entry companies, we prioritize confidentiality, safeguarding your sensitive information at every step.",
             },
             {
-              icon: FactCheckIcon,
               title: "Data Verification",
               desc: "Every document undergoes rigorous scrutiny to ensure accuracy and completeness. For instance, we cross-reference invoice details with purchase orders, leveraging accounting data entry expertise to eliminate discrepancies before processing.",
             },
             {
-              icon: AccountTreeIcon,
               title: "Chart of Accounts Creation",
               desc: "We build or refine a customized chart of accounts aligned with your business structure. This foundational step, part of our data management services, ensures seamless categorization of transactions for clarity and compliance.",
             },
             {
-              icon: BalanceIcon,
               title: "Double-Entry Accounting Check",
               desc: "Our team applies double-entry accounting principles to maintain balanced records, minimizing errors and financial mismatches. This meticulous approach defines our data entry services, ensuring reliability in every ledger entry.",
             },
             {
-              icon: CompareArrowsIcon,
               title: "Data Reconciliation",
               desc: "We perform thorough reconciliation of bank statements and ledgers, identifying and resolving inconsistencies. This step underscores our commitment to accuracy, a hallmark of top data entry companies in Delaware.",
             },
             {
-              icon: BarChartIcon,
               title: "Financial Reporting",
               desc: "Finally, we generate detailed reports (profit & loss statements, balance sheets, cash flow analyses) to provide actionable insights. These reports, backed by robust data management services, empower you to drive strategic decisions confidently.",
             },
           ],
         },
         {
-          overline: "WHAT WE DO",
+          overline: "",
           titleLead: "Our Data Entry Services in",
           highlight: "USA",
           subtitle:
@@ -174,18 +162,18 @@ export default function DataEntryDelaware() {
           ],
         },
       ]}
+      faqs={faqs}
       closing={{
-        // The copy signs off after the questions, not before them.
         placement: "afterFaqs",
-        overline: "GET IN TOUCH",
-        titleLead: "Ready to Transform Your Financial",
-        highlight: "Data Management Services?",
+        overline: "",
+        titleLead: "Ready to transform your financial data",
+        highlight: "management services?",
+        ctaLabel: "Contact us today",
         bg: "paper",
         paragraphs: [
           "Contact us today for reliable and professional accounting data entry services!",
         ],
       }}
-      faqs={faqs}
     />
   );
 }

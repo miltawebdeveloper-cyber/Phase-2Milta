@@ -70,56 +70,58 @@ export default function FinancialNevada() {
         description:
           "Transform your financial operations with outsourced financial controller services in Nevada. Certified experts ready to elevate your business.",
         keywords:
-          "financial controller services, outsourced financial controller, accounting controller, certified financial controller.",
+          "financial controller services, outsourced financial controller, accounting controller, certified financial controller",
         author: "Milta Accounting",
         canonical: "https://www.miltafs.com/us/services/financial-controller-services-in-nevada/",
         schema: faqSchema,
       }}
       hero={{
-        titleLead: "Top-Rated Accounting Financial Controller Services in",
-        highlight: "Nevada",
+        titleLead: "Take Control of Your Business Finances with",
+        highlight: "Controller Services in Nevada",
         subtitle:
-          "Strengthen financial control, improve reporting, and make smarter business decisions with expert controller support.",
-        ctaLabel: "Get Started",
+          "Gain expert support for financial reporting, cash flow management, forecasting, and strategic financial planning.",
+        ctaLabel: "Schedule Your Free Consultation Today.",
         breadcrumb: "Financial Controller Services in Nevada",
       }}
       intro={{
-        overline: "FINANCIAL CONTROLLER SERVICES",
+        overline: "",
         titleLead: "Elevate Your Financial Strategy with Expert Financial Controller Services in",
         highlight: "Nevada",
         paragraphs: [
           "Unlock precision and compliance for your business with our certified financial controller team, offering specialized accounting controller services tailored to Nevada's dynamic market. From meticulous financial reporting to strategic analysis, our outsourced financial controller solutions ensure accuracy, streamline workflows, and align with regulatory standards.",
           "Leverage our financial controller services to gain actionable insights, optimize resource allocation, and fuel sustainable growth. Whether you need ongoing support or project-based expertise, our seasoned professionals empower you to navigate complexities and make confident, data-driven decisions.",
         ],
-        ctaLabel: "Get Started",
+        ctaLabel: "Schedule Your Free Consultation Today.",
         imageAlt: "Financial controller services in Nevada",
       }}
       prose={{
-        overline: "LIMITED TIME",
+        overline: "",
         titleLead: "Book Your Free Consultation Today –",
         highlight: "Limited Time Only!",
+        ctaLabel: "Book Your Free Consultation Today",
         bg: "paper",
         paragraphs: ["Act Fast! Offer expires in 48 hours."],
       }}
       cardGroups={[
         {
-          overline: "WHAT IS A FINANCE CONTROLLER SERVICES?",
-          titleLead: "Certified Financial Controller Services in Nevada:",
-          highlight: "Optimize Your Financial Operations",
+          overline: "",
+          titleLead: "What is a Finance Controller",
+          highlight: "Services?",
           paragraphs: [
+            "Certified Financial Controller Services in Nevada: Optimize Your Financial Operations",
             "Certified Financial Controller Services provide end-to-end oversight of your company's financial health, combining strategic analysis, compliance expertise, and operational efficiency. A certified financial controller (or accounting controller) serves as a senior leader, managing critical tasks like financial reporting, budgeting, and regulatory adherence while aligning processes with industry standards.",
             "For small and medium-sized businesses (SMBs), these financial controller services offer a cost-effective alternative to hiring a full-time CFO. By partnering with an outsourced financial controller, SMBs gain access to high-level expertise, from daily accounting controller responsibilities like payroll and bookkeeping to advanced financial forecasting and cash flow optimization.",
           ],
         },
         {
-          overline: "CONTROLLER VS. CFO",
+          overline: "",
           titleLead: "Controller vs. CFO: Different Roles,",
           highlight: "Unique Value",
           bg: "paper",
-          paragraphs: ["Understanding the Right Leadership for Your Business."],
+          paragraphs: ["Understanding the Right Leadership for Your Business"],
         },
         {
-          overline: "DEFINITION",
+          overline: "",
           titleLead: "What are Financial Controller",
           highlight: "Services?",
           paragraphs: [
@@ -128,9 +130,10 @@ export default function FinancialNevada() {
           ],
         },
         {
-          overline: "AT A GLANCE",
-          titleLead: "Capabilities:",
-          highlight: "Controller vs. CFO",
+          overline: "",
+          titleLead: "Capabilities",
+          highlight: "",
+          bg: "paper",
           headers: ["Capabilities", "Controller", "CFO"],
           rows: [
             { label: "Accounting Function Oversight", marks: [true, true] },
@@ -150,32 +153,33 @@ export default function FinancialNevada() {
           ],
         },
         {
-          overline: "WHICH DO YOU NEED",
-          titleLead: "When to Choose a Controller,",
-          highlight: "and When a CFO",
-          bg: "paper",
-          columns: 2,
-          items: [
-            {
-              title: "When to Choose a Controller",
-              desc: "A Controller is the ideal choice when your business requires hands-on management of day-to-day financial operations. They specialize in accurate financial reporting, compliance, financial closing processes, and maintaining internal controls. The Miltafs Controller offers these essential services, providing reliable financial oversight at a cost-effective rate for small and medium-sized businesses (SMBs).",
-            },
-            {
-              title: "When to Choose a CFO",
-              desc: "A CFO, on the other hand, is best suited for businesses that need high-level strategic financial leadership. This includes long-term business planning, financial strategy, fundraising, and managing investor relations. As your business grows and faces more complex financial challenges, a CFO plays a crucial role in navigating growth, securing funding, and making investment decisions.",
-            },
+          overline: "",
+          titleLead: "When to Choose a",
+          highlight: "Controller",
+          paragraphs: [
+            "A Controller is the ideal choice when your business requires hands-on management of day-to-day financial operations. They specialize in accurate financial reporting, compliance, financial closing processes, and maintaining internal controls. The Miltafs Controller offers these essential services, providing reliable financial oversight at a cost-effective rate for small and medium-sized businesses (SMBs).",
           ],
         },
         {
-          overline: "MILTAFS CONTROLLER SERVICES",
-          titleLead: "Miltafs Financial Controller Services: Comprehensive Financial Oversight and",
-          highlight: "Strategic Leadership",
+          overline: "",
+          titleLead: "When to Choose a",
+          highlight: "CFO",
+          bg: "paper",
           paragraphs: [
+            "A CFO, on the other hand, is best suited for businesses that need high-level strategic financial leadership. This includes long-term business planning, financial strategy, fundraising, and managing investor relations. As your business grows and faces more complex financial challenges, a CFO plays a crucial role in navigating growth, securing funding, and making investment decisions.",
+          ],
+        },
+        {
+          overline: "",
+          titleLead: "Miltafs Financial Controller",
+          highlight: "Services",
+          paragraphs: [
+            "Comprehensive Financial Oversight and Strategic Leadership",
             "At Miltafs, we offer expert Financial Controller Services to small and medium-sized businesses in Nevada, USA. Our services cover a wide range of financial functions, providing you with the leadership and insights necessary to optimize your financial operations, enhance internal controls, and ensure regulatory compliance. Whether you're looking for day-to-day financial oversight or strategic guidance, Miltafs has the right solution for your business.",
           ],
         },
         {
-          overline: "WHAT WE DO",
+          overline: "",
           titleLead: "Our Financial Controller Services in",
           highlight: "Nevada",
           bg: "paper",
@@ -228,10 +232,10 @@ export default function FinancialNevada() {
           ],
         },
         {
-          overline: "WHO WE HELP",
+          overline: "",
           titleLead: "Who Can Benefit from",
           highlight: "Our Services?",
-          subtitle: "Strengthening Businesses of All Sizes with Expert Financial Guidance.",
+          subtitle: "Strengthening Businesses of All Sizes with Expert Financial Guidance",
           columns: 3,
           items: [
             {
@@ -249,7 +253,7 @@ export default function FinancialNevada() {
           ],
         },
         {
-          overline: "WHY MILTAFS",
+          overline: "",
           titleLead: "Why Choose Miltafs for Financial",
           highlight: "Controller Services?",
           subtitle: "Your Trusted Partner for Effortless Financial Management and Growth.",

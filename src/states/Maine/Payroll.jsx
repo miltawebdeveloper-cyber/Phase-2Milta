@@ -1,4 +1,8 @@
 import React from "react";
+import ScheduleIcon from "@mui/icons-material/Schedule";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import InsightsIcon from "@mui/icons-material/Insights";
+import GavelIcon from "@mui/icons-material/Gavel";
 import ServiceLayout from "../_ServiceLayout";
 
 const faqs = [
@@ -40,30 +44,31 @@ export default function PayrollMaine() {
         keywords:
           "payroll management services in Maine, payroll management system, payroll management company, payroll management services, payroll management",
         author: "Milta Accounting",
-        canonical: "https://www.miltafs.com/us/services/payroll-management-services-in-the-maine/",
+        canonical:
+          "https://www.miltafs.com/us/services/payroll-management-services-in-the-maine/",
         schema: faqSchema,
       }}
       hero={{
-        titleLead: "Efficient Payroll Services in Maine for",
-        highlight: "Hassle-Free Processing",
+        titleLead: "Simplify Payroll Operations with Reliable",
+        highlight: "Payroll Services in Maine",
         subtitle:
-          "Reduce payroll workload and improve accuracy with dependable payroll management solutions built for growing businesses.",
-        ctaLabel: "Get Your Free Payroll Consultation Today.",
+          "Manage payroll accurately and efficiently while reducing administrative burdens and supporting compliance.",
+        ctaLabel: "Get Started with a Free Payroll Consultation.",
         breadcrumb: "Payroll Management Services in Maine",
       }}
       intro={{
-        overline: "PAYROLL MANAGEMENT",
+        overline: "",
         titleLead: "Payroll Management Services in",
         highlight: "Maine",
         paragraphs: [
           "Managing payroll with precision is essential for every business, yet it remains one of the most regulation-intensive and time-consuming tasks. At Milta Accounting, we provide dependable Payroll Management Services in Maine, enabling businesses to simplify payroll operations, minimize errors, and maintain full compliance with federal, state, and local payroll laws.",
           "As a trusted payroll management partner, we handle your entire payroll responsibility—accurately calculating employee wages, deductions, and tax obligations, and ensuring all payments and filings are completed on time, every time.",
         ],
-        ctaLabel: "Get Your Free Payroll Consultation Today.",
+        ctaLabel: "Get Started with a Free Payroll Consultation.",
         imageAlt: "Payroll management services in Maine",
       }}
       prose={{
-        overline: "END TO END",
+        overline: "",
         titleLead: "End-to-End Payroll Management",
         highlight: "You Can Rely On",
         bg: "paper",
@@ -73,7 +78,7 @@ export default function PayrollMaine() {
       }}
       cardGroups={[
         {
-          overline: "WHAT WE HANDLE",
+          overline: "",
           titleLead: "What We Handle for",
           highlight: "Your Business",
           columns: 3,
@@ -87,69 +92,57 @@ export default function PayrollMaine() {
           footnote:
             "With Milta Accounting, payroll is not just processed—it is professionally managed.",
         },
-        // The document breaks "How Our Payroll Management System Works" into
-        // four numbered stages, each with its own bullet list. They are kept as
-        // four sections below rather than four cards, so every bullet stays a
-        // separate point exactly as written.
         {
-          overline: "HOW IT WORKS",
+          overline: "",
           titleLead: "How Our Payroll Management",
           highlight: "System Works",
-          bg: "paper",
-          paragraphs: [
+          subtitle:
             "Our advanced payroll management system ensures precision, transparency, and compliance at every stage.",
-          ],
-        },
-        {
-          overline: "STAGE 1",
-          titleLead: "Time & Wage",
-          highlight: "Calculation",
+          bg: "paper",
           columns: 4,
           items: [
-            "Working hours and hourly wages",
-            "Paid leave, vacation, and holidays",
-            "Overtime and non-exempt employee calculations",
-            "Gross pay estimation after deductions",
+            {
+              icon: ScheduleIcon,
+              title: "Time & Wage Calculation",
+              bullets: [
+                "Working hours and hourly wages",
+                "Paid leave, vacation, and holidays",
+                "Overtime and non-exempt employee calculations",
+                "Gross pay estimation after deductions",
+              ],
+            },
+            {
+              icon: PaymentsIcon,
+              title: "Payroll Processing & Payments",
+              bullets: [
+                "Direct deposits or paper checks",
+                "Automated payroll runs",
+                "On-time salary disbursement",
+              ],
+            },
+            {
+              icon: InsightsIcon,
+              title: "Payroll Reporting & Insights",
+              bullets: [
+                "Labor cost analysis",
+                "Employee headcount tracking",
+                "Vacation and leave balances",
+                "Highest and lowest earning employees",
+              ],
+            },
+            {
+              icon: GavelIcon,
+              title: "Payroll Tax Processing & Deductions",
+              bullets: [
+                "Federal, state, and local tax calculation",
+                "Automated tax payments to authorities",
+                "Voluntary deductions and wage garnishments",
+              ],
+            },
           ],
         },
         {
-          overline: "STAGE 2",
-          titleLead: "Payroll Processing",
-          highlight: "& Payments",
-          bg: "paper",
-          columns: 3,
-          items: [
-            "Direct deposits or paper checks",
-            "Automated payroll runs",
-            "On-time salary disbursement",
-          ],
-        },
-        {
-          overline: "STAGE 3",
-          titleLead: "Payroll Reporting",
-          highlight: "& Insights",
-          columns: 4,
-          items: [
-            "Labor cost analysis",
-            "Employee headcount tracking",
-            "Vacation and leave balances",
-            "Highest and lowest earning employees",
-          ],
-        },
-        {
-          overline: "STAGE 4",
-          titleLead: "Payroll Tax Processing",
-          highlight: "& Deductions",
-          bg: "paper",
-          columns: 3,
-          items: [
-            "Federal, state, and local tax calculation",
-            "Automated tax payments to authorities",
-            "Voluntary deductions and wage garnishments",
-          ],
-        },
-        {
-          overline: "WHY IT MATTERS",
+          overline: "",
           titleLead: "Why Payroll Management Is Essential for",
           highlight: "US Businesses",
           subtitle:
@@ -181,7 +174,7 @@ export default function PayrollMaine() {
             "An expert payroll management firm guarantees that your company maintains compliance while running smoothly.",
         },
         {
-          overline: "WHY OUTSOURCE",
+          overline: "",
           titleLead: "Why Choose Outsourced Payroll",
           highlight: "Management Services?",
           subtitle:
@@ -210,7 +203,7 @@ export default function PayrollMaine() {
             "Outsourced payroll delivers reliability, precision, and peace of mind—month after month.",
         },
         {
-          overline: "IS IT RIGHT FOR YOU",
+          overline: "",
           titleLead: "Is Payroll Outsourcing the Right Fit",
           highlight: "for Your Business?",
           subtitle: "Outsourcing payroll management services makes sense for businesses that:",
@@ -226,7 +219,7 @@ export default function PayrollMaine() {
             "If these challenges sound familiar, working with an experienced payroll management company can significantly improve efficiency and reduce risk.",
         },
         {
-          overline: "KEY ADVANTAGES",
+          overline: "",
           titleLead: "Key Advantages of Outsourced",
           highlight: "Payroll Management",
           bg: "paper",
@@ -251,7 +244,7 @@ export default function PayrollMaine() {
           ],
         },
         {
-          overline: "BEST PRACTICES",
+          overline: "",
           titleLead: "Best Practices for Accurate",
           highlight: "Payroll Management",
           subtitle:
@@ -271,7 +264,7 @@ export default function PayrollMaine() {
             "To achieve error-free payroll, modern, technology-enabled payroll systems and ERP integrations are essential.",
         },
         {
-          overline: "SECURITY & COMPLIANCE",
+          overline: "",
           titleLead: "Trusted Payroll Data Security",
           highlight: "& Compliance",
           subtitle:
@@ -289,7 +282,7 @@ export default function PayrollMaine() {
             "Your payroll information is handled with the highest level of confidentiality, ensuring it remains secure, accurate, and compliant at all times.",
         },
         {
-          overline: "OUR SOLUTIONS",
+          overline: "",
           titleLead: "Payroll Management Services by",
           highlight: "Milta Accounting",
           subtitle:
@@ -332,9 +325,10 @@ export default function PayrollMaine() {
         },
       ]}
       closing={{
-        overline: "PARTNER WITH US",
+        overline: "",
         titleLead: "Partner with a Trusted Payroll",
         highlight: "Management Company",
+        ctaLabel: "Get Started Today",
         bg: "paper",
         paragraphs: [
           "Outsourcing your payroll to Milta Accounting means accuracy, compliance, and peace of mind. With our payroll management services in the Maine, businesses can streamline payroll processes, minimize risk, and maintain error-free operations.",

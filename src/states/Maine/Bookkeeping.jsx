@@ -79,18 +79,18 @@ export default function BookkeepingMaine() {
         breadcrumb: "Bookkeeping Services in Maine",
       }}
       intro={{
-        overline: "BEST SOLUTION IN MAINE",
+        overline: "",
         titleLead: "The Best Bookkeeping Services for Small Businesses in",
         highlight: "Maine",
         paragraphs: [
-          "As a leading bookkeeping company in maine, Milta ensures your financial records are organized, accurate, and easy to manage. Our skilled Maine bookkeepers provide the best bookkeeping for small business, transforming complex financial data into clear insights to help you maintain control over your business's financial health.",
+          "As a leading bookkeeping company in Maine, Milta ensures your financial records are organized, accurate, and easy to manage. Our skilled Maine bookkeepers provide the best bookkeeping for small business, transforming complex financial data into clear insights to help you maintain control over your business's financial health.",
           "From meticulous data entry to detailed financial reporting, our certified professionals handle every aspect of your accounting with precision. We take pride in offering trusted bookkeeping services in Maine, making it easier for small and medium-sized businesses to streamline their processes and achieve financial clarity.",
         ],
         ctaLabel: "To Arrange Your Free Initial Consultation, Contact Us Right Now!",
         imageAlt: "Bookkeeping services in Maine",
       }}
       prose={{
-        overline: "TAILORED TO YOUR BUSINESS",
+        overline: "",
         titleLead: "Top-Notch Bookkeeping Services for Your",
         highlight: "Business Needs",
         bg: "paper",
@@ -101,10 +101,10 @@ export default function BookkeepingMaine() {
         ],
       }}
       whyEssential={{
-        overline: "WHY IT MATTERS",
-        titleLead: "Bookkeeping Service — Why Does Every",
-        highlight: "Business Need It?",
+        overline: "",
         bg: "default",
+        titleLead: "Bookkeeping Service Why Does Every",
+        highlight: "Business Need It?",
         subtitle:
           "Bookkeeping is the process of documenting, organizing, and managing a business's financial transactions. It is essential for maintaining accurate financial records, ensuring compliance with tax and legal requirements, and providing valuable insights for informed decision-making. Whether you run a small or medium-sized business, bookkeeping services for small businesses in Maine are vital because they:",
         items: [
@@ -115,7 +115,7 @@ export default function BookkeepingMaine() {
         ],
       }}
       solutions={{
-        overline: "WHY MILTA",
+        overline: "",
         titleLead: "Why Choose Milta for",
         highlight: "Bookkeeping Services?",
         subtitle:
@@ -147,7 +147,7 @@ export default function BookkeepingMaine() {
       }}
       cardGroups={[
         {
-          overline: "END-TO-END SOLUTIONS",
+          overline: "",
           titleLead: "Comprehensive Bookkeeping and Financial Solutions",
           highlight: "Customized to Your Needs",
           subtitle:
@@ -193,7 +193,7 @@ export default function BookkeepingMaine() {
         },
       ]}
       industries={{
-        overline: "WHO WE SERVE",
+        overline: "",
         titleLead: "Industries We Serve for",
         highlight: "Bookkeeping Services",
         subtitle:
