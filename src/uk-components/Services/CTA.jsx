@@ -23,8 +23,8 @@ const CTASection = () => {
         <motion.div
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.25 }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
         >
           <Typography
             variant="h4" // will scale via variables.css
@@ -43,8 +43,8 @@ const CTASection = () => {
         <motion.div
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.25, delay: 0.05 }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
         >
           <Typography
             sx={{
@@ -66,8 +66,8 @@ const CTASection = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.25, delay: 0.05 }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
         >
           <Button
             component={RouterLink}

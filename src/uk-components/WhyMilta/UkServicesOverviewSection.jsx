@@ -153,10 +153,10 @@ const UKServicesCardsSection = () => {
               variants={animationVariants[index % 4]}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2, margin: '0px 0px 900px 0px' }}
               transition={{
-                duration: 0.8,
-                delay: index * 0.1,
+                duration: 0.25,
+                delay: Math.min(index * 0.1, 0.15),
                 ease: "easeOut",
               }}
             >

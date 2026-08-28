@@ -7,6 +7,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- The navbar logo is the first thing a visitor looks at and the last thing
+       that arrives: it is referenced only from inside the React tree, so the
+       browser cannot discover it until the bundle has parsed and mounted. On a
+       reload that lands on the Suspense fallback the <img> is also torn down and
+       re-created, so a late fetch shows up as a visible blink. Preloading it
+       here starts the request during HTML parse, in parallel with the bundle,
+       so the bytes are in the memory cache before anything renders. -->
+  <link rel="preload" as="image" href="/logo.svg" fetchpriority="high" />
+
   <!-- ═══ Theme bootstrap (must stay before any painted content) ═══
        Every page is prerendered in light mode, because the prerenderer has no
        localStorage to read. A visitor who has chosen dark mode therefore gets a

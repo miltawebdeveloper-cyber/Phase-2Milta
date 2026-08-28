@@ -38,8 +38,8 @@ const MoreThanAccounting = () => {
         <motion.div
           initial={{ opacity: 0, y: -60 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.25 }}
+          viewport={{ once: true, amount: 0.3, margin: '0px 0px 900px 0px' }}
         >
           <Typography
             variant={isMobile ? "h5" : isTablet ? "h4" : "h4"}
@@ -58,8 +58,8 @@ const MoreThanAccounting = () => {
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9 }}
-          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.25 }}
+          viewport={{ once: true, amount: 0.3, margin: '0px 0px 900px 0px' }}
         >
           <Typography 
             variant="subtitle1" 
@@ -156,8 +156,8 @@ const MoreThanAccounting = () => {
         <motion.div
           initial={{ opacity: 0, y: 90 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.25 }}
+          viewport={{ once: true, amount: 0.3, margin: '0px 0px 900px 0px' }}
         >
           <Box
             sx={{
@@ -192,8 +192,8 @@ const MoreThanAccounting = () => {
             <motion.div
               initial={{ opacity: 0, x: 70 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.25 }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
               style={{ width: '100%' }}
             >
               <Typography 
@@ -213,8 +213,8 @@ const MoreThanAccounting = () => {
             <motion.div
               initial={{ opacity: 0, x: -70 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.25 }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
               style={{ width: '100%' }}
             >
               <Typography 
@@ -238,8 +238,8 @@ const MoreThanAccounting = () => {
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.25 }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
             >
               <Button
                 component="a"

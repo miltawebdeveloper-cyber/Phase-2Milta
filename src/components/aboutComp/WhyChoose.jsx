@@ -79,8 +79,8 @@ const WhyChoose = () => {
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
             <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: '#266929', fontSize: '0.75rem', mb: 3, display: 'block' }}>
               Our Strength
@@ -91,8 +91,8 @@ const WhyChoose = () => {
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+            transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
           >
             <Typography
               variant="h2"
@@ -107,8 +107,8 @@ const WhyChoose = () => {
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
             whileInView={{ scaleX: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.22, ease: 'easeOut' }}
+            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+            transition={{ duration: 0.25, delay: 0.05, ease: 'easeOut' }}
             style={{ originX: 0 }}
           >
             <Box sx={{ width: 48, height: 3, borderRadius: '4px', bgcolor: alpha(primary, 0.3), mt: 2 }} />
@@ -133,10 +133,10 @@ const WhyChoose = () => {
                 component={motion.div}
                 initial={{ opacity: 0, y: 32, scale: 0.97 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: '0px 0px 900px 0px' }}
                 transition={{
-                  duration: 0.6,
-                  delay: i * 0.1,
+                  duration: 0.25,
+                  delay: Math.min(i * 0.1, 0.15),
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 sx={{
@@ -177,8 +177,8 @@ const WhyChoose = () => {
                   <motion.div
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.1 + 0.3, ease: 'backOut' }}
+                    viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                    transition={{ duration: 0.25, delay: Math.min(i * 0.1 + 0.3, 0.15), ease: 'backOut' }}
                   >
                     <Box
                       sx={{
@@ -203,8 +203,8 @@ const WhyChoose = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 14 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: i * 0.1 + 0.38, ease: 'easeOut' }}
+                    viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                    transition={{ duration: 0.25, delay: Math.min(i * 0.1 + 0.38, 0.15), ease: 'easeOut' }}
                   >
                     <Typography
                       sx={{
@@ -224,8 +224,8 @@ const WhyChoose = () => {
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 + 0.48 }}
+                    viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                    transition={{ duration: 0.25, delay: Math.min(i * 0.1 + 0.48, 0.15) }}
                     style={{ flexGrow: 1 }}
                   >
                     <Typography
@@ -244,8 +244,8 @@ const WhyChoose = () => {
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                      viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                      transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
                     >
                       <Box sx={{ mt: 4 }}>
                         <Button

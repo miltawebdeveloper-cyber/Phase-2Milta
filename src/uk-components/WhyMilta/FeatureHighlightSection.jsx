@@ -67,8 +67,8 @@ const FeatureHighlightSection = () => {
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.25 }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
         >
           <Typography
             sx={{
@@ -115,8 +115,8 @@ const FeatureHighlightSection = () => {
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
-                transition={{ duration: 0.7, delay: index * 0.15 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.25, delay: Math.min(index * 0.15, 0.15) }}
+                viewport={{ once: true, margin: '0px 0px 900px 0px' }}
                 style={{ width: "100%" }}
               >
                 {/* ✅ RESPONSIVE CARD */}
@@ -212,8 +212,8 @@ const FeatureHighlightSection = () => {
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          transition={{ duration: 0.9 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.25 }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
         >
           <Typography
             sx={{

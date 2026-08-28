@@ -57,18 +57,18 @@ export default function CPAMontana() {
         breadcrumb: "CPA Services in Montana",
       }}
       intro={{
-        overline: "CPA SERVICES IN MONTANA",
+        overline: "",
         titleLead: "Trusted CPA Firm in Montana for",
         highlight: "Your Business Needs",
         paragraphs: [
-          "Transform Your Business Finances with the Best CPA Services in Montana.",
+          "Transform Your Business Finances with the Best CPA Services in Montana",
           "We are a CPA Services in Montana, a trusted CPA firm near me dedicated to providing expert financial solutions for individuals and small businesses. As one of the best CPA firms in Montana, we specialize in accounting, tax preparation, and financial planning to keep your business on track. Our team of certified professionals offers CPA services for small businesses in Montana, ensuring you confidently manage all your financial needs. Whether you're looking for a certified public accountant near me or comprehensive accounting services for small business, Milta is here to help you thrive.",
         ],
-        ctaLabel: "Talk to a Certified CPA Today",
+        ctaLabel: "Schedule Your Free Consultation Today.",
         imageAlt: "CPA services in Montana",
       }}
       prose={{
-        overline: "HOW WE HELP",
+        overline: "",
         titleLead: "How Can We Support",
         highlight: "Your Business?",
         bg: "paper",
@@ -79,7 +79,7 @@ export default function CPAMontana() {
       }}
       cardGroups={[
         {
-          overline: "WHY OUTSOURCE",
+          overline: "",
           titleLead: "Why Outsource Your",
           highlight: "CPA Services?",
           paragraphs: [
@@ -88,9 +88,9 @@ export default function CPAMontana() {
           ],
         },
         {
-          overline: "WHAT'S INCLUDED",
+          overline: "",
           titleLead: "Our CPA Services for Small",
-          highlight: "Business Include",
+          highlight: "Business Include:",
           bg: "paper",
           columns: 3,
           items: [
@@ -117,7 +117,7 @@ export default function CPAMontana() {
           ],
         },
         {
-          overline: "CORE SERVICES",
+          overline: "",
           titleLead: "Our Core CPA Services in",
           highlight: "Montana",
           columns: 2,
@@ -157,7 +157,7 @@ export default function CPAMontana() {
             },
             {
               title: "Catch-Up Services",
-              desc: "For businesses facing backlogs or disorganized records, we offer specialized catch-up and clean-up accounting services to restore financial order.",
+              desc: "For businesses facing backlogs or disorganized records, we offer specialized catch-up and clean-up accounting services to restore financial order",
               bullets: [
                 "Review and Correction of Historical Records: Identifying errors and making necessary adjustments.",
                 "Reconciliation of Discrepancies: Ensuring accuracy across all financial accounts.",
@@ -168,7 +168,7 @@ export default function CPAMontana() {
               title: "Accounting Software Setup and Conversion",
               desc: "Whether you're transitioning to new software or optimizing your current system, we provide comprehensive support:",
               bullets: [
-                "QuickBooks Setup and Training: Customizing configurations and hands-on training for your team.",
+                "QuickBooks Setup and Training: customizing configurations and hands-on training for your team.",
                 "Conversions to QuickBooks Online: Seamless migration from desktop versions to cloud-based solutions.",
                 "Cloud-Based Platform Migrations: Moving to platforms like Xero for real-time financial management.",
                 "Ongoing Support and Troubleshooting: Continuous assistance to resolve technical issues promptly.",
@@ -186,7 +186,7 @@ export default function CPAMontana() {
           ],
         },
         {
-          overline: "WHY CHOOSE MILTA",
+          overline: "",
           titleLead: "Why Choose Milta for CPA Services in",
           highlight: "Montana?",
           bg: "paper",
@@ -219,7 +219,7 @@ export default function CPAMontana() {
           ],
         },
         {
-          overline: "SPECIALIZED SUPPORT",
+          overline: "",
           titleLead: "Specialized CPA Services for",
           highlight: "Small Businesses",
           subtitle:
@@ -241,11 +241,11 @@ export default function CPAMontana() {
           ],
         },
         {
-          overline: "CPA FIRM PARTNERSHIPS",
+          overline: "",
           titleLead: "How Milta Supports",
-          highlight: "CPA Firms Near Me",
+          highlight: "CPA Firms near me",
           subtitle:
-            "In addition to serving small businesses, we also partner with CPA firms in Montana, offering:",
+            "In addition to serving small businesses, we also partner with CPA firms in the Montana, offering:",
           bg: "paper",
           columns: 3,
           items: [

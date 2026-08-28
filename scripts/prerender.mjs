@@ -198,7 +198,20 @@ const MIME = {
 };
 
 function resolveFile(urlPath) {
-  const rel = decodeURIComponent(urlPath.split('?')[0]).replace(/^\/+/, '');
+  const raw = urlPath.split('?')[0];
+  // A page can request a URL with a stray '%' (a background-image url(), a
+  // hand-written href), and decodeURIComponent throws URIError on those. Thrown
+  // here it escapes the request handler and kills the whole prerender mid-run,
+  // which is how a build died after ~80 good pages. An undecodable path just
+  // will not match a file, so fall back to it verbatim and let the SPA fallback
+  // answer, exactly as production would.
+  let decoded;
+  try {
+    decoded = decodeURIComponent(raw);
+  } catch {
+    decoded = raw;
+  }
+  const rel = decoded.replace(/^\/+/, '');
   const base = path.join(DIST, rel);
   const candidates = [base, path.join(base, 'index.html'), `${base.replace(/\/$/, '')}.html`];
   for (const c of candidates) {
@@ -209,10 +222,18 @@ function resolveFile(urlPath) {
 
 function startServer() {
   const server = http.createServer((req, res) => {
-    const file = resolveFile(req.url);
-    const body = fs.readFileSync(file);
-    res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'application/octet-stream' });
-    res.end(body);
+    // One unreadable request must not take the run down with it: an exception
+    // in this handler is unhandled and aborts the process, discarding every
+    // page rendered so far. Answering 404 costs that one asset, nothing more.
+    try {
+      const file = resolveFile(req.url);
+      const body = fs.readFileSync(file);
+      res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'application/octet-stream' });
+      res.end(body);
+    } catch (err) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('not found');
+    }
   });
   return new Promise((resolve) => {
     server.listen(0, '127.0.0.1', () => resolve({ server, port: server.address().port }));
@@ -590,8 +611,21 @@ async function main() {
       const text = fs.readFileSync(path.join(DIST, 'assets', name), 'utf8');
       for (const m of text.matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)) reserved.add(m[1]);
     }
+    // A file recorded in `written` can be gone by the time it is read back —
+    // seen on 2026-08-28, where two industry pages were written and listed in
+    // sitemap.xml but had disappeared from dist/ by this pass. Whatever removes
+    // them, an unreadable page must not abort a build that has already rendered
+    // 350+ others; it is skipped and reported at the end.
+    const vanished = [];
     for (const file of written) {
-      for (const m of fs.readFileSync(file, 'utf8').matchAll(/ class="([^"]*)"/g)) {
+      let html;
+      try {
+        html = fs.readFileSync(file, 'utf8');
+      } catch {
+        vanished.push(file);
+        continue;
+      }
+      for (const m of html.matchAll(/ class="([^"]*)"/g)) {
         for (const token of m[1].split(/\s+/)) if (token) reserved.add(token);
       }
     }
@@ -667,7 +701,13 @@ async function main() {
     let beforeBytes = 0;
     let afterBytes = 0;
     for (const file of written) {
-      let html = fs.readFileSync(file, 'utf8');
+      let html;
+      try {
+        html = fs.readFileSync(file, 'utf8');
+      } catch {
+        if (!vanished.includes(file)) vanished.push(file);
+        continue;
+      }
       // Common first, page second: injectStylesheet appends after the last
       // stylesheet link, so this is also the order they load in.
       if (commonHref) html = injectStylesheet(html, commonHref);
@@ -681,6 +721,13 @@ async function main() {
       html = minifyHead(html);
       afterBytes += Buffer.byteLength(html);
       fs.writeFileSync(file, html, 'utf8');
+    }
+    if (vanished.length) {
+      console.warn(
+        `\n  ! ${vanished.length} rendered page(s) disappeared from dist/ before the ` +
+          'CSS pass and are NOT in the deployable output, though sitemap.xml may list them:',
+      );
+      vanished.forEach((f) => console.warn(`      ${path.relative(DIST, f)}`));
     }
     console.log(
       `\nComponent CSS: ${cssUnion.size} rules, ${(rawBytes / 1024).toFixed(1)} KB -> ` +

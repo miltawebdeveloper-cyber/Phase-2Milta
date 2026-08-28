@@ -22,8 +22,8 @@ const JoinMilta = () => (
           <motion.div
             initial={{ opacity: 0, scale: 0.92, rotate: 4 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
             <Box
               sx={{
@@ -68,8 +68,8 @@ const JoinMilta = () => (
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
             <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 1 }}>
               JOIN OUR TEAM

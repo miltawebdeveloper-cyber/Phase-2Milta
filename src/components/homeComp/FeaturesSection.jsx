@@ -77,8 +77,8 @@ const FeaturesSection = () => {
               style={{ flex: 1, display: 'flex' }}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25, delay: Math.min(index * 0.1, 0.15) }}
             >
               <Stack direction="row" spacing={2} alignItems="flex-start" sx={{ width: '100%' }}>
                 <Box

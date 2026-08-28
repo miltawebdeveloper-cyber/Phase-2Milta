@@ -43,8 +43,8 @@ const HeroSection = () => {
           component={motion.div}
           initial={{ opacity: 0, y: 30 }} // 📱 Fade-up on mobile
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
           sx={{
             maxWidth: { xs: "100%", md: "620px" },
             zIndex: 2,
@@ -119,8 +119,8 @@ const HeroSection = () => {
           alt="CTA Visual"
           initial={{ opacity: 0, y: 40 }} // 📱 Fade-up on mobile
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
           sx={{
             position: { xs: "relative", md: "absolute" },
             right: { md: "40px" },

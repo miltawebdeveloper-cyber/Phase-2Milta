@@ -27,8 +27,8 @@ const IndustriesSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >
               <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 900, letterSpacing: 6, display: 'block', textAlign: 'center' }}>
                 SECTOR VISIBILITY
@@ -38,8 +38,8 @@ const IndustriesSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
             >
               <Typography variant="h2" sx={{ fontWeight: 900, fontSize: { xs: '2.5rem', sm: '3rem', md: '4.2rem' }, lineHeight: 1.1, letterSpacing: '-0.05em', textAlign: 'center' }}>
                 Industries<br />
@@ -51,8 +51,8 @@ const IndustriesSection = () => {
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }}
               whileInView={{ scaleX: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.22, ease: 'easeOut' }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25, delay: 0.05, ease: 'easeOut' }}
               style={{ originX: 0.5 }}
             >
               <Box sx={{ width: 52, height: 3, borderRadius: '4px', bgcolor: 'primary.main', opacity: 0.3 }} />
@@ -69,8 +69,8 @@ const IndustriesSection = () => {
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+                viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                transition={{ duration: 0.25, delay: Math.min(index * 0.07, 0.15), ease: [0.22, 1, 0.36, 1] }}
               >
                 <Box
                   onMouseEnter={() => setActiveIdx(index)}

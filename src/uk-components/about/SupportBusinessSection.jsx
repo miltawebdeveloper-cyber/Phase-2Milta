@@ -103,8 +103,8 @@ const SupportServicesSection = () => {
                 initial={getAnimation(index, { xs: true })} // Simplified check for instruction purposes
                 whileInView={{ x: 0, y: 0, opacity: 1 }}
 
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2, margin: '0px 0px 900px 0px' }}
                 style={{ width: "100%" }}
               >
                 {/* Card */}

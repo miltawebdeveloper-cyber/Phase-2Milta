@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+import preloadRoute from '../utils/navPreload';
 import {
   AppBar, Toolbar, Box, Container, IconButton,
   Drawer, List, ListItem, Typography, Button, Stack,
@@ -138,6 +139,16 @@ const Navbar = () => {
   const openMenu  = (label) => { clearTimeout(closeTimeout.current); setOpenDropdown(label); };
   const closeMenu = ()      => { closeTimeout.current = setTimeout(() => setOpenDropdown(null), 120); };
 
+  // Spread onto every nav link so the destination's chunk starts downloading
+  // while the pointer is still travelling. Hover covers the desktop menu, touch
+  // covers mobile (where there is no hover) and focus covers keyboard tabbing;
+  // preloadRoute de-duplicates, so firing all three costs one fetch.
+  const prefetch = (path) => ({
+    onMouseEnter: () => preloadRoute(path),
+    onTouchStart: () => preloadRoute(path),
+    onFocus: () => preloadRoute(path),
+  });
+
   const toggleMobileDropdown = (label) =>
     setOpenMobileDropdown(prev => (prev === label ? null : label));
 
@@ -191,7 +202,9 @@ const Navbar = () => {
           {/* Desktop nav pill group */}
           <Box sx={{
             display: { xs: 'none', md: 'flex' },
-            alignItems: 'center', gap: 0.5,
+            // Tightened between md and lg: at 900-1016px the full-width row
+            // overran the viewport and the CTA at its end was clipped off.
+            alignItems: 'center', gap: { md: 0.15, lg: 0.5 },
             px: 1.5, py: 1,
             borderRadius: '50px',
             bgcolor: pillBg, border: pillBdr,
@@ -211,9 +224,9 @@ const Navbar = () => {
                   >
                     <Typography
                       variant="body2"
-                      {...(item.hasPage ? { component: RouterLink, to: item.path, onClick: () => setOpenDropdown(null) } : {})}
+                      {...(item.hasPage ? { component: RouterLink, to: item.path, onClick: () => setOpenDropdown(null), ...prefetch(item.path) } : {})}
                       sx={{
-                      px: 2.2, py: 1, borderRadius: '50px',
+                      px: { md: 1.2, lg: 2.2 }, py: 1, borderRadius: '50px',
                       fontWeight: active ? 800 : 600, fontSize: '0.82rem', letterSpacing: 1.2,
                       cursor: 'pointer', textDecoration: 'none',
                       display: 'flex', alignItems: 'center', gap: 0.5,
@@ -280,12 +293,13 @@ const Navbar = () => {
                                   key={child.label}
                                   initial={{ opacity: 0, y: 6 }}
                                   animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: idx * 0.04, duration: 0.18, ease: 'easeOut' }}
+                                  transition={{ delay: Math.min(idx * 0.04, 0.15), duration: 0.18, ease: 'easeOut' }}
                                 >
                                   <Box
                                     component={RouterLink}
                                     to={child.path}
                                     onClick={() => setOpenDropdown(null)}
+                                    {...prefetch(child.path)}
                                     sx={{
                                       display: 'flex', alignItems: 'center', gap: 1.2,
                                       px: 1.8, py: 1.15, borderRadius: '10px',
@@ -331,9 +345,10 @@ const Navbar = () => {
                   key={item.label}
                   component={RouterLink}
                   to={item.path}
+                  {...prefetch(item.path)}
                   variant="body2"
                   sx={{
-                    px: 2.2, py: 1, borderRadius: '50px',
+                    px: { md: 1.2, lg: 2.2 }, py: 1, borderRadius: '50px',
                     fontWeight: active ? 800 : 600, fontSize: '0.82rem', letterSpacing: 1.2,
                     textDecoration: 'none', cursor: 'pointer',
                     transition: 'all 0.25s ease',
@@ -359,7 +374,7 @@ const Navbar = () => {
           </Box>
 
           {/* Right cluster: country switcher + theme toggle + CTA */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1.5 }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: { md: 0.75, lg: 1.5 } }}>
 
             {/* Country switcher */}
             <CountrySwitcher onHero={onHero} />
@@ -414,9 +429,20 @@ const Navbar = () => {
                 variant={onHero ? 'outlined' : 'contained'}
                 onClick={openConsultation}
                 sx={{
-                  px: 3.5, py: 1.2,
+                  // Between the md breakpoint and ~1200px the nav row is at its
+                  // tightest: links, switcher, toggle and this CTA all compete
+                  // for the same line. Without nowrap the label was breaking
+                  // across two lines there, and flexShrink kept squeezing the
+                  // box until it ran past the viewport edge. Tracking and
+                  // padding come down in that band instead, the same trade the
+                  // hero CTAs make.
+                  px: { md: 2, lg: 3.5 }, py: 1.2,
                   borderRadius: '50px',
-                  fontWeight: 800, fontSize: '0.82rem', letterSpacing: 1.2,
+                  fontWeight: 800,
+                  fontSize: { md: '0.74rem', lg: '0.82rem' },
+                  letterSpacing: { md: 0.6, lg: 1.2 },
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
                   transition: 'all 0.4s ease',
                   ...(onHero ? {
                     color: '#ffffff',
@@ -452,7 +478,7 @@ const Navbar = () => {
         anchor="top"
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
-        transitionDuration={400}
+        transitionDuration={{ enter: 0, exit: 200 }}
         sx={{
           '& .MuiDrawer-paper': {
             width: '100%', height: '100%',
@@ -506,7 +532,7 @@ const Navbar = () => {
                   const mobileExpanded = openMobileDropdown === item.label;
                   return (
                     <Box key={item.label} sx={{ mb: mobileExpanded ? 0.5 : { xs: 1, sm: 1.5 } }}>
-                      <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.07 + 0.12 }}>
+                      <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: Math.min(i * 0.07 + 0.12, 0.15) }}>
                         <Box
                           onClick={() => toggleMobileDropdown(item.label)}
                           sx={{
@@ -548,6 +574,7 @@ const Navbar = () => {
                                 component={RouterLink}
                                 to={child.path}
                                 onClick={() => { setMobileOpen(false); setOpenMobileDropdown(null); }}
+                                {...prefetch(child.path)}
                                 sx={{
                                   display: 'flex', alignItems: 'center', gap: 0.8,
                                   px: 1.4, py: { xs: 0.9, sm: 1 }, borderRadius: '10px',
@@ -575,8 +602,8 @@ const Navbar = () => {
                 }
 
                 return (
-                  <ListItem key={item.label} disablePadding sx={{ mb: { xs: 1, sm: 1.5 } }} component={RouterLink} to={item.path} onClick={() => setMobileOpen(false)}>
-                    <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.07 + 0.12 }} style={{ width: '100%' }}>
+                  <ListItem key={item.label} disablePadding sx={{ mb: { xs: 1, sm: 1.5 } }} component={RouterLink} to={item.path} {...prefetch(item.path)} onClick={() => setMobileOpen(false)}>
+                    <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: Math.min(i * 0.07 + 0.12, 0.15) }} style={{ width: '100%' }}>
                       <Box sx={{
                         px: 2, py: { xs: 1.1, sm: 1.4 }, borderRadius: '14px',
                         bgcolor: active ? alpha(primary, 0.08) : 'transparent',

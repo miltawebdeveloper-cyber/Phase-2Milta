@@ -7,15 +7,15 @@ import realEstateImage from '../../../assets/industry/RealEstate.jpg';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
+  viewport: { once: true, margin: '0px 0px 900px 0px' },
+  transition: { duration: 0.25, delay: Math.min(delay, 0.05), ease: [0.22, 1, 0.36, 1] },
 });
 
 const fadeRight = (delay = 0) => ({
   initial: { opacity: 0, x: -32 },
   whileInView: { opacity: 1, x: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+  viewport: { once: true, margin: '0px 0px 900px 0px' },
+  transition: { duration: 0.25, delay: Math.min(delay, 0.05), ease: [0.22, 1, 0.36, 1] },
 });
 
 const STATS = [

@@ -21,8 +21,8 @@ const AboutTeam = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
         >
           <Box sx={{ mb: 8, maxWidth: '700px' }}>
             <Typography
@@ -71,8 +71,8 @@ const AboutTeam = () => {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+                viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                transition={{ duration: 0.25, delay: Math.min(index * 0.1, 0.15), ease: 'easeOut' }}
               >
                 <Card
                   sx={{

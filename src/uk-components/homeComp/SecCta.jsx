@@ -43,8 +43,8 @@ const HeroSection = () => {
           component={motion.div}
           initial={{ opacity: 0, y: 30 }} // 📱 Fade-up on mobile
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
           sx={{
             flex: 1,
             minWidth: 0,
@@ -138,8 +138,8 @@ const HeroSection = () => {
           component={motion.div}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
           sx={{
             flexShrink: 0,
             zIndex: 1,

@@ -66,8 +66,8 @@ const WhyChooseMilta = () => {
           component={motion.div}
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
           sx={{
             flex: 1,
             maxWidth: { xs: "100%", md: "600px" },
@@ -179,10 +179,10 @@ const WhyChooseMilta = () => {
                   whileInView={{ x: 0, y: 0, opacity: 1 }}
                   transition={{
                     duration: 0.8,
-                    delay: index * 0.15,
+                    delay: Math.min(index * 0.15, 0.15),
                     ease: "easeOut",
                   }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: '0px 0px 900px 0px' }}
                   sx={{
                     width: "100%",
                     maxWidth: { xs: "100%", sm: "280px", md: "260px" }, // Adjusted for mobile

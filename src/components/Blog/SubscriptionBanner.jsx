@@ -99,7 +99,7 @@ const SubscriptionBanner = () => {
 
       {/* Content Container */}
       <Box sx={{ position: "relative", zIndex: 10, maxWidth: "720px", width: "100%" }}>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px 0px 900px 0px' }} transition={{ duration: 0.25 }}>
           <Typography
             sx={{
               fontFamily: '"Outfit", sans-serif',
@@ -115,7 +115,7 @@ const SubscriptionBanner = () => {
           </Typography>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px 0px 900px 0px' }} transition={{ duration: 0.25, delay: 0.05 }}>
           <Typography
             variant="h2"
             // Top heading on /blogs, this banner's only consumer, and the page
@@ -135,7 +135,7 @@ const SubscriptionBanner = () => {
           </Typography>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px 0px 900px 0px' }} transition={{ duration: 0.25, delay: 0.05 }}>
           {subscribed ? (
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1.5, minHeight: 72 }}>
               <CheckCircleIcon sx={{ fontSize: 32, color: "#85f0b4" }} />

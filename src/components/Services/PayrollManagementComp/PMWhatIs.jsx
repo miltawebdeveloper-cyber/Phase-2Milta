@@ -8,8 +8,8 @@ import payrollImage from '../../../assets/services/payroll.jpg';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
+  viewport: { once: true, margin: '0px 0px 900px 0px' },
+  transition: { duration: 0.25, delay: Math.min(delay, 0.05), ease: [0.22, 1, 0.36, 1] },
 });
 
 const PMWhatIs = () => {
@@ -64,8 +64,8 @@ const PMWhatIs = () => {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             style={{ flex: '0 0 auto', width: '100%', maxWidth: 420 }}
           >
             <Box sx={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', boxShadow: `0 32px 80px ${alpha(primary, 0.12)}` }}>

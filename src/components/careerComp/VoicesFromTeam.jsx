@@ -55,8 +55,8 @@ const VoicesFromTeam = () => {
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >
               <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 1 }}>
                 OUR PEOPLE
@@ -65,8 +65,8 @@ const VoicesFromTeam = () => {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
             >
               <Typography variant="h2" sx={{ fontSize: { xs: "2rem", md: "3rem" }, color: "text.primary", mb: 1 }}>
                 Voices from{" "}
@@ -124,8 +124,8 @@ const VoicesFromTeam = () => {
               key={item.name}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25, delay: Math.min(index * 0.1, 0.15), ease: [0.22, 1, 0.36, 1] }}
               style={{ flex: "0 0 auto" }}
             >
               <Card

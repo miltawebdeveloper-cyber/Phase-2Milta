@@ -35,7 +35,7 @@ const cardFadeUp = {
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.15 },
+    transition: { duration: 0.6, delay: Math.min(i * 0.15, 0.15) },
   }),
 };
 
@@ -64,7 +64,7 @@ const ConsultationSection = () => {
                 variants={leftFade}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: '0px 0px 900px 0px' }}
               >
                 <Box
                   sx={{
@@ -164,7 +164,7 @@ const ConsultationSection = () => {
                 variants={rightFade}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: '0px 0px 900px 0px' }}
               >
                 <Box
                   sx={{
@@ -182,7 +182,7 @@ const ConsultationSection = () => {
                       variants={cardFadeUp}
                       initial="hidden"
                       whileInView="visible"
-                      viewport={{ once: true }}
+                      viewport={{ once: true, margin: '0px 0px 900px 0px' }}
                       style={{ width: "100%" }}
                     >
                       <Box

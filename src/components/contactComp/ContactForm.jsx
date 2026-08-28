@@ -48,7 +48,10 @@ const validate = (values) => {
   if (!values.firstName.trim()) errors.firstName = 'First name is required';
   if (!values.companyName.trim()) errors.companyName = 'Company name is required';
   if (!values.contactNumber.trim()) errors.contactNumber = 'Contact number is required';
-  else if (!/^[+\d][\d\s()-]{6,}$/.test(values.contactNumber.trim())) errors.contactNumber = 'Enter a valid contact number';
+  // handleChange already strips everything but digits, so this only has to
+  // police length. 15 is the E.164 maximum, which leaves room for a country
+  // code typed without the leading '+'.
+  else if (!/^\d{10,15}$/.test(values.contactNumber.trim())) errors.contactNumber = 'Enter a valid contact number (10-15 digits)';
   if (!values.email.trim()) errors.email = 'Email is required';
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) errors.email = 'Enter a valid email address';
   if (!values.howDidYouFind) errors.howDidYouFind = 'Please let us know how you found us';
@@ -67,7 +70,15 @@ const ContactForm = () => {
   const closeSnackbar = () => setSnackbar((s) => ({ ...s, open: false }));
 
   const handleChange = (e) => {
-    setValues((v) => ({ ...v, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    // Contact number takes digits only. Stripping as it is typed rather than
+    // rejecting on submit means a pasted "+1 (555) 010-9999" becomes digits
+    // instead of an error, and a letter never lands in the field at all.
+    if (name === 'contactNumber') {
+      setValues((v) => ({ ...v, contactNumber: value.replace(/\D/g, '').slice(0, 15) }));
+      return;
+    }
+    setValues((v) => ({ ...v, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -166,6 +177,8 @@ const ContactForm = () => {
           <TextField
             name="contactNumber"
             label="Contact number *"
+            type="tel"
+            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*', maxLength: 15 }}
             value={values.contactNumber}
             onChange={handleChange}
             error={!!errors.contactNumber}

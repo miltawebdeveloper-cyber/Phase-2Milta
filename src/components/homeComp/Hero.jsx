@@ -247,14 +247,19 @@ const Hero = () => {
                           size="large"
                           href={slide.link}
                           sx={{
-                            py: 2, px: { xs: 5, md: 7 },
+                            py: 2, px: { xs: 2.5, sm: 4, md: 7 },
                             borderRadius: '50px',
                             backgroundColor: 'primary.main',
                             color: '#fff',
                             fontWeight: 700,
-                            letterSpacing: 1.5,
+                            // The labels run to ~28 uppercase characters
+                            // ("Explore bookkeeping services"), so tracking and
+                            // padding have to come down on narrow screens for
+                            // the line to hold without overflowing the page.
+                            letterSpacing: { xs: 0.5, md: 1.5 },
                             textTransform: 'uppercase',
-                            fontSize: { xs: '0.85rem', md: '0.95rem' },
+                            fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.95rem' },
+                            whiteSpace: 'nowrap',
                             boxShadow: '0 12px 28px rgba(38,105,41,0.28)',
                             '&:hover': { backgroundColor: '#1a4d1d', boxShadow: '0 18px 36px rgba(38,105,41,0.36)' },
                           }}
@@ -269,14 +274,17 @@ const Hero = () => {
                           component={RouterLink}
                           to="/services"
                           sx={{
-                            py: 1.8, px: { xs: 5, md: 7 },
+                            py: 1.8, px: { xs: 2.5, sm: 4, md: 7 },
                             borderRadius: '50px',
                             color: 'text.primary',
                             borderColor: (t) => t.palette.mode === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.15)',
                             fontWeight: 700,
-                            letterSpacing: 1.5,
+                            // Kept in step with the primary CTA beside it so the
+                            // pair stays the same height and weight.
+                            letterSpacing: { xs: 0.5, md: 1.5 },
                             textTransform: 'uppercase',
-                            fontSize: { xs: '0.85rem', md: '0.95rem' },
+                            fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.95rem' },
+                            whiteSpace: 'nowrap',
                             backdropFilter: 'blur(6px)',
                             backgroundColor: (t) => t.palette.mode === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.6)',
                             '&:hover': {

@@ -54,8 +54,8 @@ const TrustSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25, delay: Math.min(index * 0.1, 0.15) }}
               style={{ textAlign: 'center' }}
             >
               <Typography

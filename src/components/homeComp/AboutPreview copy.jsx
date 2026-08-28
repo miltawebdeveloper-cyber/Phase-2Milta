@@ -13,8 +13,8 @@ const AboutPreview = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25 }}
             >
               <Box 
                 sx={{ 
@@ -58,8 +58,8 @@ const AboutPreview = () => {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25 }}
             >
               <Stack spacing={4}>
                 <Box>

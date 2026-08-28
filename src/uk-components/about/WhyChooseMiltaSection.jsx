@@ -103,11 +103,11 @@ const WhyChooseMiltaSection = () => {
                   y: 0,
                 }}
                 transition={{
-                  duration: 0.8,
+                  duration: 0.25,
                   ease: "easeOut",
-                  delay: index * 0.1, // Faster stagger
+                  delay: Math.min(index * 0.1, 0.15), // Faster stagger
                 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2, margin: '0px 0px 900px 0px' }}
 
                 style={{ width: "100%", display: "flex" }}
               >

@@ -153,10 +153,10 @@ const ServicesSection = () => {
                   initial={{ opacity: 0, x: direction }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ 
-                    duration: 0.5,
+                    duration: 0.25,
                     delay: isMobile ? 0 : index * 0.1, // Stagger effect only on desktop
                   }}
-                  viewport={{ once: true, amount: isMobile ? 0.1 : 0.2 }}
+                  viewport={{ once: true, amount: isMobile ? 0.1 : 0.2, margin: '0px 0px 900px 0px' }}
                   style={{ width: "100%", height: "100%" }}
                 >
                   <Card

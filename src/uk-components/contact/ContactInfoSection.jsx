@@ -105,8 +105,8 @@ const ContactInfoSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
             >
               <Typography
                 sx={{
@@ -163,8 +163,8 @@ const ContactInfoSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
             >
               {/* Grid `spacing` already provides the gutter — no extra left pad,
                   which previously pushed this column out of alignment. */}
@@ -176,11 +176,11 @@ const ContactInfoSection = () => {
                       initial={{ opacity: 0, y: 60 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{
-                        duration: 0.7,
-                        delay: idx * 0.2,
+                        duration: 0.25,
+                        delay: Math.min(idx * 0.2, 0.15),
                         ease: "easeOut",
                       }}
-                      viewport={{ once: true }}
+                      viewport={{ once: true, margin: '0px 0px 900px 0px' }}
                     >
                       <Box
                         display="flex"
@@ -241,10 +241,10 @@ const ContactInfoSection = () => {
                       initial={{ opacity: 0, y: -30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{
-                        duration: 0.5,
-                        delay: idx * 0.15,
+                        duration: 0.25,
+                        delay: Math.min(idx * 0.15, 0.15),
                       }}
-                      viewport={{ once: true }}
+                      viewport={{ once: true, margin: '0px 0px 900px 0px' }}
                     >
                       <IconButton
                         component="a"

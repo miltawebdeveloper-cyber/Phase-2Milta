@@ -56,8 +56,8 @@ const WhyLoveMilta = () => (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
         >
           <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 1 }}>
             LIFE AT MILTA
@@ -66,8 +66,8 @@ const WhyLoveMilta = () => (
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+          transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
         >
           <Typography variant="h2" sx={{ fontSize: { xs: "2.2rem", md: "3.5rem" }, color: "text.primary", mb: 2 }}>
             Why You'll Love{" "}
@@ -79,8 +79,8 @@ const WhyLoveMilta = () => (
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+          transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
         >
           <Typography
             variant="body1"
@@ -104,8 +104,8 @@ const WhyLoveMilta = () => (
             key={item.title}
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: (index % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+            transition={{ duration: 0.25, delay: (index % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
             style={{ height: "100%" }}
           >
             <Card

@@ -42,7 +42,7 @@ const VisionMission = () => (
     <Box sx={{ maxWidth: CONTENT_WIDTH, mx: 'auto', px: { xs: 3, md: 4 }, mb: { xs: 8, md: 10 }, textAlign: 'center' }}>
       <motion.div
         initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: '0px 0px 900px 0px' }} transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
       >
         <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: '#266929', fontSize: '0.75rem', mb: 3, display: 'block' }}>
           PURPOSE & DIRECTION
@@ -50,7 +50,7 @@ const VisionMission = () => (
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: '0px 0px 900px 0px' }} transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
       >
         <Typography variant="h2" sx={{ fontSize: { xs: '2.2rem', md: '3.5rem' }, color: 'text.primary' }}>
           Vision &{' '}
@@ -59,7 +59,7 @@ const VisionMission = () => (
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: '0px 0px 900px 0px' }} transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
       >
         <Typography sx={{
           color: 'text.secondary', fontSize: '1rem', lineHeight: 1.8,
@@ -87,8 +87,8 @@ const VisionMission = () => (
           component={motion.div}
           initial={{ opacity: 0, x: -48 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           sx={{ width: { xs: '100%', md: CARD_W }, flexShrink: 0, zIndex: 1, display: 'flex' }}
         >
           <Box sx={{
@@ -192,8 +192,8 @@ const VisionMission = () => (
           component={motion.div}
           initial={{ opacity: 0, x: 48 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+          transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
           sx={{
             width: { xs: '100%', md: CARD_W }, flexShrink: 0,
             ml: { xs: 0, md: `-${OVERLAP}` },
@@ -309,7 +309,7 @@ const VisionMission = () => (
     {/* ── Bottom quote strip ── */}
     <motion.div
       initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: '0px 0px 900px 0px' }} transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
     >
       <Box sx={{
         maxWidth: 760, mx: 'auto',

@@ -82,8 +82,8 @@ const HeroSection = () => {
             component={motion.div}
             initial={{ opacity: 0, y: 30 }} // 📱 Fade-up on mobile
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.25 }}
+            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
             sx={{
               flex: 1,
               width: "100%",
@@ -150,8 +150,8 @@ const HeroSection = () => {
             component={motion.div}
             initial={{ opacity: 0, y: 30 }} // 📱 Fade-up on mobile
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.25 }}
+            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
             sx={{
               flex: 1.3,
               textAlign: { xs: "center", md: "left" },
@@ -247,8 +247,8 @@ const HeroSection = () => {
         component={motion.div}
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9 }}
-        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.25 }}
+        viewport={{ once: false, amount: 0.3, margin: '0px 0px 900px 0px' }}
         sx={{
           mt: { xs: 5, md: 6 },
           bgcolor: "#2b6d2a",

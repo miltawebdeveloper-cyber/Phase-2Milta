@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { prerenderedShellFor } from './utils/prerenderedShell';
 import { ThemeProvider, CssBaseline, CircularProgress } from '@mui/material';
 import { ThemeContextProvider, useThemeMode } from './ThemeContext';
 import { createAppTheme } from './theme';
@@ -318,21 +319,37 @@ const SoftwareLayout = ({ children }) => (
   </Box>
 );
 
-// Shown while a lazily-loaded route chunk is being fetched. Every page
-// renders its own <Navbar/>, so without one here Suspense's fallback swap
-// unmounts it — the logo vanishes and reappears a moment later, which reads
-// as a blink on every reload (the client boots un-hydrated, see index.jsx,
-// so this fallback is what the very first paint after a reload shows for
-// any route other than the eagerly-imported Home). Navbar reads its own
-// route/theme state, so rendering it here needs no props to stay in sync.
-const PageLoader = () => (
-  <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
-    <Navbar />
-    <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <CircularProgress sx={{ color: 'primary.main' }} />
+// Shown while a lazily-loaded route chunk is being fetched.
+//
+// On the first paint after a reload this is what the visitor sees, because the
+// client boots un-hydrated (see index.jsx): render() empties #root and every
+// route is lazy, so the tree suspends before anything of the page exists. The
+// container it just emptied held the prerendered HTML for this exact URL, so
+// when that snapshot is available it is shown verbatim — the finished page
+// stays on screen, unchanged, until React can take over. That is the whole
+// reason a reload no longer flashes a blank page with a spinner.
+//
+// Without a snapshot (a client-side navigation, or a route that was never
+// prerendered) it falls back to a spinner under a <Navbar/>. The navbar is
+// rendered explicitly: every page carries its own, so omitting it here would
+// unmount and remount one across the fallback swap, blinking the logo.
+const PageLoader = () => {
+  const { pathname, search } = useLocation();
+  const shell = prerenderedShellFor(pathname + search);
+
+  // Static markup only — it is inert for the moment it is on screen, and it is
+  // this build's own prerender output, never anything user-supplied.
+  if (shell) return <div dangerouslySetInnerHTML={{ __html: shell }} />;
+
+  return (
+    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+      <Navbar />
+      <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <CircularProgress sx={{ color: 'primary.main' }} />
+      </Box>
     </Box>
-  </Box>
-);
+  );
+};
 
 function ThemedApp() {
   const { mode } = useThemeMode();

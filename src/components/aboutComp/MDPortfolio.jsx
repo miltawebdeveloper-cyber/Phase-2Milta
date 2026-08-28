@@ -91,7 +91,7 @@ const PartnerSection = () => {
 
           {/* Overline pill */}
           <motion.div
-            initial="hidden" whileInView="show" viewport={{ once: true }}
+            initial="hidden" whileInView="show" viewport={{ once: true, margin: '0px 0px 900px 0px' }}
             variants={fadeUp} custom={0}
           >
             <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 6, color: '#266929', fontSize: '0.75rem', mb: 3, display: 'block' }}>
@@ -101,7 +101,7 @@ const PartnerSection = () => {
 
           {/* Heading */}
           <motion.div
-            initial="hidden" whileInView="show" viewport={{ once: true }}
+            initial="hidden" whileInView="show" viewport={{ once: true, margin: '0px 0px 900px 0px' }}
             variants={fadeUp} custom={0.1}
           >
             <Typography variant="h2" sx={{
@@ -122,8 +122,8 @@ const PartnerSection = () => {
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
             whileInView={{ scaleX: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+            transition={{ duration: 0.25, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
             style={{ originX: 0.5 }}
           >
             <Box sx={{ width: 52, height: 4, borderRadius: "4px", bgcolor: alpha(primary, 0.3), mx: "auto", mt: 3 }} />
@@ -142,8 +142,8 @@ const PartnerSection = () => {
               key={p.name}
               initial={{ opacity: 0, y: 60, scale: 0.97 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.2, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+              transition={{ duration: 0.25, delay: Math.min(i * 0.2, 0.15), ease: [0.22, 1, 0.36, 1] }}
               style={{ flex: 1, maxWidth: 520, width: "100%" }}
             >
               <Box
@@ -172,8 +172,8 @@ const PartnerSection = () => {
                   <motion.div
                     initial={{ x: -30, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: i * 0.2 + 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                    transition={{ duration: 0.25, delay: Math.min(i * 0.2 + 0.55, 0.15), ease: [0.22, 1, 0.36, 1] }}
                     style={{ position: "absolute", top: 18, left: 18, zIndex: 3 }}
                   >
                     <Box sx={{
@@ -202,8 +202,8 @@ const PartnerSection = () => {
                   <motion.div
                     initial={{ scale: 1.08, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: i * 0.2 + 0.15, ease: [0.22, 1, 0.36, 1] }}
+                    viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                    transition={{ duration: 0.25, delay: Math.min(i * 0.2 + 0.15, 0.15), ease: [0.22, 1, 0.36, 1] }}
                   >
                     <Box
                       component="img"
@@ -232,8 +232,8 @@ const PartnerSection = () => {
                   <motion.div
                     initial={{ y: 24, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.55, delay: i * 0.2 + 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                    transition={{ duration: 0.25, delay: Math.min(i * 0.2 + 0.4, 0.15), ease: [0.22, 1, 0.36, 1] }}
                     style={{ position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 3 }}
                   >
                     <Box sx={{ px: 3, pb: 2.5, display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
@@ -253,8 +253,8 @@ const PartnerSection = () => {
                           <motion.div
                             initial={{ scaleX: 0 }}
                             whileInView={{ scaleX: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: i * 0.2 + 0.6, ease: "easeOut" }}
+                            viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                            transition={{ duration: 0.25, delay: Math.min(i * 0.2 + 0.6, 0.15), ease: "easeOut" }}
                             style={{ originX: 0 }}
                           >
                             <Box sx={{ width: 20, height: 2.5, borderRadius: "3px", bgcolor: primary }} />
@@ -333,8 +333,8 @@ const PartnerSection = () => {
                   <motion.div
                     initial={{ scaleX: 0, opacity: 0 }}
                     whileInView={{ scaleX: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: i * 0.2 + 0.5, ease: "easeOut" }}
+                    viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                    transition={{ duration: 0.25, delay: Math.min(i * 0.2 + 0.5, 0.15), ease: "easeOut" }}
                     style={{ originX: 0 }}
                   >
                     <Box sx={{ height: 3, width: 40, borderRadius: "3px", bgcolor: primary, mb: 2.5 }} />
@@ -344,8 +344,8 @@ const PartnerSection = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 14 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.2 + 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                    transition={{ duration: 0.25, delay: Math.min(i * 0.2 + 0.6, 0.15), ease: "easeOut" }}
                   >
                     <Typography sx={{
                       fontSize: "0.92rem",
@@ -361,8 +361,8 @@ const PartnerSection = () => {
                   <motion.div
                     initial={{ scaleX: 0, opacity: 0 }}
                     whileInView={{ scaleX: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.2 + 0.7, ease: "easeOut" }}
+                    viewport={{ once: true, margin: '0px 0px 900px 0px' }}
+                    transition={{ duration: 0.25, delay: Math.min(i * 0.2 + 0.7, 0.15), ease: "easeOut" }}
                     style={{ originX: 0 }}
                   >
                     <Box sx={{ height: "1px", bgcolor: alpha(primary, 0.1) }} />
