@@ -23,7 +23,7 @@ const FeaturedSection = () => {
     <Box sx={{ px: { xs: 2, md: 5 }, mt: 4 }}>
       <Grid container spacing={3}>
         {featured.map((item) => (
-          <Grid size={{ xs: 12, md: 6 }} key={item.id}>
+          <Grid item xs={12} md={6} key={item.id}>
             <Card sx={{ overflow: "hidden", height: "100%" }}>
               <Box
                 component={Link}

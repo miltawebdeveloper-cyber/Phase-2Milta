@@ -1,5 +1,71 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
+import https from 'node:https';
+
+// Some ISPs (seen with ACT Broadband in India) hijack plaintext DNS for
+// *.supabase.co and point it at a dead host, so the browser can't reach
+// Supabase in local dev — blog reads fail with ERR_CONNECTION_CLOSED /
+// ERR_QUIC_PROTOCOL_ERROR. This dev-only plugin resolves the Supabase host over
+// DoH (encrypted DNS the ISP can't rewrite), then proxies /__supabase → the
+// real Supabase origin, connecting straight to the resolved IP while keeping
+// SNI and cert validation on the real hostname. src/api/blogs.js routes the
+// client through it in dev. Production is untouched — it hits Supabase directly.
+function supabaseDohProxy() {
+  return {
+    name: 'supabase-doh-proxy',
+    apply: 'serve',
+    async configureServer(server) {
+      const targetUrl = loadEnv(server.config.mode, process.cwd(), '').VITE_SUPABASE_URL;
+      if (!targetUrl) return;
+      const host = new URL(targetUrl).hostname;
+
+      let ip;
+      try {
+        const res = await fetch(`https://1.1.1.1/dns-query?name=${host}&type=A`, {
+          headers: { accept: 'application/dns-json' },
+          signal: AbortSignal.timeout(6000),
+        });
+        ip = (await res.json()).Answer?.find((a) => a.type === 1)?.data;
+      } catch {
+        /* fall through to the anycast fallback below */
+      }
+      if (!ip) ip = '172.64.149.246'; // Cloudflare anycast — verified reachable if DoH is blocked too
+
+      // Pooled sockets to the pinned IP so only the first request pays the
+      // (sometimes slow) cold TLS handshake to Cloudflare's edge.
+      const agent = new https.Agent({ keepAlive: true, maxSockets: 8 });
+      const forward = (path, headers, method, onRes) =>
+        https.request({ host: ip, servername: host, port: 443, path, method, headers, agent }, onRes);
+
+      server.config.logger.info(
+        `  \x1b[32m➜\x1b[0m  \x1b[1mSupabase:\x1b[0m  /__supabase → ${host} @ ${ip} (DoH, ISP DNS bypass)`,
+      );
+
+      // Warm the connection at startup so the first blog fetch is fast.
+      forward('/rest/v1/', { host, apikey: 'warmup' }, 'HEAD', (r) => r.resume())
+        .on('error', () => {})
+        .end();
+
+      server.middlewares.use('/__supabase', (req, res) => {
+        const upstream = new URL(req.url, targetUrl);
+        const proxyReq = forward(
+          upstream.pathname + upstream.search,
+          { ...req.headers, host }, // connect by pinned IP; Host + SNI stay on the real host
+          req.method,
+          (proxyRes) => {
+            res.writeHead(proxyRes.statusCode || 502, proxyRes.headers);
+            proxyRes.pipe(res);
+          },
+        );
+        proxyReq.on('error', (err) => {
+          res.statusCode = 502;
+          res.end(`supabase proxy error: ${err.message}`);
+        });
+        req.pipe(proxyReq);
+      });
+    },
+  };
+}
 
 // Vite injects the bundled CSS/JS at the end of <head>. This post-build step
 // runs afterwards and moves the JSON-LD <script> blocks to the very end of
@@ -36,7 +102,7 @@ function seoHeadOrder() {
 }
 
 export default defineConfig({
-  plugins: [react(), seoHeadOrder()],
+  plugins: [react(), seoHeadOrder(), supabaseDohProxy()],
   build: {
     // Vite inlines any imported asset under 4 KB as a base64 data: URI. Sixteen
     // of this site's images qualify, and the two carousels that use them

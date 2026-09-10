@@ -162,7 +162,7 @@ const BlogGridSection = () => {
         ) : (
           <Grid container spacing={{ xs: 2.5, md: 3.5 }}>
             {paginatedBlogs.map((b, i) => (
-              <Grid key={b.id} size={{ xs: 12, sm: 6, lg: 4 }} sx={{ display: "flex" }}>
+              <Grid item key={b.id} xs={12} sm={6} lg={4} sx={{ display: "flex" }}>
                 <motion.div {...fadeUp(0.05 * (i % 3))} style={{ width: "100%" }}>
                   <BlogCard blog={b} />
                 </motion.div>

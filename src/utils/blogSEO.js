@@ -3201,6 +3201,44 @@ export const blogSEOUk = {
       }
     ]
   }, 
+
+  "month-end-close-for-law-firms": {
+    "title": "Month-End Close for Law Firms: Why It Always Runs Late",
+    "description": "Discover the bookkeeping bottlenecks that delay law firm month-end close, and how a structured, repeatable process gets financials out on schedule.",
+    "author": "Milta Accounting Services",
+    "keywords": "law firm bookkeeping services, legal accounting workflow, law firm month end close checklist, law firm bookkeeping mistakes, how to speed up month end close, law firm accounting software",
+    "canonical": "https://www.miltafs.com/us/blogs/month-end-close-for-law-firms",
+    "ogImage": "https://www.miltafs.com/images/miltafs-og.jpg",
+    "schema": [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Month-End Close for Law Firms: Why It Always Runs Late",
+        "description": "Discover the bookkeeping bottlenecks that delay law firm month-end close, and how a structured, repeatable process gets financials out on schedule.",
+        "image": "https://www.miltafs.com/images/miltafs-og.jpg",
+        "author": {
+          "@type": "Organization",
+          "name": "Milta Accounting Services",
+          "url": "https://www.miltafs.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Milta Accounting Services",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.miltafs.com/logo.svg"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.miltafs.com/us/blogs/month-end-close-for-law-firms"
+        },
+        "url": "https://www.miltafs.com/us/blogs/month-end-close-for-law-firms",
+        "datePublished": "2026-09-02",
+        "dateModified": "2026-09-02"
+      }
+    ]
+  },
 };
 
 const ORIGIN = "https://www.miltafs.com";

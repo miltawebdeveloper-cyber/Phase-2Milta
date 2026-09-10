@@ -10,10 +10,33 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+// Some ISPs hijack plaintext DNS for *.supabase.co, so in local dev the browser
+// can't reach Supabase directly. The Vite dev server (supabase-doh-proxy in
+// vite.config.js) resolves the host over DoH and re-exposes it same-origin at
+// /__supabase. Rewrite the client's requests onto that path in dev only;
+// production hits Supabase directly and never touches this.
+const devFetch = (input, init) => {
+  const swap = (u) =>
+    typeof u === 'string' && u.startsWith(supabaseUrl)
+      ? window.location.origin + '/__supabase' + u.slice(supabaseUrl.length)
+      : u;
+  if (typeof input === 'string') return fetch(swap(input), init);
+  if (input instanceof Request && input.url.startsWith(supabaseUrl)) {
+    return fetch(new Request(swap(input.url), input));
+  }
+  return fetch(input, init);
+};
+
 // Guard: if env vars are missing, don't throw at import time (that would
 // white-screen the whole app). Create the client only when configured.
 const supabase =
-  supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
+  supabaseUrl && supabaseKey
+    ? createClient(
+        supabaseUrl,
+        supabaseKey,
+        import.meta.env.DEV ? { global: { fetch: devFetch } } : undefined,
+      )
+    : null;
 
 if (!supabase) {
   console.warn(

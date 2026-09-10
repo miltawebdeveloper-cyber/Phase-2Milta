@@ -273,6 +273,43 @@ function serialise() {
     .querySelectorAll('script[src*="googletagmanager.com"], script[src*="google-analytics.com"]')
     .forEach((el) => el.remove());
 
+  // An overlay that happens to be OPEN when the snapshot is taken does not just
+  // add its own markup — it leaves the whole document in the state a modal
+  // requires. Career.jsx auto-opens the application popup 600 ms after mount,
+  // well inside the wait below, so dist/career/index.html shipped all three of:
+  //
+  //   • the Dialog's <div role="presentation"> portal as a SIBLING of #root.
+  //     React only ever owns #root — capturePrerenderedShell() reads it and
+  //     render() empties it — so on boot nothing removes that portal. The real
+  //     dialog then opens ABOVE the dead copy, and closing it merely reveals the
+  //     copy, whose X button carries no handler and can never close. That is the
+  //     "the form won't close the second time, and only in production" bug.
+  //   • aria-hidden="true" on #root, so the entire page is hidden from assistive
+  //     tech and from anything else that honours it.
+  //   • style="overflow: hidden" on <body>, so the page cannot be scrolled at
+  //     all until React boots and MUI releases its scroll lock.
+  //
+  // None of it belongs in a static payload: React recreates every bit of it for
+  // itself on boot. Portals are the general case rather than a career-page
+  // special case — a portal is by definition transient overlay UI (Dialog, Menu,
+  // Snackbar, Tooltip) mounted outside #root, and the page content this
+  // prerender exists to capture all lives inside #root.
+  const KEEP_IN_BODY = new Set(['SCRIPT', 'STYLE', 'LINK', 'NOSCRIPT', 'TEMPLATE']);
+  for (const el of [...document.body.children]) {
+    if (el.id === 'root' || KEEP_IN_BODY.has(el.tagName)) continue;
+    el.remove();
+  }
+  // Scoped to body's own children on purpose: aria-hidden is legitimate on the
+  // hundreds of decorative <svg> icons deeper in the tree, and only the modal
+  // manager reaches out this far.
+  for (const el of document.body.children) {
+    el.removeAttribute('aria-hidden');
+    el.removeAttribute('inert');
+  }
+  document.body.style.removeProperty('overflow');
+  document.body.style.removeProperty('padding-right');
+  if (!document.body.getAttribute('style')) document.body.removeAttribute('style');
+
   // The page being serialised has already booted, so ThemeContext has stripped
   // the .pre-boot class that gates the theme rules in index.html. Putting it
   // back is what makes those rules apply again for the next real visitor: the
@@ -384,6 +421,11 @@ async function renderRoute(page, port, route) {
   // framer-motion holds whileInView content at opacity:0 until it scrolls into
   // view. Walk the page so that copy is materialised in the snapshot.
   await page.evaluate(async () => {
+    // An auto-opened modal (Career.jsx) has MUI's scroll lock on <body>, which
+    // makes every scrollTo below a silent no-op and leaves the whileInView copy
+    // below the fold unmaterialised. Release it for the walk; serialise() clears
+    // it from the payload afterwards either way.
+    document.body.style.removeProperty('overflow');
     const step = Math.round(window.innerHeight * 0.8);
     // scrollHeight grows as sections mount, so it is re-read every iteration
     // rather than captured once.

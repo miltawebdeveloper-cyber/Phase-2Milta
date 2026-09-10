@@ -13,13 +13,13 @@ const TwoColumnSection = ({
     <Box component="section" sx={{ width: '100%', py: { xs: 4, md: 8 } }}>
       <Container maxWidth={false} sx={{ maxWidth, px: { xs: 2, md: 0 } }} {...containerProps}>
         <Grid container spacing={4} sx={{ alignItems: 'stretch' }}>
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid item xs={12} md={6}>
             <Box sx={{ height: '100%' }} {...leftProps}>
               {left}
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid item xs={12} md={6}>
             <Box sx={{ height: '100%' }} {...rightProps}>
               {right}
             </Box>
